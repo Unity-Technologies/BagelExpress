@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Chunky plus -->
+  <path d="M25 7 H39 V25 H57 V39 H39 V57 H25 V39 H7 V25 H25 Z" fill="#40C984" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M30 12 V22 M12 30 H20" fill="none" stroke="#B4F5D2" stroke-width="3" stroke-linecap="round"/>
+</svg>

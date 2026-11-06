@@ -1,0 +1,533 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f9cd486a05546d2afa1edb570b6b25, type: 3}
+  m_Name: BakeryCatalog
+  m_EditorClassIdentifier: BagelGame::Bagel.BakeryCatalog
+  shops:
+  - id: mile-end
+    displayName: Mile End Bagel Bar
+    japaneseName: "\u30DE\u30A4\u30EB\u30A8\u30F3\u30C9\u30FB\u30D9\u30FC\u30B0\u30EB\u30D0\u30FC"
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963794
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    origin: 0
+    signature: 0
+    baseIncome: 1.5
+    baseUpgradeCost: 60
+    upgradeCostGrowth: 1.18
+    unlockCost: 0
+  - id: plateau
+    displayName: Plateau Wood Oven
+    japaneseName: "\u30D7\u30E9\u30C8\u30FC\u85AA\u7AAF\u30D9\u30FC\u30AB\u30EA\u30FC"
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963795
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    origin: 0
+    signature: 2
+    baseIncome: 4
+    baseUpgradeCost: 220
+    upgradeCostGrowth: 1.18
+    unlockCost: 900
+  - id: shibuya
+    displayName: Shibuya Melon Pan Stand
+    japaneseName: "\u6E0B\u8C37\u30E1\u30ED\u30F3\u30D1\u30F3\u30B9\u30BF\u30F3\u30C9"
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963796
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    origin: 1
+    signature: 6
+    baseIncome: 10
+    baseUpgradeCost: 900
+    upgradeCostGrowth: 1.18
+    unlockCost: 6000
+  - id: jean-talon
+    displayName: Jean-Talon Maple Market
+    japaneseName: "\u30B8\u30E3\u30F3\u30FB\u30BF\u30ED\u30F3\u30FB\u30E1\u30FC\u30D7\u30EB\u5E02\u5834"
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963797
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    origin: 0
+    signature: 7
+    baseIncome: 26
+    baseUpgradeCost: 3600
+    upgradeCostGrowth: 1.18
+    unlockCost: 30000
+  - id: asakusa
+    displayName: Asakusa Taiyaki-ya
+    japaneseName: "\u6D45\u8349\u305F\u3044\u713C\u304D\u5C4B"
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963798
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    origin: 1
+    signature: 9
+    baseIncome: 70
+    baseUpgradeCost: 15000
+    upgradeCostGrowth: 1.18
+    unlockCost: 150000
+  - id: kyoto
+    displayName: Kyoto Matcha Bakery
+    japaneseName: "\u4EAC\u90FD\u62B9\u8336\u30D9\u30FC\u30AB\u30EA\u30FC"
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963799
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    origin: 1
+    signature: 3
+    baseIncome: 190
+    baseUpgradeCost: 60000
+    upgradeCostGrowth: 1.18
+    unlockCost: 800000
+  pastries:
+  - id: sesame-bagel
+    displayName: Sesame Bagel
+    japaneseName: "\u30BB\u30B5\u30DF\u30D9\u30FC\u30B0\u30EB"
+    description: "Hand-rolled, honey-water boiled, wood-fired. The Montr\xE9al classic."
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963800
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963801
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 0
+    rarity: 0
+    origin: 0
+  - id: poppy-seed-bagel
+    displayName: Poppy Seed Bagel
+    japaneseName: "\u30DD\u30D4\u30FC\u30B7\u30FC\u30C9\u30D9\u30FC\u30B0\u30EB"
+    description: Dense, sweet and covered in tiny black poppy seeds.
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963802
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963803
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 1
+    rarity: 0
+    origin: 0
+  - id: anpan
+    displayName: Anpan
+    japaneseName: "\u3042\u3093\u30D1\u30F3"
+    description: Soft bun filled with sweet red bean paste.
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963804
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963805
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 5
+    rarity: 0
+    origin: 1
+  - id: melon-pan
+    displayName: Melon Pan
+    japaneseName: "\u30E1\u30ED\u30F3\u30D1\u30F3"
+    description: Crunchy cookie crust over fluffy bread. No melon inside!
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963806
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963807
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 6
+    rarity: 0
+    origin: 1
+  - id: everything-bagel
+    displayName: Everything Bagel
+    japaneseName: "\u30A8\u30D6\u30EA\u30B7\u30F3\u30B0\u30D9\u30FC\u30B0\u30EB"
+    description: Sesame, poppy, garlic, onion and salt. Why choose?
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963808
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963809
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 2
+    rarity: 1
+    origin: 0
+  - id: curry-pan
+    displayName: Curry Pan
+    japaneseName: "\u30AB\u30EC\u30FC\u30D1\u30F3"
+    description: Deep-fried, crumb-coated and filled with Japanese curry.
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963810
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963811
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 8
+    rarity: 1
+    origin: 1
+  - id: taiyaki
+    displayName: Taiyaki
+    japaneseName: "\u305F\u3044\u713C\u304D"
+    description: Fish-shaped cake with a red bean heart.
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963812
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963813
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 9
+    rarity: 1
+    origin: 1
+  - id: dorayaki
+    displayName: Dorayaki
+    japaneseName: "\u3069\u3089\u713C\u304D"
+    description: Two fluffy pancakes hugging sweet anko.
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963814
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963815
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 11
+    rarity: 1
+    origin: 1
+  - id: matcha-bagel
+    displayName: Matcha Bagel
+    japaneseName: "\u62B9\u8336\u30D9\u30FC\u30B0\u30EB"
+    description: "Kyoto matcha folded into a Montr\xE9al dough."
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963816
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963817
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 3
+    rarity: 2
+    origin: 1
+  - id: maple-melon-pan
+    displayName: Maple Melon Pan
+    japaneseName: "\u30E1\u30FC\u30D7\u30EB\u30E1\u30ED\u30F3\u30D1\u30F3"
+    description: Quebec maple syrup glazed over a crackly melon pan crust.
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963818
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963819
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 7
+    rarity: 2
+    origin: 0
+  - id: sakura-mochi-bagel
+    displayName: Sakura Mochi Bagel
+    japaneseName: "\u685C\u3082\u3061\u30D9\u30FC\u30B0\u30EB"
+    description: Chewy mochi bagel with cherry blossom and white bean cream.
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963820
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963821
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 4
+    rarity: 3
+    origin: 1
+  - id: golden-maple-taiyaki
+    displayName: Golden Maple Taiyaki
+    japaneseName: "\u9EC4\u91D1\u30E1\u30FC\u30D7\u30EB\u305F\u3044\u713C\u304D"
+    description: Legendary. A golden taiyaki swimming in maple syrup from Mont-Royal.
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963822
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: 
+        m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+      m_LocaleOverride:
+        m_Code: 
+      m_EnableFallback: 1
+      m_TableEntryReference:
+        m_KeyId: 896277910590963823
+        m_Key: 
+      m_LocalVariables:
+        m_Variables: []
+    kind: 10
+    rarity: 4
+    origin: 0
+  maxShopLevel: 50
+  milestoneEvery: 5
+  milestoneGemReward: 50
+  milestoneIncomeBoost: 0.5
+  ticketGemCost: 60
+  tapBakeCoins: 5
+  registerCapacitySeconds: 90
+  rarityWeights:
+  - 52
+  - 30
+  - 12
+  - 5
+  - 1
+  multiDrawMinimumRarity: 2
+  firstDrawRecipeId: sakura-mochi-bagel
+  duplicateCoinValue: 150
+  references:
+    version: 2
+    RefIds: []

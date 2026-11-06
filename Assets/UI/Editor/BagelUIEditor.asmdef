@@ -1,0 +1,19 @@
+{
+    "name": "BagelUIEditor",
+    "rootNamespace": "Bagel",
+    "references": [
+        "GUID:e8551785e5f2945ab8465d6af7bc00e5",
+        "GUID:1b8a6b68033134775ad4126e5821a164"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

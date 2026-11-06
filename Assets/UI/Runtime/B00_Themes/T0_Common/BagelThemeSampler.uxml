@@ -1,0 +1,44 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="ShopCard" src="../../B06_Shops/ShopCard.uxml"/>
+    <ui:Template name="RecipeCard" src="../../B08_Recipes/RecipeCard.uxml"/>
+    <Style src="BagelThemeSampler.uss"/>
+    <ui:VisualElement name="theme-sampler" class="be-backdrop be-sampler">
+        <ui:VisualElement name="sampler-glow" picking-mode="Ignore" class="be-backdrop__glow"/>
+        <ui:VisualElement name="sampler-header" class="be-heading">
+            <ui:Label text="季節のテーマ · THEME SAMPLER" class="be-eyebrow be-sampler__eyebrow"/>
+            <ui:Label text="MAPLE-MOCHI POP" class="be-heading__title"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="sampler-buttons" class="be-sampler__row">
+            <ui:Button text="SKY" class="be-btn"/>
+            <ui:Button text="PRIMARY" class="be-btn be-btn--primary"/>
+            <ui:Button text="ACCENT" class="be-btn be-btn--accent"/>
+            <ui:Button text="GOLD" class="be-btn be-btn--gold"/>
+            <ui:Button text="MINT" class="be-btn be-btn--mint"/>
+            <ui:Button text="ROSE" class="be-btn be-btn--rose"/>
+            <ui:Button text="PAPER" class="be-btn be-btn--paper"/>
+            <ui:Button text="SMALL" class="be-btn be-btn--small be-btn--primary"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="sampler-hud" class="be-sampler__row">
+            <Bagel.CurrencyPill kind="Coins" value="12345" class="be-sampler__pill"/>
+            <Bagel.CurrencyPill kind="Gems" value="300" class="be-sampler__pill"/>
+            <Bagel.CurrencyPill kind="Tickets" value="6" show-plus="true" class="be-sampler__pill"/>
+            <ui:VisualElement class="be-chip">
+                <ui:Label text="+11.5/s" class="be-sampler__chip-text"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="sampler-panel" class="be-panel be-sampler__panel">
+            <ui:Label text="REGISTER" class="be-eyebrow"/>
+            <Bagel.MeterBar value="0.62"/>
+            <Bagel.PipMeter count="5" value="0.6"/>
+            <ui:VisualElement class="be-band be-sampler__band">
+                <ui:Label text="SEASON BAND" class="be-display be-sampler__band-text"/>
+            </ui:VisualElement>
+            <ui:Label text="期間限定" class="be-sticker be-sampler__sticker"/>
+        </ui:VisualElement>
+        <ui:Instance template="ShopCard" name="sampler-shop-card" class="be-sampler__shop-card"/>
+        <ui:VisualElement name="sampler-recipes" class="be-sampler__recipes">
+            <ui:Instance template="RecipeCard" name="sampler-recipe-n" class="be-sampler__recipe"/>
+            <ui:Instance template="RecipeCard" name="sampler-recipe-ssr" class="be-sampler__recipe"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

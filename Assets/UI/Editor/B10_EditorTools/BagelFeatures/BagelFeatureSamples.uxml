@@ -1,0 +1,258 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <!-- The features' live samples: one container per feature, named sample-<feature id>. Bagel Features puts the
+         feature's on its preview stage, under the season's theme, with its controls below it (BagelFeaturePreviews.cs).
+         Open this file in UI Builder (with a season theme as the canvas theme) to see and edit them all.
+         BagelFeatureSamples.cs adds what runs by itself (counters, bindings). -->
+    <Style src="BagelFeatureSamples.uss"/>
+    <ui:VisualElement name="samples" class="bgfs">
+
+        <!-- ================================================================ Styling -->
+        <ui:VisualElement name="sample-uss-variables" class="bgfs-row">
+            <ui:VisualElement class="bgfs-swatch bgfs-swatch--primary"><ui:Label text="--be-primary" class="bgfs-swatch__name"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-swatch bgfs-swatch--accent"><ui:Label text="--be-accent" class="bgfs-swatch__name"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-swatch bgfs-swatch--gold"><ui:Label text="--be-gold" class="bgfs-swatch__name"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-swatch bgfs-swatch--mint"><ui:Label text="--be-mint" class="bgfs-swatch__name"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-swatch bgfs-swatch--ink"><ui:Label text="--be-ink" class="bgfs-swatch__name"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-tss-themes" class="bgfs-row">
+            <ui:Button class="be-btn be-btn--primary"><ui:Label text="PRIMARY" class="be-btn__label be-display"/></ui:Button>
+            <ui:Button class="be-btn be-btn--accent"><ui:Label text="ACCENT" class="be-btn__label be-display"/></ui:Button>
+            <Bagel.BeguChan class="bgfs-mascot"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-custom-style-properties" class="bgfs-row">
+            <Bagel.BeguChan class="bgfs-mascot bgfs-mascot--big"/>
+            <Bagel.Lantern mark="パン" class="bgfs-lantern"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-pseudo-and-state-classes" class="bgfs-row">
+            <ui:Button class="be-btn be-btn--gold"><ui:Label text="HOVER ME" class="be-btn__label be-display"/></ui:Button>
+            <ui:Button enabled="false" class="be-btn be-btn--gold"><ui:Label text="DISABLED" class="be-btn__label be-display"/></ui:Button>
+            <ui:VisualElement name="state-card" class="be-card bgfs-tile"><ui:Label text="Card" class="be-heading__title"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-builtin-control-restyling" class="bgfs-column bgfs-settings">
+            <ui:Toggle label="Sound" value="true" class="be-settings__toggle"/>
+            <ui:Toggle label="Haptics" class="be-settings__toggle"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Effects -->
+        <ui:VisualElement name="sample-background-gradients" class="bgfs-row">
+            <ui:VisualElement class="bgfs-box bgfs-gradient--linear"><ui:Label text="linear" class="bgfs-box__label"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-box bgfs-gradient--radial"><ui:Label text="radial" class="bgfs-box__label"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-box bgfs-gradient--sky"><ui:Label text="4 stops" class="bgfs-box__label"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-geometry-shadows" class="bgfs-row">
+            <ui:VisualElement class="be-card bgfs-tile"><ui:Label text="Lip: a thick bottom border" class="bgfs-tile__text"/></ui:VisualElement>
+            <ui:VisualElement class="be-card bgfs-tile bgfs-tile--flat"><ui:Label text="No lip" class="bgfs-tile__text"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-drop-shadow" class="bgfs-row">
+            <ui:Label text="HOT!" class="be-sticker bgfs-sticker bgfs-shadow--hard"/>
+            <ui:Label text="GLOW" class="be-sticker bgfs-sticker bgfs-shadow--glow"/>
+            <Bagel.PastryIcon kind="MelonPan" class="bgfs-pastry bgfs-shadow--hard"/>
+        </ui:VisualElement>
+
+        <!-- box-shadow next to drop-shadow() on the same pastry: one shadows the box, the other what's drawn. -->
+        <ui:VisualElement name="sample-box-shadow" class="bgfs-row bgfs-box-shadows">
+            <ui:VisualElement class="bgfs-cell">
+                <ui:VisualElement class="be-card bgfs-shadow-card bgfs-box-shadow"/>
+                <ui:Label text="box-shadow" class="bgfs-caption"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="bgfs-cell">
+                <ui:VisualElement class="bgfs-shadow-frame bgfs-box-shadow"><Bagel.PastryIcon kind="MelonPan" class="bgfs-pastry"/></ui:VisualElement>
+                <ui:Label text="box-shadow: the box" class="bgfs-caption"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="bgfs-cell">
+                <ui:VisualElement class="bgfs-shadow-frame bgfs-drop-twin"><Bagel.PastryIcon kind="MelonPan" class="bgfs-pastry"/></ui:VisualElement>
+                <ui:Label text="drop-shadow(): the shape" class="bgfs-caption"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="bgfs-cell">
+                <ui:VisualElement class="bgfs-well"/>
+                <ui:Label text="inset" class="bgfs-caption"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-backdrop-filter" class="bgfs-backdrop">
+            <ui:VisualElement class="bgfs-stripes"/>
+            <ui:Label text="BAGEL EXPRESS" class="bgfs-backdrop__text"/>
+            <ui:Label text="ベーグル急行 · Bagel Exprès" class="bgfs-backdrop__text bgfs-backdrop__text--small"/>
+            <ui:VisualElement name="glass" class="bgfs-glass"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-custom-filter-function" class="bgfs-row">
+            <ui:VisualElement class="bgfs-box bgfs-halftone"><ui:Label text="MangaHalftone" class="bgfs-box__label"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-builtin-filter-chains" class="bgfs-row">
+            <ui:VisualElement class="bgfs-cell"><Bagel.PastryIcon kind="SakuraMochiBagel" class="bgfs-pastry"/><ui:Label text="none" class="bgfs-caption"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-cell"><Bagel.PastryIcon kind="SakuraMochiBagel" class="bgfs-pastry bgfs-filter--grayscale"/><ui:Label text="grayscale" class="bgfs-caption"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-cell"><Bagel.PastryIcon kind="SakuraMochiBagel" class="bgfs-pastry bgfs-filter--sepia"/><ui:Label text="sepia" class="bgfs-caption"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-cell"><Bagel.PastryIcon kind="SakuraMochiBagel" class="bgfs-pastry bgfs-filter--hue"/><ui:Label text="hue-rotate" class="bgfs-caption"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-cell"><Bagel.PastryIcon kind="SakuraMochiBagel" class="bgfs-pastry bgfs-filter--chain"/><ui:Label text="chain" class="bgfs-caption"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-ui-shader-graph" class="bgfs-row bgfs-seasons">
+            <ui:VisualElement class="be-season-card be-season-card--maple bgfs-season"><Bagel.SeasonParticles class="be-season-card__particles"/></ui:VisualElement>
+            <ui:VisualElement class="be-season-card be-season-card--sakura bgfs-season"><Bagel.SeasonParticles class="be-season-card__particles"/></ui:VisualElement>
+            <ui:VisualElement class="be-season-card be-season-card--matsuri bgfs-season"><Bagel.SeasonParticles class="be-season-card__particles"/></ui:VisualElement>
+            <ui:VisualElement class="be-season-card be-season-card--snow bgfs-season"><Bagel.SeasonParticles class="be-season-card__particles"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-ui-shader-graph-vertices" class="bgfs-row">
+            <ui:VisualElement class="be-season-card bgfs-season bgfs-season--wide"><Bagel.SeasonParticles class="bgfs-season__particles"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Layout -->
+        <ui:VisualElement name="sample-gap" class="bgfs-column">
+            <ui:VisualElement class="bgfs-row bgfs-gap"><ui:VisualElement class="bgfs-dot"/><ui:VisualElement class="bgfs-dot"/><ui:VisualElement class="bgfs-dot"/><ui:VisualElement class="bgfs-dot"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-z-index" class="bgfs-stack">
+            <ui:VisualElement class="bgfs-stack__card bgfs-stack__card--a"><ui:Label text="z-index: 1" class="bgfs-box__label"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-stack__card bgfs-stack__card--b"><ui:Label text="z-index: 3" class="bgfs-box__label"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-stack__card bgfs-stack__card--c"><ui:Label text="z-index: 2" class="bgfs-box__label"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-grid-layout" class="bgfs-grid">
+            <ui:VisualElement class="bgfs-grid__item bgfs-grid__item--hero"><Bagel.PastryIcon kind="GoldenMapleTaiyaki" class="bgfs-pastry bgfs-pastry--big"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-grid__item"><Bagel.PastryIcon kind="SesameBagel" class="bgfs-pastry"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-grid__item"><Bagel.PastryIcon kind="Anpan" class="bgfs-pastry"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-grid__item"><Bagel.PastryIcon kind="MelonPan" class="bgfs-pastry"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-grid__item"><Bagel.PastryIcon kind="Taiyaki" class="bgfs-pastry"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-grid__item"><Bagel.PastryIcon kind="CurryPan" class="bgfs-pastry"/></ui:VisualElement>
+            <ui:VisualElement class="bgfs-grid__item"><Bagel.PastryIcon kind="MatchaBagel" class="bgfs-pastry"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-transforms" class="bgfs-row">
+            <ui:Label text="NEW!" class="be-sticker bgfs-sticker bgfs-transform--rotate"/>
+            <ui:Label text="SALE" class="be-sticker bgfs-sticker bgfs-transform--scale"/>
+            <ui:Label text="hover" class="be-sticker bgfs-sticker bgfs-transform--hover"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Vector art -->
+        <ui:VisualElement name="sample-painter2d" class="bgfs-row">
+            <Bagel.PastryIcon kind="SesameBagel" class="bgfs-pastry"/>
+            <Bagel.PastryIcon kind="EverythingBagel" class="bgfs-pastry"/>
+            <Bagel.PastryIcon kind="Taiyaki" class="bgfs-pastry"/>
+            <Bagel.PastryIcon kind="MapleMelonPan" class="bgfs-pastry"/>
+            <Bagel.PastryIcon kind="CurryPan" silhouette="true" class="bgfs-pastry"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-generate-visual-content" class="bgfs-row">
+            <ui:VisualElement class="bgfs-burst-frame"><Bagel.Starburst class="bgfs-burst"/></ui:VisualElement>
+            <Bagel.LuckyBag class="bgfs-bag"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-procedural-animated-art" class="bgfs-row">
+            <Bagel.BeguChan mood="Excited" blink="true" class="bgfs-mascot bgfs-mascot--big"/>
+            <Bagel.Lantern mark="祭" class="bgfs-lantern"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-svg-vectorimage" class="bgfs-row">
+            <ui:VisualElement class="bgfs-icon bgfs-icon--home"/>
+            <ui:VisualElement class="bgfs-icon bgfs-icon--shops"/>
+            <ui:VisualElement class="bgfs-icon bgfs-icon--lucky-bag"/>
+            <ui:VisualElement class="bgfs-icon bgfs-icon--recipes"/>
+            <ui:VisualElement class="bgfs-icon bgfs-icon--settings"/>
+            <ui:VisualElement class="bgfs-icon bgfs-icon--montreal"/>
+            <ui:VisualElement class="bgfs-icon bgfs-icon--japan"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-mesh-modifiers" class="bgfs-row">
+            <ui:Label text="BAGEL EXPRESS" class="bgfs-wavy be-display">
+                <Bagel.WavyText amplitude="5" speed="4" wavelength="110"/>
+            </ui:Label>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Text -->
+        <ui:VisualElement name="sample-display-text" class="bgfs-row">
+            <ui:Label text="LEVEL UP!" class="be-display bgfs-display"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-advanced-text-fallback" class="bgfs-column">
+            <ui:Label text="Bagel Express · ベーグル急行 · Bagel Exprès" class="bgfs-text"/>
+            <ui:Label text="メロンパン、たい焼き、どら焼き 🥯 🍞" class="bgfs-text"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-zero-alloc-settext" class="bgfs-row">
+            <Bagel.CurrencyIcon kind="Coins" class="bgfs-coin"/>
+            <ui:Label name="settext-counter" text="0" class="be-display bgfs-counter"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Animation -->
+        <ui:VisualElement name="sample-uss-transitions" class="bgfs-row">
+            <ui:VisualElement name="transition-box" class="bgfs-slide"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-uianimationclip-uss" class="bgfs-row">
+            <Bagel.BeguChan class="bgfs-mascot bgfs-anim--bob"/>
+            <Bagel.Lantern mark="パン" class="bgfs-lantern bgfs-anim--sway"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-clip-restart-classes" class="bgfs-row">
+            <ui:Label name="pop-label" text="+9" class="be-display bgfs-pop"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Data binding and controls -->
+        <ui:VisualElement name="sample-uxml-databinding" class="bgfs-row">
+            <Bagel.CurrencyPill kind="Coins" name="bound-coins" class="bgfs-pill">
+                <Bindings>
+                    <ui:DataBinding property="value" data-source-path="coins" binding-mode="ToTarget"/>
+                </Bindings>
+            </Bagel.CurrencyPill>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-csharp-bindings" class="bgfs-column">
+            <Bagel.MeterBar name="bound-meter" class="bgfs-meter"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-uxml-element-controls" class="bgfs-column">
+            <ui:VisualElement class="bgfs-row">
+                <Bagel.CurrencyPill kind="Coins" value="1250" class="bgfs-pill"/>
+                <Bagel.CurrencyPill kind="Gems" value="300" class="bgfs-pill"/>
+                <Bagel.CurrencyPill kind="Tickets" value="6" show-plus="true" class="bgfs-pill"/>
+            </ui:VisualElement>
+            <Bagel.PipMeter count="5" value="3" class="bgfs-pips"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-builtin-controls" class="bgfs-row bgfs-controls">
+            <ui:Button class="be-btn be-btn--primary"><ui:Label text="BUTTON" class="be-btn__label be-display"/></ui:Button>
+            <ui:Toggle label="Toggle" value="true" class="be-settings__toggle bgfs-controls__toggle"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-ui-components" class="bgfs-row">
+            <ui:Button name="badge-button" class="be-btn be-btn--accent bgfs-badged">
+                <ui:Label text="SHOPS" class="be-btn__label be-display"/>
+                <Bagel.NotificationBadge count="3"/>
+                <Bagel.PressSquish pressed-scale="0.85"/>
+            </ui:Button>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Runtime -->
+        <ui:VisualElement name="sample-pointer-events" class="bgfs-row">
+            <ui:VisualElement name="tap-target" class="bgfs-tap"><Bagel.PastryIcon kind="SesameBagel" picking-mode="Ignore" class="bgfs-pastry"/></ui:VisualElement>
+            <ui:Label name="tap-count" text="Tap the bagel" class="bgfs-note bgfs-note--side"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-scheduler" class="bgfs-row">
+            <ui:Label name="clock" text="00:00" class="be-display bgfs-counter"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Localization -->
+        <ui:VisualElement name="sample-localizedstring-uxml" class="bgfs-column">
+            <ui:Label name="localized-label" text="TAP TO START" class="be-display bgfs-display bgfs-display--small"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-smart-strings" class="bgfs-column">
+            <ui:Label name="smart-label" text="2 bakeries open" class="bgfs-text bgfs-text--big"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="sample-locale-switching" class="bgfs-column">
+            <ui:Label name="localized-label" text="Shops" class="be-display bgfs-display bgfs-display--small"/>
+            <ui:Label name="localized-line" text="Welcome back!" class="bgfs-text"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,560 @@
+/* The features' live samples (BagelFeatureSamples.uxml). They run under the season theme like the game,
+   so the game's variables (--be-*) and classes (.be-btn, .be-card, .be-sticker, .be-display…) work here too. */
+
+.bgfs-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.bgfs-column {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.bgfs-note {
+    font-size: 11px;
+    color: var(--be-text-muted);
+    white-space: normal;
+    padding: 0;
+    margin: 0;
+}
+
+.bgfs-note--side {
+    flex-shrink: 1;
+    flex-basis: 140px;
+    flex-grow: 1;
+}
+
+.bgfs-caption {
+    font-size: 10px;
+    color: var(--be-text-muted);
+    -unity-text-align: middle-center;
+    padding: 0;
+    margin: 2px 0 0 0;
+}
+
+.bgfs-cell {
+    align-items: center;
+}
+
+.bgfs-text {
+    font-size: 14px;
+    color: var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+.bgfs-text--big {
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+/* ------------------------------------------------------------------ Styling */
+
+.bgfs-swatch {
+    width: 56px;
+    height: 50px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    justify-content: flex-end;
+    padding: 4px;
+}
+
+.bgfs-swatch--primary { background-color: var(--be-primary); }
+.bgfs-swatch--accent { background-color: var(--be-accent); }
+.bgfs-swatch--gold { background-color: var(--be-gold); }
+.bgfs-swatch--mint { background-color: var(--be-mint); }
+.bgfs-swatch--ink { background-color: var(--be-ink); }
+
+.bgfs-swatch__name {
+    font-size: 8px;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-width: 0.5px;
+    -unity-text-outline-color: var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+.bgfs-mascot {
+    width: 64px;
+    height: 64px;
+}
+
+.bgfs-mascot--big {
+    width: 96px;
+    height: 96px;
+}
+
+.bgfs-lantern {
+    width: 44px;
+    height: 70px;
+}
+
+.bgfs-tile {
+    width: 150px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.bgfs-tile--flat {
+    border-bottom-width: var(--be-border-thin);
+}
+
+.bgfs-tile__text {
+    font-size: 11px;
+    color: var(--be-ink);
+    white-space: normal;
+    -unity-text-align: middle-center;
+}
+
+.be-card.bgfs-tile.be-card--locked {
+    background-color: var(--be-paper-shade);
+    opacity: 0.6;
+    rotate: -4deg;
+    transition-property: opacity, rotate;
+    transition-duration: 0.25s;
+}
+
+.bgfs-settings {
+    width: 260px;
+}
+
+/* ------------------------------------------------------------------ Effects */
+
+.bgfs-box {
+    width: 100px;
+    height: 70px;
+    border-radius: 14px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    justify-content: flex-end;
+    padding: 6px;
+}
+
+.bgfs-box__label {
+    align-self: flex-start;
+    font-size: 10px;
+    -unity-font-style: bold;
+    color: var(--be-ink);
+    background-color: rgba(255, 248, 234, 0.85);
+    border-radius: 7px;
+    padding: 1px 6px;
+    margin: 0;
+}
+
+.bgfs-gradient--linear {
+    background-image: linear-gradient(110deg, var(--be-primary-dark), var(--be-primary) 45%, var(--be-accent));
+}
+
+.bgfs-gradient--radial {
+    background-image: radial-gradient(circle at center, rgb(255, 251, 234), var(--be-gold-light) 45%, var(--be-gold) 90%);
+}
+
+.bgfs-gradient--sky {
+    background-image: linear-gradient(to bottom, rgb(64, 120, 200), rgb(140, 190, 240) 40%, rgb(255, 210, 160) 75%, rgb(255, 150, 110));
+}
+
+.bgfs-sticker {
+    height: 26px;
+    padding: 0 12px;
+    border-radius: 13px;
+    font-size: 13px;
+}
+
+.bgfs-shadow--hard {
+    filter: drop-shadow(0 4px 0 var(--be-ink));
+}
+
+.bgfs-shadow--glow {
+    filter: drop-shadow(0 0 6px var(--be-gold));
+}
+
+.bgfs-pastry {
+    width: 48px;
+    height: 48px;
+}
+
+/* box-shadow: the controls set the same shadow on every .bgfs-box-shadow, and its drop-shadow() twin (the blur is
+   CSS's blur radius, twice the sigma drop-shadow() takes). */
+.bgfs-box-shadows {
+    gap: 22px;
+    padding: 16px 0;
+}
+
+.bgfs-shadow-card {
+    width: 64px;
+    height: 56px;
+    border-bottom-width: var(--be-border);
+}
+
+.bgfs-box-shadow {
+    box-shadow: 0 8px 16px rgba(59, 31, 20, 0.6);
+}
+
+.bgfs-shadow-frame {
+    width: 64px;
+    height: 56px;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.bgfs-drop-twin {
+    filter: drop-shadow(0 8px 8px rgba(59, 31, 20, 0.6));
+}
+
+/* A recess: an inset box-shadow inside the border. */
+.bgfs-well {
+    width: 64px;
+    height: 56px;
+    border-radius: 12px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    background-color: var(--be-wash-strong);
+    box-shadow: inset 0 4px 6px rgba(20, 8, 2, 0.45);
+}
+
+.bgfs-pastry--big {
+    width: 84px;
+    height: 84px;
+}
+
+.bgfs-backdrop {
+    width: 300px;
+    height: 90px;
+    border-radius: 14px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.bgfs-stripes {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(90deg, var(--be-primary), var(--be-gold) 33%, var(--be-mint) 66%, var(--be-sky));
+}
+
+/* Sharp text behind the glass: crisp on both sides of it, blurred under it. */
+.bgfs-backdrop__text {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--be-ink);
+    white-space: nowrap;
+}
+
+.bgfs-backdrop__text--small {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/NotoSansJP-Regular.ttf");
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: rgb(255, 255, 255);
+}
+
+/* The glass: a frosted card over the middle of the text. */
+.bgfs-glass {
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    top: 12px;
+    bottom: 12px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+}
+
+.bgfs-halftone {
+    width: 130px;
+    height: 90px;
+    background-image: radial-gradient(circle at center, rgb(255, 230, 140), rgb(240, 110, 60) 70%, rgb(150, 30, 20));
+    filter: filter("/Assets/UI/Runtime/B11_Filters/MangaHalftone.asset" 6px rgb(120, 30, 20));
+}
+
+.bgfs-filter--grayscale { filter: grayscale(1); }
+.bgfs-filter--sepia { filter: sepia(1); }
+.bgfs-filter--hue { filter: hue-rotate(120deg); }
+.bgfs-filter--chain { filter: grayscale(0.6) contrast(1.4) drop-shadow(0 3px 0 rgb(59, 31, 20)); }
+
+/* UI Shader Graph: Settings season cards, without their mascots and names (two classes: SettingsStyles.uss loads after
+   this sheet). The wide one has no season of its own: the preview's controls pick its kind and count. */
+.bgfs-seasons {
+    width: 270px;
+}
+
+.be-season-card.bgfs-season {
+    width: 130px;
+    height: 84px;
+}
+
+.be-season-card.bgfs-season--wide {
+    width: 300px;
+    height: 150px;
+    background-image: linear-gradient(to bottom, rgb(120, 180, 240), rgb(255, 224, 200));
+}
+
+.bgfs-season__particles {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* ------------------------------------------------------------------ Layout */
+
+.bgfs-gap {
+    gap: 12px;
+}
+
+.bgfs-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    background-color: var(--be-accent);
+}
+
+.bgfs-stack {
+    width: 230px;
+    height: 96px;
+}
+
+.bgfs-stack__card {
+    position: absolute;
+    width: 110px;
+    height: 70px;
+    border-radius: 12px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    justify-content: flex-end;
+    padding: 6px;
+}
+
+.bgfs-stack__card--a { left: 0; top: 0; background-color: var(--be-primary); z-index: 1; }
+.bgfs-stack__card--b { left: 60px; top: 12px; background-color: var(--be-gold); z-index: 3; }
+.bgfs-stack__card--c { left: 120px; top: 24px; background-color: var(--be-mint); z-index: 2; }
+
+.bgfs-stack__card:hover {
+    z-index: 10;
+}
+
+.bgfs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    width: 300px;
+}
+
+.bgfs-grid__item {
+    height: 62px;
+    border-radius: 12px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    background-color: var(--be-paper);
+    align-items: center;
+    justify-content: center;
+}
+
+.bgfs-grid__item--hero {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: auto;
+    background-image: radial-gradient(circle at center, rgb(255, 251, 234), var(--be-gold-light) 50%, var(--be-gold));
+}
+
+.bgfs-transform--rotate {
+    rotate: -12deg;
+}
+
+.bgfs-transform--scale {
+    scale: 1.3 1.3;
+    margin: 0 12px;
+}
+
+.bgfs-transform--hover {
+    transition-property: rotate, scale;
+    transition-duration: 0.2s;
+}
+
+.bgfs-transform--hover:hover {
+    rotate: 8deg;
+    scale: 1.4 1.4;
+}
+
+/* ------------------------------------------------------------------ Vector art */
+
+.bgfs-burst-frame {
+    width: 110px;
+    height: 110px;
+    border-radius: 55px;
+    overflow: hidden;
+    border-width: 2px;
+    border-color: var(--be-ink);
+}
+
+.bgfs-burst {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.bgfs-bag {
+    width: 96px;
+    height: 110px;
+}
+
+.bgfs-icon {
+    width: 34px;
+    height: 34px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.bgfs-icon--home { background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-home.svg"); }
+.bgfs-icon--shops { background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-shops.svg"); }
+.bgfs-icon--lucky-bag { background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-lucky-bag.svg"); }
+.bgfs-icon--recipes { background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-recipes.svg"); }
+.bgfs-icon--settings { background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-settings.svg"); }
+.bgfs-icon--montreal { background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-montreal.svg"); }
+.bgfs-icon--japan { background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-japan.svg"); }
+
+.bgfs-wavy {
+    font-size: 30px;
+    color: var(--be-gold);
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: var(--be-ink);
+    padding: 6px 0;
+}
+
+/* ------------------------------------------------------------------ Text */
+
+.bgfs-display {
+    font-size: 34px;
+    color: var(--be-gold);
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 3px 0 var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+.bgfs-display--small {
+    font-size: 24px;
+}
+
+.bgfs-coin {
+    width: 30px;
+    height: 30px;
+}
+
+.bgfs-counter {
+    font-size: 28px;
+    min-width: 110px;
+    color: var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------ Animation */
+
+.bgfs-slide {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    background-color: var(--be-primary);
+    transition-property: translate, background-color, rotate;
+    transition-duration: 0.45s;
+    transition-timing-function: ease-out-back;
+}
+
+.bgfs-slide--moved {
+    translate: 160px 0;
+    rotate: 180deg;
+    background-color: var(--be-mint);
+}
+
+.bgfs-anim--bob {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/MascotBob.asset") 1.6s infinite;
+}
+
+.bgfs-anim--sway {
+    transform-origin: top;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/LanternSway.asset") 3s infinite alternate;
+}
+
+.bgfs-pop {
+    font-size: 26px;
+    color: var(--be-gold);
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: var(--be-ink);
+    opacity: 0;
+}
+
+.bgfs-pop--play {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/CoinPop.asset");
+}
+
+/* ------------------------------------------------------------------ Data binding and controls */
+
+.bgfs-pill {
+    width: 120px;
+}
+
+.bgfs-meter {
+    width: 260px;
+}
+
+.bgfs-pips {
+    width: 120px;
+}
+
+.bgfs-badged {
+    margin: 8px;
+}
+
+/* ------------------------------------------------------------------ Runtime */
+
+.bgfs-tap {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    background-color: var(--be-paper);
+    align-items: center;
+    justify-content: center;
+    transition-property: scale;
+    transition-duration: 0.08s;
+}
+
+.bgfs-tap:active {
+    scale: 0.9 0.9;
+}
+
+/* Built-in controls in the game's style: a Button and a Toggle side by side. */
+.bgfs-controls {
+    justify-content: center;
+    gap: 18px;
+}
+
+.bgfs-controls__toggle .unity-label {
+    margin-right: 8px;
+    font-size: 15px;
+    color: var(--be-ink);
+}

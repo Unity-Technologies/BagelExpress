@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Fukubukuro lucky bag with a gold cord and a star emblem -->
+  <path d="M24 26 C19 22 15 18 13 14 Q17 8 23 12 Q27 5 32 10 Q37 5 41 12 Q47 8 51 14 C49 18 45 22 40 26 Z" fill="#DE482C" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M22 26 C12 30 6 38 6 46 C6 56 16 60 32 60 C48 60 58 56 58 46 C58 38 52 30 42 26 Z" fill="#DE482C" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M12 40 Q10 46 12 51" fill="none" stroke="#FF9A80" stroke-width="3" stroke-linecap="round"/>
+  <path d="M20 22.5 H44 a3.5 3.5 0 0 1 0 7 H20 a3.5 3.5 0 0 1 0 -7 Z" fill="#FFC828" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M32 46 m-11 0 a11 11 0 1 0 22 0 a11 11 0 1 0 -22 0 Z" fill="#FFC828" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M32 46 m-7.5 0 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0 Z" fill="#FFF8EA" stroke="#3B1F14" stroke-width="2"/>
+  <path d="M32 40.5 L33.53 44.4 L37.71 44.65 L34.47 47.3 L35.53 51.35 L32 49.1 L28.47 51.35 L29.53 47.3 L26.29 44.65 L30.47 44.4 Z" fill="#DE482C" stroke="#3B1F14" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M54 4 Q54.96 9.04 60 10 Q54.96 10.96 54 16 Q53.04 10.96 48 10 Q53.04 9.04 54 4 Z" fill="#FFFFFF" stroke="#3B1F14" stroke-width="2" stroke-linejoin="round"/>
+</svg>

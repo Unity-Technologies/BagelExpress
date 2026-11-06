@@ -1,0 +1,675 @@
+/* ==========================================================================
+   Bagel Express — common component styles ("Maple-Mochi Pop")
+   Every key color / size is a USS variable. Season themes (TSS) import this
+   file and then override the variables and the gradient-bearing rules.
+   ========================================================================== */
+
+:root {
+    /* Ink & paper */
+    --be-ink: rgb(59, 31, 20);
+    --be-ink-soft: rgb(120, 78, 58);
+    --be-paper: rgb(255, 248, 234);
+    --be-paper-shade: rgb(246, 228, 198);
+    --be-white: rgb(255, 255, 255);
+
+    /* Text */
+    --be-text: rgb(59, 31, 20);
+    --be-text-muted: rgb(140, 102, 82);
+    --be-text-soft: var(--be-ink-soft);         /* secondary labels: segments, Cancel, descriptions */
+    --be-text-accent: var(--be-primary-dark);   /* titles in the season's color, on the sky and on surfaces */
+    --be-text-positive: var(--be-mint-dark);    /* gains: income, the next level */
+    --be-text-warning: var(--be-rose-dark);
+    --be-text-on-color: rgb(255, 255, 255);
+
+    /* Surfaces: what panels, cards, dialogs, bubbles and the glass are made of. Text on them is --be-text. A dark
+       season (Matsuri) swaps these and the text colors; colored things (buttons, pills, art) keep their colors.
+       Tiles' outlines stay --be-ink, dark in every season. */
+    --be-surface-top: rgb(255, 255, 255);       /* cards and dialogs: a gradient from top... */
+    --be-surface-bottom: rgb(255, 244, 222);    /* ...to bottom */
+    --be-surface-edge: rgb(240, 214, 176);      /* the paper button's darker foot */
+    --be-surface-raised: rgb(255, 255, 255);    /* speech bubbles, the tutorial's tip, checkboxes */
+    --be-surface-locked-top: rgb(236, 230, 222);
+    --be-surface-locked-bottom: rgb(214, 204, 192);
+    --be-wash: rgba(59, 31, 20, 0.08);          /* a recessed area on a surface */
+    --be-wash-strong: rgba(59, 31, 20, 0.15);
+    --be-frost: rgba(255, 246, 228, 0.55);      /* the glass panes' tint, set per season: light enough for dark text */
+    --be-frost-solid: rgba(255, 246, 228, 0.88); /* the same, nearly opaque, for glass that doesn't blur */
+    --be-scrollbar: rgba(59, 31, 20, 0.35);
+    --be-scrollbar-active: rgba(59, 31, 20, 0.6); /* under a mouse, or dragged */
+    --be-avatar-glow: var(--be-paper);         /* the middle of Begu-chan's round avatar frames */
+
+    /* The Lucky Bag's prize card (also behind Home's event pastry): a radial gradient, its glow and its starburst. */
+    --be-prize-center: rgb(255, 251, 234);
+    --be-prize-inner: var(--be-gold-light);
+    --be-prize-outer: var(--be-gold);
+    --be-prize-edge: var(--be-gold-dark);
+    --be-prize-glow: rgba(255, 255, 255, 0.9);
+    --be-prize-burst-a: rgba(255, 255, 255, 0.55);
+    --be-prize-burst-b: rgba(255, 214, 90, 0.35);
+    --be-prize-burst-center: rgba(255, 253, 240, 0.95);
+    /* Recipe cards: a shade laid over the rarity frame (clear by default) and the picture window behind the pastry. */
+    --be-card-shade: rgba(0, 0, 0, 0);
+    --be-card-art-center: rgb(255, 255, 255);
+    --be-card-art-mid: rgb(255, 244, 222);
+    --be-card-art-edge: rgb(246, 220, 180);
+    --be-card-art-locked-center: rgb(246, 244, 240);
+    --be-card-art-locked-mid: rgb(226, 222, 216);
+    --be-card-art-locked-edge: rgb(204, 198, 190);
+
+    /* Season brand (overridden per theme) */
+    --be-primary: rgb(222, 72, 44);
+    --be-primary-light: rgb(255, 138, 101);
+    --be-primary-dark: rgb(158, 38, 22);
+    --be-accent: rgb(245, 166, 35);
+    --be-accent-light: rgb(255, 214, 120);
+    --be-accent-dark: rgb(196, 112, 10);
+
+    /* Fixed role colors */
+    --be-gold: rgb(255, 196, 40);
+    --be-gold-light: rgb(255, 232, 140);
+    --be-gold-dark: rgb(214, 132, 0);
+    --be-mint: rgb(64, 201, 132);
+    --be-mint-light: rgb(150, 240, 190);
+    --be-mint-dark: rgb(20, 140, 84);
+    --be-rose: rgb(255, 84, 120);
+    --be-rose-dark: rgb(196, 30, 72);
+    --be-sky: rgb(64, 168, 240);
+
+    /* Rarity contract */
+    --be-rarity-n: rgb(176, 168, 160);
+    --be-rarity-r: rgb(76, 156, 236);
+    --be-rarity-sr: rgb(168, 104, 232);
+    --be-rarity-ssr: rgb(255, 190, 30);
+
+    /* Sizes */
+    --be-border: 3px;
+    --be-border-thin: 2px;
+    /* Radii nest: an element inside another, near its corner, takes the outer radius minus the inset, so the gap
+       between the two curves is as wide at the corner as along the sides. Panels and cards (28) hold buttons and
+       tiles (14) 15 points in (12 padding, 3 border); the scrolling pages' window (42) holds cards 14 points in.
+       A pill's radius is half its height, never more: a larger radius is clamped on that axis only, so the ends
+       turn into squashed ellipses (pills set their height and radius together). */
+    --be-radius-s: 8px;
+    --be-radius-m: 14px;
+    --be-radius-l: 28px;
+    --be-gap-s: 8px;
+    --be-gap-m: 12px;
+    --be-font-xs: 10px;
+    --be-font-s: 12px;
+    --be-font-m: 15px;
+    --be-font-l: 20px;
+
+    /* Hard "stacked plastic" shadow on tiles (buttons, cards, panels, stickers...).
+       It is geometry: the bottom border is thicker than the outline (the "lip"), so the
+       tile batches with everything else. As filter: drop-shadow() it cost one offscreen
+       pass per tile (~87 on screen; Shops took 12.5 ms and 362 draw calls). Real filters are kept for
+       hero moments: the Home storefront, LEVEL UP!, the UR reveal glow.
+       BagelFilterShadowsAB.uss adds blurred filter shadows under the panes for a Profiler A/B. */
+    --be-tile-lip: 7px;            /* 3px outline + 4px lip */
+    --be-tile-lip-s: 5px;          /* small tiles: 2-3px outline + lip */
+
+    /* Season art hooks (read by Painter2D elements as custom properties) */
+    --be-particle-kind: maple;
+    --be-mascot-accessory: maple;
+    --be-skyline-far: rgb(240, 160, 120);
+    --be-skyline-near: rgb(150, 60, 50);
+    --be-window-light: rgb(255, 226, 140);
+    --be-burst-color-a: rgba(255, 220, 120, 0.9);
+    --be-burst-color-b: rgba(255, 160, 80, 0.5);
+    --be-title-burst-edge: rgb(255, 140, 30);
+    --be-bag-color: rgb(222, 52, 44);
+    --be-awning-a: rgb(222, 72, 44);
+    --be-awning-b: rgb(255, 248, 234);
+    --be-noren-color: rgb(44, 54, 120);
+    --be-lantern-glow: rgba(255, 140, 60, 0.8);
+    --be-sky-top: rgb(92, 170, 235);
+    --be-sky-mid: rgb(170, 205, 235);
+    --be-sky-bottom: rgb(255, 205, 150);
+
+    /* Typography: Poppins for UI, Bangers for comic display, Noto Sans JP via the
+       PanelTextSettings fallback list (Advanced Text Generator). */
+    -unity-font-definition: url("Fonts/Poppins-Bold.ttf");
+    color: var(--be-text);
+    font-size: var(--be-font-m);
+}
+
+/* ------------------------------------------------------------------ Season surfaces */
+
+.be-backdrop {
+    background-image: linear-gradient(to bottom, var(--be-sky-top), var(--be-sky-mid) 55%, var(--be-sky-bottom));
+}
+
+.be-band {
+    background-image: linear-gradient(to bottom, var(--be-primary-light), var(--be-primary) 60%, var(--be-primary-dark));
+}
+
+/* The season particles fall on the GPU, through a UI Shader Graph material: SeasonParticles.cs writes each particle's
+   motion into its vertices' extra channels (UV1-UV3), and the graph's vertex stage moves them. The element adds the
+   class when its panel has those channels. */
+.be-season-particles--gpu {
+    -unity-material: url("/Assets/UI/Runtime/B14_Materials/SeasonParticles.mat");
+}
+
+/* ------------------------------------------------------------------ Text */
+
+.be-body {
+    -unity-font-definition: url("Fonts/Poppins-Regular.ttf");
+}
+
+.be-display {
+    -unity-font-definition: url("Fonts/Bangers.ttf");
+    letter-spacing: 1px;
+    color: var(--be-text-on-color);
+    -unity-text-outline-width: 1.5px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 3px 0 rgb(59, 31, 20);
+}
+
+.be-eyebrow {
+    font-size: var(--be-font-xs);
+    -unity-font-style: bold;
+    letter-spacing: 2px;
+    color: var(--be-primary);
+}
+
+.be-heading {
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+/* A page title's eyebrow: dark enough to read on the sky and on the frost (light in a dark season). */
+.be-heading__eyebrow {
+    color: var(--be-text-accent);
+    margin: 0;
+    padding: 0;
+}
+
+.be-heading__title {
+    -unity-font-definition: url("Fonts/Bangers.ttf");
+    letter-spacing: 1.5px;
+    font-size: 36px;
+    color: var(--be-text-on-color);
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 4px 0 rgb(59, 31, 20);
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------------------------------------------------------ Buttons
+   Glossy plastic: vertical gradient, highlight capsule, thick ink lip at the
+   bottom. Press = sink 3px onto the lip. */
+
+.be-btn {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 6px 18px 10px 18px;
+    margin: 0;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-m);
+    background-color: var(--be-sky);
+    background-image: linear-gradient(to bottom, rgb(130, 210, 255), rgb(64, 168, 240) 55%, rgb(20, 104, 196));
+    border-bottom-width: var(--be-tile-lip);
+    -unity-font-style: bold;
+    font-size: var(--be-font-l);
+    color: var(--be-text-on-color);
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: var(--be-ink);
+    transition-property: translate, filter, scale;
+    transition-duration: 0.09s, 0.09s, 0.18s;
+    transition-timing-function: ease-out, ease-out, ease-out-back;
+    overflow: visible;
+}
+
+.be-btn:hover {
+    scale: 1.03 1.03;
+}
+
+/* Pressing moves the button down, a transform only: its lip and its size stay, so nothing around it moves. */
+.be-btn:active {
+    translate: 0 3px;
+}
+
+.be-btn:disabled {
+    background-image: linear-gradient(to bottom, rgb(220, 214, 206), rgb(176, 168, 160));
+    color: rgb(245, 240, 232);
+    opacity: 0.85;
+}
+
+/* Highlight capsule on the top 40% of every glossy surface. */
+.be-gloss {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 3px;
+    height: 16px;
+    border-radius: 8px;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.05));
+}
+
+.be-btn--gold {
+    background-color: var(--be-gold);
+    background-image: linear-gradient(to bottom, rgb(255, 238, 150), rgb(255, 196, 40) 50%, rgb(230, 136, 0));
+}
+
+.be-btn--mint {
+    background-color: var(--be-mint);
+    background-image: linear-gradient(to bottom, rgb(150, 240, 190), rgb(64, 201, 132) 55%, rgb(20, 140, 84));
+}
+
+.be-btn--rose {
+    background-color: var(--be-rose);
+    background-image: linear-gradient(to bottom, rgb(255, 160, 184), rgb(255, 84, 120) 55%, rgb(196, 30, 72));
+}
+
+/* Season-colored buttons: declared after .be-btn so they win. */
+.be-btn--primary {
+    background-image: linear-gradient(to bottom, var(--be-primary-light), var(--be-primary) 55%, var(--be-primary-dark));
+}
+
+.be-btn--accent {
+    background-image: linear-gradient(to bottom, var(--be-accent-light), var(--be-accent) 55%, var(--be-accent-dark));
+}
+
+.be-btn--paper {
+    background-color: var(--be-paper);
+    background-image: linear-gradient(to bottom, var(--be-surface-top), var(--be-surface-bottom) 55%, var(--be-surface-edge));
+    color: var(--be-text);
+    -unity-text-outline-width: 0;
+}
+
+/* A paper button's label is ink on paper, not white with an outline like the colored buttons'. */
+.be-btn--paper .be-btn__label {
+    color: var(--be-text-soft);
+    -unity-text-outline-width: 0;
+}
+
+.be-btn--small {
+    min-height: 34px;
+    padding: 2px 12px 6px 12px;
+    font-size: var(--be-font-s);
+    border-radius: var(--be-radius-s);
+    border-bottom-width: var(--be-tile-lip-s);
+}
+
+.be-btn--small .be-gloss {
+    top: 2px;
+    height: 8px;
+    border-radius: 4px;
+}
+
+.be-btn--small:active {
+    translate: 0 2px;
+}
+
+.be-btn__label {
+    -unity-font-style: bold;
+    color: var(--be-text-on-color);
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+.be-btn__icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------------ Panels & cards */
+
+.be-panel {
+    background-color: var(--be-paper);
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-l);
+    padding: var(--be-gap-m);
+    border-bottom-width: var(--be-tile-lip);
+}
+
+.be-card {
+    background-color: var(--be-paper);
+    background-image: linear-gradient(to bottom, var(--be-surface-top), var(--be-surface-bottom));
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-m);
+    border-bottom-width: var(--be-tile-lip);
+    overflow: visible;
+}
+
+.be-well {
+    background-color: var(--be-wash);
+    border-radius: var(--be-radius-m);
+    border-top-width: 2px;
+    border-top-color: var(--be-wash-strong);
+}
+
+/* Small chip (glass) */
+.be-chip {
+    flex-direction: row;
+    align-items: center;
+    height: 26px;
+    padding: 0 10px;
+    border-radius: 13px;
+    background-color: rgba(59, 31, 20, 0.55);
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    color: var(--be-white);
+    -unity-font-style: bold;
+    font-size: var(--be-font-s);
+}
+
+/* Sticker: a bright pill tag, placed inside its owner (never across its edge), with one outline all round. */
+.be-sticker {
+    flex-shrink: 0;
+    height: 20px;
+    padding: 0 9px;
+    margin: 0;
+    border-radius: 10px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    background-image: linear-gradient(to bottom, rgb(255, 120, 150), rgb(255, 70, 110));
+    color: var(--be-white);
+    font-size: var(--be-font-xs);
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    text-shadow: 0 1px 0 var(--be-ink);
+}
+
+.be-sticker--gold {
+    background-image: linear-gradient(to bottom, rgb(255, 232, 140), rgb(255, 180, 20));
+    color: var(--be-ink);
+    -unity-text-outline-width: 0;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+/* ------------------------------------------------------------------ Currency pill */
+
+/* 34 tall: the badge and the plus are circles 4 points in (2 border + 2), concentric with the pill's round ends
+   (17 - 4 = 13). */
+.be-currency-pill {
+    flex-direction: row;
+    align-items: center;
+    height: 34px;
+    padding: 0 2px;
+    border-radius: 17px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    background-color: rgba(59, 31, 20, 0.62);
+    overflow: visible;
+}
+
+.be-currency-pill__badge {
+    width: 26px;
+    height: 26px;
+    margin: 0 4px 0 0;
+    border-radius: 13px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    background-image: radial-gradient(circle at center, rgb(255, 252, 244), rgb(255, 236, 200) 70%, rgb(240, 206, 160));
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.be-currency-pill__icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.be-currency-pill__value {
+    flex-grow: 1;
+    -unity-text-align: middle-right;
+    -unity-font-style: bold;
+    font-size: var(--be-font-m);
+    color: var(--be-white);
+    text-shadow: 0 1px 0 var(--be-ink);
+    padding: 0 8px 0 0;
+}
+
+.be-currency-pill__plus {
+    width: 26px;
+    height: 26px;
+    min-height: 0;
+    margin: 0;
+    padding: 0 0 2px 0;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    border-radius: 13px;
+    background-image: linear-gradient(to bottom, rgb(150, 240, 190), rgb(20, 140, 84));
+    color: var(--be-white);
+    -unity-font-style: bold;
+    font-size: 16px;
+    -unity-text-align: middle-center;
+}
+
+/* ------------------------------------------------------------------ Meter / pips */
+
+.be-meter {
+    height: 22px;
+}
+
+/* Pills, concentric: the track is 22 tall (radius 11), the fill 4 points in (2 border + 2 padding: 14 tall,
+   radius 7), its gloss 2 more (5 tall, radius 2.5). The fill is never narrower than it is tall, so its ends stay
+   round. The track is a groove: an inset box-shadow darkens its top edge, under the fill, which sits on it. */
+.be-meter__track {
+    flex-grow: 1;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    border-radius: 11px;
+    background-color: rgba(59, 31, 20, 0.35);
+    box-shadow: inset 0 3px 4px rgba(20, 8, 2, 0.55);
+    padding: 2px;
+    overflow: hidden;
+}
+
+.be-meter__fill {
+    height: 100%;
+    min-width: 14px;
+    border-radius: 7px;
+    background-image: linear-gradient(to right, rgb(255, 214, 80), rgb(255, 150, 30));
+    transition-property: width;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+}
+
+.be-meter__gloss {
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    top: 2px;
+    height: 5px;
+    border-radius: 2.5px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.be-meter--empty .be-meter__fill {
+    opacity: 0;
+}
+
+.be-meter--full .be-meter__fill {
+    background-image: linear-gradient(to right, rgb(150, 240, 190), rgb(40, 190, 110));
+}
+
+.be-pips {
+    flex-direction: row;
+    gap: 3px;
+}
+
+.be-pips__pip {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    background-color: var(--be-wash-strong);
+    rotate: 45deg;
+    margin: 2px;
+}
+
+.be-pips__pip--filled {
+    background-image: linear-gradient(to bottom, rgb(255, 232, 140), rgb(255, 170, 0));
+}
+
+/* ------------------------------------------------------------------ Coin fly / toasts */
+
+.be-fly-icon {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    margin: -14px 0 0 -14px;
+    transition-property: left, top, scale, opacity;
+    transition-duration: 0.6s, 0.6s, 0.6s, 0.6s;
+    transition-timing-function: ease-in-back, ease-in-cubic, ease-in, ease-in;
+    z-index: 100;
+}
+
+.be-fly-icon--arrived {
+    scale: 0.6 0.6;
+    opacity: 0.4;
+}
+
+.be-toast-stack {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 118px;
+    align-items: center;
+    z-index: 90;
+}
+
+.be-toast {
+    height: 32px;
+    margin: 4px;
+    padding: 0 16px;
+    border-radius: 16px;
+    -unity-text-align: middle-center;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    background-color: rgba(59, 31, 20, 0.82);
+    color: var(--be-white);
+    -unity-font-style: bold;
+    font-size: var(--be-font-s);
+    transition-property: translate, opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out-back;
+}
+
+.be-toast--staged {
+    translate: 0 -40px;
+    opacity: 0;
+}
+
+.be-toast--leaving {
+    translate: 0 -20px;
+    opacity: 0;
+}
+
+/* ------------------------------------------------------------------ Glass and scroll wells
+   Two bands of frosted glass, and nothing at the sides: over a scrolling page's header (.be-page-glass, in the
+   page's chrome, so it fades with its page) and the nav's own bar at the bottom (.be-nav__bar, on every page). The
+   content scrolls under both, blurred, and is plain in between. Their corners round off toward the sides, away from
+   the content, like the nav bar of 0.1. Geometry, in points from the page (which the safe area already insets): the
+   header's glass ends 222 below the page's top (under the title row), the nav's is the 92 at its bottom. One frost
+   for every pane: light enough that dark text reads on it, clear enough that the blur shows.
+
+   It used to be one pane over the whole page with a window cut out of it (a VectorImage mask): the blur ran over the
+   whole screen, and the scrolling pages took about 100 ms of GPU a frame on an iPhone 12 Pro (PerfSweep's
+   circuit). Two bands with convex corners need no mask: a backdrop-filter is drawn within its own
+   element's rounded rect. */
+
+/* A page's chrome (its glass) fills its page wherever the page is shown: in the app, and on its own in UI Builder or
+   the UI Viewport, which don't load the app's .be-fill. */
+.be-page-chrome {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Frosted glass: the frost over a blur of what's behind it, and a line on the side that faces the content. */
+.be-glass {
+    background-color: var(--be-frost);
+    backdrop-filter: blur(10px);
+    border-color: var(--be-ink);
+}
+
+/* A scrolling page's glass, over the header: from 64 points above the page (past any notch) down to 222. */
+.be-page-glass {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -64px;
+    height: 286px;
+    border-bottom-width: var(--be-border);
+    border-bottom-left-radius: var(--be-radius-l);
+    border-bottom-right-radius: var(--be-radius-l);
+}
+
+/* The scroll area of a scrolling page: the whole page and 64 points past both ends, so its content runs under the
+   glass to the screen's edges. Content insets in its coordinates: the header's glass ends 286 below its top and the
+   nav's starts 156 above its bottom; content sits 14 inside that (300 and 170), and 24 in from the sides. The line
+   height is the step of a mouse wheel tick or of a trackpad's scroll (3 lines per tick): 6 instead of 18, a gentler
+   scroll in the Editor and desktop players. */
+.be-scroll-well {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -64px;
+    bottom: -64px;
+    --unity-metrics-single_line-height: 6px;
+}
+
+/* The scrolling pages' scrollbar, a restyled built-in Scroller: a thin bar without arrow buttons, 14 points from the
+   screen's edge, from where the content starts below the glass to where it ends above the nav (300 and 170, see
+   above). It floats over the content's 24-point margin instead of taking a column of its own: a column would narrow
+   the viewport, whose edge clips anything that reaches past it, like the cards' shadows. (The ScrollView sets the
+   scroller's display inline, shown only while the content overflows, but never its position.) */
+.be-scroll-well .unity-scroller--vertical {
+    position: absolute;
+    top: 300px;
+    bottom: 170px;
+    right: 14px;
+    width: 6px;
+    min-width: 6px;
+    margin: 0;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.be-scroll-well .unity-scroller--vertical .unity-scroller__low-button,
+.be-scroll-well .unity-scroller--vertical .unity-scroller__high-button {
+    display: none;
+}
+
+/* The slider keeps a margin for each arrow button, hidden or not. */
+.be-scroll-well .unity-scroller--vertical > .unity-scroller__slider {
+    width: 6px;
+    margin: 0;
+}
+
+.be-scroll-well .unity-scroller--vertical .unity-base-slider__tracker {
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.be-scroll-well .unity-scroller--vertical .unity-base-slider__dragger {
+    left: 0;
+    width: 6px;
+    border-width: 0;
+    border-radius: 3px;
+    background-color: var(--be-scrollbar);
+}
+
+/* The default theme's hover and pressed colors (.unity-scroller .unity-base-slider__dragger:hover:enabled) outrank
+   the rule above: match them. */
+.be-scroll-well .unity-scroller--vertical .unity-base-slider__dragger:hover:enabled,
+.be-scroll-well .unity-scroller--vertical .unity-base-slider__dragger:active:enabled {
+    background-color: var(--be-scrollbar-active);
+}

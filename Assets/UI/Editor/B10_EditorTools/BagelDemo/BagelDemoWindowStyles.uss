@@ -1,0 +1,996 @@
+/* The Bagel Demo window: a deck of slides laid out at 1600 × 960 and scaled to the window (BagelDemoWindow.cs). On top of
+   BagelExpressAllUIWindowStyles.uss (the toolbar, the stage) and BagelGuideStyles.uss (crops, chips). Each slide is one
+   presenter's: its color is --bgd-presenter, its arrows' --bgd-arrow-color. The Editor's windows recreated on the
+   slides are styled in BagelDemoEditorKit.uss. */
+
+.bgd {
+    --bgd-ink: rgb(255, 240, 222);
+    --bgd-soft: rgb(214, 186, 160);
+    --bgd-dim: rgb(160, 128, 106);
+    --bgd-gold: rgb(255, 196, 40);
+    --bgd-presenter: rgb(255, 196, 40);
+}
+
+.bgd--designer {
+    --bgd-presenter: rgb(139, 69, 217);
+}
+
+.bgd--developer {
+    --bgd-presenter: rgb(47, 158, 68);
+}
+
+/* Arrows read custom properties on themselves, so their color is set on them. */
+.bgd-slide .bgd-connectors,
+.bgd-slide .bgd-vis__arrow,
+.bgd-slide .bgd-next__arrow {
+    --bgd-arrow-color: rgba(255, 214, 140, 0.9);
+}
+
+.bgd--designer .bgd-connectors,
+.bgd--designer .bgd-vis__arrow {
+    --bgd-arrow-color: rgba(200, 160, 255, 0.95);
+}
+
+.bgd--developer .bgd-connectors,
+.bgd--developer .bgd-vis__arrow {
+    --bgd-arrow-color: rgba(140, 220, 150, 0.95);
+}
+
+.bgd-grow {
+    flex-grow: 1;
+}
+
+/* ------------------------------------------------------------------ the stage and the slide */
+
+.bgd__stage {
+    background-image: none;
+    background-color: rgb(14, 9, 7);
+}
+
+.bgd__viewport {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.bgd-slide {
+    position: absolute;
+    transform-origin: left top;
+    flex-direction: column;
+    padding: 22px 30px 18px 30px;
+    border-radius: 18px;
+    background-color: rgb(30, 20, 16);
+    background-image: radial-gradient(ellipse at center, rgb(62, 40, 30), rgb(36, 24, 19) 55%, rgb(24, 16, 12));
+    overflow: hidden;
+}
+
+.bgd-eyebrow {
+    margin: 14px 0 8px 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--bgd-dim);
+}
+
+.bgd-eyebrow--first {
+    margin-top: 0;
+}
+
+/* ------------------------------------------------------------------ the head: number, title, versions, presenter, time */
+
+.bgd-head {
+    flex-direction: row;
+    align-items: center;
+    height: 92px;
+    flex-shrink: 0;
+    margin-bottom: 16px;
+}
+
+.bgd-head__number {
+    width: 76px;
+    height: 76px;
+    flex-shrink: 0;
+    margin: 0 20px 0 0;
+    padding: 4px 0 0 0;
+    border-radius: 38px;
+    border-width: 4px;
+    border-color: rgba(255, 240, 222, 0.85);
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 48px;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+.bgd-head__titles {
+    flex-shrink: 1;
+}
+
+.bgd-head__title {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 54px;
+    letter-spacing: 1px;
+    color: var(--bgd-ink);
+    white-space: nowrap;
+}
+
+.bgd-head__brand {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 72px;
+    letter-spacing: 2px;
+    color: rgb(255, 214, 120);
+}
+
+.bgd-head__jp {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    color: var(--bgd-soft);
+}
+
+.bgd-version {
+    height: 26px;
+    margin: 0 0 0 8px;
+    padding: 0 12px;
+    border-radius: 13px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 14px;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+.bgd-version--big {
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 18px;
+    font-size: 20px;
+}
+
+.bgd-presenter {
+    flex-direction: row;
+    align-items: center;
+    height: 46px;
+    margin: 0 0 0 18px;
+    padding: 0 20px 0 16px;
+    border-radius: 23px;
+}
+
+.bgd-presenter__glyph {
+    margin: 0 10px 0 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.bgd-presenter__name {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: rgb(255, 255, 255);
+}
+
+.bgd-head__time {
+    align-items: flex-end;
+    margin-left: 20px;
+}
+
+.bgd-head__minutes {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 36px;
+    color: var(--bgd-gold);
+}
+
+.bgd-head__clock {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    color: var(--bgd-dim);
+}
+
+/* ------------------------------------------------------------------ the body: where/set up/say, then the beats */
+
+.bgd-body {
+    flex-grow: 1;
+    flex-direction: row;
+    min-height: 0;
+}
+
+.bgd-slide--strip .bgd-body {
+    flex-direction: column;
+}
+
+.bgd-side {
+    width: 320px;
+    flex-shrink: 0;
+    margin-right: 28px;
+    padding: 16px 18px;
+    border-width: 1px;
+    border-radius: 18px;
+    border-color: rgba(255, 240, 222, 0.08);
+    background-color: rgba(255, 240, 222, 0.04);
+}
+
+.bgd-setup__chips {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.bgd-setup__note {
+    margin: 10px 0 0 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--bgd-soft);
+    white-space: normal;
+}
+
+.bgd-say {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    color: rgb(255, 214, 120);
+    white-space: normal;
+}
+
+.bgd-chip {
+    flex-shrink: 0;
+    flex-direction: row;
+    align-items: center;
+    height: 36px;
+    padding: 0 14px 0 6px;
+    border-width: 1px;
+    border-radius: 18px;
+    border-color: rgba(255, 240, 222, 0.16);
+    background-color: rgba(255, 240, 222, 0.08);
+}
+
+.bgd-chip--small {
+    height: 30px;
+    margin-right: 10px;
+    padding: 0 12px 0 4px;
+    border-radius: 15px;
+}
+
+.bgd-chip--play,
+.bgd-chip--edit {
+    padding-left: 12px;
+}
+
+.bgd-chip__option {
+    margin-right: 6px;
+}
+
+.bgd-chip__label {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: var(--bgd-ink);
+    white-space: nowrap;
+}
+
+.bgd-chip--small > .bgd-chip__label {
+    font-size: 14px;
+}
+
+.bgd-chip__play {
+    margin: 0 8px 0 0;
+    padding: 0;
+    font-size: 14px;
+    color: rgb(120, 220, 120);
+}
+
+.bgd-chip--edit > .bgd-chip__play {
+    color: var(--bgd-dim);
+}
+
+/* The beats: rows, with room between for the arrows (gap, new in 6.7). */
+.bgd-beats {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    row-gap: 50px;
+}
+
+.bgd-beats__row {
+    flex-grow: 1;
+    flex-basis: 0;
+    flex-direction: row;
+    column-gap: 56px;
+    min-height: 0;
+}
+
+.bgd-slide--strip .bgd-beats__row {
+    column-gap: 40px;
+}
+
+.bgd-beat {
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+}
+
+.bgd-beat__visual {
+    flex-grow: 1;
+    min-height: 0;
+    padding: 12px;
+    border-width: 1px;
+    border-radius: 16px;
+    border-color: rgba(255, 240, 222, 0.1);
+    background-color: rgba(0, 0, 0, 0.22);
+    overflow: hidden;
+}
+
+.bgd-slide--strip .bgd-beat__visual {
+    padding: 4px;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.bgd-beat__shield {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.bgd-beat__foot {
+    flex-direction: row;
+    align-items: center;
+    min-height: 54px;
+    flex-shrink: 0;
+    margin-top: 8px;
+}
+
+.bgd-beat__number {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    margin: 0 10px 0 0;
+    padding: 0;
+    border-radius: 16px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 17px;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+.bgd-beat__caption {
+    flex-shrink: 1;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    font-size: 19px;
+    color: var(--bgd-ink);
+    white-space: normal;
+}
+
+.bgd-slide--strip .bgd-beat__caption {
+    font-size: 17px;
+}
+
+.bgd-slide--strip .bgd-beat__foot {
+    min-height: 60px;
+}
+
+.bgd-beat__play {
+    flex-shrink: 0;
+    margin: 0 8px 0 0;
+    padding: 0;
+    font-size: 16px;
+    color: rgb(120, 220, 120);
+}
+
+.bgd-beat__link {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    margin: 0 0 0 8px;
+    padding: 0;
+    border-width: 1px;
+    border-radius: 14px;
+    border-color: rgba(255, 196, 40, 0.4);
+    background-color: rgba(255, 196, 40, 0.08);
+    font-size: 14px;
+    -unity-text-align: middle-center;
+    color: rgb(255, 214, 120);
+}
+
+.bgd-beat__link:hover {
+    background-color: rgba(255, 196, 40, 0.3);
+}
+
+.bgd-connectors {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* The game, played: what's set up and what to say under the phones. */
+.bgd-strip-info {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 14px;
+    padding: 14px 20px;
+    border-radius: 18px;
+    background-color: rgba(255, 240, 222, 0.04);
+}
+
+.bgd-strip-info > .bgd-setup {
+    flex-direction: row;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.bgd-strip-info .bgd-setup__note {
+    margin: 0 0 0 14px;
+}
+
+.bgd-strip-info > .bgd-say {
+    flex-shrink: 1;
+    font-size: 20px;
+}
+
+/* ------------------------------------------------------------------ the foot: the handoff, and who's next */
+
+.bgd-foot {
+    flex-direction: row;
+    align-items: center;
+    height: 74px;
+    flex-shrink: 0;
+    margin-top: 18px;
+    padding: 0 6px;
+    border-top-width: 1px;
+    border-top-color: rgba(255, 240, 222, 0.1);
+}
+
+.bgd-handoff__line {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: var(--bgd-soft);
+    white-space: normal;
+}
+
+.bgd-handoff {
+    flex-shrink: 1;
+    max-width: 1000px;
+}
+
+.bgd-next {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.bgd-next__from {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 18px;
+    color: var(--bgd-presenter);
+}
+
+.bgd-next__arrow {
+    width: 46px;
+    height: 26px;
+    margin: 0 8px;
+}
+
+.bgd-next__number {
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    padding: 3px 0 0 0;
+    border-radius: 21px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 26px;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+.bgd-next__label {
+    margin-left: 12px;
+}
+
+.bgd-next__who {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.bgd-next__title {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    color: var(--bgd-ink);
+}
+
+.bgd-foot__end {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 34px;
+    color: rgb(255, 214, 120);
+}
+
+/* ------------------------------------------------------------------ where: the demo layout in miniature */
+
+.bgd-map {
+    height: 186px;
+    flex-shrink: 0;
+}
+
+.bgd-map--compact {
+    height: 86px;
+    margin-top: 12px;
+}
+
+.bgd-map__box {
+    position: absolute;
+    padding: 3px 4px;
+    border-width: 2px;
+    border-radius: 6px;
+    border-color: rgba(255, 240, 222, 0.14);
+    background-color: rgba(255, 240, 222, 0.04);
+    overflow: hidden;
+}
+
+.bgd-map--compact .bgd-map__box {
+    padding: 2px 3px;
+    border-width: 1px;
+    border-radius: 4px;
+}
+
+.bgd-map__box--floating {
+    background-color: rgb(52, 36, 30);
+}
+
+.bgd-map__toolbar {
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.bgd-map__tab {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.bgd-map__name {
+    margin: 0 4px 0 0;
+    padding: 0;
+    font-size: 11px;
+    color: var(--bgd-ink);
+    white-space: nowrap;
+}
+
+.bgd-map__name--dim {
+    color: rgba(255, 240, 222, 0.3);
+}
+
+.bgd-map__beat {
+    min-width: 17px;
+    height: 17px;
+    margin: 0 3px 0 0;
+    padding: 0 3px;
+    border-radius: 9px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 10px;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+.bgd-map--compact .bgd-map__beat {
+    min-width: 12px;
+    height: 12px;
+    padding: 0 2px;
+    border-radius: 6px;
+    font-size: 8px;
+}
+
+.bgd-map__toolbar .bgd-map__tab {
+    margin-bottom: 0;
+}
+
+.bgd-map__toolbar .bgd-map__beat {
+    height: 13px;
+    min-width: 13px;
+    border-radius: 7px;
+}
+
+/* ------------------------------------------------------------------ the overview: the chapters as cards */
+
+.bgd-beats--overview {
+    row-gap: 54px;
+}
+
+.bgd-beats--overview > .bgd-beats__row {
+    column-gap: 46px;
+}
+
+.bgd-card {
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+    margin: 0;
+    padding: 14px 16px 12px 16px;
+    border-width: 1px;
+    border-top-width: 6px;
+    border-radius: 16px;
+    border-color: rgba(255, 240, 222, 0.12);
+    background-color: rgba(255, 240, 222, 0.06);
+    align-items: stretch;
+    -unity-text-align: upper-left;
+    white-space: normal;
+}
+
+.bgd-card:hover {
+    background-color: rgba(255, 240, 222, 0.12);
+}
+
+.bgd-card__top {
+    flex-direction: row;
+    align-items: center;
+}
+
+.bgd-card__number {
+    width: 38px;
+    height: 38px;
+    margin: 0 10px 0 0;
+    padding: 3px 0 0 0;
+    border-radius: 19px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 24px;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+.bgd-card__who {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 14px;
+}
+
+.bgd-card__minutes {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 22px;
+    color: var(--bgd-gold);
+}
+
+.bgd-card__title {
+    margin: 12px 0 0 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: var(--bgd-ink);
+    white-space: normal;
+}
+
+.bgd-card__jp {
+    margin: 2px 0 0 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--bgd-soft);
+}
+
+.bgd-card__versions {
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.bgd-card__versions > .bgd-version {
+    margin: 0 6px 0 0;
+}
+
+.bgd-card__plain {
+    margin: 0;
+    padding: 0;
+    height: 26px;
+    font-size: 14px;
+    -unity-text-align: middle-left;
+    color: var(--bgd-dim);
+}
+
+.bgd-foot--overview {
+    height: 92px;
+}
+
+.bgd-timeline {
+    flex-direction: row;
+    flex-grow: 1;
+    height: 30px;
+    margin-right: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.bgd-timeline__segment {
+    align-items: center;
+    justify-content: center;
+    border-right-width: 2px;
+    border-right-color: rgb(30, 20, 16);
+}
+
+.bgd-timeline__label {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+}
+
+.bgd-before {
+    width: 640px;
+    flex-shrink: 0;
+}
+
+.bgd-before > .bgd-eyebrow {
+    margin: 0 0 4px 0;
+}
+
+.bgd-before__text {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: var(--bgd-soft);
+    white-space: normal;
+}
+
+/* ------------------------------------------------------------------ the pictures (BagelDemoVisuals.cs) */
+
+.bgd-vis__row {
+    flex-direction: row;
+    align-items: center;
+    column-gap: 14px;
+}
+
+.bgd-vis__column {
+    align-items: center;
+    row-gap: 14px;
+}
+
+.bgd-vis__arrow {
+    width: 44px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+/* Live screens: no caption (the beat has words), the after ones edged in green. */
+.bgd .bgg-crop__caption {
+    display: none;
+}
+
+.bgd .bgd-vis__crop {
+    flex-shrink: 0;
+    border-width: 2px;
+    border-radius: 12px;
+    border-color: rgba(255, 240, 222, 0.2);
+}
+
+.bgd .bgd-vis__crop--after {
+    border-color: rgb(120, 220, 120);
+}
+
+.bgd .bgd-vis__crop--selected {
+    border-radius: 0;
+    border-width: 0;
+}
+
+.bgd .bgd-vis__crop--selected .bgg-crop__ring {
+    border-width: 2px;
+    border-radius: 0;
+    border-color: rgb(255, 128, 0);
+}
+
+.bgd .bgg-crop__ring-label {
+    position: absolute;
+    left: -2px;
+    bottom: 100%;
+    margin: 0;
+    padding: 1px 5px;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 128, 0);
+    white-space: nowrap;
+}
+
+/* Phones: no caption under them, their taps ringed and nothing else. */
+.bgd .bgd-vis__phone .beall-phone__caption {
+    display: none;
+}
+
+.bgd .bgd-vis__phone .bgg-hotspot {
+    opacity: 1;
+    border-width: 4px;
+    border-radius: 12px;
+}
+
+/* (Hidden, not display: none: the phone sets each badge's display as its target shows.) */
+.bgd .bgd-vis__phone .bgg-hotspot__badge {
+    visibility: hidden;
+}
+
+/* The game's art on a card in the season's paper. */
+.bgd-vis__art {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 560px;
+    padding: 20px;
+    gap: 18px;
+    border-radius: 18px;
+    border-width: 3px;
+    border-color: var(--be-ink, rgb(59, 31, 20));
+    background-color: rgb(255, 246, 232);
+}
+
+.bgd-vis__art-item {
+    width: 92px;
+    height: 92px;
+}
+
+/* A feature's thumbnail from Bagel Features, twice its size, and its name. */
+.bgd-vis__tile {
+    align-items: center;
+    padding: 10px 10px 8px 10px;
+    border-radius: 14px;
+    background-color: rgb(250, 238, 220);
+}
+
+.bgd-vis__tile > .bgft {
+    scale: 1.5 1.5;
+    transform-origin: left top;
+    margin: 0 42px 23px 0;
+}
+
+.bgd-vis__tile > .bgf-mock {
+    scale: 0.63 0.63;
+    transform-origin: left top;
+    margin: 0 -74px -41px 0;
+}
+
+.bgd-vis__tile-title {
+    width: 126px;
+    margin: 8px 0 0 0;
+    padding: 0;
+    font-size: 13px;
+    -unity-text-align: middle-center;
+    color: rgb(59, 31, 20);
+    white-space: normal;
+}
+
+.bgd-vis__features {
+    padding: 10px 14px 14px 14px;
+    background-color: rgb(26, 17, 13);
+}
+
+.bgd-vis__features-modes {
+    flex-direction: row;
+    margin-bottom: 6px;
+}
+
+.bgd-vis__features-mode {
+    margin: 0 6px 0 0;
+    padding: 4px 14px;
+    border-radius: 13px;
+    font-size: 13px;
+    color: var(--bgd-soft);
+    background-color: rgba(255, 240, 222, 0.06);
+}
+
+.bgd-vis__features-mode--on {
+    color: rgb(40, 22, 14);
+    background-color: rgb(255, 214, 120);
+}
+
+.bgd-vis__features-group {
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0 6px 0;
+}
+
+.bgd-vis__version {
+    height: 24px;
+    padding: 0 10px;
+    border-radius: 12px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 13px;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+.bgd-vis__features-groups {
+    flex-direction: row;
+    column-gap: 14px;
+}
+
+.bgd-vis__features-row {
+    row-gap: 10px;
+}
+
+/* A snippet: its language and caption over its colored code. */
+.bgd-vis__snippet {
+    width: 600px;
+    border-width: 1px;
+    border-radius: 14px;
+    border-color: rgba(255, 240, 222, 0.12);
+    background-color: rgb(17, 11, 9);
+    overflow: hidden;
+}
+
+.bgd-vis__snippet-head {
+    flex-direction: row;
+    align-items: center;
+    height: 36px;
+    padding: 0 12px;
+    background-color: rgba(255, 240, 222, 0.05);
+}
+
+.bgd-vis__snippet-language {
+    margin: 0 10px 0 0;
+    padding: 1px 8px;
+    border-radius: 9px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 12px;
+    color: rgb(40, 22, 14);
+    background-color: rgb(255, 214, 120);
+}
+
+.bgd-vis__snippet-caption {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--bgd-soft);
+}
+
+.bgd-vis__snippet-code {
+    margin: 0;
+    padding: 14px 18px 16px 18px;
+    font-size: 16px;
+    color: rgb(240, 226, 208);
+    white-space: pre;
+}
+
+/* The demo toolbar's strips and options, as on the toolbar. */
+.bgd-vis__strip-label {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: var(--bgd-soft);
+}
+
+.bgd-vis__strip {
+    scale: 1.5 1.5;
+    transform-origin: left center;
+    margin-right: 60px;
+}
+
+.bgd-vis__bagel-ui {
+    flex-direction: row;
+    column-gap: 12px;
+    padding: 16px;
+    background-color: rgb(26, 17, 13);
+    background-image: radial-gradient(ellipse at center, rgb(84, 52, 36), rgb(46, 29, 21) 45%, rgb(22, 14, 11));
+}

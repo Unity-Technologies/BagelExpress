@@ -1,0 +1,178 @@
+/* Bagel Express — generic Yes / Cancel confirmation dialog.
+   Resting pose = visible (authorable in UI Builder). Code adds --hidden, --staged (one
+   transparent frame), --open (assigns the DialogIn clip) and --leaving (exit transition). */
+
+.be-confirm {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.be-confirm--hidden {
+    display: none;
+}
+
+.be-confirm__scrim {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(40, 16, 8, 0.42);
+    backdrop-filter: blur(6px);
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+}
+
+/* ------------------------------------------------------------------ Panel */
+
+/* The buttons sit 15 points in (12 padding, 3 border), concentric with the corners like every panel's tiles. */
+.be-confirm__panel {
+    width: 304px;
+    align-items: center;
+    padding: 0 12px 12px 12px;
+    background-image: linear-gradient(to bottom, var(--be-surface-top), var(--be-surface-bottom));
+    overflow: visible;
+}
+
+/* The title band, inside the panel's top. */
+.be-confirm__header {
+    min-width: 200px;
+    height: 50px;
+    margin-top: 18px;
+    padding: 0 22px 4px 22px;
+    align-items: center;
+    justify-content: center;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-m);
+    border-bottom-width: var(--be-tile-lip);
+}
+
+.be-confirm__title {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 30px;
+    letter-spacing: 1.5px;
+    color: var(--be-white);
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 3px 0 rgb(59, 31, 20);
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------------------------------------------------------ Art slot */
+
+.be-confirm__art {
+    width: 120px;
+    height: 112px;
+    margin-top: 6px;
+    align-items: center;
+    justify-content: center;
+}
+
+.be-confirm__art-glow {
+    position: absolute;
+    left: -30px;
+    top: -30px;
+    right: -30px;
+    bottom: -30px;
+    border-radius: 50%;
+    background-image: radial-gradient(circle at center, rgba(255, 214, 80, 0.85), rgba(255, 196, 40, 0) 68%);
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/GlowBreath.asset") 2s infinite;
+}
+
+.be-confirm__art-disc {
+    width: 96px;
+    height: 96px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 48px;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    background-image: radial-gradient(circle at center, rgb(255, 252, 236), var(--be-gold-light) 60%, var(--be-gold));
+}
+
+.be-confirm__icon {
+    width: 70px;
+    height: 70px;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/FloatBob.asset") 1.6s infinite;
+}
+
+.be-confirm--no-art .be-confirm__art {
+    display: none;
+}
+
+.be-confirm--no-art .be-confirm__message {
+    margin-top: 18px;
+}
+
+/* ------------------------------------------------------------------ Text & buttons */
+
+.be-confirm__message {
+    margin: 8px 4px 16px 4px;
+    padding: 0;
+    font-size: var(--be-font-m);
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    white-space: normal;
+    color: var(--be-text);
+}
+
+.be-confirm__buttons {
+    flex-direction: row;
+    align-self: stretch;
+    gap: 12px;
+}
+
+.be-confirm__button {
+    flex-grow: 1;
+    flex-basis: 0;
+    height: 54px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.be-confirm__button-label {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 26px;
+    letter-spacing: 1.5px;
+    -unity-text-outline-width: 1.5px;
+}
+
+.be-confirm__button-label--cancel {
+    color: var(--be-text-soft);
+    -unity-text-outline-width: 0;
+}
+
+/* ------------------------------------------------------------------ Show / hide */
+
+.be-confirm--staged .be-confirm__scrim,
+.be-confirm--staged .be-confirm__panel {
+    opacity: 0;
+}
+
+.be-confirm--open .be-confirm__panel {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/DialogIn.asset");
+}
+
+/* The panel's DialogIn clip holds opacity/scale at 1, so the exit fades the whole
+   dialog and only translates the panel (a property the clip doesn't drive). */
+.be-confirm--leaving {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.18s;
+    transition-timing-function: ease-in;
+}
+
+.be-confirm--leaving .be-confirm__panel {
+    translate: 0 28px;
+    transition-property: translate;
+    transition-duration: 0.18s;
+    transition-timing-function: ease-in;
+}

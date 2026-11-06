@@ -1,0 +1,161 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:loc="Unity.Localization" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="ConfirmDialog.uss"/>
+    <Style src="PlayerStatsDialog.uss"/>
+    <Bagel.PlayerStatsDialog name="stats-dialog">
+        <ui:VisualElement name="confirm-scrim" class="be-confirm__scrim"/>
+        <ui:VisualElement name="confirm-panel" class="be-panel be-confirm__panel be-stats__panel">
+            <ui:VisualElement name="confirm-header" picking-mode="Ignore" class="be-band be-confirm__header">
+                <ui:VisualElement picking-mode="Ignore" class="be-gloss be-confirm__header-gloss"/>
+                <ui:Label name="confirm-title" text="Begu-chan" picking-mode="Ignore" class="be-confirm__title"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="stats-mood" picking-mode="Ignore" class="be-stats__mood">
+                <ui:VisualElement picking-mode="Ignore" class="be-stats__avatar">
+                    <Bagel.BeguChan name="stats-mascot" picking-mode="Ignore" class="be-stats__mascot">
+                        <Bindings>
+                            <ui:DataBinding property="mood" data-source-path="mood" binding-mode="ToTarget"/>
+                        </Bindings>
+                    </Bagel.BeguChan>
+                </ui:VisualElement>
+                <ui:VisualElement picking-mode="Ignore" class="be-stats__mood-text">
+                    <ui:Label text="MOOD" picking-mode="Ignore" class="be-eyebrow be-stats__eyebrow">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="stats.mood"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label name="mood-name" text="Excited" picking-mode="Ignore" class="be-stats__mood-name"/>
+                    <ui:Label name="mood-reason" text="A milestone upgrade is in reach!" picking-mode="Ignore" class="be-stats__note"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="stats-income" picking-mode="Ignore" class="be-stats__section">
+                <ui:VisualElement picking-mode="Ignore" class="be-stats__section-head">
+                    <ui:Label text="COIN RATE" picking-mode="Ignore" class="be-eyebrow be-stats__eyebrow">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="stats.income"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:VisualElement picking-mode="Ignore" class="be-chip be-stats__income">
+                        <ui:Label text="+" picking-mode="Ignore" class="be-stats__income-text"/>
+                        <ui:Label name="income-total" text="11.5/s" picking-mode="Ignore" class="be-stats__income-text">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="incomePerSecond" binding-mode="ToTarget" source-to-ui-converters="be-rate"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Label name="income-paused" text="Paused while the register is full" picking-mode="Ignore" class="be-stats__paused">
+                    <Bindings>
+                        <loc:LocalizedString property="text" table="BagelStrings" entry="stats.income.paused"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:VisualElement name="income-shops" picking-mode="Ignore" class="be-stats__rows"/>
+                <ui:VisualElement name="recipes-bonus" picking-mode="Ignore" class="be-stats__row">
+                    <ui:Label name="recipes-bonus-label" text="Recipe Book bonus · 3 of 12" picking-mode="Ignore" class="be-stats__row-label"/>
+                    <ui:Label name="recipes-bonus-value" text="+15%" picking-mode="Ignore" class="be-stats__row-value">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="recipeMultiplier" binding-mode="ToTarget" source-to-ui-converters="be-percent-bonus"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement name="milestone-boost" picking-mode="Ignore" class="be-stats__row">
+                    <ui:Label name="milestone-boost-label" text="Each milestone: +50% for its shop" picking-mode="Ignore" class="be-stats__row-label"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="stats-level" picking-mode="Ignore" class="be-stats__section">
+                <ui:VisualElement picking-mode="Ignore" class="be-stats__section-head">
+                    <ui:Label text="PLAYER LEVEL" picking-mode="Ignore" class="be-eyebrow be-stats__eyebrow">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="stats.level"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label name="level-value" text="Lv.12" picking-mode="Ignore" class="be-stats__level">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="playerLevel" binding-mode="ToTarget" source-to-ui-converters="be-level"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:Label name="level-how" text="Every 5 levels a shop reaches a milestone: +1 level and 50 Maple Gems." picking-mode="Ignore" class="be-stats__note"/>
+                <ui:VisualElement name="level-next" picking-mode="Ignore" class="be-stats__row">
+                    <ui:Label name="level-next-label" text="Next: Mile End Bagel Bar → Lv.5" picking-mode="Ignore" class="be-stats__row-label"/>
+                    <ui:VisualElement picking-mode="Ignore" class="be-stats__cost">
+                        <Bagel.CurrencyIcon kind="Coins" picking-mode="Ignore" class="be-stats__cost-icon"/>
+                        <ui:Label name="level-next-cost" text="99" picking-mode="Ignore" class="be-stats__cost-text"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Label name="level-max" text="Every open shop is at its max level. Open another!" picking-mode="Ignore" class="be-stats__note be-stats--gone">
+                    <Bindings>
+                        <loc:LocalizedString property="text" table="BagelStrings" entry="stats.level.max"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:VisualElement name="stats-grid" picking-mode="Ignore" class="be-stats__grid">
+                <ui:VisualElement picking-mode="Ignore" class="be-stats__cell">
+                    <ui:Label name="coins-value" text="1,250" picking-mode="Ignore" class="be-stats__cell-value">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="coins" binding-mode="ToTarget" source-to-ui-converters="be-number"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label text="Coins" picking-mode="Ignore" class="be-stats__cell-label">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="stats.coins"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement picking-mode="Ignore" class="be-stats__cell">
+                    <ui:Label name="gems-value" text="300" picking-mode="Ignore" class="be-stats__cell-value">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="gems" binding-mode="ToTarget" source-to-ui-converters="be-number"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label text="Maple Gems" picking-mode="Ignore" class="be-stats__cell-label">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="stats.gems"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement picking-mode="Ignore" class="be-stats__cell">
+                    <ui:Label name="tickets-value" text="6" picking-mode="Ignore" class="be-stats__cell-value">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="tickets" binding-mode="ToTarget" source-to-ui-converters="be-number"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label text="Tickets" picking-mode="Ignore" class="be-stats__cell-label">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="stats.tickets"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement picking-mode="Ignore" class="be-stats__cell">
+                    <ui:Label name="recipes-value" text="3/12" picking-mode="Ignore" class="be-stats__cell-value"/>
+                    <ui:Label text="Recipes" picking-mode="Ignore" class="be-stats__cell-label">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="stats.recipes"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement picking-mode="Ignore" class="be-stats__cell">
+                    <ui:Label name="shops-value" text="2/5" picking-mode="Ignore" class="be-stats__cell-value"/>
+                    <ui:Label text="Shops open" picking-mode="Ignore" class="be-stats__cell-label">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="stats.shops"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement picking-mode="Ignore" class="be-stats__cell">
+                    <ui:Label name="tap-value" text="+9" picking-mode="Ignore" class="be-stats__cell-value"/>
+                    <ui:Label text="Per tap" picking-mode="Ignore" class="be-stats__cell-label">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="stats.tap"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="confirm-buttons" picking-mode="Ignore" class="be-confirm__buttons">
+                <ui:Button name="confirm-yes-button" class="be-btn be-btn--mint be-confirm__button">
+                    <ui:VisualElement picking-mode="Ignore" class="be-gloss"/>
+                    <ui:Label name="confirm-yes-label" text="GOT IT!" picking-mode="Ignore" class="be-btn__label be-confirm__button-label"/>
+                    <Bagel.PressSquish pressed-scale="0.92"/>
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </Bagel.PlayerStatsDialog>
+</ui:UXML>

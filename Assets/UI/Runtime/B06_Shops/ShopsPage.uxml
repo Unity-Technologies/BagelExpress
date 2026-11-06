@@ -1,0 +1,34 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:loc="Unity.Localization" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Runtime/B06_Shops/ShopsStyles.uss?fileID=7433441132597879392&amp;guid=3c61222987a4040d1a5e7c90764a8f8a&amp;type=3#ShopsStyles"/>
+    <Bagel.ShopsPaneManager name="shops" start-state="project://database/Assets/Game/Core/DemoStartState.asset?fileID=11400000&amp;guid=a4d6dc225104644abaac94da2fa5c72b&amp;type=2#DemoStartState">
+        <ui:VisualElement name="shop-well" class="be-scroll-well">
+            <ui:ListView name="shop-list" virtualization-method="DynamicHeight" selection-type="None" binding-source-selection-mode="AutoAssign" item-template="ShopCard.uxml" show-bound-collection-size="false" authoring-id="1223572835" class="be-shops__list">
+                <Bindings>
+                    <ui:DataBinding property="itemsSource" data-source-path="shops" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:ListView>
+        </ui:VisualElement>
+        <ui:VisualElement picking-mode="Ignore" class="be-page-chrome be-fill">
+            <ui:VisualElement name="shop-glass" picking-mode="Ignore" class="be-glass be-page-glass"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="shops-content" picking-mode="Ignore" class="be-page-content be-page-content--scroll">
+            <ui:VisualElement name="shops-header" picking-mode="Ignore" class="be-page-header">
+                <ui:VisualElement picking-mode="Ignore" class="be-heading">
+                    <ui:Label text="店舗 · BAKERIES" picking-mode="Ignore" class="be-eyebrow be-heading__eyebrow">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="page.shops.eyebrow"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label text="SHOPS" picking-mode="Ignore" class="be-heading__title">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="page.shops.title"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement picking-mode="Ignore" class="be-chip be-shops__summary">
+                    <ui:Label name="open-count" text="2 bakeries open" picking-mode="Ignore" class="be-shops__summary-text"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </Bagel.ShopsPaneManager>
+</ui:UXML>

@@ -1,0 +1,21 @@
+/* Settings › Performance › Disable glass (or Auto mode, when the frame rate stays too low). BakeryAppManager adds this
+   style sheet to the app root, and takes it off again: nothing else changes. Every blurred backdrop stops blurring and keeps
+   its tint: the frosted glass (the scrolling pages' cover and the nav's bar), the dialogs' scrims and the Lucky Bag's
+   caption and results. LEVEL UP!'s halftone (a custom filter) stays.
+
+   Measured on 2026-10-16: the scrolling pages' glass blur alone took Shops from 14 to 105 ms of GPU on an iPhone 12 Pro
+   and from 22 to 218 ms on a Galaxy S10, whose nav bar blur also cost about 24 ms. Two classes outrank the pages' own
+   one-class rules; Disable all filters (#app *) still wins over everything. */
+
+/* Glass that doesn't blur is nearly opaque instead, so what scrolls under it doesn't show through sharply. */
+.be-app .be-glass {
+    background-color: var(--be-frost-solid);
+}
+
+.be-app .be-glass,
+.be-app .be-confirm__scrim,
+.be-app .be-recipes__scrim,
+.be-app .be-lucky-bag__banner-text,
+.be-app .be-lucky-bag__results {
+    backdrop-filter: none;
+}

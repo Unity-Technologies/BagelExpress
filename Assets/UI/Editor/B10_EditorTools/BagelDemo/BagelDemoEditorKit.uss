@@ -1,0 +1,1186 @@
+/* The Editor's windows recreated for the Bagel Demo window (BagelDemoEditorKit.cs), at the Editor's size and in its
+   theme: the Editor's sheets are on every themed part, then this one, so its colors (with the dark skin's as
+   fallbacks), its font and its controls' looks are the Editor's own. Everything is a picture: nothing picks. */
+
+.bgd-ed {
+    font-size: 12px;
+    color: var(--unity-colors-default-text, rgb(210, 210, 210));
+}
+
+.bgd-ed__grow {
+    flex-grow: 1;
+}
+
+.bgd-ed__icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+/* ------------------------------------------------------------------ a window: tabs over a body */
+
+.bgd-ed__window {
+    flex-shrink: 0;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: rgb(20, 20, 20);
+    background-color: rgb(56, 56, 56);
+    overflow: hidden;
+}
+
+.bgd-ed__window--floating {
+    border-color: rgb(90, 90, 90);
+}
+
+.bgd-ed__tabs {
+    flex-direction: row;
+    align-items: flex-end;
+    height: 26px;
+    flex-shrink: 0;
+    padding: 0 2px 0 2px;
+    background-color: rgb(32, 32, 32);
+    overflow: hidden;
+}
+
+.bgd-ed__tab {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    height: 23px;
+    padding: 0 10px 0 7px;
+    margin-right: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: rgb(40, 40, 40);
+}
+
+.bgd-ed__tab--active {
+    background-color: rgb(56, 56, 56);
+}
+
+.bgd-ed__tab-label {
+    margin: 0;
+    padding: 0;
+    color: rgb(150, 150, 150);
+    white-space: nowrap;
+}
+
+.bgd-ed__tab--active > .bgd-ed__tab-label {
+    color: rgb(222, 222, 222);
+}
+
+.bgd-ed__tab-menu {
+    align-self: center;
+    margin: 0 2px 0 0;
+}
+
+.bgd-ed__body {
+    flex-grow: 1;
+}
+
+/* ------------------------------------------------------------------ toolbars and fields */
+
+.bgd-ed__toolbar {
+    flex-direction: row;
+    align-items: center;
+    height: 26px;
+    flex-shrink: 0;
+    padding: 0 4px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(25, 25, 25);
+    background-color: rgb(60, 60, 60);
+}
+
+.bgd-ed__toolbar > * {
+    margin-right: 4px;
+}
+
+.bgd-ed__toolbar-item {
+    margin: 0 2px 0 0;
+    padding: 2px 8px;
+    border-right-width: 1px;
+    border-right-color: rgb(36, 36, 36);
+    color: rgb(222, 222, 222);
+    white-space: nowrap;
+}
+
+.bgd-ed__toolbar-item--dim {
+    color: rgb(130, 130, 130);
+}
+
+.bgd-ed__toolbar-item--title {
+    -unity-font-style: bold;
+    border-right-width: 0;
+}
+
+.bgd-ed__toolbar-item--on {
+    border-radius: 3px;
+    border-right-width: 0;
+    background-color: rgb(70, 96, 124);
+    color: rgb(255, 255, 255);
+}
+
+.bgd-ed__search-row {
+    flex-direction: row;
+    padding: 4px 5px;
+    flex-shrink: 0;
+}
+
+.bgd-ed__search {
+    flex-direction: row;
+    align-items: center;
+    height: 20px;
+    min-width: 120px;
+    padding: 0 6px 0 4px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: rgb(33, 33, 33);
+    background-color: rgb(42, 42, 42);
+}
+
+.bgd-ed__search--grow {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.bgd-ed__search-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.bgd-ed__search-clear {
+    margin: 0;
+    padding: 0;
+    color: rgb(170, 170, 170);
+}
+
+.bgd-ed__value {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: row;
+    align-items: center;
+    height: 20px;
+    min-width: 40px;
+    padding: 0 5px;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: rgb(33, 33, 33);
+    background-color: rgb(42, 42, 42);
+    overflow: hidden;
+}
+
+.bgd-ed__value-label {
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    color: rgb(222, 222, 222);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bgd-ed__placeholder {
+    color: rgb(128, 128, 128);
+}
+
+.bgd-ed__value--object > .bgd-ed__value-label {
+    flex-grow: 1;
+}
+
+.bgd-ed__object-picker {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+}
+
+.bgd-ed__value--dropdown {
+    flex-grow: 0;
+    justify-content: space-between;
+    background-color: rgb(81, 81, 81);
+    border-color: rgb(36, 36, 36);
+}
+
+.bgd-ed__dropdown-arrow {
+    margin: 0 0 0 6px;
+    padding: 0;
+    font-size: 10px;
+    color: rgb(222, 222, 222);
+}
+
+.bgd-ed__value--number {
+    flex-grow: 0;
+    min-width: 76px;
+    padding-right: 0;
+    justify-content: space-between;
+}
+
+.bgd-ed__unit {
+    height: 100%;
+    margin: 0;
+    padding: 0 6px;
+    -unity-text-align: middle-center;
+    background-color: rgb(70, 70, 70);
+    color: rgb(222, 222, 222);
+}
+
+.bgd-ed__value--frame {
+    flex-grow: 0;
+    min-width: 44px;
+}
+
+.bgd-ed__value--color {
+    padding: 2px 2px 2px 3px;
+}
+
+.bgd-ed__color-bar {
+    flex-grow: 1;
+    height: 100%;
+    margin-right: 3px;
+    border-radius: 2px;
+}
+
+.bgd-ed__eyedropper {
+    margin: 0;
+    width: 14px;
+    height: 14px;
+}
+
+.bgd-ed__value--gradient {
+    height: 18px;
+    padding: 2px;
+}
+
+.bgd-ed__gradient-slice {
+    flex-grow: 1;
+    height: 100%;
+}
+
+.bgd-ed__value--selector {
+    flex-grow: 0;
+    margin: 0 6px 6px 6px;
+}
+
+.bgd-ed__selector {
+    -unity-font-style: bold;
+    color: rgb(204, 204, 120);
+}
+
+.bgd-ed__check {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    align-items: center;
+    justify-content: center;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: rgb(33, 33, 33);
+    background-color: rgb(42, 42, 42);
+}
+
+.bgd-ed__check-mark {
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    color: rgb(230, 230, 230);
+}
+
+.bgd-ed__button {
+    flex-shrink: 0;
+    margin: 0 0 0 4px;
+    padding: 2px 10px;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: rgb(36, 36, 36);
+    background-color: rgb(88, 88, 88);
+    color: rgb(238, 238, 238);
+    -unity-text-align: middle-center;
+}
+
+.bgd-ed__button--wide {
+    margin: 6px 40px 0 40px;
+}
+
+/* ------------------------------------------------------------------ trees: the Hierarchy, the UI Library */
+
+.bgd-ed__columns {
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0 6px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(30, 30, 30);
+    background-color: rgb(62, 62, 62);
+}
+
+.bgd-ed__column-label {
+    margin: 0 0 0 10px;
+    padding: 0;
+    color: rgb(196, 196, 196);
+    -unity-text-align: middle-left;
+}
+
+.bgd-ed__row {
+    flex-direction: row;
+    align-items: center;
+    height: 20px;
+    flex-shrink: 0;
+    padding-right: 6px;
+}
+
+.bgd-ed__row--odd {
+    background-color: rgba(255, 255, 255, 0.025);
+}
+
+.bgd-ed__row--selected {
+    background-color: rgb(44, 93, 135);
+}
+
+.bgd-ed__row--dragged {
+    opacity: 0.4;
+}
+
+.bgd-ed__row--new {
+    background-color: rgb(44, 93, 135);
+    border-left-width: 3px;
+    border-left-color: rgb(120, 220, 120);
+}
+
+.bgd-ed__foldout {
+    flex-shrink: 0;
+    width: 12px;
+    margin: 0 2px 0 0;
+    padding: 0;
+    font-size: 10px;
+    color: rgb(170, 170, 170);
+    -unity-text-align: middle-center;
+}
+
+.bgd-ed__name {
+    flex-shrink: 0;
+    margin: 0 5px 0 0;
+    padding: 0;
+    color: rgb(222, 222, 222);
+    white-space: nowrap;
+}
+
+.bgd-ed__name--element {
+    color: rgb(136, 178, 245);
+}
+
+.bgd-ed__name--bold {
+    -unity-font-style: bold;
+}
+
+.bgd-ed__row--selected .bgd-ed__name {
+    color: rgb(255, 255, 255);
+}
+
+.bgd-ed__asset {
+    flex-shrink: 0;
+    margin: 0 5px 0 0;
+    padding: 0;
+    color: rgb(150, 150, 150);
+    white-space: nowrap;
+}
+
+.bgd-ed__row--selected .bgd-ed__asset {
+    color: rgb(214, 224, 236);
+}
+
+.bgd-ed__classes {
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    color: rgb(204, 204, 120);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bgd-ed__open-instance {
+    flex-shrink: 0;
+    margin: 0 0 0 4px;
+    padding: 0;
+    font-size: 14px;
+    color: rgb(170, 170, 170);
+}
+
+.bgd-ed__drop-line {
+    position: absolute;
+    left: 40px;
+    right: 4px;
+    bottom: -2px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: rgb(58, 148, 255);
+}
+
+.bgd-ed__modified {
+    margin: 0;
+    padding: 0 5px;
+    border-radius: 3px;
+    -unity-font-style: bold;
+    font-size: 10px;
+    color: rgb(30, 20, 10);
+    background-color: rgb(240, 170, 60);
+}
+
+.bgd-ed__library-tabs {
+    flex-direction: row;
+    height: 26px;
+    flex-shrink: 0;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(30, 30, 30);
+}
+
+.bgd-ed__library-tab {
+    margin: 0 0 0 10px;
+    padding: 0 18px;
+    border-bottom-width: 2px;
+    border-bottom-color: rgb(58, 121, 187);
+    -unity-text-align: middle-center;
+    color: rgb(222, 222, 222);
+}
+
+/* ------------------------------------------------------------------ the Inspector */
+
+.bgd-ed__header-block {
+    flex-shrink: 0;
+    padding: 6px 6px 4px 6px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(30, 30, 30);
+    background-color: rgb(62, 62, 62);
+}
+
+.bgd-ed__header {
+    flex-direction: row;
+    align-items: center;
+}
+
+.bgd-ed__header-icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 8px 0 2px;
+}
+
+.bgd-ed__header-column {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.bgd-ed__header-type {
+    margin: 0 0 2px 0;
+    padding: 0;
+    color: rgb(196, 196, 196);
+}
+
+.bgd-ed__header-row {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2px;
+}
+
+.bgd-ed__header-source {
+    margin-top: 5px;
+}
+
+.bgd-ed__header-source > .bgd-ed__icon {
+    margin: 0 0 0 6px;
+}
+
+.bgd-ed__filters {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 2px 6px 6px 6px;
+}
+
+.bgd-ed__filters-label {
+    margin: 0 4px 0 0;
+    padding: 0;
+    -unity-font-style: bold;
+    color: rgb(210, 210, 210);
+}
+
+.bgd-ed__filter {
+    margin: 0 2px 0 0;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: rgb(210, 210, 210);
+    white-space: nowrap;
+}
+
+.bgd-ed__filter--on {
+    background-color: rgb(96, 96, 96);
+    color: rgb(255, 255, 255);
+}
+
+.bgd-ed__section {
+    flex-shrink: 0;
+    padding-bottom: 4px;
+}
+
+.bgd-ed__section-header,
+.bgd-ed__component-header {
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+    flex-shrink: 0;
+    padding: 0 6px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-color: rgb(30, 30, 30);
+    background-color: rgb(70, 70, 70);
+}
+
+.bgd-ed__component-header {
+    background-color: rgb(62, 62, 62);
+}
+
+.bgd-ed__section-title {
+    margin: 0;
+    padding: 0;
+    -unity-font-style: bold;
+    color: rgb(222, 222, 222);
+    white-space: nowrap;
+}
+
+.bgd-ed__field {
+    flex-direction: row;
+    align-items: center;
+    min-height: 24px;
+    flex-shrink: 0;
+    padding: 1px 6px 1px 4px;
+    border-left-width: 3px;
+    border-left-color: rgba(0, 0, 0, 0);
+}
+
+.bgd-ed__field--highlighted {
+    border-left-color: rgb(255, 196, 40);
+    background-color: rgba(255, 196, 40, 0.12);
+}
+
+.bgd-ed__field-name {
+    flex-direction: row;
+    align-items: center;
+    width: 42%;
+    flex-shrink: 0;
+}
+
+.bgd-ed__field--sub > .bgd-ed__field-name {
+    padding-left: 18px;
+}
+
+.bgd-ed__variable {
+    width: 16px;
+    margin: 0 2px 0 0;
+    padding: 0;
+    font-size: 10px;
+    color: rgb(150, 150, 150);
+}
+
+.bgd-ed__field-label {
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    color: rgb(210, 210, 210);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bgd-ed__field-label--short {
+    flex-shrink: 0;
+    width: auto;
+    margin-right: 8px;
+}
+
+.bgd-ed__empty {
+    margin: 4px 0 4px 24px;
+    padding: 0;
+}
+
+.bgd-ed__class-list {
+    padding: 4px 8px 6px 8px;
+}
+
+.bgd-ed__chips {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.bgd-ed__chip {
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+    margin: 0 4px 4px 0;
+    padding: 0 4px 0 8px;
+    border-radius: 3px;
+    background-color: rgb(78, 78, 78);
+}
+
+.bgd-ed__chip-label {
+    margin: 0 4px 0 0;
+    padding: 0;
+    color: rgb(222, 222, 222);
+}
+
+.bgd-ed__chip-close {
+    margin: 0;
+    padding: 0;
+    color: rgb(170, 170, 170);
+}
+
+.bgd-ed__chip--removed {
+    opacity: 0.5;
+    border-width: 1px;
+    border-color: rgb(220, 90, 80);
+    background-color: rgba(220, 90, 80, 0.18);
+}
+
+.bgd-ed__chip--removed > .bgd-ed__chip-label {
+    color: rgb(255, 160, 150);
+}
+
+.bgd-ed__chip--added {
+    border-width: 1px;
+    border-color: rgb(120, 220, 120);
+    background-color: rgba(120, 220, 120, 0.2);
+}
+
+.bgd-ed__component {
+    margin: 2px 6px 2px 6px;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: rgb(30, 30, 30);
+    background-color: rgb(62, 62, 62);
+}
+
+.bgd-ed__component-row {
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+    padding: 0 6px;
+}
+
+.bgd-ed__add-component {
+    padding-bottom: 6px;
+}
+
+.bgd-ed__popup {
+    margin: 4px 30px 0 30px;
+    padding: 4px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: rgb(25, 25, 25);
+    background-color: rgb(48, 48, 48);
+}
+
+.bgd-ed__popup > .bgd-ed__search {
+    margin-bottom: 4px;
+}
+
+.bgd-ed__popup-item {
+    flex-direction: row;
+    align-items: center;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 3px;
+}
+
+.bgd-ed__popup-item--on {
+    background-color: rgb(44, 93, 135);
+}
+
+.bgd-ed__popup-label {
+    margin: 0;
+    padding: 0;
+    color: rgb(230, 230, 230);
+}
+
+.bgd-ed__picker {
+    flex-direction: row;
+}
+
+.bgd-ed__picker-cell {
+    width: 34px;
+    height: 34px;
+    margin-right: 4px;
+    align-items: center;
+    justify-content: center;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: rgb(33, 33, 33);
+    background-color: rgb(42, 42, 42);
+}
+
+.bgd-ed__picker-cell--selected {
+    border-width: 2px;
+    border-color: rgb(58, 148, 255);
+}
+
+.bgd-ed__pastry {
+    width: 26px;
+    height: 26px;
+}
+
+/* ------------------------------------------------------------------ Style Sheets and UI Builder */
+
+.bgd-ed__rule-row {
+    flex-direction: row;
+    padding: 2px 6px 2px 28px;
+    flex-shrink: 0;
+}
+
+.bgd-ed__rule {
+    margin: 0;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background-color: rgb(46, 46, 46);
+    color: rgb(204, 204, 120);
+}
+
+.bgd-ed__rule--selected {
+    background-color: rgb(44, 93, 135);
+    color: rgb(255, 255, 255);
+}
+
+.bgd-ed__split {
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.bgd-ed__builder-pane {
+    width: 46%;
+    flex-shrink: 0;
+    padding-bottom: 6px;
+    border-right-width: 1px;
+    border-right-color: rgb(30, 30, 30);
+}
+
+.bgd-ed__builder-pane--inspector {
+    flex-grow: 1;
+    flex-shrink: 1;
+    border-right-width: 0;
+}
+
+.bgd-ed__pane-title {
+    margin: 0 0 4px 0;
+    padding: 3px 8px;
+    -unity-font-style: bold;
+    color: rgb(210, 210, 210);
+    background-color: rgb(62, 62, 62);
+}
+
+/* ------------------------------------------------------------------ the UI Viewport and the Game view */
+
+.bgd-ed__breadcrumbs {
+    flex-direction: row;
+    height: 24px;
+    flex-shrink: 0;
+    padding: 0 6px;
+    background-color: rgb(48, 48, 48);
+}
+
+.bgd-ed__crumb {
+    flex-direction: row;
+    align-items: center;
+    padding: 0 12px 0 4px;
+}
+
+.bgd-ed__crumb-label {
+    margin: 0;
+    padding: 0;
+    color: rgb(222, 222, 222);
+    white-space: nowrap;
+}
+
+.bgd-ed__toolbar--viewport {
+    padding-left: 0;
+}
+
+.bgd-ed__canvas {
+    align-items: center;
+    padding: 14px 18px;
+    background-color: rgb(32, 32, 32);
+}
+
+.bgd-ed__canvas--game {
+    padding: 8px;
+    background-color: rgb(20, 20, 20);
+}
+
+.bgd-ed__document {
+    padding: 0 4px 4px 4px;
+    background-color: rgb(48, 48, 48);
+}
+
+.bgd-ed__document-title {
+    margin: 0;
+    padding: 3px 2px;
+    color: rgb(210, 210, 210);
+}
+
+.bgd-ed__play {
+    flex-direction: row;
+    align-self: center;
+    padding: 3px;
+    border-radius: 6px;
+    background-color: rgb(25, 25, 25);
+}
+
+.bgd-ed__play-button {
+    width: 30px;
+    height: 22px;
+    margin: 0 1px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: rgb(70, 70, 70);
+}
+
+.bgd-ed__play-button--on {
+    background-color: rgb(58, 121, 187);
+}
+
+.bgd-ed__play-button > .bgd-ed__icon {
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------ Animation and Profiler */
+
+.bgd-ed__window--recording .bgd-ed__ruler {
+    background-color: rgb(140, 46, 46);
+}
+
+.bgd-ed__record--on {
+    -unity-background-image-tint-color: rgb(255, 70, 60);
+}
+
+.bgd-ed__tracks {
+    width: 46%;
+    flex-shrink: 0;
+    border-right-width: 1px;
+    border-right-color: rgb(25, 25, 25);
+}
+
+.bgd-ed__track {
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+    padding: 0 6px 0 14px;
+}
+
+.bgd-ed__track--selected {
+    background-color: rgb(44, 93, 135);
+}
+
+.bgd-ed__track-label {
+    margin: 0;
+    padding: 0;
+    color: rgb(222, 222, 222);
+    white-space: nowrap;
+}
+
+.bgd-ed__timeline {
+    flex-grow: 1;
+    background-color: rgb(46, 46, 46);
+}
+
+.bgd-ed__ruler {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 52px;
+    padding: 4px 6px 0 6px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(25, 25, 25);
+    background-color: rgb(56, 56, 56);
+}
+
+.bgd-ed__ruler-mark {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    color: rgb(170, 170, 170);
+}
+
+.bgd-ed__lanes {
+    flex-grow: 1;
+}
+
+.bgd-ed__lane {
+    height: 22px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(40, 40, 40);
+}
+
+.bgd-ed__lane--selected {
+    background-color: rgba(44, 93, 135, 0.45);
+}
+
+.bgd-ed__key {
+    position: absolute;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    margin-left: -4px;
+    rotate: 45deg;
+    border-width: 1px;
+    border-color: rgb(30, 30, 30);
+    background-color: rgb(200, 200, 200);
+}
+
+.bgd-ed__playhead {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: rgb(255, 255, 255);
+}
+
+.bgd-ed__window--recording .bgd-ed__playhead {
+    background-color: rgb(255, 70, 60);
+}
+
+.bgd-ed__modules {
+    width: 36%;
+    flex-shrink: 0;
+    padding: 4px 6px;
+    border-right-width: 1px;
+    border-right-color: rgb(25, 25, 25);
+}
+
+.bgd-ed__module {
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+}
+
+.bgd-ed__swatch {
+    width: 9px;
+    height: 9px;
+    margin-right: 6px;
+    border-radius: 2px;
+}
+
+.bgd-ed__module-label {
+    margin: 0;
+    padding: 0;
+    color: rgb(222, 222, 222);
+    white-space: nowrap;
+}
+
+.bgd-ed__chart {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 6px 4px 2px 4px;
+    background-color: rgb(36, 36, 36);
+}
+
+.bgd-ed__chart-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 48%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.bgd-ed__chart-line-label {
+    position: absolute;
+    right: 4px;
+    top: -15px;
+    margin: 0;
+    padding: 0;
+    font-size: 9px;
+    color: rgb(200, 200, 200);
+}
+
+.bgd-ed__frame {
+    flex-grow: 1;
+    margin: 0 1px;
+    justify-content: flex-start;
+    background-color: rgb(92, 184, 107);
+}
+
+.bgd-ed__frame-ui {
+    background-color: rgb(237, 140, 46);
+}
+
+/* ------------------------------------------------------------------ Resource Tables */
+
+.bgd-ed__table {
+    padding: 4px;
+}
+
+.bgd-ed__table-row {
+    flex-direction: row;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(36, 36, 36);
+}
+
+.bgd-ed__table-row--header {
+    background-color: rgb(62, 62, 62);
+}
+
+.bgd-ed__cell {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 0;
+    padding: 4px 6px;
+    border-right-width: 1px;
+    border-right-color: rgb(36, 36, 36);
+    color: rgb(222, 222, 222);
+    white-space: normal;
+}
+
+.bgd-ed__cell--key {
+    color: rgb(170, 170, 170);
+}
+
+.bgd-ed__cell--edited {
+    border-width: 2px;
+    border-color: rgb(58, 148, 255);
+    background-color: rgb(42, 42, 42);
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+}
+
+/* ------------------------------------------------------------------ the Bagel menu (macOS's) */
+
+.bgd-ed__menus {
+    flex-shrink: 0;
+    font-size: 13px;
+}
+
+.bgd-ed__menubar {
+    flex-direction: row;
+    align-items: center;
+    height: 26px;
+    padding: 0 8px;
+    border-radius: 6px;
+    background-color: rgb(46, 46, 50);
+}
+
+.bgd-ed__menubar-item {
+    margin: 0 2px 0 0;
+    padding: 2px 9px;
+    border-radius: 4px;
+    color: rgb(235, 235, 235);
+}
+
+.bgd-ed__menubar-item--open {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.bgd-ed__menu-panels {
+    flex-direction: row;
+    margin-left: 96px;
+}
+
+.bgd-ed__menu {
+    width: 210px;
+    padding: 5px;
+    border-width: 1px;
+    border-radius: 8px;
+    border-color: rgb(80, 80, 84);
+    background-color: rgb(44, 44, 48);
+}
+
+.bgd-ed__menu--sub {
+    width: 220px;
+    margin: 134px 0 0 -6px;
+}
+
+.bgd-ed__menu-item {
+    flex-direction: row;
+    align-items: center;
+    height: 24px;
+    padding: 0 10px;
+    border-radius: 4px;
+}
+
+.bgd-ed__menu-item--on {
+    background-color: rgb(10, 100, 220);
+}
+
+.bgd-ed__menu-label {
+    margin: 0;
+    padding: 0;
+    color: rgb(235, 235, 235);
+}
+
+.bgd-ed__menu-separator {
+    height: 1px;
+    margin: 4px 8px;
+    background-color: rgb(80, 80, 84);
+}
+
+/* ------------------------------------------------------------------ small things */
+
+/* A key on the keyboard, in light keycap plastic. */
+.bgd-ed__key-cap {
+    flex-shrink: 0;
+    align-self: center;
+    min-width: 44px;
+    height: 44px;
+    margin: 8px;
+    padding: 0 12px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    border-bottom-width: 4px;
+    border-color: rgb(150, 140, 130);
+    background-color: rgb(244, 238, 230);
+}
+
+.bgd-ed__key-label {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    -unity-font-style: bold;
+    color: rgb(40, 30, 24);
+    white-space: nowrap;
+}
+
+.bgd-ed__change {
+    flex-shrink: 0;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    margin: 8px;
+    padding: 6px 12px;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: rgb(25, 25, 25);
+    background-color: rgb(56, 56, 56);
+}
+
+.bgd-ed__change-from {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: rgb(150, 150, 150);
+}
+
+.bgd-ed__change-arrow {
+    margin: 0 10px;
+    padding: 0;
+    font-size: 16px;
+    color: rgb(255, 196, 40);
+}
+
+.bgd-ed__change-to {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    -unity-font-style: bold;
+    color: rgb(255, 214, 120);
+}

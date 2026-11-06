@@ -1,0 +1,61 @@
+/* Theme sampler: the preview document for editing season TSS files in UI Builder. */
+
+.be-sampler {
+    width: 390px;
+    padding: 24px 14px;
+    gap: 14px;
+}
+
+.be-sampler > * {
+    flex-shrink: 0;
+}
+
+.be-sampler__eyebrow {
+    color: var(--be-white);
+    text-shadow: 0 1px 0 var(--be-ink);
+}
+
+.be-sampler__row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 8px;
+}
+
+.be-sampler__pill {
+    width: 112px;
+}
+
+.be-sampler__chip-text {
+    color: var(--be-white);
+    padding: 0;
+    margin: 0;
+}
+
+.be-sampler__panel {
+    gap: 10px;
+}
+
+.be-sampler__band {
+    padding: 6px 12px;
+    border-radius: var(--be-radius-m);
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+}
+
+.be-sampler__band-text {
+    font-size: 22px;
+}
+
+.be-sampler__sticker {
+    align-self: flex-start;
+}
+
+.be-sampler__recipes {
+    flex-direction: row;
+    gap: 10px;
+    height: 140px;
+}
+
+.be-sampler__recipe {
+    flex-grow: 1;
+}

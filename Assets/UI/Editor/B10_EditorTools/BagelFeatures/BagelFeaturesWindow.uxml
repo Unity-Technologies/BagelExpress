@@ -1,0 +1,46 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="../BagelExpressAllUIWindowStyles.uss"/>
+    <Style src="../Shared/BagelGuideStyles.uss"/>
+    <Style src="BagelFeaturesWindowStyles.uss"/>
+    <ui:VisualElement name="bagel-features" class="beall bgg bgf">
+        <uie:Toolbar name="toolbar" class="beall__toolbar bgg__toolbar">
+            <ui:VisualElement name="brand" picking-mode="Ignore" class="beall__brand">
+                <ui:VisualElement picking-mode="Ignore" class="beall__brand-dot"/>
+                <ui:Label text="Bagel Express" picking-mode="Ignore" class="beall__brand-name"/>
+                <ui:Label text="ベーグル急行 · Features" picking-mode="Ignore" class="beall__brand-sub"/>
+                <Bagel.VersionLabel name="version" class="beall__brand-version"/>
+            </ui:VisualElement>
+            <Bagel.BagelOptionStrip name="reset-strip" tooltip="Start again: a fresh copy of the demo start state on the title screen, the first season and the project's language" class="beall__strip beall__strip--reset"/>
+            <ui:VisualElement name="toolbar-end" class="beall__toolbar-end">
+                <uie:ToolbarSearchField name="search" tooltip="Search: the features (their text, groups and the screens they're on), the game's screens and their parts, and the art. Every word must match." class="bgf-search"/>
+                <Bagel.BagelOptionStrip name="season-strip" tooltip="Season: the seasonal ThemeStyleSheet on the screen and the samples" class="beall__strip"/>
+                <Bagel.BagelOptionStrip name="language-strip" tooltip="Language: the screen and the samples in it (sets the Localization locale)" class="beall__strip"/>
+            </ui:VisualElement>
+        </uie:Toolbar>
+        <ui:VisualElement name="body" class="bgf__body">
+            <ui:VisualElement name="side" class="bgf__side bgg-text">
+                <ui:VisualElement name="modes" class="bgf-modes">
+                    <ui:Button name="mode-game" text="Game" tooltip="The game's screens, one at a time, and how their parts are made" class="bgf-modes__button"/>
+                    <ui:Button name="mode-category" text="Category" tooltip="The features by what they're for" class="bgf-modes__button"/>
+                    <ui:Button name="mode-version" text="Version" tooltip="The features by the Unity version they came with" class="bgf-modes__button"/>
+                    <ui:Button name="mode-art" text="Art" tooltip="The game's art drawn in code and its SVG icons: try their attributes and custom properties" class="bgf-modes__button"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="list-filter" class="bgf-filter"/>
+                <ui:ScrollView name="list" mode="Vertical" horizontal-scroller-visibility="Hidden" class="bgf-list bgf-scroll"/>
+                <ui:VisualElement name="screens" class="bgf-screens">
+                    <ui:VisualElement name="screen-picker" class="bgf-screens__picker"/>
+                    <ui:VisualElement name="screen-stage" class="bgf-screens__stage">
+                        <ui:Button name="previous" text="‹" class="bgf-screens__arrow"/>
+                        <ui:VisualElement name="phone-host" class="bgf-screens__phone"/>
+                        <ui:Button name="next" text="›" class="bgf-screens__arrow"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="details-pane" class="bgf__details">
+                <ui:ScrollView name="details-scroll" mode="Vertical" horizontal-scroller-visibility="Hidden" class="bgf-scroll">
+                    <ui:VisualElement name="details" class="bgf-details bgg-text"/>
+                </ui:ScrollView>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

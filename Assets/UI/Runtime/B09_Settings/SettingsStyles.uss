@@ -1,0 +1,379 @@
+/* Bagel Express — Settings: season picker, language segments, toggles. */
+
+.be-settings {
+    flex-grow: 1;
+}
+
+.be-settings__scroll {
+    flex-grow: 1;
+}
+
+/* Clear of the glass at the top, 14 points inside the window (see .be-scroll-well), and at the bottom clear of the nav's
+   Lucky Bag, which rises 28 points into the window. */
+.be-settings__content {
+    padding: 300px 24px 198px 24px;
+    gap: 14px;
+}
+
+/* The app version, in a pill next to the title like the other scrolling pages' info pills. */
+.be-settings__version-chip {
+    margin-bottom: 6px;
+}
+
+.be-settings__section {
+    gap: 10px;
+}
+
+.be-settings__section-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+}
+
+.be-settings__section-jp {
+    font-size: var(--be-font-s);
+    color: var(--be-text-muted);
+    padding: 0;
+    margin: 0;
+}
+
+/* Season cards: each card sets its own season variables, so the particles and
+   mascot inside preview that season whatever theme is active. */
+.be-settings__season-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.be-season-card {
+    width: 47%;
+    height: 112px;
+    margin: 0;
+    padding: 0 8px 6px 8px;
+    justify-content: flex-end;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-m);
+    border-bottom-width: var(--be-tile-lip);
+    overflow: hidden;
+    transition-property: scale, translate, box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-back, ease-out-back, ease-out;
+}
+
+.be-season-card:active {
+    translate: 0 3px;
+}
+
+.be-season-card--maple {
+    --be-particle-kind: maple;
+    --be-mascot-accessory: maple;
+    background-image: linear-gradient(to bottom, rgb(92, 170, 235), rgb(255, 205, 150));
+}
+
+.be-season-card--sakura {
+    --be-particle-kind: sakura;
+    --be-mascot-accessory: sakura;
+    background-image: linear-gradient(to bottom, rgb(170, 220, 255), rgb(255, 210, 230));
+}
+
+.be-season-card--matsuri {
+    --be-particle-kind: firefly;
+    --be-mascot-accessory: matsuri;
+    background-image: linear-gradient(to bottom, rgb(20, 24, 70), rgb(230, 90, 120));
+}
+
+.be-season-card--snow {
+    --be-particle-kind: snow;
+    --be-mascot-accessory: snow;
+    background-image: linear-gradient(to bottom, rgb(150, 205, 245), rgb(245, 250, 255));
+}
+
+.be-season-card__particles {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    --be-particle-count: 8;
+}
+
+.be-season-card__mascot {
+    position: absolute;
+    right: 4px;
+    top: 6px;
+    width: 52px;
+    height: 52px;
+}
+
+/* Small Japanese on a light sky reads on a dark chip, which an outline (too thick at this size) or a shadow (too
+   faint on Sakura and Snow) didn't. */
+.be-season-card__jp {
+    align-self: center;
+    font-size: var(--be-font-xs);
+    -unity-font-style: bold;
+    color: var(--be-white);
+    background-color: rgba(59, 31, 20, 0.55);
+    border-radius: 6px;
+    padding: 0 6px;
+    margin: 0 0 2px 0;
+}
+
+.be-season-card__name {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--be-white);
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 2px 0 var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+/* The selected card glows gold: a box-shadow with no offset, which follows the card's rounded corners and fades in
+   (box-shadow transitions from none). It's geometry: as filter: drop-shadow(0 0 8px gold) the glow cost about 28 ms
+   a frame on a Galaxy S10 (2026-10-16). The card's overflow: hidden clips its children, not its own shadow. */
+.be-season-card--selected {
+    border-color: var(--be-gold);
+    border-width: 4px;
+    border-bottom-width: var(--be-tile-lip);
+    scale: 1.03 1.03;
+    box-shadow: 0 0 20px rgb(255, 220, 90);
+}
+
+/* Segmented control: a tile like the buttons (radius 14, concentric with its panel), the selected segment 6 points
+   in (2 border + 4 padding), so its corners follow the track's: 14 - 6 = 8. */
+.be-segments {
+    flex-direction: row;
+    padding: 4px;
+    gap: 4px;
+    border-radius: var(--be-radius-m);
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    background-color: var(--be-wash-strong);
+    /* A recessed track the segments sit in. */
+    box-shadow: inset 0 2px 4px rgba(20, 8, 2, 0.3);
+}
+
+.be-segment {
+    flex-grow: 1;
+    flex-basis: 0;
+    height: 38px;
+    margin: 0;
+    border-width: 0;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--be-text-soft);
+    font-size: var(--be-font-m);
+    transition-property: background-color, color;
+    transition-duration: 0.2s;
+}
+
+/* 日本語 falls back to Noto Sans JP, much thinner than the other segments' Poppins: bold to match them. */
+#language-ja {
+    -unity-font-style: bold;
+}
+
+.be-segment--selected {
+    background-image: linear-gradient(to bottom, var(--be-primary-light), var(--be-primary));
+    color: var(--be-white);
+    text-shadow: 0 1px 0 var(--be-ink);
+}
+
+.be-settings__toggle {
+    margin: 0;
+    padding: 4px 0;
+}
+
+.be-settings__toggle .unity-label {
+    color: var(--be-text);
+    min-width: 0;
+    flex-grow: 1;
+}
+
+/* A label with a button on the right, lined up with the toggles above. */
+.be-settings__row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0 0 0;
+}
+
+.be-settings__row-label {
+    color: var(--be-text);
+    padding: 0;
+    margin: 0 0 0 2px;
+}
+
+/* Checkboxes line up on the right whatever the label length. */
+.be-settings__toggle .unity-base-field__input {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+}
+
+/* Off, the box is a little well (an inset box-shadow); on, it fills with mint and the well fades out. */
+.be-settings__toggle .unity-toggle__checkmark {
+    width: 26px;
+    height: 26px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    border-radius: 8px;
+    background-color: var(--be-surface-raised);
+    box-shadow: inset 0 3px 3px rgba(20, 8, 2, 0.35);
+    transition-property: box-shadow;
+    transition-duration: 0.15s;
+}
+
+.be-settings__toggle:checked .unity-toggle__checkmark {
+    background-image: linear-gradient(to bottom, var(--be-mint-light), var(--be-mint-dark));
+    box-shadow: none;
+}
+
+/* The game's name, the credits and the version, a line each, in the title footer's type (the credits' string is the
+   title's: title.credits) on its dark plate. */
+.be-settings__footer {
+    align-self: center;
+    align-items: center;
+    padding: 7px 16px;
+    gap: 2px;
+    border-radius: 12px;
+    background-color: rgba(59, 31, 20, 0.6);
+}
+
+.be-settings__credits,
+.be-settings__footer-version {
+    -unity-text-align: middle-center;
+    color: var(--be-white);
+    margin: 0;
+    padding: 0;
+}
+
+.be-settings__credits {
+    font-size: var(--be-font-s);
+}
+
+.be-settings__footer-version {
+    font-size: 11px;
+    opacity: 0.75;
+}
+
+.be-settings__version {
+    color: var(--be-white);
+    margin: 0;
+    padding: 0;
+}
+
+/* Resolution: each segment shows its fraction and the real resolution under it ("3/4" / "1080×2280"). */
+.be-settings__resolution .be-segment {
+    height: 46px;
+    padding: 0 2px;
+    font-size: 11px;
+    -unity-text-align: middle-center;
+    white-space: pre;
+}
+
+.be-settings__resolution .be-segment:disabled {
+    opacity: 0.4;
+}
+
+/* The settings Auto mode runs: spaced like the rest of the section. While it's on they show what the app picked,
+   dimmed, and can't be changed (the group is disabled, so each control inside is :disabled). */
+.be-settings__auto-settings {
+    gap: 10px;
+}
+
+.be-settings__toggle:disabled,
+.be-settings__row-label:disabled {
+    opacity: 0.4;
+}
+
+/* ------------------------------------------------------------------ Saved data and About */
+
+.be-settings__note {
+    margin: 0;
+    padding: 0;
+    font-size: var(--be-font-s);
+    white-space: normal;
+    color: var(--be-text-muted);
+}
+
+.be-settings__buttons {
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.be-settings__button {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+/* About: label and value rows; the app's size parts get a bar for their share. */
+.be-about {
+    gap: 6px;
+}
+
+.be-about__row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.be-about__label {
+    flex-shrink: 0;
+    width: 30%;
+    margin: 0;
+    padding: 0;
+    font-size: var(--be-font-s);
+    color: var(--be-text-muted);
+}
+
+.be-about__value {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    font-size: var(--be-font-s);
+    white-space: normal;
+    color: var(--be-text);
+}
+
+/* A size part sits under the total, indented, with a bar for its share of the app. */
+.be-about__part {
+    align-items: center;
+    padding-left: 10px;
+}
+
+.be-about__part .be-about__label {
+    width: 28%;
+}
+
+.be-about__bar-track {
+    flex-shrink: 0;
+    width: 30%;
+    height: 8px;
+    border-radius: 4px;
+    background-color: var(--be-wash-strong);
+    overflow: hidden;
+}
+
+.be-about__bar {
+    height: 100%;
+    border-radius: 4px;
+    background-color: var(--be-primary);
+}
+
+.be-about__bar--code {
+    background-color: var(--be-accent);
+}
+
+.be-about__bar--data {
+    background-color: var(--be-mint);
+}
+
+.be-about__bar--other {
+    background-color: var(--be-text-muted);
+}

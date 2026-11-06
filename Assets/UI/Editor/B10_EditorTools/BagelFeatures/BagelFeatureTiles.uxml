@@ -1,0 +1,264 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xmlns:loc="Unity.Localization" editor-extension-mode="False">
+    <!-- The features' thumbnails (the Bagel Features list's rows): one tiny live thumbnail per feature, named tile-<feature id>, each a very simple use of
+         the feature itself (real UI Toolkit, under the season theme). BagelFeatureTiles.cs adds what needs code (a
+         data source, a ticking counter). The features that live in the Editor (windows, the Inspector, tests) are small
+         Editor windows built in code instead (BagelEditorMockups.cs). -->
+    <ui:Template name="StorePastry" src="../../../Runtime/B05_Home/StorePastry.uxml"/>
+    <Style src="BagelFeatureTiles.uss"/>
+    <ui:VisualElement name="tiles" class="bgft-all">
+
+        <!-- ================================================================ UXML & authoring -->
+        <ui:VisualElement name="tile-uxml-templates" class="bgft bgft--row">
+            <ui:Instance template="StorePastry" class="bgft-pastry-slot"><AttributeOverrides element-name="pastry" kind="SesameBagel"/></ui:Instance>
+            <ui:Instance template="StorePastry" class="bgft-pastry-slot"><AttributeOverrides element-name="pastry" kind="MelonPan"/></ui:Instance>
+            <ui:Instance template="StorePastry" class="bgft-pastry-slot"><AttributeOverrides element-name="pastry" kind="Taiyaki"/></ui:Instance>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-standalone-screens" class="bgft">
+            <ui:VisualElement class="bgft-phone"><ui:VisualElement class="bgft-phone__bar"/><ui:VisualElement class="bgft-phone__card"/><ui:VisualElement class="bgft-phone__card bgft-phone__card--gold"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Styling -->
+        <ui:VisualElement name="tile-uss-variables" class="bgft bgft--row">
+            <ui:VisualElement class="bgft-swatch bgft-swatch--primary"/>
+            <ui:VisualElement class="bgft-swatch bgft-swatch--accent"/>
+            <ui:VisualElement class="bgft-swatch bgft-swatch--mint"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-tss-themes" class="bgft bgft--row">
+            <ui:VisualElement class="bgft-season-sky"/>
+            <ui:Label text="Aa" class="bgft-season-text"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-custom-style-properties" class="bgft">
+            <Bagel.BeguChan class="bgft-mascot"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-pseudo-and-state-classes" class="bgft">
+            <ui:Button class="be-btn be-btn--gold be-btn--small bgft-button"><ui:Label text="hover" class="be-btn__label"/></ui:Button>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-builtin-control-restyling" class="bgft bgft-settings">
+            <ui:Toggle value="true" class="be-settings__toggle bgft-toggle"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-project-default-theme" class="bgft bgft-default-theme">
+            <ui:Button text="Button" class="bgft-default-button"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Effects & filters -->
+        <ui:VisualElement name="tile-background-gradients" class="bgft">
+            <ui:VisualElement class="bgft-box bgft-gradient"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-geometry-shadows" class="bgft">
+            <ui:VisualElement class="be-card bgft-lip"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-drop-shadow" class="bgft">
+            <ui:Label text="HOT!" class="be-sticker bgft-sticker bgft-shadow"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-box-shadow" class="bgft">
+            <ui:VisualElement class="be-card bgft-glow-card"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-backdrop-filter" class="bgft bgft-backdrop">
+            <ui:VisualElement class="bgft-stripes"/>
+            <ui:Label text="BAGEL EXPRESS" class="bgft-backdrop__text"/>
+            <ui:Label text="ベーグル急行" class="bgft-backdrop__text bgft-backdrop__text--ja"/>
+            <ui:VisualElement class="bgft-glass"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-custom-filter-function" class="bgft">
+            <ui:VisualElement class="bgft-box bgft-halftone"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-builtin-filter-chains" class="bgft bgft--row">
+            <Bagel.PastryIcon kind="SakuraMochiBagel" class="bgft-pastry"/>
+            <Bagel.PastryIcon kind="SakuraMochiBagel" class="bgft-pastry bgft-filter-chain"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-ui-shader-graph" class="bgft">
+            <ui:VisualElement class="bgft-box bgft-particles"><Bagel.SeasonParticles class="bgft-fill"/></ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Layout -->
+        <ui:VisualElement name="tile-flexbox-layout" class="bgft bgft--row bgft-flex">
+            <ui:VisualElement class="bgft-flex__item"/>
+            <ui:VisualElement class="bgft-flex__item bgft-flex__item--grow"/>
+            <ui:VisualElement class="bgft-flex__item"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-gap" class="bgft bgft--row bgft-gap">
+            <ui:VisualElement class="bgft-dot"/><ui:VisualElement class="bgft-dot"/><ui:VisualElement class="bgft-dot"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-z-index" class="bgft bgft-stack">
+            <ui:VisualElement class="bgft-stack__card bgft-stack__card--a"/>
+            <ui:VisualElement class="bgft-stack__card bgft-stack__card--b"/>
+            <ui:VisualElement class="bgft-stack__card bgft-stack__card--c"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-grid-layout" class="bgft">
+            <ui:VisualElement class="bgft-grid">
+                <ui:VisualElement class="bgft-grid__cell bgft-grid__cell--hero"/>
+                <ui:VisualElement class="bgft-grid__cell"/><ui:VisualElement class="bgft-grid__cell"/>
+                <ui:VisualElement class="bgft-grid__cell"/><ui:VisualElement class="bgft-grid__cell"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-transforms" class="bgft">
+            <ui:Label text="NEW!" class="be-sticker bgft-sticker bgft-rotate"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Vector art -->
+        <ui:VisualElement name="tile-painter2d" class="bgft">
+            <Bagel.PastryIcon kind="Taiyaki" class="bgft-pastry bgft-pastry--big"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-generate-visual-content" class="bgft">
+            <ui:VisualElement class="bgft-burst"><Bagel.Starburst class="bgft-fill"/></ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-procedural-animated-art" class="bgft">
+            <Bagel.Lantern mark="パ" class="bgft-lantern"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-svg-vectorimage" class="bgft bgft--row">
+            <ui:VisualElement class="bgft-icon bgft-icon--home"/>
+            <ui:VisualElement class="bgft-icon bgft-icon--recipes"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-mesh-modifiers" class="bgft">
+            <ui:Label text="BAGEL" class="be-display bgft-wavy"><Bagel.WavyText amplitude="2" speed="4" wavelength="40"/></ui:Label>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Text & fonts -->
+        <ui:VisualElement name="tile-display-text" class="bgft">
+            <ui:Label text="LV UP!" class="be-display bgft-display"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-advanced-text-fallback" class="bgft">
+            <ui:Label text="ベーグル 🥯" class="bgft-text"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-per-language-typography" class="bgft bgft--row">
+            <ui:Label text="Aa" class="bgft-text bgft-text--latin"/>
+            <ui:Label text="あ" class="bgft-text be-lang-ja"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-zero-alloc-settext" class="bgft">
+            <ui:Label name="counter" text="0" class="be-display bgft-counter"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Animation -->
+        <ui:VisualElement name="tile-uss-transitions" class="bgft">
+            <ui:VisualElement class="bgft-slide"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-uianimationclip-uss" class="bgft">
+            <Bagel.PastryIcon kind="MelonPan" class="bgft-pastry bgft-bob"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-clip-restart-classes" class="bgft">
+            <ui:Label name="pop" text="+9" class="be-display bgft-pop"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-uianimationclip-authoring" class="bgft">
+            <ui:VisualElement class="bgft-dot bgft-pulse"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Data binding -->
+        <ui:VisualElement name="tile-uxml-databinding" class="bgft">
+            <ui:Label text="0" class="bgft-text bgft-text--bold">
+                <Bindings><ui:DataBinding property="text" data-source-path="coins" source-to-ui-converters="be-number" binding-mode="ToTarget"/></Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-bindable-model" class="bgft bgft--row">
+            <Bagel.CurrencyIcon kind="Tickets" class="bgft-coin"/>
+            <ui:Label text="0" class="bgft-text bgft-text--bold">
+                <Bindings><ui:DataBinding property="text" data-source-path="tickets" binding-mode="ToTarget"/></Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-hierarchical-data-source" class="bgft" data-source-path="shops[0]">
+            <ui:Label text="Shop" class="bgft-text bgft-text--small">
+                <Bindings><ui:DataBinding property="text" data-source-path="displayName" binding-mode="ToTarget"/></Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-converter-groups" class="bgft">
+            <ui:Label text="0/s" class="bgft-text bgft-text--bold">
+                <Bindings><ui:DataBinding property="text" data-source-path="incomePerSecond" source-to-ui-converters="be-rate" binding-mode="ToTarget"/></Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-listview-binding" class="bgft">
+            <ui:ListView name="list" fixed-item-height="13" class="bgft-list"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-csharp-bindings" class="bgft">
+            <Bagel.MeterBar name="meter" class="bgft-meter"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-component-binding-path" class="bgft">
+            <ui:VisualElement class="bgft-icon bgft-icon--shops bgft-badged">
+                <Bagel.NotificationBadge/>
+                <Bindings><ui:DataBinding property="${component:NotificationBadge}.count" data-source-path="upgradeableShopCount" binding-mode="ToTarget"/></Bindings>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Custom controls & components -->
+        <ui:VisualElement name="tile-uxml-element-controls" class="bgft">
+            <Bagel.CurrencyPill kind="Gems" value="300" class="bgft-pill"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-builtin-controls" class="bgft bgft--row bgft-controls">
+            <ui:Button class="be-btn be-btn--primary be-btn--small bgft-controls__button"><ui:Label text="GO" class="be-btn__label be-display"/></ui:Button>
+            <ui:Toggle value="true" class="be-settings__toggle bgft-controls__toggle"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-ui-components" class="bgft">
+            <ui:VisualElement class="bgft-icon bgft-icon--recipes bgft-badged"><Bagel.NotificationBadge count="3"/></ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-component-hooks" class="bgft">
+            <ui:Button class="be-btn be-btn--accent be-btn--small bgft-button"><ui:Label text="press" class="be-btn__label"/><Bagel.PressSquish pressed-scale="0.8"/></ui:Button>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Runtime & input -->
+        <ui:VisualElement name="tile-input-system" class="bgft">
+            <ui:Label text="⎋ Back" class="bgft-key"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-pointer-events" class="bgft">
+            <ui:VisualElement name="tap" class="bgft-tap"><ui:Label name="taps" text="tap" picking-mode="Ignore" class="bgft-tap__text"/></ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-scheduler" class="bgft">
+            <ui:Label name="clock" text="00:00" class="bgft-text bgft-text--bold"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-perf-overlay" class="bgft">
+            <Bagel.PerfGraph name="graph" class="bgft-graph"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Localization -->
+        <ui:VisualElement name="tile-localizedstring-uxml" class="bgft">
+            <ui:Label text="TAP" class="be-display bgft-display bgft-display--small">
+                <Bindings><loc:LocalizedString property="text" table="BagelStrings" entry="nav.shops"/></Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-localizedstring-csharp" class="bgft">
+            <ui:Label name="localized" text="Home" class="bgft-text bgft-text--bold"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-smart-strings" class="bgft">
+            <ui:Label name="smart" text="2 bakeries" class="bgft-text bgft-text--small"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-locale-switching" class="bgft bgft--row">
+            <ui:Button name="en" text="EN" class="bgft-mini-button"/>
+            <ui:Button name="ja" text="日" class="bgft-mini-button"/>
+            <ui:Button name="fr" text="FR" class="bgft-mini-button"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-localized-game-data" class="bgft" data-source-path="shops[2]">
+            <ui:Label text="Shop" class="bgft-text bgft-text--small">
+                <Bindings><ui:DataBinding property="text" data-source-path="displayName" binding-mode="ToTarget"/></Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-third-locale-french" class="bgft">
+            <ui:Label text="Français" class="bgft-text bgft-text--bold"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Editor tooling & workflow -->
+        <ui:VisualElement name="tile-perf-ab-stylesheet" class="bgft bgft--row">
+            <ui:VisualElement class="be-card bgft-lip bgft-lip--small"/>
+            <ui:VisualElement class="be-card bgft-lip bgft-lip--small bgft-filtered"/>
+        </ui:VisualElement>
+
+        <!-- ================================================================ Not used in Bagel Express (the Editor ones are in BagelEditorMockups.cs) -->
+        <ui:VisualElement name="tile-curved-ui" class="bgft">
+            <ui:VisualElement name="curved" class="bgft-curved"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-uss-sub-asset-references" class="bgft">
+            <ui:VisualElement class="bgft-sheet">
+                <ui:VisualElement class="bgft-sheet__cell" style="background-image: url(&quot;project://database/Assets/UI/Runtime/B02_Common/Icons/icon-home.svg&quot;);"/>
+                <ui:VisualElement class="bgft-sheet__cell" style="background-image: url(&quot;project://database/Assets/UI/Runtime/B02_Common/Icons/icon-shops.svg&quot;);"/>
+                <ui:VisualElement class="bgft-sheet__cell" style="background-image: url(&quot;project://database/Assets/UI/Runtime/B02_Common/Icons/icon-lucky-bag.svg&quot;);"/>
+                <ui:VisualElement class="bgft-sheet__cell" style="background-image: url(&quot;project://database/Assets/UI/Runtime/B02_Common/Icons/icon-recipes.svg&quot;);"/>
+                <ui:VisualElement class="bgft-sheet__cell" style="background-image: url(&quot;project://database/Assets/UI/Runtime/B02_Common/Icons/icon-settings.svg&quot;);"/>
+                <ui:VisualElement class="bgft-sheet__cell bgft-sheet__cell--picked" style="background-image: url(&quot;project://database/Assets/UI/Runtime/B02_Common/Icons/icon-star.svg&quot;);"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-unique-style-string" class="bgft bgft--row">
+            <ui:VisualElement name="card" class="be-card bgft-state-card"><ui:Label text="Card" class="bgft-text bgft-text--bold"/></ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-gradients-filters-from-csharp" class="bgft bgft--row">
+            <ui:VisualElement name="gradient" class="bgft-csharp-box"/>
+            <Bagel.PastryIcon name="filtered" kind="MelonPan" class="bgft-pastry"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="tile-localization-controls" class="bgft bgft-language"/>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,634 @@
+/* The features' thumbnails (BagelFeatureTiles.uxml): tiny, live, under the season theme. */
+
+.bgft {
+    width: 84px;
+    height: 46px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--be-ink);
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Regular.ttf");
+}
+
+.bgft--row {
+    flex-direction: row;
+    gap: 4px;
+}
+.bgft-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.bgft-text {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    color: var(--be-ink);
+}
+
+.bgft-text--bold {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 13px;
+}
+
+.bgft-text--small {
+    max-width: 80px;
+    font-size: 9px;
+    white-space: normal;
+    -unity-text-align: middle-center;
+}
+
+.bgft-text--latin {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 18px;
+}
+/* ------------------------------------------------------------------ Authoring */
+
+.bgft-pastry-slot .be-store__pastry {
+    width: 20px;
+    height: 20px;
+}
+
+.bgft-icon {
+    width: 26px;
+    height: 26px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.bgft-icon--home { background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-home.svg"); }
+.bgft-icon--recipes { background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-recipes.svg"); }
+.bgft-icon--shops { background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-shops.svg"); }
+
+.bgft-phone {
+    width: 22px;
+    height: 40px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    background-color: var(--be-paper);
+    padding: 3px;
+    gap: 2px;
+}
+.bgft-phone__bar {
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--be-primary);
+}
+
+.bgft-phone__card {
+    height: 9px;
+    border-radius: 2px;
+    background-color: var(--be-accent-light);
+}
+
+.bgft-phone__card--gold {
+    background-color: var(--be-gold);
+}
+
+/* ------------------------------------------------------------------ Styling */
+
+.bgft-swatch {
+    width: 18px;
+    height: 26px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+}
+
+.bgft-swatch--primary { background-color: var(--be-primary); }
+.bgft-swatch--accent { background-color: var(--be-accent); }
+.bgft-swatch--mint { background-color: var(--be-mint); }
+
+.bgft-season-sky {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    background-image: linear-gradient(to bottom, var(--be-primary), var(--be-accent-light));
+}
+
+.bgft-season-text {
+    font-size: 18px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    color: var(--be-primary);
+    padding: 0;
+    margin: 0;
+}
+
+.bgft-mascot {
+    width: 40px;
+    height: 40px;
+}
+
+.bgft-button {
+    height: 26px;
+    min-width: 54px;
+    padding: 0 8px;
+    margin: 0;
+}
+
+.bgft-button .be-btn__label {
+    font-size: 10px;
+}
+
+.bgft-settings .be-settings__toggle {
+    padding: 0;
+}
+
+.bgft-default-button {
+    font-size: 10px;
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------ Effects */
+
+.bgft-box {
+    width: 56px;
+    height: 34px;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+}
+
+.bgft-gradient {
+    background-image: linear-gradient(110deg, var(--be-primary-dark), var(--be-primary) 45%, var(--be-accent));
+}
+
+.bgft-lip {
+    width: 56px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.bgft-lip--small {
+    width: 30px;
+    height: 26px;
+}
+
+.bgft-filtered {
+    border-bottom-width: var(--be-border-thin);
+    filter: drop-shadow(0 3px 0 var(--be-ink));
+}
+
+.bgft-sticker {
+    height: 22px;
+    padding: 0 10px;
+    border-radius: 11px;
+    font-size: 11px;
+}
+
+.bgft-shadow {
+    filter: drop-shadow(0 3px 0 var(--be-ink));
+}
+
+/* box-shadow: a card with a soft gold glow. */
+.bgft-glow-card {
+    width: 46px;
+    height: 28px;
+    border-radius: 9px;
+    border-bottom-width: var(--be-border-thin);
+    box-shadow: 0 0 12px 1px var(--be-gold);
+}
+
+.bgft-backdrop {
+    width: 72px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.bgft-stripes {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(90deg, var(--be-primary), var(--be-gold) 33%, var(--be-mint) 66%, var(--be-sky));
+}
+
+/* Sharp text behind the glass: crisp on both sides of it, blurred under it. */
+.bgft-backdrop__text {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 11.5px;
+    letter-spacing: 0.5px;
+    color: var(--be-ink);
+    white-space: nowrap;
+}
+
+.bgft-backdrop__text--ja {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/NotoSansJP-Regular.ttf");
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgb(255, 255, 255);
+}
+
+/* 8px tile radius - 5px inset = 3px: concentric. */
+.bgft-glass {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 5px;
+    bottom: 5px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(2.5px);
+}
+
+.bgft-halftone {
+    background-image: radial-gradient(circle at center, rgb(255, 230, 140), rgb(240, 110, 60) 70%, rgb(150, 30, 20));
+    filter: filter("/Assets/UI/Runtime/B11_Filters/MangaHalftone.asset" 4px rgb(120, 30, 20));
+}
+
+.bgft-particles {
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, rgb(170, 220, 255), rgb(255, 210, 230));
+    --be-particle-kind: sakura;
+    --be-particle-count: 6;
+}
+
+.bgft-pastry {
+    width: 30px;
+    height: 30px;
+}
+
+.bgft-pastry--big {
+    width: 40px;
+    height: 40px;
+}
+.bgft-filter-chain {
+    filter: grayscale(0.8) sepia(0.6);
+}
+
+/* ------------------------------------------------------------------ Layout */
+
+.bgft-flex {
+    width: 70px;
+    gap: 3px;
+}
+
+.bgft-flex__item {
+    flex-grow: 1;
+    height: 24px;
+    border-radius: 4px;
+    background-color: var(--be-accent);
+}
+
+.bgft-flex__item--grow {
+    flex-grow: 2;
+    background-color: var(--be-primary);
+}
+
+.bgft-gap {
+    gap: 8px;
+}
+
+.bgft-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    background-color: var(--be-accent);
+}
+
+.bgft-stack {
+    width: 64px;
+    height: 36px;
+}
+
+.bgft-stack__card {
+    position: absolute;
+    width: 28px;
+    height: 22px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+}
+
+.bgft-stack__card--a { left: 0; top: 0; background-color: var(--be-primary); z-index: 1; }
+.bgft-stack__card--b { left: 16px; top: 6px; background-color: var(--be-gold); z-index: 3; }
+.bgft-stack__card--c { left: 32px; top: 12px; background-color: var(--be-mint); z-index: 2; }
+
+.bgft-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    width: 64px;
+}
+
+.bgft-grid__cell {
+    height: 14px;
+    border-radius: 3px;
+    background-color: var(--be-accent-light);
+}
+
+.bgft-grid__cell--hero {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: auto;
+    background-color: var(--be-gold);
+}
+
+.bgft-rotate {
+    rotate: -12deg;
+    transition-property: rotate, scale;
+    transition-duration: 0.2s;
+}
+
+.bgft-rotate:hover {
+    rotate: 10deg;
+    scale: 1.2 1.2;
+}
+
+/* ------------------------------------------------------------------ Vector art */
+
+.bgft-burst {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    border-width: 2px;
+    border-color: var(--be-ink);
+}
+
+.bgft-lantern {
+    width: 22px;
+    height: 36px;
+}
+
+.bgft-wavy {
+    font-size: 18px;
+    color: var(--be-gold);
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------ Text */
+
+.bgft-display {
+    font-size: 20px;
+    color: var(--be-gold);
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 2px 0 var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+.bgft-display--small {
+    font-size: 15px;
+}
+
+.bgft-counter {
+    font-size: 16px;
+    color: var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------ Animation */
+
+.bgft-slide {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    background-color: var(--be-primary);
+    translate: -20px 0;
+    transition-property: translate, background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out-back;
+}
+
+.bgft:hover .bgft-slide {
+    translate: 20px 0;
+    background-color: var(--be-mint);
+}
+
+.bgft-bob {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/FloatBob.asset") 2.4s infinite;
+}
+
+.bgft-pop {
+    font-size: 18px;
+    color: var(--be-gold);
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: var(--be-ink);
+    opacity: 0;
+}
+
+.bgft-pop--play {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/CoinPop.asset");
+}
+
+.bgft-pulse {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/Pulse.asset") 1.2s infinite;
+}
+/* ------------------------------------------------------------------ Data binding and controls */
+
+.bgft-coin {
+    width: 18px;
+    height: 18px;
+}
+
+.bgft-list {
+    width: 80px;
+    height: 42px;
+    font-size: 8px;
+}
+
+.bgft-list .unity-label {
+    font-size: 8px;
+    padding: 0;
+    margin: 0;
+}
+
+.bgft-meter {
+    width: 70px;
+}
+
+.bgft-badged {
+    margin-top: 6px;
+}
+
+.bgft-pill {
+    width: 78px;
+    scale: 0.8 0.8;
+}
+
+/* The game's own Button and Toggle, styled as on its pages. */
+.bgft-controls {
+    gap: 6px;
+}
+
+.bgft-controls__button {
+    height: 26px;
+    min-width: 0;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.bgft-controls__button .be-btn__label {
+    font-size: 13px;
+}
+
+.bgft-controls__toggle {
+    padding: 0;
+}
+
+.bgft-controls__toggle .unity-toggle__checkmark {
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
+}
+/* ------------------------------------------------------------------ Runtime */
+
+.bgft-key {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-bottom-width: 3px;
+    border-color: var(--be-ink);
+    background-color: var(--be-paper);
+}
+
+.bgft-tap {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    border-width: 2px;
+    border-color: var(--be-ink);
+    background-color: var(--be-gold-light);
+    align-items: center;
+    justify-content: center;
+    transition-property: scale;
+    transition-duration: 0.08s;
+}
+
+.bgft-tap:active {
+    scale: 0.85 0.85;
+}
+
+.bgft-tap__text {
+    font-size: 9px;
+    padding: 0;
+    margin: 0;
+}
+
+.bgft-graph {
+    width: 76px;
+    height: 36px;
+}
+
+/* ------------------------------------------------------------------ Localization */
+
+.bgft-mini-button {
+    width: 20px;
+    height: 18px;
+    padding: 0;
+    margin: 0;
+    font-size: 8px;
+}
+/* ------------------------------------------------------------------ Not used in Bagel Express */
+
+/* A card bent like a curved screen (drawn: -unity-curvature only shows on world-space panels). */
+.bgft-curved {
+    width: 74px;
+    height: 42px;
+}
+
+/* A sprite sheet, one sprite of it picked. */
+.bgft-sheet {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 66px;
+    padding: 2px;
+    gap: 2px;
+    border-radius: 4px;
+    background-color: var(--be-paper-shade);
+}
+
+.bgft-sheet__cell {
+    width: 19px;
+    height: 19px;
+    border-radius: 3px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.bgft-sheet__cell--picked {
+    border-width: 2px;
+    border-color: var(--be-primary);
+    background-color: var(--be-surface-raised);
+}
+
+/* A card whose state class is a UniqueStyleString, switched on and off. */
+.bgft-state-card {
+    width: 50px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    transition-property: opacity, rotate, background-color;
+    transition-duration: 0.3s;
+}
+
+.bgft-state-card.be-card--locked {
+    opacity: 0.55;
+    rotate: -8deg;
+    background-color: var(--be-paper-shade);
+}
+
+/* A gradient and a filter set from C# (BagelFeatureTiles.cs). */
+.bgft-csharp-box {
+    width: 30px;
+    height: 30px;
+    border-width: 2px;
+    border-radius: 8px;
+    border-color: var(--be-ink);
+}
+
+/* The built-in LanguageDropdown, live, in the game's look. */
+.bgft-language .unity-base-popup-field {
+    width: 78px;
+    height: 24px;
+    margin: 0;
+}
+
+.bgft-language .unity-base-popup-field__input {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0 6px 0 8px;
+    border-width: 2px;
+    border-radius: 12px;
+    border-color: var(--be-ink);
+    background-color: var(--be-surface-raised);
+}
+
+.bgft-language .unity-base-popup-field__text {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    color: var(--be-ink);
+    -unity-text-align: middle-left;
+}
+
+.bgft-language .unity-base-popup-field__arrow {
+    flex-shrink: 0;
+    width: 8px;
+    height: 6px;
+    -unity-background-image-tint-color: var(--be-ink);
+}
+

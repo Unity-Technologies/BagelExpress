@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Storefront with a scalloped striped awning -->
+  <path d="M9 24 H55 V57 H9 Z" fill="#FFF4DE" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M14 34 H31 V49 H14 Z" fill="#BFE3FF" stroke="#3B1F14" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M17.5 42 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0 Z M21 42 a1.5 1.5 0 1 0 3 0 a1.5 1.5 0 1 0 -3 0 Z" fill="#D68C45" fill-rule="evenodd" stroke="#3B1F14" stroke-width="2.5"/>
+  <path d="M36 57 V35 H50 V57" fill="#B2622A" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="46" cy="46" r="2" fill="#FFC828"/>
+  <path d="M8 12 H56 L60 25 a7 7 0 0 1 -14 0 a7 7 0 0 1 -14 0 a7 7 0 0 1 -14 0 a7 7 0 0 1 -14 0 Z" fill="#DE482C"/>
+  <path d="M20 12 H32 V25 a7 7 0 0 1 -14 0 Z" fill="#FFF8EA"/>
+  <path d="M44 12 H56 L60 25 a7 7 0 0 1 -14 0 Z" fill="#FFF8EA"/>
+  <path d="M8 12 H56 L60 25 a7 7 0 0 1 -14 0 a7 7 0 0 1 -14 0 a7 7 0 0 1 -14 0 a7 7 0 0 1 -14 0 Z" fill="none" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M5 9 H59" fill="none" stroke="#3B1F14" stroke-width="8" stroke-linecap="round"/>
+  <path d="M5 9 H59" fill="none" stroke="#965C34" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,195 @@
+/* Shared by the Bagel Features and the Bagel Demo windows, on top of BagelExpressAllUIWindowStyles.uss (the
+   brand, the stage, the phones). Every selector is scoped under .bgg so nothing leaks into the game UI, which
+   only gets the season ThemeStyleSheet. */
+
+.bgg {
+    --bgg-ink: rgb(255, 240, 222);
+    --bgg-soft: rgb(214, 186, 160);
+    --bgg-dim: rgb(160, 128, 106);
+    --bgg-gold: rgb(255, 196, 40);
+}
+
+/* Window text (not the game UI: font and color are inherited, so they're set only on the window's own parts). */
+.bgg .bgg-text {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Regular.ttf");
+    color: var(--bgg-ink);
+}
+
+/* ------------------------------------------------------------------ Link buttons */
+
+.bgg-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* A link: a pill with an icon glyph. Window links are gold, file links are paper. */
+.bgg-link {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 1;
+    height: 24px;
+    padding: 0 10px 0 8px;
+    margin: 0;
+    border-radius: 12px;
+    border-width: 1px;
+    font-size: 11px;
+    -unity-text-align: middle-left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bgg-link--window {
+    color: rgb(255, 214, 120);
+    background-color: rgba(255, 196, 40, 0.1);
+    border-color: rgba(255, 196, 40, 0.45);
+}
+
+.bgg-link--window:hover {
+    background-color: rgba(255, 196, 40, 0.26);
+}
+
+.bgg-link--file {
+    color: rgb(222, 206, 190);
+    background-color: rgba(255, 240, 222, 0.05);
+    border-color: rgba(255, 240, 222, 0.18);
+}
+
+.bgg-link--file:hover {
+    background-color: rgba(255, 240, 222, 0.16);
+}
+
+.bgg-link--missing {
+    color: rgb(255, 120, 110);
+    border-color: rgba(255, 120, 110, 0.5);
+}
+
+/* A source row: file link + what it is. */
+.bgg-source {
+    flex-direction: row;
+    align-items: center;
+    margin: 3px 0 0 0;
+}
+
+.bgg-source > .bgg-link {
+    flex-shrink: 0;
+    max-width: 60%;
+}
+
+.bgg-source__what {
+    flex-shrink: 1;
+    font-size: 11px;
+    color: var(--bgg-soft);
+    margin-left: 8px;
+    white-space: normal;
+}
+
+/* ------------------------------------------------------------------ Hotspots over the phones */
+
+.bgg-hotspots {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.bgg-hotspot {
+    position: absolute;
+    border-width: 2px;
+    border-radius: 6px;
+    opacity: 0.45;
+    transition-property: opacity, background-color;
+    transition-duration: 0.15s;
+}
+
+.bgg-hotspot--hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.bgg-hotspot__badge {
+    position: absolute;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    -unity-text-align: middle-center;
+    transition-property: scale, opacity;
+    transition-duration: 0.15s;
+}
+
+.bgg-hotspot__badge:hover {
+    scale: 1.25 1.25;
+}
+
+.bgg-hotspot--dimmed {
+    opacity: 0.08;
+}
+
+.bgg-hotspot__badge.bgg-hotspot--dimmed {
+    opacity: 0.25;
+}
+
+.bgg-hotspot--pulse {
+    opacity: 1;
+    background-color: rgba(255, 214, 120, 0.3);
+}
+
+.bgg-hotspot__badge.bgg-hotspot--pulse {
+    scale: 1.5 1.5;
+}
+
+/* ------------------------------------------------------------------ Screen crops (Bagel Demo) */
+
+.bgg-crop {
+    overflow: hidden;
+    border-radius: 14px;
+    border-width: 1px;
+    border-color: rgba(255, 240, 222, 0.14);
+    background-color: rgb(14, 10, 9);
+}
+
+.bgg-crop__stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 390px;
+    height: 844px;
+    transform-origin: left top;
+}
+
+.bgg-crop__stage > .beall-phone__screen {
+    border-radius: 0;
+}
+
+.bgg-crop__ring {
+    position: absolute;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(255, 214, 120);
+}
+
+.bgg-crop__caption {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    padding: 2px 8px;
+    border-radius: 9px;
+    font-size: 10px;
+    color: rgb(255, 240, 222);
+    background-color: rgba(20, 12, 9, 0.78);
+}
+
+.bgg-crop__placeholder {
+    flex-grow: 1;
+    -unity-text-align: middle-center;
+    font-size: 12px;
+    color: var(--bgg-dim);
+}

@@ -1,0 +1,25 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="../BagelExpressAllUIWindowStyles.uss"/>
+    <Style src="../Shared/BagelGuideStyles.uss"/>
+    <Style src="BagelDemoWindowStyles.uss"/>
+    <Style src="BagelDemoEditorKit.uss"/>
+    <ui:VisualElement name="bagel-demo" class="beall bgg bgd">
+        <uie:Toolbar name="toolbar" class="beall__toolbar bgg__toolbar">
+            <ui:VisualElement name="brand" picking-mode="Ignore" class="beall__brand">
+                <ui:VisualElement picking-mode="Ignore" class="beall__brand-dot"/>
+                <ui:Label text="Bagel Express" picking-mode="Ignore" class="beall__brand-name"/>
+                <ui:Label text="ベーグル急行 · Demo" picking-mode="Ignore" class="beall__brand-sub"/>
+                <Bagel.VersionLabel name="version" class="beall__brand-version"/>
+            </ui:VisualElement>
+            <Bagel.BagelOptionStrip name="reset-strip" tooltip="Start again: the talk at a glance, a fresh copy of the demo start state, the first season and the project's language" class="beall__strip beall__strip--reset"/>
+            <ui:VisualElement name="toolbar-end" class="beall__toolbar-end">
+                <Bagel.BagelOptionStrip name="page-strip" tooltip="The talk at a glance, then each chapter (← → turn the pages)" class="beall__strip bgd__pages"/>
+                <Bagel.BagelOptionStrip name="season-strip" tooltip="Season: the seasonal ThemeStyleSheet on the slides' game UI" class="beall__strip"/>
+                <Bagel.BagelOptionStrip name="language-strip" tooltip="Language: the slides' game UI (sets the Localization locale)" class="beall__strip"/>
+            </ui:VisualElement>
+        </uie:Toolbar>
+        <ui:VisualElement name="stage" class="beall__stage bgd__stage">
+            <ui:VisualElement name="viewport" class="bgd__viewport"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,348 @@
+.sampler {
+    padding: 16px;
+    background-color: rgb(126, 170, 178);
+    min-width: 900px;
+}
+
+.sampler__title {
+    font-size: 18px;
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+    margin: 14px 0 6px 0;
+    -unity-text-outline-width: 0.75px;
+    -unity-text-outline-color: rgb(59, 31, 20);
+}
+
+.sampler__row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.sampler__cell {
+    align-items: center;
+    margin: 4px;
+}
+
+.sampler__caption {
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    -unity-text-align: middle-center;
+}
+
+.sampler__pastry {
+    width: 72px;
+    height: 72px;
+}
+
+.sampler__pastry--big {
+    width: 160px;
+    height: 160px;
+}
+
+.sampler__pastry--small {
+    width: 32px;
+    height: 32px;
+}
+
+.sampler__pastry--tiny {
+    width: 24px;
+    height: 24px;
+}
+
+.sampler__mascot {
+    width: 140px;
+    height: 140px;
+}
+
+.sampler--maple { --be-mascot-accessory: maple; --be-particle-kind: maple; }
+.sampler--sakura { --be-mascot-accessory: sakura; --be-particle-kind: sakura; }
+.sampler--matsuri { --be-mascot-accessory: matsuri; --be-particle-kind: firefly; }
+.sampler--snow { --be-mascot-accessory: snow; --be-particle-kind: snow; }
+
+.sampler__panel {
+    width: 260px;
+    height: 170px;
+    margin: 4px;
+    border-radius: 12px;
+    border-width: 3px;
+    border-color: rgb(59, 31, 20);
+    overflow: hidden;
+}
+
+.sampler__panel--maple { background-color: rgb(255, 214, 160); }
+.sampler__panel--sakura { background-color: rgb(196, 230, 255); }
+.sampler__panel--matsuri { background-color: rgb(40, 44, 98); }
+.sampler__panel--snow { background-color: rgb(120, 160, 210); }
+
+.sampler__fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.sampler__skyline-panel {
+    width: 390px;
+    height: 260px;
+    margin: 4px;
+    border-radius: 12px;
+    border-width: 3px;
+    border-color: rgb(59, 31, 20);
+    overflow: hidden;
+}
+
+.sampler__skyline-panel--maple { background-color: rgb(255, 214, 170); }
+.sampler__skyline-panel--sakura { background-color: rgb(206, 232, 255); --be-skyline-far: rgb(250, 196, 214); --be-skyline-near: rgb(156, 86, 132); --be-window-light: rgb(255, 240, 180); --be-skyline-accent: rgb(240, 90, 110); }
+.sampler__skyline-panel--matsuri { background-color: rgb(40, 44, 98); --be-skyline-far: rgb(74, 74, 140); --be-skyline-near: rgb(24, 24, 60); --be-window-light: rgb(255, 196, 90); --be-skyline-accent: rgb(255, 110, 60); }
+.sampler__skyline-panel--snow { background-color: rgb(150, 190, 236); --be-skyline-far: rgb(214, 230, 248); --be-skyline-near: rgb(76, 98, 150); --be-window-light: rgb(255, 236, 160); --be-skyline-accent: rgb(232, 80, 70); }
+
+.sampler__skyline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+.sampler__square {
+    width: 220px;
+    height: 220px;
+    margin: 4px;
+    border-radius: 12px;
+    border-width: 3px;
+    border-color: rgb(59, 31, 20);
+    overflow: hidden;
+    background-color: rgb(255, 120, 80);
+}
+
+.sampler__square--night {
+    background-color: rgb(60, 40, 120);
+    --be-burst-color-a: rgba(255, 120, 200, 0.85);
+    --be-burst-color-b: rgba(120, 200, 255, 0.45);
+    --be-burst-center: rgba(255, 255, 255, 0.95);
+}
+
+.sampler__square--light {
+    background-color: rgb(255, 248, 234);
+}
+
+.sampler__fake-button {
+    position: absolute;
+    left: 120px;
+    top: 120px;
+    width: 76px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgb(64, 201, 132);
+    border-width: 3px;
+    border-color: rgb(59, 31, 20);
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+}
+
+.sampler__bag {
+    width: 170px;
+    height: 170px;
+}
+
+.sampler__bag--sakura {
+    --be-bag-color: rgb(255, 120, 170);
+}
+
+.sampler__bag--indigo {
+    --be-bag-color: rgb(52, 70, 150);
+    --be-bag-accent: rgb(255, 214, 120);
+}
+
+.sampler__lantern {
+    width: 90px;
+    height: 130px;
+}
+
+.sampler__lantern--matsuri {
+    --be-lantern-color: rgb(255, 140, 40);
+    --be-lantern-glow: rgba(255, 220, 120, 0.9);
+}
+
+.sampler__awning {
+    width: 390px;
+    height: 80px;
+    margin: 4px;
+}
+
+.sampler__awning--small {
+    width: 200px;
+    height: 56px;
+}
+
+.sampler__awning--sakura {
+    --be-awning-a: rgb(255, 140, 180);
+    --be-awning-b: rgb(255, 255, 255);
+}
+
+.sampler__noren {
+    width: 240px;
+    height: 170px;
+    margin: 4px;
+}
+
+.sampler__noren--red {
+    --be-noren-color: rgb(196, 40, 40);
+}
+
+.sampler__currency {
+    width: 48px;
+    height: 48px;
+    margin: 6px;
+}
+
+.sampler__store {
+    width: 390px;
+    height: 300px;
+    margin: 4px;
+    border-radius: 12px;
+    border-width: 3px;
+    border-color: rgb(59, 31, 20);
+    overflow: hidden;
+    background-color: rgb(255, 236, 200);
+}
+
+.sampler__store-wall {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 60px;
+    bottom: 0;
+    background-color: rgb(196, 120, 70);
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-color: rgb(59, 31, 20);
+}
+
+.sampler__store-awning {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 30px;
+    height: 80px;
+}
+
+.sampler__store-noren {
+    position: absolute;
+    left: 110px;
+    width: 170px;
+    top: 108px;
+    height: 120px;
+}
+
+.sampler__store-lantern {
+    position: absolute;
+    top: 106px;
+    width: 56px;
+    height: 84px;
+}
+
+.sampler__store-counter {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    bottom: 0;
+    height: 64px;
+    background-color: rgb(150, 92, 52);
+    border-top-width: 3px;
+    border-color: rgb(59, 31, 20);
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.sampler__store-pastry {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 26px;
+}
+
+.sampler__icon {
+    width: 48px;
+    height: 48px;
+    margin: 6px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.sampler__icon--small {
+    width: 24px;
+    height: 24px;
+}
+
+.sampler__icon-strip {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 6px;
+    margin: 4px;
+    border-radius: 12px;
+    background-color: rgb(255, 248, 234);
+}
+
+.sampler__icon-strip--dark {
+    background-color: rgb(40, 44, 98);
+}
+
+.sampler__icon--home {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-home.svg");
+}
+
+.sampler__icon--shops {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-shops.svg");
+}
+
+.sampler__icon--lucky-bag {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-lucky-bag.svg");
+}
+
+.sampler__icon--recipes {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-recipes.svg");
+}
+
+.sampler__icon--settings {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-settings.svg");
+}
+
+.sampler__icon--back {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-back.svg");
+}
+
+.sampler__icon--close {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-close.svg");
+}
+
+.sampler__icon--plus {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-plus.svg");
+}
+
+.sampler__icon--lock {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-lock.svg");
+}
+
+.sampler__icon--star {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-star.svg");
+}
+
+.sampler__icon--sparkle {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-sparkle.svg");
+}
+
+.sampler__icon--clock {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-clock.svg");
+}
+
+.sampler__icon--montreal {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-montreal.svg");
+}
+
+.sampler__icon--japan {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-japan.svg");
+}

@@ -1,0 +1,988 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19403, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: BagelStrings Shared Data
+  m_EditorClassIdentifier: UnityEngine.dll::Unity.Localization.SharedTableData
+  m_TableCollectionName: BagelStrings
+  m_TableCollectionNameGuid: c8e6e83db0716459591002abb6a5fb7e
+  m_KeyGenerator:
+    rid: 854321843931447303
+  m_Entries:
+  - m_Id: 896277910582575104
+    m_Key: nav.home
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963712
+    m_Key: nav.shops
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963713
+    m_Key: nav.lucky-bag
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963714
+    m_Key: nav.recipes
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963715
+    m_Key: nav.settings
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963716
+    m_Key: hud.owner
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963717
+    m_Key: common.yes
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963718
+    m_Key: common.cancel
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963719
+    m_Key: common.close
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963720
+    m_Key: title.ribbon
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963721
+    m_Key: title.tap-to-start
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963722
+    m_Key: title.credits
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963724
+    m_Key: home.event.title
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963726
+    m_Key: home.tap-to-bake
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963727
+    m_Key: home.register
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963728
+    m_Key: home.register.alt
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963729
+    m_Key: home.collect
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963730
+    m_Key: home.line.welcome
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963731
+    m_Key: home.line.tap
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963732
+    m_Key: home.line.honey
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963733
+    m_Key: home.line.upgrade
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963734
+    m_Key: home.line.lucky-bag
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963735
+    m_Key: home.line.irasshai
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963736
+    m_Key: toast.register-empty
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963737
+    m_Key: page.shops.eyebrow
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963738
+    m_Key: page.shops.title
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963739
+    m_Key: shops.open-count
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963740
+    m_Key: shop.upgrade
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963741
+    m_Key: shop.open
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963742
+    m_Key: shop.closed
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963743
+    m_Key: shop.milestone
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963744
+    m_Key: toast.shop-opened
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963745
+    m_Key: toast.shop-upgraded
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963746
+    m_Key: toast.not-enough-coins
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963747
+    m_Key: toast.max-level
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963748
+    m_Key: page.lucky-bag.eyebrow
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963749
+    m_Key: page.lucky-bag.title
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963750
+    m_Key: lucky-bag.banner.eyebrow
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963751
+    m_Key: lucky-bag.banner.title
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963752
+    m_Key: lucky-bag.pickup
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963753
+    m_Key: lucky-bag.draw-1
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963754
+    m_Key: lucky-bag.draw-5
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963755
+    m_Key: lucky-bag.guarantee
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963756
+    m_Key: lucky-bag.results
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963757
+    m_Key: lucky-bag.results-5
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963758
+    m_Key: lucky-bag.yay
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963759
+    m_Key: toast.need-ticket
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963760
+    m_Key: toast.need-5-tickets
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963761
+    m_Key: page.recipes.eyebrow
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963762
+    m_Key: page.recipes.title
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963763
+    m_Key: recipes.owned-count
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963764
+    m_Key: recipes.income
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963765
+    m_Key: page.settings.eyebrow
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963766
+    m_Key: page.settings.title
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963767
+    m_Key: settings.season
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963768
+    m_Key: settings.season.alt
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963769
+    m_Key: settings.language
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963770
+    m_Key: settings.language.alt
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963771
+    m_Key: settings.options
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963772
+    m_Key: settings.options.alt
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963773
+    m_Key: settings.sound
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963774
+    m_Key: settings.haptics
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963775
+    m_Key: settings.game-name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963776
+    m_Key: toast.season
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963777
+    m_Key: tutorial.tip
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963778
+    m_Key: tutorial.collect
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963779
+    m_Key: tutorial.shops
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963780
+    m_Key: tutorial.upgrade
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963781
+    m_Key: ticket.confirm.title
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963782
+    m_Key: ticket.confirm.message
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963783
+    m_Key: ticket.confirm.yes
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963784
+    m_Key: toast.ticket-bought
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963785
+    m_Key: toast.not-enough-gems
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963786
+    m_Key: level-up.title
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963787
+    m_Key: level-up.ribbon
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963788
+    m_Key: level-up.income
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963789
+    m_Key: level-up.reward
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963790
+    m_Key: level-up.gems
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963791
+    m_Key: level-up.sticker
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963792
+    m_Key: level-up.sticker-tier
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963793
+    m_Key: level-up.ok
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963794
+    m_Key: shop.mile-end.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963795
+    m_Key: shop.plateau.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963796
+    m_Key: shop.shibuya.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963797
+    m_Key: shop.jean-talon.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963798
+    m_Key: shop.asakusa.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963799
+    m_Key: shop.kyoto.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963800
+    m_Key: recipe.sesame-bagel.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963801
+    m_Key: recipe.sesame-bagel.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963802
+    m_Key: recipe.poppy-seed-bagel.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963803
+    m_Key: recipe.poppy-seed-bagel.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963804
+    m_Key: recipe.anpan.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963805
+    m_Key: recipe.anpan.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963806
+    m_Key: recipe.melon-pan.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963807
+    m_Key: recipe.melon-pan.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963808
+    m_Key: recipe.everything-bagel.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963809
+    m_Key: recipe.everything-bagel.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963810
+    m_Key: recipe.curry-pan.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963811
+    m_Key: recipe.curry-pan.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963812
+    m_Key: recipe.taiyaki.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963813
+    m_Key: recipe.taiyaki.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963814
+    m_Key: recipe.dorayaki.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963815
+    m_Key: recipe.dorayaki.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963816
+    m_Key: recipe.matcha-bagel.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963817
+    m_Key: recipe.matcha-bagel.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963818
+    m_Key: recipe.maple-melon-pan.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963819
+    m_Key: recipe.maple-melon-pan.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963820
+    m_Key: recipe.sakura-mochi-bagel.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963821
+    m_Key: recipe.sakura-mochi-bagel.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963822
+    m_Key: recipe.golden-maple-taiyaki.name
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896277910590963823
+    m_Key: recipe.golden-maple-taiyaki.desc
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896437991039156224
+    m_Key: settings.filter-shadows
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896441420667011072
+    m_Key: season.maple
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896441420667011073
+    m_Key: season.sakura
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896441420667011074
+    m_Key: season.matsuri
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896441420667011075
+    m_Key: season.snow
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 897584282796408832
+    m_Key: tutorial.skip
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 897584282800603136
+    m_Key: settings.tutorial
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 897584282800603137
+    m_Key: settings.tutorial.replay
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 898041476666998784
+    m_Key: settings.performance
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 898041476666998785
+    m_Key: settings.performance.alt
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 898041476666998786
+    m_Key: settings.resolution
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 898041476666998787
+    m_Key: settings.resolution.native
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 898041476666998788
+    m_Key: settings.perf-overlay
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052377628672
+    m_Key: stats.mood
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052377628673
+    m_Key: stats.mood.happy
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052377628674
+    m_Key: stats.mood.excited
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052377628675
+    m_Key: stats.mood.sleepy
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052377628676
+    m_Key: stats.mood.happy.why
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052377628677
+    m_Key: stats.mood.excited.milestone
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052377628678
+    m_Key: stats.mood.excited.recipe
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052377628679
+    m_Key: stats.mood.sleepy.why
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822976
+    m_Key: stats.income
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822977
+    m_Key: stats.income.paused
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822978
+    m_Key: stats.recipes-bonus
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822979
+    m_Key: stats.milestone-boost
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822980
+    m_Key: stats.level
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822981
+    m_Key: stats.level.how
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822982
+    m_Key: stats.level.next
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822983
+    m_Key: stats.level.max
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822984
+    m_Key: stats.coins
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822985
+    m_Key: stats.gems
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822986
+    m_Key: stats.tickets
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822987
+    m_Key: stats.recipes
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822988
+    m_Key: stats.shops
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822989
+    m_Key: stats.tap
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899033052381822990
+    m_Key: stats.ok
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899060577464074240
+    m_Key: settings.no-animations
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899060577468268544
+    m_Key: settings.no-filters
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645784428544
+    m_Key: settings.data
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645788622848
+    m_Key: settings.data.alt
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645788622849
+    m_Key: settings.data.note
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645788622850
+    m_Key: settings.reset-progress
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645788622851
+    m_Key: settings.reset-settings
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645788622852
+    m_Key: confirm.reset-progress.title
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645788622853
+    m_Key: confirm.reset-progress.message
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645788622854
+    m_Key: confirm.reset-settings.title
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645788622855
+    m_Key: confirm.reset-settings.message
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645788622856
+    m_Key: confirm.reset.yes
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645788622857
+    m_Key: toast.progress-reset
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899062645788622858
+    m_Key: toast.settings-reset
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185984
+    m_Key: settings.about
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185985
+    m_Key: settings.about.alt
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185986
+    m_Key: about.version
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185987
+    m_Key: about.unity
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185988
+    m_Key: about.build
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185989
+    m_Key: about.development
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185990
+    m_Key: about.release
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185991
+    m_Key: about.size
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185992
+    m_Key: about.size.editor
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185993
+    m_Key: about.size.web
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185994
+    m_Key: about.size.engine
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185995
+    m_Key: about.size.code
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185996
+    m_Key: about.size.data
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185997
+    m_Key: about.size.other
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321846185998
+    m_Key: about.device
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321850380288
+    m_Key: about.os
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321850380289
+    m_Key: about.cpu
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321850380290
+    m_Key: about.gpu
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321850380291
+    m_Key: about.memory
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899067321850380292
+    m_Key: about.screen
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899107825547853824
+    m_Key: settings.no-blur
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899133848293326848
+    m_Key: about.size.compressed
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899133848297521152
+    m_Key: about.size.engine-code
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899166348185026560
+    m_Key: settings.auto-mode
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899166348222775296
+    m_Key: toast.auto.resolution
+    m_Flags: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899166348222775297
+    m_Key: toast.auto.glass
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899166348222775298
+    m_Key: toast.auto.filters
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899335010409889792
+    m_Key: toast.auto.glass-on
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899335010414084096
+    m_Key: toast.auto.filters-on
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899379422280138752
+    m_Key: about.build-date
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899600000000000001
+    m_Key: settings.box-shadows
+    m_Flags: 0
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 854321843931447303
+      type: {class: DistributedUIDGenerator, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_CustomEpoch: 1577836800000

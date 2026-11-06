@@ -1,0 +1,97 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:loc="Unity.Localization" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="ShopsStyles.uss"/>
+    <Bagel.ShopCard name="shop-card">
+        <Bindings>
+            <ui:DataBinding property="locked" data-source-path="locked" binding-mode="ToTarget"/>
+            <ui:DataBinding property="affordable" data-source-path="canAct" binding-mode="ToTarget"/>
+            <ui:DataBinding property="milestoneNext" data-source-path="isNextUpgradeMilestone" binding-mode="ToTarget"/>
+            <ui:DataBinding property="origin" data-source-path="origin" binding-mode="ToTarget"/>
+        </Bindings>
+        <ui:VisualElement name="emblem" picking-mode="Ignore" class="be-shop-card__emblem">
+            <Bagel.PastryIcon name="signature" picking-mode="Ignore" class="be-shop-card__pastry">
+                <Bindings>
+                    <ui:DataBinding property="kind" data-source-path="signature" binding-mode="ToTarget"/>
+                    <ui:DataBinding property="silhouette" data-source-path="locked" binding-mode="ToTarget"/>
+                </Bindings>
+            </Bagel.PastryIcon>
+            <ui:VisualElement name="city-flag" picking-mode="Ignore" class="be-shop-card__flag"/>
+            <ui:VisualElement name="lock" picking-mode="Ignore" class="be-shop-card__lock"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="info" picking-mode="Ignore" class="be-shop-card__info">
+            <ui:Label name="shop-name" text="Mile End Bagel Bar" picking-mode="Ignore" class="be-shop-card__name">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="displayName" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+            <ui:Label name="shop-name-jp" text="マイルエンド・ベーグルバー" picking-mode="Ignore" class="be-shop-card__jp">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="secondaryName" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+            <ui:VisualElement name="stats" picking-mode="Ignore" class="be-shop-card__stats">
+                <ui:Label name="level" text="Lv.4" picking-mode="Ignore" class="be-shop-card__level">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="level" binding-mode="ToTarget" source-to-ui-converters="be-level"/>
+                    </Bindings>
+                </ui:Label>
+                <Bagel.PipMeter name="milestone-pips" count="5" class="be-shop-card__pips">
+                    <Bindings>
+                        <ui:DataBinding property="value" data-source-path="milestoneProgress" binding-mode="ToTarget"/>
+                    </Bindings>
+                </Bagel.PipMeter>
+            </ui:VisualElement>
+            <ui:VisualElement name="income" picking-mode="Ignore" class="be-shop-card__income">
+                <ui:Label name="income-now" text="6.9/s" picking-mode="Ignore" class="be-shop-card__income-now">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="incomePerSecond" binding-mode="ToTarget" source-to-ui-converters="be-rate"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label text="▶" picking-mode="Ignore" class="be-shop-card__arrow"/>
+                <ui:Label name="income-next" text="8.6/s" picking-mode="Ignore" class="be-shop-card__income-next">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="nextIncomePerSecond" binding-mode="ToTarget" source-to-ui-converters="be-rate"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:Label name="locked-text" text="CLOSED · 準備中" picking-mode="Ignore" class="be-shop-card__closed">
+                <Bindings>
+                    <loc:LocalizedString property="text" table="BagelStrings" entry="shop.closed"/>
+                </Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement name="action-column" picking-mode="Ignore" class="be-shop-card__action-column">
+            <ui:Label name="milestone-sticker" text="MILESTONE!" picking-mode="Ignore" class="be-sticker be-sticker--gold be-shop-card__milestone">
+                <Bindings>
+                    <loc:LocalizedString property="text" table="BagelStrings" entry="shop.milestone"/>
+                </Bindings>
+            </ui:Label>
+            <ui:Button name="action-button" class="be-btn be-btn--mint be-shop-card__action">
+                <ui:VisualElement picking-mode="Ignore" class="be-gloss"/>
+                <ui:Label name="upgrade-label" text="UPGRADE" picking-mode="Ignore" class="be-btn__label be-shop-card__action-label be-shop-card__action-label--upgrade">
+                    <Bindings>
+                        <loc:LocalizedString property="text" table="BagelStrings" entry="shop.upgrade"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label name="unlock-label" text="OPEN" picking-mode="Ignore" class="be-btn__label be-shop-card__action-label be-shop-card__action-label--unlock">
+                    <Bindings>
+                        <loc:LocalizedString property="text" table="BagelStrings" entry="shop.open"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:VisualElement picking-mode="Ignore" class="be-shop-card__cost">
+                    <Bagel.CurrencyIcon kind="Coins" picking-mode="Ignore" class="be-shop-card__cost-icon"/>
+                    <ui:Label name="upgrade-cost" text="99" picking-mode="Ignore" class="be-shop-card__cost-text be-shop-card__cost-text--upgrade">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="upgradeCost" binding-mode="ToTarget" source-to-ui-converters="be-number"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label name="unlock-cost" text="6,000" picking-mode="Ignore" class="be-shop-card__cost-text be-shop-card__cost-text--unlock">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="unlockCost" binding-mode="ToTarget" source-to-ui-converters="be-number"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <Bagel.PressSquish pressed-scale="0.9"/>
+            </ui:Button>
+        </ui:VisualElement>
+    </Bagel.ShopCard>
+</ui:UXML>

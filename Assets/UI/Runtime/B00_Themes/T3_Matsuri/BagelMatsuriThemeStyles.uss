@@ -1,0 +1,73 @@
+/* Bagel Express — Matsuri season: a summer festival at night, and the dark theme. Only variables: every gradient,
+   filter and art color in the common styles reads them. Everything you read off is dark with light text: panels,
+   cards, dialogs, bubbles and the glass are deep indigo, and outlines are near-black. Colored things keep their colors:
+   buttons, pills, stickers, the Lucky Bag's prize card, the season cards and the art. */
+
+:root {
+    --be-primary: rgb(255, 120, 40);
+    --be-primary-light: rgb(255, 190, 110);
+    --be-primary-dark: rgb(200, 70, 10);
+    --be-accent: rgb(80, 200, 255);
+    --be-accent-light: rgb(170, 230, 255);
+    --be-accent-dark: rgb(20, 130, 200);
+    --be-skyline-far: rgb(90, 60, 150);
+    --be-skyline-near: rgb(30, 20, 60);
+    --be-window-light: rgb(255, 210, 110);
+    --be-particle-kind: firefly;
+    --be-mascot-accessory: matsuri;
+    --be-sound-tone: furin;
+    --be-awning-a: rgb(40, 50, 130);
+    --be-awning-b: rgb(255, 248, 234);
+    --be-noren-color: rgb(30, 40, 110);
+    --be-bag-color: rgb(255, 120, 40);
+    --be-burst-color-a: rgba(255, 200, 90, 0.9);
+    --be-burst-color-b: rgba(255, 160, 50, 0.5);
+    --be-title-burst-edge: rgb(255, 222, 140);
+    --be-lantern-glow: rgba(255, 150, 50, 0.95);
+    --be-sky-top: rgb(16, 18, 58);
+    --be-sky-mid: rgb(58, 34, 112);
+    --be-sky-bottom: rgb(150, 58, 104);
+
+    /* Night: dark surfaces, light text. */
+    --be-ink: rgb(16, 10, 34);
+    --be-paper: rgb(46, 38, 92);
+    --be-paper-shade: rgb(34, 28, 72);
+    --be-text: rgb(255, 244, 228);
+    --be-text-muted: rgb(186, 174, 222);
+    --be-text-soft: rgb(214, 204, 240);
+    --be-text-accent: var(--be-primary-light);
+    --be-text-positive: rgb(120, 236, 170);
+    --be-text-warning: rgb(255, 140, 170);
+    --be-surface-top: rgb(62, 52, 116);
+    --be-surface-bottom: rgb(38, 31, 82);
+    --be-surface-edge: rgb(26, 20, 60);
+    --be-surface-raised: rgb(58, 48, 112);
+    --be-surface-locked-top: rgb(52, 48, 70);
+    --be-surface-locked-bottom: rgb(36, 33, 52);
+    --be-wash: rgba(255, 255, 255, 0.06);
+    --be-wash-strong: rgba(255, 255, 255, 0.12);
+    --be-frost: rgba(22, 16, 54, 0.62);       /* the glass, a night-indigo tint */
+    --be-frost-solid: rgba(22, 16, 54, 0.9);
+    --be-scrollbar: rgba(255, 255, 255, 0.3);
+    --be-scrollbar-active: rgba(255, 255, 255, 0.55);
+    --be-avatar-glow: rgb(255, 236, 200);
+
+    /* The Lucky Bag's prize card at night: violet, with amber light; the recipe cards dimmed, with dark windows and
+       pale ghosts for the recipes not found yet. */
+    --be-prize-center: rgb(126, 82, 176);
+    --be-prize-inner: rgb(86, 54, 148);
+    --be-prize-outer: rgb(52, 32, 104);
+    --be-prize-edge: rgb(26, 16, 60);
+    --be-prize-glow: rgba(255, 180, 80, 0.7);
+    --be-prize-burst-a: rgba(255, 200, 110, 0.3);
+    --be-prize-burst-b: rgba(170, 130, 255, 0.24);
+    --be-prize-burst-center: rgba(255, 210, 140, 0.55);
+    --be-card-shade: rgba(14, 8, 36, 0.38);
+    --be-card-art-center: rgb(74, 62, 128);
+    --be-card-art-mid: rgb(50, 41, 96);
+    --be-card-art-edge: rgb(36, 29, 74);
+    --be-card-art-locked-center: rgb(62, 58, 82);
+    --be-card-art-locked-mid: rgb(46, 43, 64);
+    --be-card-art-locked-edge: rgb(34, 32, 50);
+    --be-silhouette-color: rgb(92, 82, 140);
+}

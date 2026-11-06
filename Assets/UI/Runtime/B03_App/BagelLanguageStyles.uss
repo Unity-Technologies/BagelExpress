@@ -1,0 +1,89 @@
+/* Per-language typography, attached to the app root (BakeryAppScreen.uxml) so these
+   two-class selectors outrank the pages' own rules. BagelLocalization puts .be-lang-ja
+   on the app root while 日本語 is selected (.be-lang-fr for Français). Bangers has no
+   kana/kanji: they fall back to Noto Sans JP, whose glyphs are taller than Bangers
+   capitals and thinner, so Japanese display text gets smaller sizes, synthetic bold
+   and lighter outlines, or none at small sizes, where an outline fills the strokes:
+   a hard text-shadow sets the text off instead. */
+
+.be-lang-ja .be-heading__title {
+    font-size: 30px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 1.25px;
+    letter-spacing: 2px;
+}
+
+.be-lang-ja .be-display {
+    -unity-font-style: bold;
+    -unity-text-outline-width: 1px;
+}
+
+.be-lang-ja .be-store__sign-text {
+    font-size: 15px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 0;
+    letter-spacing: 0;
+}
+
+.be-lang-ja .be-home__event-title,
+.be-lang-ja .be-lucky-bag__banner-title {
+    -unity-font-style: bold;
+    -unity-text-outline-width: 0;
+    text-shadow: 0 2px 0 var(--be-ink);
+}
+
+.be-lang-ja .be-lucky-bag__banner-title {
+    font-size: 19px;
+}
+
+.be-lang-ja .be-lucky-bag__draw-label {
+    font-size: 20px;
+    -unity-font-style: bold;
+}
+
+.be-lang-ja .be-shop-card__name {
+    font-size: var(--be-font-s);
+}
+
+.be-lang-ja .be-level-up__title {
+    font-size: 44px;
+    letter-spacing: 0;
+}
+
+.be-lang-ja .be-level-up__shop-name {
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+.be-lang-ja .be-confirm__title {
+    font-size: 22px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 1px;
+}
+
+.be-lang-ja .be-confirm__button-label {
+    font-size: 17px;
+    -unity-font-style: bold;
+    letter-spacing: 0;
+}
+
+/* Secondary (other-language) names stay on one line. */
+.be-shop-card__jp {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* French runs ~30% longer than English: tighter display labels where the box is fixed. */
+.be-lang-fr .be-shop-card__action-label {
+    font-size: 16px;
+    letter-spacing: 0;
+}
+
+.be-lang-fr .be-shop-card__name {
+    font-size: 13px;
+}
+
+.be-lang-fr .be-season-card__name {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}

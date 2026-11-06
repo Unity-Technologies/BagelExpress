@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <!-- One pastry on the storefront's shelves. HomePage.uxml shows it six times, each instance picking its pastry with
+         an attribute override (kind), so an edit here (size, a filter, a plate under it) changes all six at once. -->
+    <Bagel.PastryIcon name="pastry" kind="SesameBagel" picking-mode="Ignore" class="be-store__pastry"/>
+</ui:UXML>

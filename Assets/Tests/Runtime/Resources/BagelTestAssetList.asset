@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6616815f7ab6345eba99f67c4fc3e8de, type: 3}
+  m_Name: BagelTestAssetList
+  m_EditorClassIdentifier: BagelTests::Bagel.BagelTestAssetList
+  mainSceneName: Main
+  theme: {fileID: -4733365628477956816, guid: 5641153beefdf47178ed6e135d1a0eb3, type: 3}
+  startState: {fileID: 11400000, guid: a4d6dc225104644abaac94da2fa5c72b, type: 2}
+  appScreenUxml: {fileID: 9197481963319205126, guid: 9adfa05568eaa4415b5281fcc9535ee0, type: 3}
+  titleScreenUxml: {fileID: 9197481963319205126, guid: 945ffebcf13f74b6694f376c82063f52, type: 3}
+  homePageUxml: {fileID: 9197481963319205126, guid: d2430b7f5c6284b5e8e98087bce0cc3a, type: 3}
+  shopsPageUxml: {fileID: 9197481963319205126, guid: fa14de245fb3449be8e25c501f23889c, type: 3}
+  shopCardUxml: {fileID: 9197481963319205126, guid: e5dd4c8210a1b4143a96fe1cb337c793, type: 3}
+  luckyBagPageUxml: {fileID: 9197481963319205126, guid: 2ad22f2480dde4371b25a0013e7874bf, type: 3}
+  recipesPageUxml: {fileID: 9197481963319205126, guid: 5cc23932f19394bbf928ff5824350792, type: 3}
+  recipeCardUxml: {fileID: 9197481963319205126, guid: 7cdb855c893984e0bb28ac167ae247cb, type: 3}
+  settingsPageUxml: {fileID: 9197481963319205126, guid: a51c3185909bc465e92c37dce7199956, type: 3}

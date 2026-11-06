@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Montreal: maple leaf badge -->
+  <path d="M32 32 m-27 0 a27 27 0 1 0 54 0 a27 27 0 1 0 -54 0 Z" fill="#DE482C" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M32 32 m-21 0 a21 21 0 1 0 42 0 a21 21 0 1 0 -42 0 Z" fill="#FFF8EA" stroke="#3B1F14" stroke-width="2.5"/>
+  <path d="M32 15 L34.72 21.4 L38.72 19.48 L37.76 26.84 L46.72 24.6 L43.84 29.72 L46.4 32.6 L39.36 34.52 L40.32 38.04 L33.28 36.76 L32.96 46.2 L31.04 46.2 L30.72 36.76 L23.68 38.04 L24.64 34.52 L17.6 32.6 L20.16 29.72 L17.28 24.6 L26.24 26.84 L25.28 19.48 L29.28 21.4 Z" fill="#DE482C" stroke="#3B1F14" stroke-width="2.5" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,460 @@
+/* Bagel Express — app shell: backdrop, pages, HUD, bottom nav, overlay layer. */
+
+.be-app {
+    flex-grow: 1;
+    overflow: hidden;
+    background-color: var(--be-sky-bottom);
+}
+
+.be-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* ------------------------------------------------------------------ Backdrop */
+
+.be-backdrop__glow {
+    position: absolute;
+    left: -40%;
+    right: -40%;
+    top: -20%;
+    height: 70%;
+    background-image: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 70%);
+}
+
+/* The city stays put behind every page, on the screen's bottom edge (full-bleed, under the home indicator too). Same
+   size and place as the title screen's, so it doesn't move when the title leaves. */
+.be-backdrop__skyline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 320px;
+}
+
+/* ------------------------------------------------------------------ Pages
+   Resting pose is visible (authorable in UI Builder); hiding is additive. */
+
+.be-page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition-property: translate, opacity;
+    transition-duration: 0.38s, 0.38s;
+    transition-timing-function: ease-out-cubic, ease-out-cubic;
+}
+
+.be-page--hidden-left {
+    translate: -35% 0;
+    opacity: 0;
+}
+
+.be-page--hidden-right {
+    translate: 35% 0;
+    opacity: 0;
+}
+
+.be-page--gone {
+    display: none;
+}
+
+/* Common page scaffolding (used by every page UXML). */
+.be-page-content {
+    flex-grow: 1;
+    padding: 142px 14px 112px 14px;
+    gap: var(--be-gap-m);
+}
+
+.be-page-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+/* A scrolling page: only the title row is laid out here, the same height on every page so the edge of the header's
+   glass (222 points down, see .be-page-glass) stays put from page to page. The page's scroll well and glass are
+   positioned on their own, under and over it. */
+.be-page-content--scroll {
+    padding: 142px 0 0 0;
+}
+
+.be-page-content--scroll .be-page-header {
+    height: 68px;
+    margin: 0 14px;
+}
+
+/* A scrolling page's glass stays put while the page slides: it moves the other way
+   on the same timing, so it only fades with the page. BakeryAppManager does the same during a swipe. The chrome
+   elements fill their page, so a percentage moves them exactly as far as it moves the page. */
+.be-page-chrome {
+    transition-property: translate;
+    transition-duration: 0.38s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.be-page--hidden-left .be-page-chrome {
+    translate: 35% 0;
+}
+
+.be-page--hidden-right .be-page-chrome {
+    translate: -35% 0;
+}
+
+/* ------------------------------------------------------------------ HUD */
+
+.be-hud {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 44px 10px 6px 10px;
+    gap: 6px;
+    background-image: linear-gradient(to bottom, rgba(59, 31, 20, 0.35), rgba(59, 31, 20, 0));
+}
+
+/* The pills share the whole row, in the proportions of their old fixed widths (coins 128 : gems 102 : tickets 102). */
+.be-hud__currencies {
+    flex-direction: row;
+    gap: 6px;
+}
+
+.be-hud__pill {
+    flex-grow: 102;
+    flex-shrink: 1;
+    flex-basis: 0;
+    min-width: 0;
+}
+
+.be-hud__pill--wide {
+    flex-grow: 128;
+}
+
+/* The player row opens the stats, so it answers the pointer: on hover Begu-chan leans in and the name lights up,
+   and a press pushes the row in. Transforms and colors only, so the HUD never moves. */
+.be-hud__player {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    transform-origin: left;
+    transition-property: scale, translate;
+    transition-duration: 0.12s;
+    transition-timing-function: ease-out-back;
+}
+
+.be-hud__player:hover .be-hud__avatar {
+    scale: 1.1 1.1;
+    rotate: -6deg;
+}
+
+.be-hud__player:hover .be-hud__name {
+    color: var(--be-gold-light);
+}
+
+.be-hud__player:active {
+    scale: 0.96 0.96;
+    translate: 0 2px;
+}
+
+.be-hud__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    background-image: radial-gradient(circle at center, var(--be-avatar-glow), var(--be-primary-light));
+    overflow: visible;
+    transition-property: scale, rotate;
+    transition-duration: 0.18s;
+    transition-timing-function: ease-out-back;
+}
+
+.be-hud__avatar-art {
+    position: absolute;
+    left: 2px;
+    top: 3px;
+    right: 2px;
+    bottom: 1px;
+}
+
+/* The name, then the player's level in a gold pill. */
+.be-hud__name-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+}
+
+.be-hud__level {
+    flex-shrink: 0;
+    height: 22px;
+    margin: 0;
+    padding: 0 8px;
+    -unity-text-align: middle-center;
+    font-size: var(--be-font-s);
+    border-radius: 11px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    background-image: linear-gradient(to bottom, var(--be-gold-light), var(--be-gold) 60%, var(--be-gold-dark));
+    color: var(--be-ink);
+}
+
+.be-hud__nameplate {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.be-hud__name {
+    font-size: var(--be-font-l);
+    color: var(--be-white);
+    transition-property: color;
+    transition-duration: 0.12s;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 2px 0 var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+/* Dark on the sky and on the frost alike: an outline can't make text this small read on a light, busy backdrop. */
+.be-hud__title {
+    font-size: 11px;
+    color: var(--be-text);
+    padding: 0;
+    margin: 0;
+}
+
+.be-hud__income {
+    background-color: rgba(20, 140, 84, 0.85);
+}
+
+.be-hud__income-plus,
+.be-hud__income-value {
+    padding: 0;
+    margin: 0;
+    color: var(--be-white);
+}
+
+/* ------------------------------------------------------------------ Bottom nav
+   92 points tall, on its own frosted bar. Big icons and no labels, so it reads from the back of a room
+   (11-point labels didn't). Every item fits in it, the Lucky Bag disc too, and it stays the biggest. */
+
+.be-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 92px;
+    padding: 0 6px 16px 6px;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+/* The nav's own frosted bar (.be-glass), on every page: its top corners round off toward the sides. */
+.be-nav__bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-top-width: var(--be-border);
+    border-top-left-radius: var(--be-radius-l);
+    border-top-right-radius: var(--be-radius-l);
+}
+
+.be-nav__item {
+    flex-grow: 1;
+    flex-basis: 0;
+    height: 72px;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    align-items: center;
+    justify-content: center;
+    transition-property: translate;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out-back;
+}
+
+.be-nav__icon {
+    width: 50px;
+    height: 50px;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    transition-property: scale;
+    transition-duration: 0.18s;
+    transition-timing-function: ease-out-back;
+}
+
+.be-nav__icon--home {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-home.svg");
+}
+
+.be-nav__icon--shops {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-shops.svg");
+}
+
+.be-nav__icon--recipes {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-recipes.svg");
+}
+
+.be-nav__icon--settings {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-settings.svg");
+}
+
+/* The current page: its icon glows, and the icon gives a little rotate-bounce (NavWobble) as it
+   becomes current. The glow is a drop-shadow, so it hugs the outlines, the badge's too (it's the icon's child):
+   a box-shadow would light the icon's box. It measured about 1 ms on an iPhone 12 Pro, unlike the storefront's
+   blurred glow, which is a box-shadow now (HomeStyles.uss). */
+.be-nav__item--selected .be-nav__icon {
+    filter: drop-shadow(0 0 4px var(--be-gold-dark)) drop-shadow(0 0 4px var(--be-gold-dark)) drop-shadow(0 2px 0 var(--be-ink));
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/NavWobble.asset");
+}
+
+/* The Lucky Bag: no disc, just the bag, by far the biggest thing in the nav. Its slot is wider than the others, which
+   pushes them out to the sides, and the bag sits on the nav's floor and rises 28 points over its top edge, over the
+   page. The pages keep their content clear of it: the scrolling pages end 14 points above the bag (their content's
+   bottom inset is 198, not 170), and Home and the Lucky Bag leave room for it at the bottom. The bag is pickable, so
+   tapping the part above the bar still reaches the nav button (the click bubbles up to it). */
+.be-nav__item--hero {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    width: 112px;
+}
+
+.be-nav__hero-bag {
+    position: absolute;
+    bottom: 0;
+    width: 104px;
+    height: 104px;
+    transform-origin: bottom;
+    transition-property: scale, rotate;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out-back;
+}
+
+.be-nav__hero-art {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* The current page: the bag tilts and glows like the other icons, in the same amber. The glow is drawn by the bag's
+   art (--be-bag-glow): the icons' drop-shadow filter cost about 17 ms a frame on a Galaxy S10 on a bag this big. */
+.be-nav__item--hero.be-nav__item--selected .be-nav__hero-bag {
+    scale: 1.06 1.06;
+    rotate: -6deg;
+}
+
+.be-nav__item--hero.be-nav__item--selected .be-nav__hero-art {
+    --be-bag-glow: var(--be-gold-dark);
+}
+
+/* Hover, press and tap, on every item, current or not, and whether the page changes or not (an editor window's pinned
+   screen doesn't): the icon grows a little under a pointer and sinks while pressed; each tap (--pressed for a moment,
+   --tapped while its clip plays) squishes it and plays its NavWobble again, and shakes the bag (BagShake). The press
+   rules come after the hover ones and are as specific, so a mouse click, which also hovers, still sinks. */
+.be-nav__item:hover .be-nav__icon {
+    scale: 1.08 1.08;
+}
+
+.be-nav__item:active .be-nav__icon,
+.be-nav__item.be-nav__item--pressed .be-nav__icon {
+    scale: 0.86 0.86;
+}
+
+.be-nav__item--tapped .be-nav__icon {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/NavWobble.asset");
+}
+
+.be-nav__item--hero:hover .be-nav__hero-bag {
+    scale: 1.06 1.06;
+}
+
+.be-nav__item--hero.be-nav__item--selected:hover .be-nav__hero-bag {
+    scale: 1.1 1.1;
+}
+
+.be-nav__item--hero.be-nav__item--selected:active .be-nav__hero-bag,
+.be-nav__item.be-nav__item--hero.be-nav__item--pressed .be-nav__hero-bag {
+    scale: 0.92 0.92;
+}
+
+.be-nav__item--hero.be-nav__item--tapped .be-nav__hero-bag {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/BagShake.asset");
+}
+
+
+/* ------------------------------------------------------------------ Overlays & title */
+
+.be-overlay-layer {
+    z-index: 50;
+}
+
+.be-title-screen {
+    transition-property: opacity, scale;
+    transition-duration: 0.5s, 0.5s;
+    transition-timing-function: ease-in-cubic, ease-in-cubic;
+}
+
+.be-title-screen--leaving {
+    opacity: 0;
+    scale: 1.08 1.08;
+}
+
+.be-title-screen--gone {
+    display: none;
+}
+
+/* ------------------------------------------------------------------ Notification badge (UI Component) */
+
+/* On its owner's top-right corner: a round pill with one white outline. In the nav it belongs to the icon (or
+   the Lucky Bag disc), so it moves and glows with it. */
+.be-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 4px;
+    border-radius: 10px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-white);
+    background-image: linear-gradient(to bottom, rgb(255, 110, 130), rgb(220, 30, 60));
+    color: var(--be-white);
+    font-size: 11px;
+    -unity-text-align: middle-center;
+    text-shadow: 0 1px 0 var(--be-ink);
+}
+
+.be-badge--pop {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/BadgePop.asset");
+}
+
+/* In the nav the badges grow with the icons, to read from as far away. */
+.be-nav__icon .be-badge,
+.be-nav__hero-bag .be-badge {
+    min-width: 24px;
+    height: 24px;
+    padding: 0 5px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.be-nav__icon .be-badge {
+    top: -4px;
+    right: -10px;
+}
+
+/* On the bag's shoulder, inside its box. */
+.be-nav__hero-bag .be-badge {
+    top: 8px;
+    right: 6px;
+}

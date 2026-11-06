@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02517d11f410f4352a5e416c993dbf62, type: 3}
+  m_Name: BagelThemeCollection
+  m_EditorClassIdentifier: BagelUI::Bagel.BagelThemeCollection
+  collection:
+  - themeName: Maple Autumn
+    japaneseName: "\u79CB\u30FB\u7D05\u8449"
+    theme: {fileID: -4733365628477956816, guid: 5641153beefdf47178ed6e135d1a0eb3, type: 3}
+  - themeName: Sakura Spring
+    japaneseName: "\u6625\u30FB\u685C"
+    theme: {fileID: -4733365628477956816, guid: 68679783caf0544dca0f6fa57391b803, type: 3}
+  - themeName: Matsuri Summer
+    japaneseName: "\u590F\u796D\u308A"
+    theme: {fileID: -4733365628477956816, guid: cd654171c9f7a45fe903b7b660a84302, type: 3}
+  - themeName: Snow Winter
+    japaneseName: "\u51AC\u30FB\u96EA"
+    theme: {fileID: -4733365628477956816, guid: 737d71f84866f41cab272a7bbd29ed99, type: 3}

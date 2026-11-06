@@ -1,0 +1,113 @@
+/* Bagel Express — tutorial overlay. */
+
+.be-tutorial,
+.be-tutorial__spotlight {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.be-tutorial--hidden,
+.be-tutorial--paused > * {
+    display: none;
+}
+
+.be-tutorial__pointer {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/FloatBob.asset") 0.7s infinite;
+}
+
+.be-tutorial__bubble {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 120px;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 14px 10px 8px;
+    gap: 8px;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-l);
+    background-color: var(--be-surface-raised);
+    border-bottom-width: var(--be-tile-lip);
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/DialogIn.asset");
+}
+
+.be-tutorial__bubble--top {
+    bottom: auto;
+    top: 130px;
+}
+
+.be-tutorial__mascot {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+}
+
+.be-tutorial__texts {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.be-tutorial__step {
+    font-size: var(--be-font-xs);
+    letter-spacing: 2px;
+    color: var(--be-primary);
+    padding: 0;
+    margin: 0;
+}
+
+.be-tutorial__message {
+    font-size: var(--be-font-m);
+    white-space: normal;
+    color: var(--be-text);
+    padding: 0;
+    margin: 0;
+}
+
+/* The first line: the step on the left, Skip on the right. */
+.be-tutorial__header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+/* Skip: a dark pill on the tip's first line, always within thumb reach of the tip. */
+.be-tutorial__skip {
+    flex-shrink: 0;
+    height: 26px;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0 6px 0 12px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    border-radius: 13px;
+    background-color: rgb(78, 46, 34);
+    transition-property: translate;
+    transition-duration: 0.09s;
+}
+
+.be-tutorial__skip:active {
+    translate: 0 1px;
+}
+
+.be-tutorial__skip-label {
+    font-size: var(--be-font-s);
+    letter-spacing: 1px;
+    color: var(--be-white);
+    padding: 0;
+    margin: 0 4px 0 0;
+}
+
+.be-tutorial__skip-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-close.svg");
+}

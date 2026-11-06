@@ -1,0 +1,39 @@
+/* Perf A/B for the demo: big, soft shadows under the panes inside the pages (the Settings sections, the shop cards,
+   the recipe cards, Home's event card and register, the Lucky Bag banner) and the dialogs' panels, made two ways.
+
+   .be-filter-shadows: filter: drop-shadow(). It's the look a designer reaches for first, and the most expensive
+   filter there is: each pane becomes an offscreen pass plus a Gaussian blur every frame, and the blur's kernel grows
+   with the blur length and the screen's density.
+
+   .be-box-shadows: the same shadow as box-shadow (6.7). It's geometry, tessellated like a border with a feathered
+   edge, so it batches with the panes and costs about what no shadow does. It shadows the pane's box (with its
+   rounded corners), not its silhouette, which for a pane is the same thing. Its blur is CSS's blur radius, twice the
+   sigma that drop-shadow() takes, so 44px here matches drop-shadow()'s 22px.
+
+   The tiles keep their hard shadows, which are geometry too (a thicker bottom border, --be-tile-lip).
+
+   Settings › Performance › Blurred drop-shadows on panes, or Blurred box-shadows on panes (one turns the other off),
+   or F in Play mode, which cycles none → drop-shadow() → box-shadow. The Performance pane is one of them, so it
+   changes as you tap. Watch the perf overlay's frame time, the UI Toolkit Details profiler module (draw calls,
+   batches) and the CPU timeline (RenderTarget.SetActive).
+
+   Attached to the app root (BakeryAppScreen.uxml) so the two-class selectors outrank the pages' own rules. The
+   selectors are explicit on purpose: filter: var(--x) where --x resolves to none throws in
+   StylePropertyValueMatcher.MatchFilterFunction in some Unity versions (6.7 is fine), so the default (none)
+   doesn't come from a variable. */
+
+.be-filter-shadows .be-panel,
+.be-filter-shadows .be-shop-card,
+.be-filter-shadows .be-recipe-card__frame,
+.be-filter-shadows .be-home__event,
+.be-filter-shadows .be-lucky-bag__banner {
+    filter: drop-shadow(0 12px 22px rgba(20, 8, 2, 0.85));
+}
+
+.be-box-shadows .be-panel,
+.be-box-shadows .be-shop-card,
+.be-box-shadows .be-recipe-card__frame,
+.be-box-shadows .be-home__event,
+.be-box-shadows .be-lucky-bag__banner {
+    box-shadow: 0 12px 44px rgba(20, 8, 2, 0.85);
+}

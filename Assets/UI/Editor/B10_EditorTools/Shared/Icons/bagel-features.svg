@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <!-- Bagel Features window icon: a sesame bagel, centered. -->
+  <path d="M1.6 8 a6.4 6.4 0 1 0 12.8 0 a6.4 6.4 0 1 0 -12.8 0 Z M5.95 8 a2.05 2.05 0 1 0 4.1 0 a2.05 2.05 0 1 0 -4.1 0 Z" fill="#E8A040" fill-rule="evenodd" stroke="#3B1F14" stroke-width="0.9"/>
+  <ellipse cx="4.6" cy="5.1" rx="0.7" ry="0.42" transform="rotate(-40 4.6 5.1)" fill="#FFF4DC"/>
+  <ellipse cx="8.2" cy="3.4" rx="0.7" ry="0.42" fill="#FFF4DC"/>
+  <ellipse cx="11.6" cy="5.4" rx="0.7" ry="0.42" transform="rotate(40 11.6 5.4)" fill="#FFF4DC"/>
+  <ellipse cx="3.9" cy="10.2" rx="0.7" ry="0.42" transform="rotate(35 3.9 10.2)" fill="#FFF4DC"/>
+  <ellipse cx="11.9" cy="10.4" rx="0.7" ry="0.42" transform="rotate(-35 11.9 10.4)" fill="#FFF4DC"/>
+</svg>

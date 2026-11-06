@@ -1,0 +1,436 @@
+/* Bagel Express — Home: event banner, storefront, mascot, register. */
+
+.be-home {
+    flex-grow: 1;
+}
+
+.be-home__content {
+    justify-content: flex-start;
+    /* Clear of the HUD above, and of the nav's Lucky Bag below (it rises 28 points over the nav). */
+    padding-top: 148px;
+    padding-bottom: 132px;
+}
+
+/* ------------------------------------------------------------------ Event banner */
+
+.be-home__event {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    height: 82px;
+    margin: 0;
+    padding: 0 18px 0 0;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-l);
+    background-image: linear-gradient(110deg, var(--be-primary-dark), var(--be-primary) 45%, var(--be-accent));
+    border-bottom-width: var(--be-tile-lip);
+    overflow: visible;
+    transition-property: scale, translate;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-back;
+}
+
+.be-home__event:hover {
+    scale: 1.02 1.02;
+}
+
+.be-home__event:active {
+    translate: 0 3px;
+}
+
+.be-home__event-art {
+    width: 84px;
+    height: 100%;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Concentric with the banner's corners, inside its outline (3) and lip (7). */
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 21px;
+    background-image: radial-gradient(circle at center, var(--be-prize-center), var(--be-prize-inner) 45%, var(--be-prize-outer) 90%);
+}
+
+.be-home__event-burst {
+    position: absolute;
+    left: -10px;
+    top: -16px;
+    width: 104px;
+    height: 104px;
+    --be-burst-color-a: var(--be-prize-burst-a);
+    --be-burst-color-b: var(--be-prize-burst-b);
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/SpinSlow.asset") 12s infinite;
+}
+
+.be-home__event-pastry {
+    width: 62px;
+    height: 62px;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/FloatBob.asset") 2.4s infinite;
+}
+
+/* The title and, under it, the countdown: both inside the banner. */
+.be-home__event-text {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 0 0 0 12px;
+    gap: 4px;
+}
+
+.be-home__event-title {
+    margin: 0;
+    padding: 0;
+    font-size: var(--be-font-m);
+    color: var(--be-white);
+    white-space: normal;
+    -unity-text-align: middle-left;
+    text-shadow: 0 1px 0 var(--be-ink);
+}
+
+/* The countdown: a dark chip under the title. */
+.be-home__event-timer {
+    align-self: flex-start;
+    flex-direction: row;
+    align-items: center;
+    height: 20px;
+    padding: 0 9px 0 5px;
+    border-radius: 10px;
+    background-color: rgba(59, 31, 20, 0.55);
+}
+
+.be-home__event-clock {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-clock.svg");
+}
+
+.be-home__event-countdown {
+    font-size: var(--be-font-xs);
+    color: var(--be-white);
+    padding: 0;
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------ Storefront */
+
+.be-store {
+    /* Takes what the column has left (up to its full height), so the blocks around it keep their size. */
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-height: 236px;
+    /* The tap hint sits on its bottom edge, half over the facade; the storefront takes the room down to it. */
+    margin: 16px 14px 14px 14px;
+    overflow: visible;
+}
+
+/* The window light spilling around the storefront: a box-shadow on an empty element with the facade's box and
+   corners, in the season's --be-window-light. As filter: drop-shadow(0 0 22px …) on the facade it cost about 90 ms
+   of GPU a frame on an iPhone 12 Pro; box-shadow is geometry. Its blur is CSS's blur radius, twice drop-shadow()'s
+   sigma, so 44px is that 22px glow. */
+.be-store__glow {
+    box-shadow: 0 0 44px var(--be-window-light);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-top-left-radius: var(--be-radius-l);
+    border-top-right-radius: var(--be-radius-l);
+    border-bottom-left-radius: var(--be-radius-s);
+    border-bottom-right-radius: var(--be-radius-s);
+    transition-property: scale;
+    transition-duration: 0.12s;
+    transition-timing-function: ease-out-back;
+    transform-origin: bottom;
+}
+
+.be-store__facade {
+    flex-grow: 1;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-top-left-radius: var(--be-radius-l);
+    border-top-right-radius: var(--be-radius-l);
+    border-bottom-left-radius: var(--be-radius-s);
+    border-bottom-right-radius: var(--be-radius-s);
+    background-image: linear-gradient(to bottom, rgb(255, 238, 214), rgb(242, 208, 168));
+    /* A hard shadow, as geometry. It was filter: drop-shadow(0 6px 0 var(--be-ink)), an offscreen pass of the whole
+       facade every frame its lanterns swayed; the box-shadow leaves out the lanterns and the awning's rod, which stick
+       out of the box. The warm glow is .be-store__glow: a blurred drop-shadow(0 0 22px) here cost ~90 ms of GPU per
+       frame on an iPhone 12 Pro. */
+    box-shadow: 0 6px 0 var(--be-ink);
+    overflow: visible;
+    transition-property: scale;
+    transition-duration: 0.12s;
+    transition-timing-function: ease-out-back;
+    transform-origin: bottom;
+}
+
+.be-store--squish .be-store__facade,
+.be-store--squish .be-store__glow {
+    scale: 1.04 0.95;
+}
+
+.be-store__sign {
+    align-self: center;
+    margin-top: -18px;
+    padding: 4px 18px 6px 18px;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-m);
+    align-items: center;
+    border-bottom-width: var(--be-tile-lip);
+}
+
+.be-store__sign-text {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 24px;
+    letter-spacing: 1.5px;
+    color: var(--be-white);
+    -unity-text-outline-width: 1.5px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 2px 0 var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+.be-store__sign-jp {
+    font-size: 9px;
+    color: var(--be-white);
+    margin: -2px 0 0 0;
+    padding: 0;
+}
+
+.be-store__awning {
+    height: 40px;
+    margin: 4px -10px 0 -10px;
+}
+
+.be-store__front {
+    flex-grow: 1;
+    flex-direction: row;
+    padding: 2px 14px 6px 14px;
+    gap: 12px;
+}
+
+.be-store__window {
+    flex-grow: 1;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-m);
+    background-image: linear-gradient(to bottom, rgb(206, 238, 255), rgb(255, 250, 236));
+    padding: 0 6px;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.be-store__shelf {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    /* The pastries (40) stand on the shelf's 4-point edge: shelves never squeeze below that. */
+    height: 44px;
+    flex-shrink: 0;
+    border-bottom-width: 4px;
+    border-color: rgb(176, 112, 60);
+}
+
+.be-store__pastry {
+    width: 40px;
+    height: 40px;
+}
+
+.be-store__glass-shine {
+    position: absolute;
+    left: 12%;
+    top: -10%;
+    width: 18%;
+    height: 130%;
+    rotate: 20deg;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+}
+
+.be-store__door {
+    width: 92px;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-top-left-radius: 46px;
+    border-top-right-radius: 46px;
+    background-image: linear-gradient(to bottom, rgb(120, 70, 40), rgb(70, 36, 20));
+    overflow: hidden;
+}
+
+.be-store__noren {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 6px;
+    height: 74px;
+}
+
+.be-store__lantern {
+    position: absolute;
+    top: 52px;
+    width: 30px;
+    height: 46px;
+    transform-origin: top;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/LanternSway.asset") 3s infinite alternate;
+}
+
+.be-store__lantern--left {
+    left: -14px;
+}
+
+.be-store__lantern--right {
+    right: -14px;
+    animation-delay: -1.5s;
+}
+
+/* A pill straddling the storefront's bottom edge: half over the facade, half below it. */
+.be-store__tap-hint {
+    position: absolute;
+    bottom: -15px;
+    align-self: center;
+    justify-content: center;
+    height: 30px;
+    padding: 0 18px;
+    border-radius: 15px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    background-color: var(--be-surface-raised);
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/Pulse.asset") 1.2s infinite;
+}
+
+.be-store__tap-hint-text {
+    font-size: 14px;
+    color: var(--be-text);
+    padding: 0;
+    margin: 0;
+}
+
+.be-store__pops {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: visible;
+}
+
+/* Floating "+6" pop spawned at the tap position. */
+.be-pop {
+    position: absolute;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 30px;
+    color: var(--be-gold-light);
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 3px 0 var(--be-ink);
+    translate: -50% -50%;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/CoinPop.asset");
+}
+
+/* ------------------------------------------------------------------ Mascot & speech */
+
+.be-home__mascot-row {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    height: 72px;
+    margin: 0 6px;
+}
+
+.be-home__mascot {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/MascotBob.asset") 1.6s infinite;
+}
+
+/* SpeechBubble draws its tail in these colors and border width. */
+.be-bubble {
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: center;
+    min-height: 56px;
+    margin: 0 0 0 12px;
+    padding: 8px 16px;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-l);
+    background-color: var(--be-surface-raised);
+    border-bottom-width: var(--be-tile-lip);
+    overflow: visible;
+}
+
+.be-bubble__text {
+    white-space: normal;
+    -unity-text-align: middle-center;
+    font-size: var(--be-font-s);
+    color: var(--be-text);
+    padding: 0;
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------ Register */
+
+.be-register {
+    flex-shrink: 0;
+    gap: var(--be-gap-s);
+    margin: 0 6px;
+}
+
+.be-register__header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.be-register__titles {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+}
+
+.be-register__title {
+    font-size: var(--be-font-s);
+    color: var(--be-text-muted);
+    padding: 0;
+    margin: 0;
+}
+
+.be-register__amounts {
+    flex-direction: row;
+    align-items: center;
+}
+
+.be-register__coin {
+    width: 22px;
+    height: 22px;
+    margin-right: 4px;
+}
+
+.be-register__amount {
+    font-size: var(--be-font-l);
+    color: var(--be-text);
+    padding: 0;
+    margin: 0;
+}
+
+.be-register__slash,
+.be-register__capacity {
+    font-size: var(--be-font-s);
+    color: var(--be-text-muted);
+    padding: 0 0 0 4px;
+    margin: 0;
+}
+
+.be-register__collect {
+    margin-top: 2px;
+    gap: 6px;
+}
+
+.be-register__collect .be-btn__label {
+    font-size: 26px;
+    letter-spacing: 2px;
+}

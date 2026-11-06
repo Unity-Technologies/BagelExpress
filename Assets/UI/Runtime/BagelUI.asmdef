@@ -1,0 +1,19 @@
+{
+    "name": "BagelUI",
+    "rootNamespace": "Bagel",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:e8551785e5f2945ab8465d6af7bc00e5",
+        "GUID:27630057c50d042d08d29cfb6c1822b0",
+        "GUID:b46779583a009f04ba9f5f31d0e7e6ac"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
