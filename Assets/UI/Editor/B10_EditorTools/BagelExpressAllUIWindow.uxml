@@ -1,0 +1,41 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="BagelExpressAllUIWindowStyles.uss"/>
+    <ui:VisualElement name="all-ui" class="beall">
+        <uie:Toolbar name="toolbar" class="beall__toolbar">
+            <ui:VisualElement name="brand" picking-mode="Ignore" class="beall__brand">
+                <ui:VisualElement picking-mode="Ignore" class="beall__brand-dot"/>
+                <ui:Label text="Bagel Express" picking-mode="Ignore" class="beall__brand-name"/>
+                <ui:Label text="ベーグル急行 · All UI" picking-mode="Ignore" class="beall__brand-sub"/>
+                <Bagel.VersionLabel name="version" class="beall__brand-version"/>
+            </ui:VisualElement>
+            <Bagel.BagelOptionStrip name="reset-strip" tooltip="Start again: a fresh copy of the demo start state, the first season and the project's language, the phones at 75% from the top, no Inspector" class="beall__strip beall__strip--reset"/>
+            <Bagel.BagelOptionStrip name="new-game-strip" class="beall__strip"/>
+            <Bagel.BagelOptionStrip name="currency-strip" class="beall__strip"/>
+            <Bagel.BagelOptionStrip name="unlock-strip" class="beall__strip"/>
+            <ui:VisualElement name="toolbar-end" class="beall__toolbar-end">
+                <ui:Slider name="zoom-slider" label="Zoom" low-value="0.5" high-value="1" value="0.75" tooltip="Phone scale" class="beall__zoom"/>
+                <ui:Label name="zoom-label" text="75%" class="beall__zoom-label"/>
+                <Bagel.BagelOptionStrip name="season-strip" tooltip="Season: the seasonal ThemeStyleSheet on every phone (as the in-game Settings page picks it)" class="beall__strip"/>
+                <Bagel.BagelOptionStrip name="language-strip" tooltip="Language: every phone in it (sets the Localization locale)" class="beall__strip"/>
+                <Bagel.BagelOptionStrip name="inspector-strip" tooltip="The shared BakeryState's Inspector, next to the phones" class="beall__strip"/>
+            </ui:VisualElement>
+        </uie:Toolbar>
+        <ui:VisualElement name="body" class="beall__body">
+            <ui:VisualElement name="stage" class="beall__stage">
+                <ui:ScrollView name="phones-scroll" mode="VerticalAndHorizontal" class="beall__scroll">
+                    <ui:VisualElement name="phones" class="beall__phones"/>
+                </ui:ScrollView>
+            </ui:VisualElement>
+            <ui:VisualElement name="inspector-dock" class="beall__dock">
+                <ui:VisualElement name="dock-header" class="beall__dock-header">
+                    <ui:Label text="SHARED STATE · 共有ステート" class="beall__dock-eyebrow"/>
+                    <ui:Label name="dock-title" text="BakeryState (Runtime)" class="beall__dock-title"/>
+                    <ui:Label text="Every phone binds to this one instance. Edit a value and watch all screens update." class="beall__dock-hint"/>
+                </ui:VisualElement>
+                <ui:ScrollView name="inspector-scroll" class="beall__dock-scroll">
+                    <ui:VisualElement name="inspector-host" class="beall__dock-host"/>
+                </ui:ScrollView>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

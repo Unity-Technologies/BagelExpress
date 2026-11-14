@@ -1,0 +1,104 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:loc="Unity.Localization" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="LuckyBagStyles.uss"/>
+    <Bagel.LuckyBagPaneManager name="lucky-bag" card-template="../B08_Recipes/RecipeCard.uxml" start-state="project://database/Assets/Game/Core/DemoStartState.asset?fileID=11400000&amp;guid=a4d6dc225104644abaac94da2fa5c72b&amp;type=2#DemoStartState">
+        <ui:VisualElement name="lucky-bag-content" picking-mode="Ignore" class="be-page-content">
+            <ui:VisualElement name="lucky-bag-header" picking-mode="Ignore" class="be-page-header">
+                <ui:VisualElement picking-mode="Ignore" class="be-heading">
+                    <ui:Label text="福袋 · RECIPE DRAW" picking-mode="Ignore" class="be-eyebrow be-heading__eyebrow">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="page.lucky-bag.eyebrow"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label text="LUCKY BAG" picking-mode="Ignore" class="be-heading__title">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="page.lucky-bag.title"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement picking-mode="Ignore" class="be-chip be-lucky-bag__tickets">
+                    <Bagel.CurrencyIcon kind="Tickets" picking-mode="Ignore" class="be-lucky-bag__ticket-icon"/>
+                    <ui:Label name="ticket-count" text="6" picking-mode="Ignore" class="be-lucky-bag__ticket-text">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="tickets" binding-mode="ToTarget"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="banner" picking-mode="Ignore" class="be-lucky-bag__banner">
+                <ui:VisualElement picking-mode="Ignore" class="be-lucky-bag__banner-sky"/>
+                <Bagel.Starburst name="banner-burst" picking-mode="Ignore" class="be-lucky-bag__burst"/>
+                <ui:VisualElement name="bag-stage" class="be-lucky-bag__stage">
+                    <ui:VisualElement picking-mode="Ignore" class="be-lucky-bag__glow"/>
+                    <Bagel.LuckyBag name="bag" picking-mode="Ignore" class="be-lucky-bag__bag"/>
+                    <Bagel.PressSquish pressed-scale="0.94"/>
+                </ui:VisualElement>
+                <ui:VisualElement picking-mode="Ignore" class="be-lucky-bag__banner-text">
+                    <ui:Label text="BEGINNER'S LUCK · 初回限定" picking-mode="Ignore" class="be-eyebrow be-lucky-bag__banner-eyebrow">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="lucky-bag.banner.eyebrow"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label text="First bag: SSR guaranteed!" picking-mode="Ignore" class="be-lucky-bag__banner-title">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="lucky-bag.banner.title"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label text="N 52% · R 30% · SR 12% · SSR 5% · UR 1%" picking-mode="Ignore" class="be-lucky-bag__rates"/>
+                </ui:VisualElement>
+                <ui:Label text="PICK UP!" picking-mode="Ignore" class="be-sticker be-lucky-bag__pickup">
+                    <Bindings>
+                        <loc:LocalizedString property="text" table="BagelStrings" entry="lucky-bag.pickup"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:VisualElement name="draw-row" picking-mode="Ignore" class="be-lucky-bag__draw-row">
+                <ui:Button name="draw-one-button" class="be-btn be-lucky-bag__draw">
+                    <ui:VisualElement picking-mode="Ignore" class="be-gloss"/>
+                    <ui:Label text="DRAW ×1" picking-mode="Ignore" class="be-btn__label be-lucky-bag__draw-label">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="lucky-bag.draw-1"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:VisualElement picking-mode="Ignore" class="be-lucky-bag__draw-cost">
+                        <Bagel.CurrencyIcon kind="Tickets" picking-mode="Ignore" class="be-lucky-bag__draw-cost-icon"/>
+                        <ui:Label text="1" picking-mode="Ignore" class="be-lucky-bag__draw-cost-text"/>
+                    </ui:VisualElement>
+                    <Bagel.PressSquish pressed-scale="0.92"/>
+                </ui:Button>
+                <ui:Button name="draw-five-button" class="be-btn be-btn--gold be-lucky-bag__draw">
+                    <ui:VisualElement picking-mode="Ignore" class="be-gloss"/>
+                    <ui:Label text="DRAW ×5" picking-mode="Ignore" class="be-btn__label be-lucky-bag__draw-label">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="lucky-bag.draw-5"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:VisualElement picking-mode="Ignore" class="be-lucky-bag__draw-cost">
+                        <Bagel.CurrencyIcon kind="Tickets" picking-mode="Ignore" class="be-lucky-bag__draw-cost-icon"/>
+                        <ui:Label text="5" picking-mode="Ignore" class="be-lucky-bag__draw-cost-text"/>
+                    </ui:VisualElement>
+                    <ui:Label text="SR+ GUARANTEED" picking-mode="Ignore" class="be-lucky-bag__guarantee">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="lucky-bag.guarantee"/>
+                        </Bindings>
+                    </ui:Label>
+                    <Bagel.PressSquish pressed-scale="0.92"/>
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="results" class="be-lucky-bag__results be-fill">
+            <Bagel.Starburst name="results-burst" picking-mode="Ignore" class="be-lucky-bag__results-burst"/>
+            <ui:Label name="results-title" text="LUCKY BAG!" picking-mode="Ignore" class="be-lucky-bag__results-title be-display">
+                <Bagel.WavyText amplitude="5" speed="6" wavelength="90"/>
+            </ui:Label>
+            <ui:VisualElement name="results-row" picking-mode="Ignore" class="be-lucky-bag__results-row"/>
+            <ui:Button name="results-ok-button" class="be-btn be-btn--mint be-lucky-bag__results-ok">
+                <ui:VisualElement picking-mode="Ignore" class="be-gloss"/>
+                <ui:Label text="YAY!" picking-mode="Ignore" class="be-btn__label be-display">
+                    <Bindings>
+                        <loc:LocalizedString property="text" table="BagelStrings" entry="lucky-bag.yay"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:Button>
+        </ui:VisualElement>
+    </Bagel.LuckyBagPaneManager>
+</ui:UXML>

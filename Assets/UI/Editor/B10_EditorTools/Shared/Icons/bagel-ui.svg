@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <!-- Bagel UI window icon: every screen, live. A phone with a bagel on its screen, another behind it. -->
+  <rect x="1.2" y="3.4" width="7.2" height="11" rx="1.6" fill="#3B1F14" stroke="#B87A2C" stroke-width="0.9"/>
+  <rect x="2.5" y="5" width="4.4" height="7.8" rx="0.7" fill="#9A5E2A"/>
+  <rect x="6.3" y="1.1" width="8.4" height="13.8" rx="1.9" fill="#3B1F14" stroke="#F5A623" stroke-width="1.1"/>
+  <rect x="7.65" y="2.9" width="5.7" height="10.2" rx="0.9" fill="#FFD678"/>
+  <path d="M7.95 8 a2.55 2.55 0 1 0 5.1 0 a2.55 2.55 0 1 0 -5.1 0 Z M9.65 8 a0.85 0.85 0 1 0 1.7 0 a0.85 0.85 0 1 0 -1.7 0 Z" fill="#C8691C" fill-rule="evenodd"/>
+</svg>

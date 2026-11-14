@@ -1,0 +1,9 @@
+/* Settings › Performance › Disable all filters. BakeryAppManager adds this style sheet to the app root, and takes it
+   off again: nothing else changes. The ID selector (#app, the root's name) outranks every class-based rule in the
+   game, so one rule turns off every filter and backdrop-filter: the drop-shadows and glows (and the blurred-shadow
+   A/B), the glass's blur (it keeps its tint), the dialogs' blurred scrims and LEVEL UP!'s halftone. */
+
+#app * {
+    filter: none;
+    backdrop-filter: none;
+}

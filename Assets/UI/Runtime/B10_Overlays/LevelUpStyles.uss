@@ -1,0 +1,407 @@
+/* Bagel Express — LEVEL UP! milestone celebration.
+   Resting pose = fully visible (authorable in UI Builder). Code adds:
+   --hidden (display none), --staged (one transparent frame before the show),
+   --celebrate (assigns the one-shot UIAnimationClips; re-added to restart them),
+   --leaving (exit transition). */
+
+.be-level-up {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.be-level-up--hidden {
+    display: none;
+}
+
+/* ------------------------------------------------------------------ Manga panel backdrop */
+
+/* The custom filter function turns whatever is behind into halftone dots on paper; the
+   element's own (semi-transparent) background is drawn on top of the filtered backdrop. */
+.be-level-up__scrim {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(70, 24, 10, 0.18);
+    background-image: radial-gradient(circle at center, rgba(255, 236, 190, 0.35), rgba(255, 236, 190, 0) 45%, rgba(48, 16, 6, 0.55));
+    backdrop-filter: filter("/Assets/UI/Runtime/B11_Filters/MangaHalftone.asset" 10px rgb(120, 30, 20)) blur(1px);
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+.be-level-up__speed-lines {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    --be-speed-lines-color: rgba(59, 31, 20, 0.88);
+    transition-property: opacity, scale;
+    transition-duration: 0.3s, 0.4s;
+    transition-timing-function: ease-out, ease-out-back;
+}
+
+/* ------------------------------------------------------------------ Stage */
+
+.be-level-up__stage {
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.be-level-up__burst-holder {
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    width: 540px;
+    height: 540px;
+    margin-left: -270px;
+    margin-top: -270px;
+}
+
+.be-level-up__burst {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    --be-burst-color-a: rgba(255, 226, 120, 0.9);
+    --be-burst-color-b: rgba(255, 160, 60, 0.45);
+    --be-burst-center: rgba(255, 252, 230, 1);
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/SpinSlow.asset") 22s infinite;
+}
+
+/* ------------------------------------------------------------------ Title */
+
+/* No z-index anywhere in this dialog: in this build, an element with z-index under a
+   display:none ancestor can still be drawn (at the panel origin) for a few frames. */
+.be-level-up__title-block {
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.be-level-up__title {
+    font-size: 68px;
+    letter-spacing: 3px;
+    color: rgb(255, 226, 110);
+    -unity-text-outline-width: 3px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 6px 0 rgb(59, 31, 20);
+    rotate: -4deg;
+    margin: 0;
+    padding: 0 12px;
+}
+
+/* A pill under the title, clear of it. */
+.be-level-up__ribbon {
+    margin-top: 10px;
+    height: 28px;
+    padding: 0 16px;
+    -unity-text-align: middle-center;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: 14px;
+    background-image: linear-gradient(to bottom, rgb(255, 120, 150), rgb(222, 48, 80));
+    color: var(--be-white);
+    font-size: var(--be-font-s);
+    -unity-font-style: bold;
+    text-shadow: 0 1px 0 var(--be-ink);
+    /* A hard shadow under a pill is its box's shadow: box-shadow, geometry, not a drop-shadow() offscreen pass. */
+    box-shadow: 0 3px 0 rgb(59, 31, 20);
+    rotate: -2deg;
+}
+
+/* ------------------------------------------------------------------ Card */
+
+.be-level-up__card {
+    width: 312px;
+    align-items: center;
+    padding: 14px 16px 16px 16px;
+    margin-top: 6px;
+    background-image: linear-gradient(to bottom, var(--be-surface-top), var(--be-surface-bottom));
+    overflow: visible;
+}
+
+.be-level-up__hero {
+    width: 128px;
+    height: 118px;
+    align-items: center;
+    justify-content: center;
+}
+
+.be-level-up__hero-glow {
+    position: absolute;
+    left: -46px;
+    top: -50px;
+    right: -46px;
+    bottom: -50px;
+    border-radius: 50%;
+    background-image: radial-gradient(circle at center, rgba(255, 214, 80, 0.95), rgba(255, 196, 40, 0) 68%);
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/GlowBreath.asset") 1.8s infinite;
+}
+
+.be-level-up__hero-disc {
+    position: absolute;
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    background-image: radial-gradient(circle at center, rgb(255, 252, 236), var(--be-gold-light) 55%, var(--be-gold));
+    box-shadow: 0 4px 0 rgb(59, 31, 20);
+}
+
+.be-level-up__pastry {
+    width: 104px;
+    height: 104px;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/MascotBob.asset") 1.4s infinite;
+}
+
+/* The milestone stamp, under the pastry: inside the card. */
+.be-level-up .be-level-up__sticker {
+    align-self: center;
+    height: 24px;
+    margin: 6px 0 4px 0;
+    padding: 0 12px;
+    border-radius: 12px;
+    font-size: var(--be-font-s);
+}
+
+.be-level-up__shop-name {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 27px;
+    letter-spacing: 1px;
+    color: var(--be-text-accent);
+    margin: 6px 0 0 0;
+    padding: 0;
+}
+
+.be-level-up__shop-jp {
+    font-size: var(--be-font-xs);
+    color: var(--be-text-muted);
+    margin: -2px 0 0 0;
+    padding: 0;
+}
+
+.be-level-up__levels {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+.be-level-up__level {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+.be-level-up__level--from {
+    font-size: 30px;
+    color: var(--be-text-muted);
+}
+
+.be-level-up__level--to {
+    font-size: 46px;
+    color: var(--be-gold);
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 4px 0 rgb(59, 31, 20);
+}
+
+.be-level-up__arrow {
+    font-size: 18px;
+    color: var(--be-primary);
+    margin: 0;
+    padding: 0;
+}
+
+/* A pill well; the boost pill at its end sits 10 in, concentric with it (20 - 10 = 10). */
+.be-level-up__income {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    gap: 6px;
+    height: 40px;
+    margin-top: 6px;
+    padding: 0 10px;
+    border-radius: 20px;
+}
+
+.be-level-up__income-eyebrow {
+    color: var(--be-text-muted);
+    margin: 0 4px 0 0;
+    padding: 0;
+}
+
+.be-level-up__income-value {
+    font-size: var(--be-font-m);
+    -unity-font-style: bold;
+    color: var(--be-text-muted);
+    margin: 0;
+    padding: 0;
+}
+
+.be-level-up__income-value--to {
+    font-size: var(--be-font-l);
+    color: var(--be-text-positive);
+}
+
+.be-level-up__income-arrow {
+    font-size: 11px;
+    color: var(--be-text-positive);
+    margin: 0;
+    padding: 0;
+}
+
+.be-level-up__boost {
+    height: 20px;
+    margin: 0 0 0 4px;
+    padding: 0 8px;
+    -unity-text-align: middle-center;
+    border-radius: 10px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    background-image: linear-gradient(to bottom, rgb(150, 240, 190), rgb(40, 170, 104));
+    color: var(--be-white);
+    font-size: var(--be-font-xs);
+    -unity-font-style: bold;
+    text-shadow: 0 1px 0 var(--be-ink);
+}
+
+.be-level-up__reward {
+    align-self: stretch;
+    align-items: center;
+    margin-top: 10px;
+    padding: 6px 0 4px 0;
+    border-radius: var(--be-radius-m);
+    background-image: linear-gradient(to right, rgba(255, 214, 120, 0), rgba(255, 214, 120, 0.75) 50%, rgba(255, 214, 120, 0));
+}
+
+.be-level-up__reward-eyebrow {
+    color: var(--be-text-accent);
+    margin: 0;
+    padding: 0;
+}
+
+.be-level-up__reward-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+}
+
+.be-level-up__reward-icon {
+    width: 42px;
+    height: 42px;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/FloatBob.asset") 1.6s infinite;
+}
+
+.be-level-up__reward-amount {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 36px;
+    letter-spacing: 1px;
+    color: var(--be-white);
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 3px 0 rgb(59, 31, 20);
+    margin: 0;
+    padding: 0;
+}
+
+.be-level-up__reward-name {
+    font-size: var(--be-font-m);
+    -unity-font-style: bold;
+    color: var(--be-text);
+    margin: 4px 0 0 0;
+    padding: 0;
+}
+
+/* ------------------------------------------------------------------ Button */
+
+.be-level-up__ok-wrap {
+    margin-top: 24px;
+}
+
+.be-level-up__ok-pulse {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/Pulse.asset") 1.1s infinite;
+}
+
+.be-level-up__ok {
+    width: 230px;
+    height: 66px;
+}
+
+.be-level-up__ok-label {
+    font-size: 34px;
+    letter-spacing: 2px;
+    -unity-text-outline-width: 2px;
+}
+
+.be-level-up__confetti {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 62%;
+}
+
+/* ------------------------------------------------------------------ Show sequence */
+
+.be-level-up--staged .be-level-up__scrim,
+.be-level-up--staged .be-level-up__speed-lines,
+.be-level-up--staged .be-level-up__stage {
+    opacity: 0;
+}
+
+.be-level-up--staged .be-level-up__speed-lines {
+    scale: 1.35 1.35;
+}
+
+.be-level-up--celebrate .be-level-up__burst-holder {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/RevealPop.asset") 0.5s;
+}
+
+.be-level-up--celebrate .be-level-up__title {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/Stamp.asset") 0.32s 0.12s;
+}
+
+.be-level-up--celebrate .be-level-up__ribbon {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/BadgePop.asset") 0.35s 0.32s;
+}
+
+.be-level-up--celebrate .be-level-up__card {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/DialogIn.asset") 0.45s 0.2s;
+}
+
+.be-level-up--celebrate .be-level-up__sticker {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/Stamp.asset") 0.3s 0.7s;
+}
+
+.be-level-up--celebrate .be-level-up__ok-wrap {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/RevealPop.asset") 0.4s 0.85s;
+}
+
+/* ------------------------------------------------------------------ Exit */
+
+.be-level-up--leaving .be-level-up__scrim,
+.be-level-up--leaving .be-level-up__speed-lines {
+    opacity: 0;
+    transition-duration: 0.25s;
+}
+
+.be-level-up--leaving .be-level-up__stage {
+    opacity: 0;
+    scale: 0.82 0.82;
+    transition-property: opacity, scale;
+    transition-duration: 0.22s, 0.22s;
+    transition-timing-function: ease-in, ease-in-back;
+}

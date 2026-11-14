@@ -1,0 +1,166 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:loc="Unity.Localization" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="ConfirmDialog" src="project://database/Assets/UI/Runtime/B10_Overlays/ConfirmDialog.uxml?fileID=9197481963319205126&amp;guid=0a022cbb46894442d99a5565f4fb4465&amp;type=3#ConfirmDialog"/>
+    <ui:Template name="HomePage" src="project://database/Assets/UI/Runtime/B05_Home/HomePage.uxml?fileID=9197481963319205126&amp;guid=d2430b7f5c6284b5e8e98087bce0cc3a&amp;type=3#HomePage"/>
+    <ui:Template name="LevelUpDialog" src="project://database/Assets/UI/Runtime/B10_Overlays/LevelUpDialog.uxml?fileID=9197481963319205126&amp;guid=8b537ef5904cc476b8dd79ecdf186147&amp;type=3#LevelUpDialog"/>
+    <ui:Template name="LuckyBagPage" src="project://database/Assets/UI/Runtime/B07_LuckyBag/LuckyBagPage.uxml?fileID=9197481963319205126&amp;guid=2ad22f2480dde4371b25a0013e7874bf&amp;type=3#LuckyBagPage"/>
+    <ui:Template name="PlayerStatsDialog" src="project://database/Assets/UI/Runtime/B10_Overlays/PlayerStatsDialog.uxml?fileID=9197481963319205126&amp;guid=e4f46f6bc621f4c59b12b688222425e6&amp;type=3#PlayerStatsDialog"/>
+    <ui:Template name="RecipesPage" src="project://database/Assets/UI/Runtime/B08_Recipes/RecipesPage.uxml?fileID=9197481963319205126&amp;guid=5cc23932f19394bbf928ff5824350792&amp;type=3#RecipesPage"/>
+    <ui:Template name="SettingsPage" src="project://database/Assets/UI/Runtime/B09_Settings/SettingsPage.uxml?fileID=9197481963319205126&amp;guid=a51c3185909bc465e92c37dce7199956&amp;type=3#SettingsPage"/>
+    <ui:Template name="ShopsPage" src="project://database/Assets/UI/Runtime/B06_Shops/ShopsPage.uxml?fileID=9197481963319205126&amp;guid=fa14de245fb3449be8e25c501f23889c&amp;type=3#ShopsPage"/>
+    <ui:Template name="TitleScreen" src="project://database/Assets/UI/Runtime/B04_Title/TitleScreen.uxml?fileID=9197481963319205126&amp;guid=945ffebcf13f74b6694f376c82063f52&amp;type=3#TitleScreen"/>
+    <Style src="project://database/Assets/UI/Runtime/B03_App/BakeryAppStyles.uss?fileID=7433441132597879392&amp;guid=448cf73f3bd624a699a303261af91bfa&amp;type=3#BakeryAppStyles"/>
+    <Style src="project://database/Assets/UI/Runtime/B12_Tutorial/TutorialStyles.uss?fileID=7433441132597879392&amp;guid=44185e0d7584d4453811551c9c004b6f&amp;type=3#TutorialStyles"/>
+    <Style src="project://database/Assets/UI/Runtime/B03_App/BagelLanguageStyles.uss?fileID=7433441132597879392&amp;guid=885051e3a0d764b509b7ef2154d5aff8&amp;type=3#BagelLanguageStyles"/>
+    <Style src="project://database/Assets/UI/Runtime/B03_App/BagelFilterShadowsAB.uss?fileID=7433441132597879392&amp;guid=f6503c282d8ed4b52b952a51ceba5d8a&amp;type=3#BagelFilterShadowsAB"/>
+    <Style src="project://database/Assets/UI/Runtime/B10_Overlays/PerfOverlayStyles.uss?fileID=7433441132597879392&amp;guid=8402c337d55aa48c8a8aa10c253d4338&amp;type=3#PerfOverlayStyles"/>
+    <Bagel.BakeryAppManager name="app" start-state="project://database/Assets/Game/Core/DemoStartState.asset?fileID=11400000&amp;guid=a4d6dc225104644abaac94da2fa5c72b&amp;type=2#DemoStartState" show-title="true" no-animations-style-sheet="project://database/Assets/UI/Runtime/B03_App/BagelNoAnimations.uss?fileID=7433441132597879392&amp;guid=f0dfbc02305d24218b27a7dad20d1bbb&amp;type=3#BagelNoAnimations" no-filters-style-sheet="project://database/Assets/UI/Runtime/B03_App/BagelNoFilters.uss?fileID=7433441132597879392&amp;guid=bf2849cbf5b414d278fef569c9c59a27&amp;type=3#BagelNoFilters" no-blur-style-sheet="project://database/Assets/UI/Runtime/B03_App/BagelNoBlur.uss?fileID=7433441132597879392&amp;guid=103c66e984031496da853b8a29204484&amp;type=3#BagelNoBlur">
+        <ui:VisualElement name="backdrop" picking-mode="Ignore" class="be-backdrop be-fill">
+            <ui:VisualElement name="sun-glow" picking-mode="Ignore" class="be-backdrop__glow"/>
+            <Bagel.SkylineBackdrop name="skyline" picking-mode="Ignore" class="be-backdrop__skyline"/>
+            <Bagel.SeasonParticles name="particles" class="be-fill"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="pages" picking-mode="Ignore" class="be-pages be-fill">
+            <ui:Instance template="HomePage" name="home-page" authoring-id="1986714615" class="be-page"/>
+            <ui:Instance template="ShopsPage" name="shops-page" authoring-id="2028392036" class="be-page"/>
+            <ui:Instance template="LuckyBagPage" name="lucky-bag-page" class="be-page"/>
+            <ui:Instance template="RecipesPage" name="recipes-page" class="be-page"/>
+            <ui:Instance template="SettingsPage" name="settings-page" class="be-page"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="hud" picking-mode="Ignore" class="be-hud">
+            <ui:VisualElement name="hud-currencies" picking-mode="Ignore" class="be-hud__currencies">
+                <Bagel.CurrencyPill name="coins-pill" kind="Coins" class="be-hud__pill be-hud__pill--wide">
+                    <Bindings>
+                        <ui:DataBinding property="value" data-source-path="coins" binding-mode="ToTarget"/>
+                    </Bindings>
+                </Bagel.CurrencyPill>
+                <Bagel.CurrencyPill name="gems-pill" kind="Gems" class="be-hud__pill">
+                    <Bindings>
+                        <ui:DataBinding property="value" data-source-path="gems" binding-mode="ToTarget"/>
+                    </Bindings>
+                </Bagel.CurrencyPill>
+                <Bagel.CurrencyPill name="tickets-pill" kind="Tickets" show-plus="true" class="be-hud__pill">
+                    <Bindings>
+                        <ui:DataBinding property="value" data-source-path="tickets" binding-mode="ToTarget"/>
+                    </Bindings>
+                </Bagel.CurrencyPill>
+            </ui:VisualElement>
+            <ui:VisualElement name="hud-player" class="be-hud__player">
+                <ui:VisualElement name="avatar" picking-mode="Ignore" class="be-hud__avatar">
+                    <Bagel.BeguChan name="avatar-art" picking-mode="Ignore" class="be-hud__avatar-art">
+                        <Bindings>
+                            <ui:DataBinding property="mood" data-source-path="mood" binding-mode="ToTarget"/>
+                        </Bindings>
+                    </Bagel.BeguChan>
+                </ui:VisualElement>
+                <ui:VisualElement name="nameplate" picking-mode="Ignore" class="be-hud__nameplate">
+                    <ui:VisualElement name="name-row" picking-mode="Ignore" class="be-hud__name-row">
+                        <ui:Label name="player-name" text="Begu-chan" class="be-hud__name">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="playerName" binding-mode="ToTarget"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Label name="player-level" text="Lv.12" class="be-hud__level">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="playerLevel" binding-mode="ToTarget" source-to-ui-converters="be-level"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                    <ui:Label name="player-title" text="ベーグル急行 オーナー" class="be-hud__title">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="hud.owner"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement name="income-chip" picking-mode="Ignore" class="be-chip be-hud__income">
+                    <ui:Label text="+" class="be-hud__income-plus"/>
+                    <ui:Label name="income-label" text="11.5/s" class="be-hud__income-value">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="incomePerSecond" binding-mode="ToTarget" source-to-ui-converters="be-rate"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="nav" class="be-nav">
+            <ui:VisualElement name="nav-bar" picking-mode="Ignore" class="be-glass be-nav__bar"/>
+            <ui:Button name="nav-home" authoring-id="1157255534" class="be-nav__item">
+                <ui:VisualElement name="nav-home-icon" picking-mode="Ignore" class="be-nav__icon be-nav__icon--home"/>
+            </ui:Button>
+            <ui:Button name="nav-shops" authoring-id="-337885489" class="be-nav__item">
+                <ui:VisualElement name="nav-shops-icon" picking-mode="Ignore" class="be-nav__icon be-nav__icon--shops">
+                    <Bagel.NotificationBadge/>
+                    <Bindings>
+                        <ui:DataBinding property="${component:NotificationBadge}.count" data-source-path="upgradeableShopCount" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:VisualElement>
+            </ui:Button>
+            <ui:Button name="nav-lucky-bag" class="be-nav__item be-nav__item--hero">
+                <ui:VisualElement name="nav-lucky-bag-icon" class="be-nav__hero-bag">
+                    <Bagel.NotificationBadge/>
+                    <Bagel.LuckyBag name="nav-lucky-bag-art" picking-mode="Ignore" class="be-nav__hero-art"/>
+                    <Bindings>
+                        <ui:DataBinding property="${component:NotificationBadge}.count" data-source-path="tickets" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:VisualElement>
+            </ui:Button>
+            <ui:Button name="nav-recipes" class="be-nav__item">
+                <ui:VisualElement name="nav-recipes-icon" picking-mode="Ignore" class="be-nav__icon be-nav__icon--recipes">
+                    <Bagel.NotificationBadge/>
+                    <Bindings>
+                        <ui:DataBinding property="${component:NotificationBadge}.count" data-source-path="newRecipeCount" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:VisualElement>
+            </ui:Button>
+            <ui:Button name="nav-settings" class="be-nav__item">
+                <ui:VisualElement name="nav-settings-icon" picking-mode="Ignore" class="be-nav__icon be-nav__icon--settings"/>
+            </ui:Button>
+        </ui:VisualElement>
+        <ui:VisualElement name="overlay-layer" picking-mode="Ignore" class="be-overlay-layer be-fill">
+            <Bagel.TutorialOverlay name="tutorial">
+                <Bagel.Spotlight name="tutorial-spotlight" class="be-tutorial__spotlight"/>
+                <Bagel.TutorialPointer name="tutorial-pointer" class="be-tutorial__pointer"/>
+                <ui:VisualElement name="tutorial-bubble" picking-mode="Ignore" class="be-tutorial__bubble">
+                    <Bagel.BeguChan name="tutorial-mascot" picking-mode="Ignore" class="be-tutorial__mascot"/>
+                    <ui:VisualElement name="tutorial-texts" picking-mode="Ignore" class="be-tutorial__texts">
+                        <ui:VisualElement name="tutorial-header" picking-mode="Ignore" class="be-tutorial__header">
+                            <ui:Label name="tutorial-step" text="TIP 1/3" picking-mode="Ignore" class="be-tutorial__step"/>
+                            <ui:Button name="tutorial-skip" class="be-tutorial__skip">
+                                <ui:Label name="tutorial-skip-label" text="SKIP" picking-mode="Ignore" class="be-tutorial__skip-label">
+                                    <Bindings>
+                                        <loc:LocalizedString property="text" table="BagelStrings" entry="tutorial.skip"/>
+                                    </Bindings>
+                                </ui:Label>
+                                <ui:VisualElement name="tutorial-skip-icon" picking-mode="Ignore" class="be-tutorial__skip-icon"/>
+                            </ui:Button>
+                        </ui:VisualElement>
+                        <ui:Label name="tutorial-message" text="Your register is full of coins! Tap COLLECT to bank them." picking-mode="Ignore" class="be-tutorial__message"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </Bagel.TutorialOverlay>
+            <ui:Instance template="LevelUpDialog" name="level-up" picking-mode="Ignore" class="be-fill"/>
+            <ui:Instance template="ConfirmDialog" name="confirm" picking-mode="Ignore" class="be-fill"/>
+            <ui:Instance template="PlayerStatsDialog" name="player-stats" picking-mode="Ignore" class="be-fill"/>
+            <Bagel.ToastStack name="toasts"/>
+        </ui:VisualElement>
+        <ui:Instance template="TitleScreen" name="title-screen" class="be-title-screen be-fill"/>
+        <Bagel.PerfOverlay name="perf-overlay">
+            <ui:VisualElement name="perf-window" class="be-perf__window be-no-swipe">
+                <ui:VisualElement name="perf-header" picking-mode="Ignore" class="be-perf__header">
+                    <ui:Label name="perf-fps" text="--" picking-mode="Ignore" class="be-perf__fps"/>
+                    <ui:Label name="perf-fps-unit" text="FPS" picking-mode="Ignore" class="be-perf__fps-unit"/>
+                    <ui:Label name="perf-frame" text="-- ms" picking-mode="Ignore" class="be-perf__frame"/>
+                    <ui:Button name="perf-close" class="be-perf__close">
+                        <ui:VisualElement name="perf-close-icon" picking-mode="Ignore" class="be-perf__close-icon"/>
+                    </ui:Button>
+                </ui:VisualElement>
+                <Bagel.PerfGraph name="perf-graph" class="be-perf__graph">
+                    <ui:Label name="perf-guide-60" text="60" picking-mode="Ignore" class="be-perf__guide be-perf__guide--60"/>
+                    <ui:Label name="perf-guide-30" text="30" picking-mode="Ignore" class="be-perf__guide be-perf__guide--30"/>
+                </Bagel.PerfGraph>
+                <ui:Label name="perf-timings" picking-mode="Ignore" class="be-perf__timings"/>
+                <ui:Label name="perf-resolution" picking-mode="Ignore" class="be-perf__resolution"/>
+                <ui:Label name="perf-thermal" picking-mode="Ignore" class="be-perf__thermal"/>
+            </ui:VisualElement>
+        </Bagel.PerfOverlay>
+    </Bagel.BakeryAppManager>
+</ui:UXML>

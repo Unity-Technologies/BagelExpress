@@ -1,0 +1,354 @@
+/* Bagel Express — Lucky Bag (福袋) page and draw results. */
+
+.be-lucky-bag {
+    flex-grow: 1;
+}
+
+/* Room at the bottom for the nav's Lucky Bag, which rises 28 points over the nav (the shared inset is 112). */
+.be-lucky-bag .be-page-content {
+    padding-bottom: 138px;
+}
+
+/* The ticket is wider than it is tall, so it sits well inside the pill's round end, with room before the count. */
+.be-lucky-bag__tickets {
+    margin-bottom: 6px;
+    padding-left: 9px;
+    padding-right: 12px;
+    background-color: rgba(196, 30, 72, 0.8);
+}
+
+.be-lucky-bag__ticket-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.be-lucky-bag__ticket-text {
+    color: var(--be-white);
+    padding: 0 0 0 6px;
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------ Banner */
+
+.be-lucky-bag__banner {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 14px 16px 14px;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-l);
+    border-bottom-width: var(--be-tile-lip);
+    overflow: hidden;
+}
+
+.be-lucky-bag__banner-sky {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* A golden prize card (violet at night): cream at the bag, honey at the edges, with a starburst of pointed spikes, never
+       wedge rays. Never a red field behind a red bag either. */
+    background-image: radial-gradient(ellipse at center, var(--be-prize-center), var(--be-prize-inner) 40%, var(--be-prize-outer) 78%, var(--be-prize-edge));
+}
+
+.be-lucky-bag__burst {
+    position: absolute;
+    left: -30%;
+    right: -30%;
+    top: -10%;
+    height: 110%;
+    --be-burst-color-a: var(--be-prize-burst-a);
+    --be-burst-color-b: var(--be-prize-burst-b);
+    --be-burst-center: var(--be-prize-burst-center);
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/SpinSlow.asset") 24s infinite;
+}
+
+.be-lucky-bag__stage {
+    flex-grow: 1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.be-lucky-bag__glow {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background-image: radial-gradient(circle at center, var(--be-prize-glow), rgba(255, 255, 255, 0) 70%);
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/GlowBreath.asset") 2s infinite;
+}
+
+.be-lucky-bag__bag {
+    width: 200px;
+    height: 200px;
+    transform-origin: bottom;
+}
+
+.be-lucky-bag--shaking .be-lucky-bag__bag {
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/BagShake.asset");
+}
+
+/* The bag glows in the color of the best rarity it is about to reveal. */
+.be-lucky-bag--glow-sr .be-lucky-bag__glow {
+    background-image: radial-gradient(circle at center, rgba(210, 160, 255, 1), rgba(168, 104, 232, 0) 70%);
+}
+
+.be-lucky-bag--glow-ssr .be-lucky-bag__glow {
+    background-image: radial-gradient(circle at center, rgba(255, 236, 120, 1), rgba(255, 190, 30, 0) 70%);
+}
+
+.be-lucky-bag--glow-ur .be-lucky-bag__glow {
+    background-image: radial-gradient(circle at center, rgba(255, 170, 220, 1), rgba(140, 230, 255, 0.6) 40%, rgba(255, 110, 170, 0) 70%);
+}
+
+.be-lucky-bag__banner-text {
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: var(--be-radius-m);
+    background-color: rgba(59, 31, 20, 0.55);
+    backdrop-filter: blur(4px);
+}
+
+.be-lucky-bag__banner-eyebrow {
+    color: var(--be-gold-light);
+    margin: 0;
+    padding: 0;
+}
+
+.be-lucky-bag__banner-title {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: var(--be-white);
+    -unity-text-outline-width: 1.5px;
+    -unity-text-outline-color: var(--be-ink);
+    padding: 0;
+    margin: 0;
+}
+
+.be-lucky-bag__rates {
+    font-size: 9px;
+    color: rgb(255, 230, 210);
+    padding: 0;
+    margin: 0;
+}
+
+/* In the banner's top-left corner, concentric with it: 17 points in (3 border + 14), radius 28 - 17 = 11. */
+.be-lucky-bag__pickup {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    height: 22px;
+    border-radius: 11px;
+    font-size: var(--be-font-s);
+}
+
+/* ------------------------------------------------------------------ Draw buttons */
+
+.be-lucky-bag__draw-row {
+    flex-direction: row;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* Top-aligned, so both labels and cost pills line up whatever follows them. */
+.be-lucky-bag__draw {
+    flex-grow: 1;
+    flex-basis: 0;
+    height: 90px;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    gap: 2px;
+}
+
+.be-lucky-bag__draw-label {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 26px;
+    letter-spacing: 1.5px;
+}
+
+/* Unlike the round coin in the shops' cost pills, the ticket is wide: it sits 7 points in, clear of the round end. */
+.be-lucky-bag__draw-cost {
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+    padding: 0 10px 0 7px;
+    border-radius: 11px;
+    background-color: rgba(59, 31, 20, 0.35);
+}
+
+.be-lucky-bag__draw-cost-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.be-lucky-bag__draw-cost-text {
+    color: var(--be-white);
+    font-size: var(--be-font-s);
+    padding: 0 0 0 5px;
+    margin: 0;
+}
+
+/* The ×5 draw's promise, on its own line inside the button. */
+.be-lucky-bag__guarantee {
+    margin: 0;
+    padding: 0;
+    font-size: var(--be-font-xs);
+    letter-spacing: 1px;
+    color: var(--be-white);
+    text-shadow: 0 1px 0 var(--be-ink);
+}
+
+/* ------------------------------------------------------------------ Results overlay */
+
+.be-lucky-bag__results {
+    align-items: center;
+    justify-content: center;
+    padding: 110px 12px 120px 12px;
+    background-color: rgba(30, 14, 8, 0.6);
+    backdrop-filter: blur(8px);
+    display: none;
+}
+
+.be-lucky-bag--results-open .be-lucky-bag__results {
+    display: flex;
+}
+
+.be-lucky-bag__results-burst {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/SpinSlow.asset") 18s infinite;
+}
+
+.be-lucky-bag__results-title {
+    font-size: 52px;
+    letter-spacing: 2px;
+    -unity-text-outline-width: 2.5px;
+    color: var(--be-gold-light);
+    margin-bottom: 18px;
+}
+
+.be-lucky-bag__results-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.be-reveal {
+    width: 210px;
+    height: 250px;
+    overflow: visible;
+}
+
+/* Five cards wrap: each row leaves room for the tags under the cards above it. */
+.be-lucky-bag__results-row--many {
+    gap: 40px 12px;
+}
+
+.be-lucky-bag__results-row--many .be-reveal {
+    width: 104px;
+    height: 132px;
+}
+
+.be-reveal__back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-m);
+    background-image: linear-gradient(135deg, var(--be-primary-light), var(--be-primary) 50%, var(--be-primary-dark));
+    border-bottom-width: var(--be-tile-lip);
+}
+
+.be-reveal__back-mark {
+    font-size: 44px;
+    color: var(--be-gold-light);
+    -unity-text-outline-width: 1.5px;
+    -unity-text-outline-color: var(--be-ink);
+}
+
+.be-reveal__card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+
+.be-reveal--revealed .be-reveal__back {
+    display: none;
+}
+
+.be-reveal--revealed .be-reveal__card {
+    display: flex;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/RevealPop.asset");
+}
+
+/* SSR and UR cards glow gold: a box-shadow on the card's frame, which follows its rounded corners, breathing with
+   GlowPulse, a UIAnimationClip that keys the box-shadow's blur and spread. It was filter: drop-shadow(0 0 14px …)
+   on the card, an offscreen pass per card for as long as the results stay up. */
+.be-reveal--ssr.be-reveal--revealed .be-recipe-card__frame,
+.be-reveal--ur.be-reveal--revealed .be-recipe-card__frame {
+    box-shadow: 0 0 28px rgb(255, 230, 120);
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/GlowPulse.asset") 1.4s infinite;
+}
+
+.be-reveal__tag {
+    position: absolute;
+    bottom: -32px;
+    align-self: center;
+    height: 24px;
+    padding: 0 10px;
+    -unity-text-align: middle-center;
+    border-radius: 12px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-white);
+    font-size: var(--be-font-s);
+    color: var(--be-white);
+    display: none;
+}
+
+.be-reveal--revealed .be-reveal__tag {
+    display: flex;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/Stamp.asset");
+}
+
+.be-reveal__tag--new {
+    background-image: linear-gradient(to bottom, rgb(255, 120, 150), rgb(255, 60, 100));
+}
+
+.be-reveal__tag--dupe {
+    background-color: rgba(59, 31, 20, 0.85);
+}
+
+.be-lucky-bag__results-ok {
+    margin-top: 48px;
+    width: 180px;
+}
+
+.be-lucky-bag__results-ok .be-btn__label {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+/* The reveal shows its own NEW!/duplicate tag under the card: hide the card's sticker. More specific than the
+   card's own rule, which its template's style sheet would otherwise win with. */
+.be-reveal__card .be-recipe-card.be-recipe-card--new .be-recipe-card__new {
+    display: none;
+}

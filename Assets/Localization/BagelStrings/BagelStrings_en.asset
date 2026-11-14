@@ -1,0 +1,1558 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19402, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: BagelStrings_en
+  m_EditorClassIdentifier: UnityEngine.dll::Unity.Localization.ResourceTable
+  m_LocaleCode: en
+  m_SharedData: {fileID: 11400000, guid: e563c7f2696c547c18e25511ab359af2, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_Entries:
+  - rid: 854321843931447304
+  - rid: 854321843931447305
+  - rid: 854321843931447306
+  - rid: 854321843931447307
+  - rid: 854321843931447308
+  - rid: 854321843931447309
+  - rid: 854321843931447310
+  - rid: 854321843931447311
+  - rid: 854321843931447312
+  - rid: 854321843931447313
+  - rid: 854321843931447314
+  - rid: 854321843931447315
+  - rid: 854321843931447317
+  - rid: 854321843931447319
+  - rid: 854321843931447320
+  - rid: 854321843931447321
+  - rid: 854321843931447322
+  - rid: 854321843931447323
+  - rid: 854321843931447324
+  - rid: 854321843931447325
+  - rid: 854321843931447326
+  - rid: 854321843931447327
+  - rid: 854321843931447328
+  - rid: 854321843931447329
+  - rid: 854321843931447330
+  - rid: 854321843931447331
+  - rid: 854321843931447332
+  - rid: 854321843931447333
+  - rid: 854321843931447334
+  - rid: 854321843931447335
+  - rid: 854321843931447336
+  - rid: 854321843931447337
+  - rid: 854321843931447338
+  - rid: 854321843931447339
+  - rid: 854321843931447340
+  - rid: 854321843931447341
+  - rid: 854321843931447342
+  - rid: 854321843931447343
+  - rid: 854321843931447344
+  - rid: 854321843931447345
+  - rid: 854321843931447346
+  - rid: 854321843931447347
+  - rid: 854321843931447348
+  - rid: 854321843931447349
+  - rid: 854321843931447350
+  - rid: 854321843931447351
+  - rid: 854321843931447352
+  - rid: 854321843931447353
+  - rid: 854321843931447354
+  - rid: 854321843931447355
+  - rid: 854321843931447356
+  - rid: 854321843931447357
+  - rid: 854321843931447358
+  - rid: 854321843931447359
+  - rid: 854321843931447360
+  - rid: 854321843931447361
+  - rid: 854321843931447362
+  - rid: 854321843931447363
+  - rid: 854321843931447364
+  - rid: 854321843931447365
+  - rid: 854321843931447366
+  - rid: 854321843931447367
+  - rid: 854321843931447368
+  - rid: 854321843931447369
+  - rid: 854321843931447370
+  - rid: 854321843931447371
+  - rid: 854321843931447372
+  - rid: 854321843931447373
+  - rid: 854321843931447374
+  - rid: 854321843931447375
+  - rid: 854321843931447376
+  - rid: 854321843931447377
+  - rid: 854321843931447378
+  - rid: 854321843931447379
+  - rid: 854321843931447380
+  - rid: 854321843931447381
+  - rid: 854321843931447382
+  - rid: 854321843931447383
+  - rid: 854321843931447384
+  - rid: 854321843931447385
+  - rid: 854321843931447386
+  - rid: 854321843931447387
+  - rid: 854321843931447388
+  - rid: 854321843931447389
+  - rid: 854321843931447390
+  - rid: 854321843931447391
+  - rid: 854321843931447392
+  - rid: 854321843931447393
+  - rid: 854321843931447394
+  - rid: 854321843931447395
+  - rid: 854321843931447396
+  - rid: 854321843931447397
+  - rid: 854321843931447398
+  - rid: 854321843931447399
+  - rid: 854321843931447400
+  - rid: 854321843931447401
+  - rid: 854321843931447402
+  - rid: 854321843931447403
+  - rid: 854321843931447404
+  - rid: 854321843931447405
+  - rid: 854321843931447406
+  - rid: 854321843931447407
+  - rid: 854321843931447408
+  - rid: 854321843931447409
+  - rid: 854321843931447410
+  - rid: 854321843931447411
+  - rid: 854321843931447412
+  - rid: 854321843931447413
+  - rid: 854321843931447414
+  - rid: 854321843931447415
+  - rid: 854321843931447416
+  - rid: 854321853544792065
+  - rid: 854321853544792136
+  - rid: 854321853544792137
+  - rid: 854321853544792138
+  - rid: 854321853544792139
+  - rid: 854321907647906815
+  - rid: 854321925579866112
+  - rid: 854321925579866113
+  - rid: 854321952503103557
+  - rid: 854321952503103558
+  - rid: 854321952503103559
+  - rid: 854321952503103560
+  - rid: 854321952503103561
+  - rid: 854322001078386760
+  - rid: 854322001078386761
+  - rid: 854322001078386762
+  - rid: 854322001078386763
+  - rid: 854322001078386764
+  - rid: 854322001078386765
+  - rid: 854322001078386766
+  - rid: 854322001078386767
+  - rid: 854322001078386768
+  - rid: 854322001078386769
+  - rid: 854322001078386770
+  - rid: 854322001078386771
+  - rid: 854322001078386772
+  - rid: 854322001078386773
+  - rid: 854322001078386774
+  - rid: 854322001078386775
+  - rid: 854322001078386776
+  - rid: 854322001078386777
+  - rid: 854322001078386778
+  - rid: 854322001078386779
+  - rid: 854322001078386780
+  - rid: 854322001078386781
+  - rid: 854322001078386782
+  - rid: 854322001078386841
+  - rid: 854322001078386842
+  - rid: 854322001078386847
+  - rid: 854322001078386848
+  - rid: 854322001078386849
+  - rid: 854322001078386850
+  - rid: 854322001078386851
+  - rid: 854322001078386852
+  - rid: 854322001078386853
+  - rid: 854322001078386854
+  - rid: 854322001078386855
+  - rid: 854322001078386856
+  - rid: 854322001078386857
+  - rid: 854322001078386858
+  - rid: 854322001078386886
+  - rid: 854322001078386887
+  - rid: 854322001078386888
+  - rid: 854322001078386889
+  - rid: 854322001078386890
+  - rid: 854322001078386891
+  - rid: 854322001078386892
+  - rid: 854322001078386893
+  - rid: 854322001078386894
+  - rid: 854322001078386895
+  - rid: 854322001078386896
+  - rid: 854322001078386897
+  - rid: 854322001078386898
+  - rid: 854322001078386899
+  - rid: 854322001078386900
+  - rid: 854322001078386901
+  - rid: 854322001078386902
+  - rid: 854322001078386903
+  - rid: 854322001078386904
+  - rid: 854322001078386905
+  - rid: 854322021344477257
+  - rid: 854322021344477262
+  - rid: 854322021344477263
+  - rid: 854322021344477286
+  - rid: 854322021344477287
+  - rid: 854322021344477288
+  - rid: 854322021344477289
+  - rid: 854322021344477307
+  - rid: 854322021344477308
+  - rid: 854322037193179141
+  - rid: 854322037193179201
+  references:
+    version: 2
+    RefIds:
+    - rid: 854321843931447304
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910582575104
+        m_Metadata:
+          m_Items: []
+        m_Value: Home
+    - rid: 854321843931447305
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963712
+        m_Metadata:
+          m_Items: []
+        m_Value: Shops
+    - rid: 854321843931447306
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963713
+        m_Metadata:
+          m_Items: []
+        m_Value: Lucky Bag
+    - rid: 854321843931447307
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963714
+        m_Metadata:
+          m_Items: []
+        m_Value: Recipes
+    - rid: 854321843931447308
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963715
+        m_Metadata:
+          m_Items: []
+        m_Value: Settings
+    - rid: 854321843931447309
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963716
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u30D9\u30FC\u30B0\u30EB\u6025\u884C \u30AA\u30FC\u30CA\u30FC"
+    - rid: 854321843931447310
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963717
+        m_Metadata:
+          m_Items: []
+        m_Value: Yes
+    - rid: 854321843931447311
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963718
+        m_Metadata:
+          m_Items: []
+        m_Value: Cancel
+    - rid: 854321843931447312
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963719
+        m_Metadata:
+          m_Items: []
+        m_Value: CLOSE
+    - rid: 854321843931447313
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963720
+        m_Metadata:
+          m_Items: []
+        m_Value: "MONTR\xC9AL \xD7 TOKYO"
+    - rid: 854321843931447314
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963721
+        m_Metadata:
+          m_Items: []
+        m_Value: TAP TO START
+    - rid: 854321843931447315
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963722
+        m_Metadata:
+          m_Items: []
+        m_Value: UI Toolkit demo, by Unity
+    - rid: 854321843931447317
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963724
+        m_Metadata:
+          m_Items: []
+        m_Value: 'First Lucky Bag: SSR guaranteed!'
+    - rid: 854321843931447319
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963726
+        m_Metadata:
+          m_Items: []
+        m_Value: TAP TO BAKE!
+    - rid: 854321843931447320
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963727
+        m_Metadata:
+          m_Items: []
+        m_Value: REGISTER
+    - rid: 854321843931447321
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963728
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u30EC\u30B8"
+    - rid: 854321843931447322
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963729
+        m_Metadata:
+          m_Items: []
+        m_Value: COLLECT
+    - rid: 854321843931447323
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963730
+        m_Metadata:
+          m_Items: []
+        m_Value: Welcome back! The ovens are warm and the bagels are boiling.
+    - rid: 854321843931447324
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963731
+        m_Metadata:
+          m_Items: []
+        m_Value: Tap the shop to bake by hand. Every finger counts!
+    - rid: 854321843931447325
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963732
+        m_Metadata:
+          m_Items: []
+        m_Value: "Montr\xE9al bagels are boiled in honey water. Tokyo loves them!"
+    - rid: 854321843931447326
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963733
+        m_Metadata:
+          m_Items: []
+        m_Value: Upgrade Mile End to Lv 5 for a big surprise!
+    - rid: 854321843931447327
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963734
+        m_Metadata:
+          m_Items: []
+        m_Value: Have you tried the Lucky Bag? The first one is extra lucky!
+    - rid: 854321843931447328
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963735
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u3044\u3089\u3063\u3057\u3083\u3044\u307E\u305B\uFF01 \u30D9\u30FC\u30B0\u30EB\u306F\u3044\u304B\u304C\uFF1F"
+    - rid: 854321843931447329
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963736
+        m_Metadata:
+          m_Items: []
+        m_Value: The register is empty. Bake some bagels!
+    - rid: 854321843931447330
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963737
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u5E97\u8217 \xB7 BAKERIES"
+    - rid: 854321843931447331
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963738
+        m_Metadata:
+          m_Items: []
+        m_Value: SHOPS
+    - rid: 854321843931447332
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963739
+        m_Metadata:
+          m_Items: []
+        m_Value: '{count:plural(en):1 bakery|{} bakeries} open'
+    - rid: 854321843931447333
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963740
+        m_Metadata:
+          m_Items: []
+        m_Value: UPGRADE
+    - rid: 854321843931447334
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963741
+        m_Metadata:
+          m_Items: []
+        m_Value: OPEN
+    - rid: 854321843931447335
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963742
+        m_Metadata:
+          m_Items: []
+        m_Value: "CLOSED \xB7 \u6E96\u5099\u4E2D"
+    - rid: 854321843931447336
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963743
+        m_Metadata:
+          m_Items: []
+        m_Value: MILESTONE!
+    - rid: 854321843931447337
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963744
+        m_Metadata:
+          m_Items: []
+        m_Value: '{0} is open for business!'
+    - rid: 854321843931447338
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963745
+        m_Metadata:
+          m_Items: []
+        m_Value: "{0} \u2192 Lv.{1}"
+    - rid: 854321843931447339
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963746
+        m_Metadata:
+          m_Items: []
+        m_Value: Not enough coins yet. Keep baking!
+    - rid: 854321843931447340
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963747
+        m_Metadata:
+          m_Items: []
+        m_Value: Max level reached!
+    - rid: 854321843931447341
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963748
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u798F\u888B \xB7 RECIPE DRAW"
+    - rid: 854321843931447342
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963749
+        m_Metadata:
+          m_Items: []
+        m_Value: LUCKY BAG
+    - rid: 854321843931447343
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963750
+        m_Metadata:
+          m_Items: []
+        m_Value: "BEGINNER'S LUCK \xB7 \u521D\u56DE\u9650\u5B9A"
+    - rid: 854321843931447344
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963751
+        m_Metadata:
+          m_Items: []
+        m_Value: 'First bag: SSR guaranteed!'
+    - rid: 854321843931447345
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963752
+        m_Metadata:
+          m_Items: []
+        m_Value: PICK UP!
+    - rid: 854321843931447346
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963753
+        m_Metadata:
+          m_Items: []
+        m_Value: "DRAW \xD71"
+    - rid: 854321843931447347
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963754
+        m_Metadata:
+          m_Items: []
+        m_Value: "DRAW \xD75"
+    - rid: 854321843931447348
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963755
+        m_Metadata:
+          m_Items: []
+        m_Value: SR+ GUARANTEED
+    - rid: 854321843931447349
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963756
+        m_Metadata:
+          m_Items: []
+        m_Value: LUCKY BAG!
+    - rid: 854321843931447350
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963757
+        m_Metadata:
+          m_Items: []
+        m_Value: "LUCKY BAG \xD75!"
+    - rid: 854321843931447351
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963758
+        m_Metadata:
+          m_Items: []
+        m_Value: YAY!
+    - rid: 854321843931447352
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963759
+        m_Metadata:
+          m_Items: []
+        m_Value: You need a Lucky Ticket. Tap + to buy one!
+    - rid: 854321843931447353
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963760
+        m_Metadata:
+          m_Items: []
+        m_Value: You need 5 Lucky Tickets!
+    - rid: 854321843931447354
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963761
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u30EC\u30B7\u30D4\u5E33 \xB7 COLLECTION"
+    - rid: 854321843931447355
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963762
+        m_Metadata:
+          m_Items: []
+        m_Value: RECIPE BOOK
+    - rid: 854321843931447356
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963763
+        m_Metadata:
+          m_Items: []
+        m_Value: '{owned} of {total:plural(en):1 recipe|{} recipes}'
+    - rid: 854321843931447357
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963764
+        m_Metadata:
+          m_Items: []
+        m_Value: income
+    - rid: 854321843931447358
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963765
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u8A2D\u5B9A \xB7 OPTIONS"
+    - rid: 854321843931447359
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963766
+        m_Metadata:
+          m_Items: []
+        m_Value: SETTINGS
+    - rid: 854321843931447360
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963767
+        m_Metadata:
+          m_Items: []
+        m_Value: SEASON
+    - rid: 854321843931447361
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963768
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u5B63\u7BC0\u306E\u30C6\u30FC\u30DE"
+    - rid: 854321843931447362
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963769
+        m_Metadata:
+          m_Items: []
+        m_Value: LANGUAGE
+    - rid: 854321843931447363
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963770
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u8A00\u8A9E"
+    - rid: 854321843931447364
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963771
+        m_Metadata:
+          m_Items: []
+        m_Value: OPTIONS
+    - rid: 854321843931447365
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963772
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u30AA\u30D7\u30B7\u30E7\u30F3"
+    - rid: 854321843931447366
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963773
+        m_Metadata:
+          m_Items: []
+        m_Value: Sound
+    - rid: 854321843931447367
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963774
+        m_Metadata:
+          m_Items: []
+        m_Value: Haptics
+    - rid: 854321843931447368
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963775
+        m_Metadata:
+          m_Items: []
+        m_Value: "Bagel Express \xB7 \u30D9\u30FC\u30B0\u30EB\u6025\u884C"
+    - rid: 854321843931447369
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963776
+        m_Metadata:
+          m_Items: []
+        m_Value: "Season: {0} \xB7 {1}"
+    - rid: 854321843931447370
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963777
+        m_Metadata:
+          m_Items: []
+        m_Value: TIP {0}/{1}
+    - rid: 854321843931447371
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963778
+        m_Metadata:
+          m_Items: []
+        m_Value: Your register is full of coins! Tap COLLECT to bank them.
+    - rid: 854321843931447372
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963779
+        m_Metadata:
+          m_Items: []
+        m_Value: Great! Now open SHOPS to spend them on upgrades.
+    - rid: 854321843931447373
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963780
+        m_Metadata:
+          m_Items: []
+        m_Value: Upgrade Mile End Bagel Bar to Lv 5 for a big surprise!
+    - rid: 854321843931447374
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963781
+        m_Metadata:
+          m_Items: []
+        m_Value: Lucky Ticket
+    - rid: 854321843931447375
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963782
+        m_Metadata:
+          m_Items: []
+        m_Value: Buy 1 Lucky Ticket for {0} Maple Gems?
+    - rid: 854321843931447376
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963783
+        m_Metadata:
+          m_Items: []
+        m_Value: Yes!
+    - rid: 854321843931447377
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963784
+        m_Metadata:
+          m_Items: []
+        m_Value: +1 Lucky Ticket!
+    - rid: 854321843931447378
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963785
+        m_Metadata:
+          m_Items: []
+        m_Value: Not enough Maple Gems
+    - rid: 854321843931447379
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963786
+        m_Metadata:
+          m_Items: []
+        m_Value: LEVEL UP!
+    - rid: 854321843931447380
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963787
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7\uFF01 \xB7 \u65B0\u8A18\u9332"
+    - rid: 854321843931447381
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963788
+        m_Metadata:
+          m_Items: []
+        m_Value: INCOME
+    - rid: 854321843931447382
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963789
+        m_Metadata:
+          m_Items: []
+        m_Value: "MILESTONE REWARD \xB7 \u5831\u916C"
+    - rid: 854321843931447383
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963790
+        m_Metadata:
+          m_Items: []
+        m_Value: Maple Gems
+    - rid: 854321843931447384
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963791
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u2605 MILESTONE \u2605"
+    - rid: 854321843931447385
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963792
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u2605 NEW TIER! \u2605"
+    - rid: 854321843931447386
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963793
+        m_Metadata:
+          m_Items: []
+        m_Value: AWESOME!
+    - rid: 854321843931447387
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963794
+        m_Metadata:
+          m_Items: []
+        m_Value: Mile End Bagel Bar
+    - rid: 854321843931447388
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963795
+        m_Metadata:
+          m_Items: []
+        m_Value: Plateau Wood Oven
+    - rid: 854321843931447389
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963796
+        m_Metadata:
+          m_Items: []
+        m_Value: Shibuya Melon Pan Stand
+    - rid: 854321843931447390
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963797
+        m_Metadata:
+          m_Items: []
+        m_Value: Jean-Talon Maple Market
+    - rid: 854321843931447391
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963798
+        m_Metadata:
+          m_Items: []
+        m_Value: Asakusa Taiyaki-ya
+    - rid: 854321843931447392
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963799
+        m_Metadata:
+          m_Items: []
+        m_Value: Kyoto Matcha Bakery
+    - rid: 854321843931447393
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963800
+        m_Metadata:
+          m_Items: []
+        m_Value: Sesame Bagel
+    - rid: 854321843931447394
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963801
+        m_Metadata:
+          m_Items: []
+        m_Value: "Hand-rolled, honey-water boiled, wood-fired. The Montr\xE9al classic."
+    - rid: 854321843931447395
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963802
+        m_Metadata:
+          m_Items: []
+        m_Value: Poppy Seed Bagel
+    - rid: 854321843931447396
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963803
+        m_Metadata:
+          m_Items: []
+        m_Value: Dense, sweet and covered in tiny black poppy seeds.
+    - rid: 854321843931447397
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963804
+        m_Metadata:
+          m_Items: []
+        m_Value: Anpan
+    - rid: 854321843931447398
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963805
+        m_Metadata:
+          m_Items: []
+        m_Value: Soft bun filled with sweet red bean paste.
+    - rid: 854321843931447399
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963806
+        m_Metadata:
+          m_Items: []
+        m_Value: Melon Pan
+    - rid: 854321843931447400
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963807
+        m_Metadata:
+          m_Items: []
+        m_Value: Crunchy cookie crust over fluffy bread. No melon inside!
+    - rid: 854321843931447401
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963808
+        m_Metadata:
+          m_Items: []
+        m_Value: Everything Bagel
+    - rid: 854321843931447402
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963809
+        m_Metadata:
+          m_Items: []
+        m_Value: Sesame, poppy, garlic, onion and salt. Why choose?
+    - rid: 854321843931447403
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963810
+        m_Metadata:
+          m_Items: []
+        m_Value: Curry Pan
+    - rid: 854321843931447404
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963811
+        m_Metadata:
+          m_Items: []
+        m_Value: Deep-fried, crumb-coated and filled with Japanese curry.
+    - rid: 854321843931447405
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963812
+        m_Metadata:
+          m_Items: []
+        m_Value: Taiyaki
+    - rid: 854321843931447406
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963813
+        m_Metadata:
+          m_Items: []
+        m_Value: Fish-shaped cake with a red bean heart.
+    - rid: 854321843931447407
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963814
+        m_Metadata:
+          m_Items: []
+        m_Value: Dorayaki
+    - rid: 854321843931447408
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963815
+        m_Metadata:
+          m_Items: []
+        m_Value: Two fluffy pancakes hugging sweet anko.
+    - rid: 854321843931447409
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963816
+        m_Metadata:
+          m_Items: []
+        m_Value: Matcha Bagel
+    - rid: 854321843931447410
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963817
+        m_Metadata:
+          m_Items: []
+        m_Value: "Kyoto matcha folded into a Montr\xE9al dough."
+    - rid: 854321843931447411
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963818
+        m_Metadata:
+          m_Items: []
+        m_Value: Maple Melon Pan
+    - rid: 854321843931447412
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963819
+        m_Metadata:
+          m_Items: []
+        m_Value: Quebec maple syrup glazed over a crackly melon pan crust.
+    - rid: 854321843931447413
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963820
+        m_Metadata:
+          m_Items: []
+        m_Value: Sakura Mochi Bagel
+    - rid: 854321843931447414
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963821
+        m_Metadata:
+          m_Items: []
+        m_Value: Chewy mochi bagel with cherry blossom and white bean cream.
+    - rid: 854321843931447415
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963822
+        m_Metadata:
+          m_Items: []
+        m_Value: Golden Maple Taiyaki
+    - rid: 854321843931447416
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896277910590963823
+        m_Metadata:
+          m_Items: []
+        m_Value: Legendary. A golden taiyaki swimming in maple syrup from Mont-Royal.
+    - rid: 854321853544792065
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896437991039156224
+        m_Metadata:
+          m_Items: []
+        m_Value: Blurred drop-shadows on panes
+    - rid: 854321853544792136
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896441420667011072
+        m_Metadata:
+          m_Items: []
+        m_Value: Maple Autumn
+    - rid: 854321853544792137
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896441420667011073
+        m_Metadata:
+          m_Items: []
+        m_Value: Sakura Spring
+    - rid: 854321853544792138
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896441420667011074
+        m_Metadata:
+          m_Items: []
+        m_Value: Matsuri Summer
+    - rid: 854321853544792139
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 896441420667011075
+        m_Metadata:
+          m_Items: []
+        m_Value: Snow Winter
+    - rid: 854321907647906815
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 897584282796408832
+        m_Metadata:
+          m_Items: []
+        m_Value: SKIP
+    - rid: 854321925579866112
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 897584282800603136
+        m_Metadata:
+          m_Items: []
+        m_Value: Tutorial
+    - rid: 854321925579866113
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 897584282800603137
+        m_Metadata:
+          m_Items: []
+        m_Value: Replay
+    - rid: 854321952503103557
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 898041476666998784
+        m_Metadata:
+          m_Items: []
+        m_Value: PERFORMANCE
+    - rid: 854321952503103558
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 898041476666998785
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u30D1\u30D5\u30A9\u30FC\u30DE\u30F3\u30B9"
+    - rid: 854321952503103559
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 898041476666998786
+        m_Metadata:
+          m_Items: []
+        m_Value: Resolution
+    - rid: 854321952503103560
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 898041476666998787
+        m_Metadata:
+          m_Items: []
+        m_Value: Native
+    - rid: 854321952503103561
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 898041476666998788
+        m_Metadata:
+          m_Items: []
+        m_Value: Performance overlay
+    - rid: 854322001078386760
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052377628672
+        m_Metadata:
+          m_Items: []
+        m_Value: MOOD
+    - rid: 854322001078386761
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052377628673
+        m_Metadata:
+          m_Items: []
+        m_Value: Happy
+    - rid: 854322001078386762
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052377628674
+        m_Metadata:
+          m_Items: []
+        m_Value: Excited
+    - rid: 854322001078386763
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052377628675
+        m_Metadata:
+          m_Items: []
+        m_Value: Sleepy
+    - rid: 854322001078386764
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052377628676
+        m_Metadata:
+          m_Items: []
+        m_Value: The ovens are warm and the register is filling.
+    - rid: 854322001078386765
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052377628677
+        m_Metadata:
+          m_Items: []
+        m_Value: A milestone upgrade is in reach!
+    - rid: 854322001078386766
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052377628678
+        m_Metadata:
+          m_Items: []
+        m_Value: A new recipe is waiting in the Recipe Book!
+    - rid: 854322001078386767
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052377628679
+        m_Metadata:
+          m_Items: []
+        m_Value: The register is full, so the ovens wait. COLLECT to bake again.
+    - rid: 854322001078386768
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822976
+        m_Metadata:
+          m_Items: []
+        m_Value: COIN RATE
+    - rid: 854322001078386769
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822977
+        m_Metadata:
+          m_Items: []
+        m_Value: Paused while the register is full
+    - rid: 854322001078386770
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822978
+        m_Metadata:
+          m_Items: []
+        m_Value: "Recipe Book bonus \xB7 {0} of {1}"
+    - rid: 854322001078386771
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822979
+        m_Metadata:
+          m_Items: []
+        m_Value: 'Each milestone: +{0}% for its shop'
+    - rid: 854322001078386772
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822980
+        m_Metadata:
+          m_Items: []
+        m_Value: PLAYER LEVEL
+    - rid: 854322001078386773
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822981
+        m_Metadata:
+          m_Items: []
+        m_Value: 'Every {0} levels a shop reaches a milestone: +1 level and {1} Maple Gems.'
+    - rid: 854322001078386774
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822982
+        m_Metadata:
+          m_Items: []
+        m_Value: "Next: {0} \u2192 Lv.{1}"
+    - rid: 854322001078386775
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822983
+        m_Metadata:
+          m_Items: []
+        m_Value: Every open shop is at its max level. Open another!
+    - rid: 854322001078386776
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822984
+        m_Metadata:
+          m_Items: []
+        m_Value: Coins
+    - rid: 854322001078386777
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822985
+        m_Metadata:
+          m_Items: []
+        m_Value: Maple Gems
+    - rid: 854322001078386778
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822986
+        m_Metadata:
+          m_Items: []
+        m_Value: Tickets
+    - rid: 854322001078386779
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822987
+        m_Metadata:
+          m_Items: []
+        m_Value: Recipes
+    - rid: 854322001078386780
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822988
+        m_Metadata:
+          m_Items: []
+        m_Value: Shops open
+    - rid: 854322001078386781
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822989
+        m_Metadata:
+          m_Items: []
+        m_Value: Per tap
+    - rid: 854322001078386782
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899033052381822990
+        m_Metadata:
+          m_Items: []
+        m_Value: GOT IT!
+    - rid: 854322001078386841
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899060577464074240
+        m_Metadata:
+          m_Items: []
+        m_Value: Disable all animations
+    - rid: 854322001078386842
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899060577468268544
+        m_Metadata:
+          m_Items: []
+        m_Value: Disable all filters
+    - rid: 854322001078386847
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645784428544
+        m_Metadata:
+          m_Items: []
+        m_Value: SAVED DATA
+    - rid: 854322001078386848
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645788622848
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u30BB\u30FC\u30D6\u30C7\u30FC\u30BF"
+    - rid: 854322001078386849
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645788622849
+        m_Metadata:
+          m_Items: []
+        m_Value: Your progress and settings are saved on this device.
+    - rid: 854322001078386850
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645788622850
+        m_Metadata:
+          m_Items: []
+        m_Value: Reset progress
+    - rid: 854322001078386851
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645788622851
+        m_Metadata:
+          m_Items: []
+        m_Value: Reset settings
+    - rid: 854322001078386852
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645788622852
+        m_Metadata:
+          m_Items: []
+        m_Value: Start over?
+    - rid: 854322001078386853
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645788622853
+        m_Metadata:
+          m_Items: []
+        m_Value: Coins, shops, recipes and tickets go back to the start, and the tutorial plays again.
+    - rid: 854322001078386854
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645788622854
+        m_Metadata:
+          m_Items: []
+        m_Value: Reset settings?
+    - rid: 854322001078386855
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645788622855
+        m_Metadata:
+          m_Items: []
+        m_Value: The season, language, sound and performance options go back to their defaults.
+    - rid: 854322001078386856
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645788622856
+        m_Metadata:
+          m_Items: []
+        m_Value: Reset
+    - rid: 854322001078386857
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645788622857
+        m_Metadata:
+          m_Items: []
+        m_Value: A fresh start!
+    - rid: 854322001078386858
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899062645788622858
+        m_Metadata:
+          m_Items: []
+        m_Value: Settings back to their defaults
+    - rid: 854322001078386886
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185984
+        m_Metadata:
+          m_Items: []
+        m_Value: ABOUT
+    - rid: 854322001078386887
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185985
+        m_Metadata:
+          m_Items: []
+        m_Value: "\u3053\u306E\u30A2\u30D7\u30EA"
+    - rid: 854322001078386888
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185986
+        m_Metadata:
+          m_Items: []
+        m_Value: Version
+    - rid: 854322001078386889
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185987
+        m_Metadata:
+          m_Items: []
+        m_Value: Unity
+    - rid: 854322001078386890
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185988
+        m_Metadata:
+          m_Items: []
+        m_Value: Build
+    - rid: 854322001078386891
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185989
+        m_Metadata:
+          m_Items: []
+        m_Value: Development
+    - rid: 854322001078386892
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185990
+        m_Metadata:
+          m_Items: []
+        m_Value: Release
+    - rid: 854322001078386893
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185991
+        m_Metadata:
+          m_Items: []
+        m_Value: App size
+    - rid: 854322001078386894
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185992
+        m_Metadata:
+          m_Items: []
+        m_Value: Shown in player builds
+    - rid: 854322001078386895
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185993
+        m_Metadata:
+          m_Items: []
+        m_Value: Not available on the Web
+    - rid: 854322001078386896
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185994
+        m_Metadata:
+          m_Items: []
+        m_Value: Engine
+    - rid: 854322001078386897
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185995
+        m_Metadata:
+          m_Items: []
+        m_Value: Game code
+    - rid: 854322001078386898
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185996
+        m_Metadata:
+          m_Items: []
+        m_Value: Game data
+    - rid: 854322001078386899
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185997
+        m_Metadata:
+          m_Items: []
+        m_Value: Other
+    - rid: 854322001078386900
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321846185998
+        m_Metadata:
+          m_Items: []
+        m_Value: Device
+    - rid: 854322001078386901
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321850380288
+        m_Metadata:
+          m_Items: []
+        m_Value: OS
+    - rid: 854322001078386902
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321850380289
+        m_Metadata:
+          m_Items: []
+        m_Value: CPU
+    - rid: 854322001078386903
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321850380290
+        m_Metadata:
+          m_Items: []
+        m_Value: GPU
+    - rid: 854322001078386904
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321850380291
+        m_Metadata:
+          m_Items: []
+        m_Value: Memory
+    - rid: 854322001078386905
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899067321850380292
+        m_Metadata:
+          m_Items: []
+        m_Value: Screen
+    - rid: 854322021344477257
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899107825547853824
+        m_Metadata:
+          m_Items: []
+        m_Value: Disable glass
+    - rid: 854322021344477262
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899133848293326848
+        m_Metadata:
+          m_Items: []
+        m_Value: compressed in the APK
+    - rid: 854322021344477263
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899133848297521152
+        m_Metadata:
+          m_Items: []
+        m_Value: Engine and game code
+    - rid: 854322021344477286
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899166348185026560
+        m_Metadata:
+          m_Items: []
+        m_Value: Auto mode
+    - rid: 854322021344477287
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899166348222775296
+        m_Metadata:
+          m_Items: []
+        m_Value: 'Auto mode: resolution {0}'
+    - rid: 854322021344477288
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899166348222775297
+        m_Metadata:
+          m_Items: []
+        m_Value: 'Auto mode: glass off'
+    - rid: 854322021344477289
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899166348222775298
+        m_Metadata:
+          m_Items: []
+        m_Value: 'Auto mode: filters off'
+    - rid: 854322021344477307
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899335010409889792
+        m_Metadata:
+          m_Items: []
+        m_Value: 'Auto mode: glass on'
+    - rid: 854322021344477308
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899335010414084096
+        m_Metadata:
+          m_Items: []
+        m_Value: 'Auto mode: filters on'
+    - rid: 854322037193179141
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899379422280138752
+        m_Metadata:
+          m_Items: []
+        m_Value: Build date
+    - rid: 854322037193179201
+      type: {class: StringEntry, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_KeyId: 899600000000000001
+        m_Metadata:
+          m_Items: []
+        m_Value: Blurred box-shadows on panes

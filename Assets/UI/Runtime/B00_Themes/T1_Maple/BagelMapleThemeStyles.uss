@@ -1,0 +1,32 @@
+/* Bagel Express — Maple season. Only variables: every gradient, filter and art color in the common styles reads them. */
+
+:root {
+    --be-primary: rgb(222, 72, 44);
+    --be-primary-light: rgb(255, 138, 101);
+    --be-primary-dark: rgb(158, 38, 22);
+    --be-accent: rgb(245, 166, 35);
+    --be-accent-light: rgb(255, 214, 120);
+    --be-accent-dark: rgb(196, 112, 10);
+    --be-paper: rgb(255, 248, 234);
+    --be-skyline-far: rgb(242, 170, 120);
+    --be-skyline-near: rgb(170, 70, 52);
+    --be-window-light: rgb(255, 226, 140);
+    --be-particle-kind: maple;
+    --be-mascot-accessory: maple;
+    --be-sound-tone: wood;
+    --be-awning-a: rgb(222, 72, 44);
+    --be-awning-b: rgb(255, 248, 234);
+    --be-noren-color: rgb(44, 54, 120);
+    --be-bag-color: rgb(222, 52, 44);
+    --be-burst-color-a: rgba(255, 220, 120, 0.9);
+    --be-burst-color-b: rgba(255, 140, 80, 0.55);
+    --be-title-burst-edge: rgb(255, 140, 30);
+    --be-lantern-glow: rgba(255, 140, 60, 0.8);
+    --be-sky-top: rgb(92, 170, 235);
+    --be-sky-mid: rgb(170, 205, 235);
+    --be-sky-bottom: rgb(255, 205, 150);
+
+    /* The glass, tinted for the season (warm peach, like a maple afternoon); light enough for dark text. */
+    --be-frost: rgba(255, 226, 196, 0.58);
+    --be-frost-solid: rgba(255, 226, 196, 0.88);
+}

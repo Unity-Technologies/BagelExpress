@@ -1,0 +1,34 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="RecipesStyles.uss"/>
+    <Bagel.RecipeCard name="recipe-card">
+        <Bindings>
+            <ui:DataBinding property="owned" data-source-path="owned" binding-mode="ToTarget"/>
+            <ui:DataBinding property="isNew" data-source-path="isNew" binding-mode="ToTarget"/>
+            <ui:DataBinding property="rarity" data-source-path="rarity" binding-mode="ToTarget"/>
+        </Bindings>
+        <ui:VisualElement name="frame" picking-mode="Ignore" class="be-recipe-card__frame">
+            <ui:VisualElement name="shade" picking-mode="Ignore" class="be-recipe-card__shade"/>
+            <ui:VisualElement name="art" picking-mode="Ignore" class="be-recipe-card__art">
+                <Bagel.PastryIcon name="pastry" picking-mode="Ignore" class="be-recipe-card__pastry">
+                    <Bindings>
+                        <ui:DataBinding property="kind" data-source-path="kind" binding-mode="ToTarget"/>
+                        <ui:DataBinding property="silhouette" data-source-path="locked" binding-mode="ToTarget"/>
+                    </Bindings>
+                </Bagel.PastryIcon>
+                <ui:VisualElement name="shine" picking-mode="Ignore" class="be-recipe-card__shine"/>
+                <ui:Label name="rarity" text="N" picking-mode="Ignore" class="be-recipe-card__rarity">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="rarity" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:Label name="recipe-name" text="Sesame Bagel" picking-mode="Ignore" class="be-recipe-card__name">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="displayName" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+            <ui:Label name="unknown" text="? ? ?" picking-mode="Ignore" class="be-recipe-card__unknown"/>
+        </ui:VisualElement>
+        <ui:Label name="new-sticker" text="NEW!" picking-mode="Ignore" class="be-sticker be-recipe-card__new"/>
+    </Bagel.RecipeCard>
+</ui:UXML>

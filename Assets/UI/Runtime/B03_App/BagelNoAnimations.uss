@@ -1,0 +1,16 @@
+/* Settings › Performance › Disable all animations. BakeryAppManager adds this style sheet to the app root, and takes
+   it off again: nothing else changes. The ID selector (#app, the root's name) outranks every class-based rule in the
+   game, so one rule is enough:
+   - animation-name: none takes every UIAnimationClip off (the starbursts stop spinning, the mascot stops bobbing);
+   - transition-duration: 0s makes every transition happen at once (page slides, dialogs, toasts);
+   - --be-motion: none on the root stops the code-drawn art (falling particles, blinking, the wavy titles, the
+     pills' count-up): it reads the property up its ancestors (ArtKit.MotionAllowed). */
+
+#app {
+    --be-motion: none;
+}
+
+#app * {
+    animation-name: none;
+    transition-duration: 0s;
+}

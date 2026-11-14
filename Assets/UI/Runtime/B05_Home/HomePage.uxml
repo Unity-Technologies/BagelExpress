@@ -1,0 +1,126 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:loc="Unity.Localization" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="StorePastry" src="StorePastry.uxml"/>
+    <Style src="project://database/Assets/UI/Runtime/B05_Home/HomeStyles.uss?fileID=7433441132597879392&amp;guid=2a704753d64f743c2b8ca1d28ae27f58&amp;type=3#HomeStyles"/>
+    <Bagel.HomePaneManager name="home" start-state="project://database/Assets/Game/Core/DemoStartState.asset?fileID=11400000&amp;guid=a4d6dc225104644abaac94da2fa5c72b&amp;type=2#DemoStartState" class="be-home">
+        <ui:VisualElement name="home-content" picking-mode="Ignore" class="be-page-content be-home__content">
+            <ui:Button name="event-banner" class="be-home__event">
+                <ui:VisualElement name="event-art" picking-mode="Ignore" class="be-home__event-art">
+                    <Bagel.Starburst name="event-burst" picking-mode="Ignore" class="be-home__event-burst"/>
+                    <Bagel.PastryIcon name="event-pastry" kind="SakuraMochiBagel" picking-mode="Ignore" class="be-home__event-pastry"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="event-text" picking-mode="Ignore" class="be-home__event-text">
+                    <ui:Label text="First Lucky Bag: SSR guaranteed!" picking-mode="Ignore" class="be-home__event-title">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="home.event.title"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:VisualElement name="event-timer" picking-mode="Ignore" class="be-home__event-timer">
+                        <ui:VisualElement picking-mode="Ignore" class="be-home__event-clock"/>
+                        <ui:Label name="event-countdown" text="2d 14:22:05" picking-mode="Ignore" class="be-home__event-countdown"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:Button>
+            <ui:VisualElement name="storefront" class="be-store">
+                <ui:VisualElement name="store-glow" picking-mode="Ignore" class="be-store__glow"/>
+                <ui:VisualElement name="store-facade" picking-mode="Ignore" class="be-store__facade">
+                    <ui:VisualElement name="store-sign" picking-mode="Ignore" class="be-store__sign be-band">
+                        <ui:Label name="store-name" text="MILE END BAGEL BAR" picking-mode="Ignore" class="be-store__sign-text"/>
+                        <ui:Label name="store-name-jp" text="マイルエンド・ベーグルバー" picking-mode="Ignore" class="be-store__sign-jp"/>
+                    </ui:VisualElement>
+                    <Bagel.Awning name="store-awning" picking-mode="Ignore" class="be-store__awning"/>
+                    <ui:VisualElement name="store-front" picking-mode="Ignore" class="be-store__front">
+                        <ui:VisualElement name="store-window" picking-mode="Ignore" class="be-store__window">
+                            <ui:VisualElement picking-mode="Ignore" class="be-store__shelf">
+                                <ui:Instance template="StorePastry" name="store-pastry-1" picking-mode="Ignore" class="be-store__pastry-slot">
+                                    <AttributeOverrides element-name="pastry" kind="SesameBagel"/>
+                                </ui:Instance>
+                                <ui:Instance template="StorePastry" name="store-pastry-2" picking-mode="Ignore" class="be-store__pastry-slot">
+                                    <AttributeOverrides element-name="pastry" kind="MelonPan"/>
+                                </ui:Instance>
+                                <ui:Instance template="StorePastry" name="store-pastry-3" picking-mode="Ignore" class="be-store__pastry-slot">
+                                    <AttributeOverrides element-name="pastry" kind="PoppySeedBagel"/>
+                                </ui:Instance>
+                            </ui:VisualElement>
+                            <ui:VisualElement picking-mode="Ignore" class="be-store__shelf">
+                                <ui:Instance template="StorePastry" name="store-pastry-4" picking-mode="Ignore" class="be-store__pastry-slot">
+                                    <AttributeOverrides element-name="pastry" kind="Anpan"/>
+                                </ui:Instance>
+                                <ui:Instance template="StorePastry" name="store-pastry-5" picking-mode="Ignore" class="be-store__pastry-slot">
+                                    <AttributeOverrides element-name="pastry" kind="EverythingBagel"/>
+                                </ui:Instance>
+                                <ui:Instance template="StorePastry" name="store-pastry-6" picking-mode="Ignore" class="be-store__pastry-slot">
+                                    <AttributeOverrides element-name="pastry" kind="Taiyaki"/>
+                                </ui:Instance>
+                            </ui:VisualElement>
+                            <ui:VisualElement picking-mode="Ignore" class="be-store__glass-shine"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="store-door" picking-mode="Ignore" class="be-store__door">
+                            <Bagel.NorenCurtain name="store-noren" picking-mode="Ignore" class="be-store__noren"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <Bagel.Lantern name="lantern-left" picking-mode="Ignore" class="be-store__lantern be-store__lantern--left"/>
+                    <Bagel.Lantern name="lantern-right" picking-mode="Ignore" class="be-store__lantern be-store__lantern--right"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="tap-hint" picking-mode="Ignore" class="be-store__tap-hint">
+                    <ui:Label text="TAP TO BAKE!" picking-mode="Ignore" class="be-store__tap-hint-text">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="home.tap-to-bake"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement name="pop-layer" picking-mode="Ignore" class="be-store__pops"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="mascot-row" picking-mode="Ignore" class="be-home__mascot-row">
+                <Bagel.BeguChan name="mascot" class="be-home__mascot"/>
+                <Bagel.SpeechBubble name="speech-bubble" picking-mode="Ignore" class="be-bubble">
+                    <ui:Label name="speech-text" text="Welcome back! The ovens are warm and the bagels are boiling." picking-mode="Ignore" class="be-bubble__text"/>
+                </Bagel.SpeechBubble>
+            </ui:VisualElement>
+            <ui:VisualElement name="register-card" class="be-panel be-register">
+                <ui:VisualElement picking-mode="Ignore" class="be-register__header">
+                    <ui:VisualElement picking-mode="Ignore" class="be-register__titles">
+                        <ui:Label text="REGISTER" picking-mode="Ignore" class="be-eyebrow">
+                            <Bindings>
+                                <loc:LocalizedString property="text" table="BagelStrings" entry="home.register"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Label text="レジ" picking-mode="Ignore" class="be-register__title">
+                            <Bindings>
+                                <loc:LocalizedString property="text" table="BagelStrings" entry="home.register.alt"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                    <ui:VisualElement picking-mode="Ignore" class="be-register__amounts">
+                        <Bagel.CurrencyIcon kind="Coins" picking-mode="Ignore" class="be-register__coin"/>
+                        <ui:Label name="register-amount" text="380" picking-mode="Ignore" class="be-register__amount">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="register" binding-mode="ToTarget" source-to-ui-converters="be-number"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Label text="/" picking-mode="Ignore" class="be-register__slash"/>
+                        <ui:Label name="register-capacity" text="1,035" picking-mode="Ignore" class="be-register__capacity">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="registerCapacity" binding-mode="ToTarget" source-to-ui-converters="be-number"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <Bagel.MeterBar name="register-meter" class="be-register__meter">
+                    <Bindings>
+                        <ui:DataBinding property="value" data-source-path="registerFill" binding-mode="ToTarget"/>
+                    </Bindings>
+                </Bagel.MeterBar>
+                <ui:Button name="collect-button" authoring-id="-565983216" class="be-btn be-btn--gold be-register__collect">
+                    <Bagel.PressSquish pressed-scale="0.92"/>
+                    <ui:VisualElement picking-mode="Ignore" class="be-gloss"/>
+                    <Bagel.CurrencyIcon name="collect-icon" kind="Coins" picking-mode="Ignore" class="be-btn__icon"/>
+                    <ui:Label text="COLLECT" picking-mode="Ignore" class="be-btn__label be-display">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="home.collect"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </Bagel.HomePaneManager>
+</ui:UXML>

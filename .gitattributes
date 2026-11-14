@@ -1,0 +1,6 @@
+# Settings the Editor saves with LF line endings even when nothing changed: the Project Auditor module's (on a script
+# reload or when the Editor quits), the build settings' and the quality settings' (when the Editor quits). Checked out
+# as LF too, so a save that changes nothing doesn't show as a change.
+/ProjectSettings/ProjectAuditorSettings.asset text eol=lf
+/ProjectSettings/EditorBuildSettings.asset text eol=lf
+/ProjectSettings/QualitySettings.asset text eol=lf

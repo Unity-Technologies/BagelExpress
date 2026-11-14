@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Chunky back arrow -->
+  <path d="M29 10 L8 32 L29 54 V42 H50 a5 5 0 0 0 5 -5 V27 a5 5 0 0 0 -5 -5 H29 Z" fill="#FFF8EA" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M33 27 H48" fill="none" stroke="#FFD86E" stroke-width="3" stroke-linecap="round"/>
+</svg>

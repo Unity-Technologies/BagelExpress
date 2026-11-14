@@ -1,0 +1,32 @@
+/* Bagel Express — Sakura season. Only variables: every gradient, filter and art color in the common styles reads them. */
+
+:root {
+    --be-primary: rgb(255, 110, 160);
+    --be-primary-light: rgb(255, 190, 215);
+    --be-primary-dark: rgb(205, 60, 120);
+    --be-accent: rgb(120, 180, 80);
+    --be-accent-light: rgb(190, 230, 150);
+    --be-accent-dark: rgb(70, 130, 40);
+    --be-paper: rgb(255, 250, 246);
+    --be-skyline-far: rgb(255, 200, 220);
+    --be-skyline-near: rgb(200, 110, 150);
+    --be-window-light: rgb(255, 240, 200);
+    --be-particle-kind: sakura;
+    --be-mascot-accessory: sakura;
+    --be-sound-tone: koto;
+    --be-awning-a: rgb(255, 130, 175);
+    --be-awning-b: rgb(255, 250, 252);
+    --be-noren-color: rgb(110, 160, 80);
+    --be-bag-color: rgb(255, 110, 160);
+    --be-burst-color-a: rgba(255, 230, 240, 0.95);
+    --be-burst-color-b: rgba(255, 150, 190, 0.55);
+    --be-title-burst-edge: rgb(236, 96, 156);
+    --be-lantern-glow: rgba(255, 170, 200, 0.8);
+    --be-sky-top: rgb(170, 220, 255);
+    --be-sky-mid: rgb(220, 230, 250);
+    --be-sky-bottom: rgb(255, 220, 235);
+
+    /* The glass, tinted for the season (blossom pink); light enough for dark text. */
+    --be-frost: rgba(255, 226, 238, 0.58);
+    --be-frost-solid: rgba(255, 226, 238, 0.88);
+}

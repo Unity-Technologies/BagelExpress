@@ -1,0 +1,157 @@
+/* Bagel Express — the performance overlay (Settings › Performance › Performance overlay): a small
+   see-through window over the whole app, dragged around with a finger. No blur behind it: a backdrop
+   filter would cost more GPU than the overlay measures. */
+
+/* Over everything, LEVEL UP! and the dialogs included: their overlay layer is at z-index 50 (BakeryAppStyles.uss). The
+   layer itself is always displayed and only its window hides: in this build, an element with a z-index under a
+   display:none ancestor can be drawn at the panel's origin for a few frames. */
+.be-perf {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.be-perf--hidden .be-perf__window {
+    display: none;
+}
+
+.be-perf__window {
+    position: absolute;
+    left: 10px;
+    top: 150px;
+    width: 156px;
+    padding: 6px 8px 7px 8px;
+    border-radius: 12px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(24, 14, 10, 0.5);
+    transition-property: background-color, scale;
+    transition-duration: 0.15s;
+}
+
+.be-perf__window--dragging {
+    background-color: rgba(24, 14, 10, 0.65);
+    scale: 1.04 1.04;
+}
+
+.be-perf__window .unity-label {
+    margin: 0;
+    padding: 0;
+    color: var(--be-white);
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+}
+
+.be-perf__header {
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.be-perf__fps {
+    font-size: 24px;
+    min-width: 38px;
+}
+
+.be-perf__fps-unit {
+    font-size: var(--be-font-xs);
+    margin: 0 0 4px 3px;
+    opacity: 0.8;
+}
+
+.be-perf__frame {
+    flex-grow: 1;
+    -unity-text-align: lower-right;
+    font-size: var(--be-font-s);
+    margin-bottom: 3px;
+}
+
+/* The ×: a small round button at the header's right end, in the row so it never covers a reading. */
+.be-perf__window .be-perf__close {
+    align-self: flex-start;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    min-height: 0;
+    margin: 0 -2px 0 6px;
+    padding: 0;
+    border-width: 0;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.16);
+    transition-property: background-color, scale;
+    transition-duration: 0.1s;
+}
+
+.be-perf__window .be-perf__close:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.be-perf__window .be-perf__close:active {
+    scale: 0.88 0.88;
+}
+
+.be-perf__close-icon {
+    width: 10px;
+    height: 10px;
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-close.svg");
+}
+
+.be-perf__graph {
+    height: 42px;
+    margin: 4px 0 4px 0;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* The 60 and 30 fps lines sit at 1/3 and 2/3 of the graph's 50 ms height; each label rides just above its line. */
+.be-perf__window .be-perf__guide {
+    position: absolute;
+    left: 2px;
+    font-size: 8px;
+    opacity: 0.65;
+    translate: 0 -100%;
+}
+
+.be-perf__guide--60 {
+    top: 66.7%;
+}
+
+.be-perf__guide--30 {
+    top: 33.3%;
+}
+
+.be-perf__window .be-perf__timings,
+.be-perf__window .be-perf__resolution,
+.be-perf__window .be-perf__thermal {
+    font-size: var(--be-font-xs);
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Regular.ttf");
+}
+
+.be-perf__resolution {
+    opacity: 0.8;
+}
+
+/* How hot the device is (DeviceThermal), in bold: gold where phones start slowing down, a light red where they cap the
+   frame rate (light enough to read when the window is over a pale page). Gone where the platform doesn't say (Windows,
+   the Web). */
+.be-perf__window .be-perf__thermal {
+    opacity: 0.8;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+}
+
+.be-perf__thermal--gone {
+    display: none;
+}
+
+.be-perf__window .be-perf__thermal--warm {
+    color: var(--be-gold-light);
+    opacity: 1;
+}
+
+.be-perf__window .be-perf__thermal--hot {
+    color: rgb(255, 184, 172);
+    opacity: 1;
+}

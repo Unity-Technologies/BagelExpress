@@ -1,0 +1,225 @@
+/* Bagel Express — the player's stats: a ConfirmDialog (its panel, title band, scrim and show/hide come from
+   ConfirmDialog.uss) with a body of its own. Sections sit 15 points inside the panel (12 padding, 3 border), so their
+   corners take 28 - 15 = 13. */
+
+.be-stats__panel {
+    width: 350px;
+}
+
+.be-stats--gone {
+    display: none;
+}
+
+.be-stats__eyebrow {
+    margin: 0;
+    padding: 0;
+}
+
+.be-stats__note {
+    margin: 0;
+    padding: 0;
+    font-size: var(--be-font-s);
+    white-space: normal;
+    color: var(--be-text-muted);
+}
+
+/* ------------------------------------------------------------------ Mood */
+
+.be-stats__mood {
+    flex-direction: row;
+    align-items: center;
+    align-self: stretch;
+    gap: 12px;
+    margin: 12px 0 0 0;
+    padding: 0 4px;
+}
+
+.be-stats__avatar {
+    flex-shrink: 0;
+    width: 68px;
+    height: 68px;
+    border-radius: 34px;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    background-image: radial-gradient(circle at center, var(--be-avatar-glow), var(--be-primary-light));
+}
+
+.be-stats__mascot {
+    position: absolute;
+    left: 4px;
+    top: 5px;
+    right: 4px;
+    bottom: 3px;
+}
+
+.be-stats__mood-text {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.be-stats__mood-name {
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: var(--be-primary);
+}
+
+/* ------------------------------------------------------------------ Sections */
+
+.be-stats__section {
+    align-self: stretch;
+    margin-top: 10px;
+    padding: 8px 12px 10px 12px;
+    gap: 4px;
+    border-radius: 13px;
+    background-color: var(--be-wash);
+}
+
+.be-stats__section-head {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 26px;
+}
+
+.be-stats__income {
+    background-color: rgba(20, 140, 84, 0.85);
+}
+
+.be-stats__income-text {
+    margin: 0;
+    padding: 0;
+    color: var(--be-white);
+}
+
+/* While the register is full nothing comes in: the rate's chip turns gray, and the reason shows. */
+.be-stats__paused {
+    display: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--be-font-s);
+    color: var(--be-text-warning);
+}
+
+.be-stats--paused .be-stats__paused {
+    display: flex;
+}
+
+.be-stats--paused .be-stats__income {
+    background-color: rgba(120, 78, 58, 0.6);
+}
+
+.be-stats__rows {
+    gap: 4px;
+}
+
+.be-stats__row {
+    flex-direction: row;
+    align-items: center;
+    min-height: 24px;
+    gap: 6px;
+}
+
+.be-stats__row-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+}
+
+.be-stats__row-label {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    font-size: var(--be-font-s);
+    white-space: normal;
+    color: var(--be-text);
+}
+
+.be-stats__row-level {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    font-size: var(--be-font-s);
+    color: var(--be-text-muted);
+}
+
+.be-stats__row-value {
+    flex-shrink: 0;
+    min-width: 52px;
+    margin: 0;
+    padding: 0;
+    -unity-text-align: middle-right;
+    font-size: var(--be-font-m);
+    color: var(--be-text-positive);
+}
+
+.be-stats__level {
+    flex-shrink: 0;
+    height: 22px;
+    margin: 0;
+    padding: 0 8px;
+    -unity-text-align: middle-center;
+    font-size: var(--be-font-s);
+    border-radius: 11px;
+    border-width: var(--be-border-thin);
+    border-color: var(--be-ink);
+    background-image: linear-gradient(to bottom, var(--be-gold-light), var(--be-gold) 60%, var(--be-gold-dark));
+    color: var(--be-ink);
+}
+
+/* The next level's price: a coin pill, the coin 2 points in like the shops' cost pills. */
+.be-stats__cost {
+    flex-shrink: 0;
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+    padding: 0 9px 0 2px;
+    border-radius: 11px;
+    background-color: var(--be-wash-strong);
+}
+
+.be-stats__cost-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.be-stats__cost-text {
+    margin: 0;
+    padding: 0 0 0 4px;
+    font-size: var(--be-font-s);
+    color: var(--be-text);
+}
+
+/* ------------------------------------------------------------------ Counts: three across, two down */
+
+.be-stats__grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: stretch;
+    margin: 10px 0 6px 0;
+}
+
+.be-stats__cell {
+    width: 33.33%;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.be-stats__cell-value {
+    margin: 0;
+    padding: 0;
+    font-size: var(--be-font-l);
+    color: var(--be-text);
+}
+
+.be-stats__cell-label {
+    margin: 0;
+    padding: 0;
+    font-size: var(--be-font-xs);
+    letter-spacing: 0.5px;
+    color: var(--be-text-muted);
+}

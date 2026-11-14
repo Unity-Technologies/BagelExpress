@@ -1,0 +1,31 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="ConfirmDialog.uss"/>
+    <Bagel.ConfirmDialog name="confirm-dialog">
+        <ui:VisualElement name="confirm-scrim" class="be-confirm__scrim"/>
+        <ui:VisualElement name="confirm-panel" class="be-panel be-confirm__panel">
+            <ui:VisualElement name="confirm-header" picking-mode="Ignore" class="be-band be-confirm__header">
+                <ui:VisualElement picking-mode="Ignore" class="be-gloss be-confirm__header-gloss"/>
+                <ui:Label name="confirm-title" text="Lucky Ticket" picking-mode="Ignore" class="be-confirm__title"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="confirm-art" picking-mode="Ignore" class="be-confirm__art">
+                <ui:VisualElement picking-mode="Ignore" class="be-confirm__art-glow"/>
+                <ui:VisualElement picking-mode="Ignore" class="be-confirm__art-disc">
+                    <Bagel.CurrencyIcon name="confirm-icon" kind="Tickets" picking-mode="Ignore" class="be-confirm__icon"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Label name="confirm-message" text="Buy 1 Lucky Ticket for 60 Maple Gems?" picking-mode="Ignore" class="be-confirm__message"/>
+            <ui:VisualElement name="confirm-buttons" picking-mode="Ignore" class="be-confirm__buttons">
+                <ui:Button name="confirm-cancel-button" class="be-btn be-btn--paper be-confirm__button">
+                    <ui:VisualElement picking-mode="Ignore" class="be-gloss"/>
+                    <ui:Label name="confirm-cancel-label" text="Cancel" picking-mode="Ignore" class="be-btn__label be-confirm__button-label be-confirm__button-label--cancel"/>
+                    <Bagel.PressSquish pressed-scale="0.92"/>
+                </ui:Button>
+                <ui:Button name="confirm-yes-button" class="be-btn be-btn--mint be-confirm__button">
+                    <ui:VisualElement picking-mode="Ignore" class="be-gloss"/>
+                    <ui:Label name="confirm-yes-label" text="Yes!" picking-mode="Ignore" class="be-btn__label be-confirm__button-label"/>
+                    <Bagel.PressSquish pressed-scale="0.92"/>
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </Bagel.ConfirmDialog>
+</ui:UXML>

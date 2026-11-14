@@ -1,0 +1,86 @@
+/* Bagel Express — what everything sounds like.
+
+   The code only says what happened to an element: it was clicked, a coin landed in it, a card was revealed.
+   These custom properties say what that sounds like, so every sound can be changed here, live, without code:
+     --be-sound: pop;               clicking the element (none: silent)
+     --be-sound-<cue>: register;    an event (collect, reveal, land, open...)
+     --be-sound-pitch: 4;           semitones up
+     --be-sound-tone: wood;         the melodic sounds' instrument: wood, koto, furin or bell (each season sets one)
+   The names are patches in Assets/Audio/BagelSoundLibrary.cs, synthesized live by BagelSynth: there are no audio files.
+   Custom properties aren't inherited, so BagelSound walks up from the element: :root holds the defaults. */
+
+:root {
+    --be-sound-tone: wood;
+    --be-sound-start: doorbell;       /* title: tap to start, the shop's door opens */
+    --be-sound-collect: register;
+    --be-sound-bake: bake;            /* a puff of flour, a soft dough "boop" */
+    --be-sound-poke: squeak;          /* Begu-chan */
+    --be-sound-upgrade: upgrade;
+    --be-sound-unlock: opening;
+    --be-sound-draw: rustle;          /* the Lucky Bag's paper */
+    --be-sound-open: open;            /* dialogs and sheets */
+    --be-sound-hint: hint;            /* tutorial steps */
+    --be-sound-swipe: swish;          /* a swipe turns the page */
+    --be-sound-settle: settle;        /* ... or lets it settle back */
+    --be-sound-season: season;
+    --be-sound-language: chime;
+    --be-sound-fail: nope;            /* not enough coins, gems or tickets; an empty register */
+    --be-sound-disabled: nope;        /* pressing a disabled button */
+}
+
+/* ------------------------------------------------------------------ Presses */
+
+.unity-button {
+    --be-sound: pop;
+}
+
+.unity-toggle {
+    --be-sound: click;
+}
+
+.be-btn--paper {
+    --be-sound: back;                 /* Cancel, Close */
+}
+
+/* The nav bar plays a scale. */
+.be-nav__item {
+    --be-sound: tab;
+}
+
+#nav-shops { --be-sound-pitch: 2; }
+#nav-lucky-bag { --be-sound-pitch: 4; }
+#nav-recipes { --be-sound-pitch: 7; }
+#nav-settings { --be-sound-pitch: 9; }
+
+/* Their action makes its own sound. */
+#collect-button,
+.be-shop-card__action,
+.be-lucky-bag__draw,
+.be-currency-pill__plus,
+.be-season-card,
+.be-segment {
+    --be-sound: none;
+}
+
+/* Picking a resolution is a plain choice: it clicks like a toggle. */
+.be-settings__resolution .be-segment {
+    --be-sound: click;
+}
+
+/* ------------------------------------------------------------------ Events */
+
+/* Each icon that flies to the HUD plays its pill's sound as it lands, a step higher than the last. */
+.be-currency-pill--coins { --be-sound-land: coin; }
+.be-currency-pill--gems { --be-sound-land: gem; }
+.be-currency-pill--tickets { --be-sound-land: ticket; }
+
+.be-level-up {
+    --be-sound-open: fanfare;
+}
+
+/* Lucky Bag reveals: the rarer the card, the bigger the sound (like the rarity colors). */
+.be-reveal--n { --be-sound-reveal: reveal-n; }
+.be-reveal--r { --be-sound-reveal: reveal-r; }
+.be-reveal--sr { --be-sound-reveal: reveal-sr; }
+.be-reveal--ssr { --be-sound-reveal: reveal-ssr; }
+.be-reveal--ur { --be-sound-reveal: reveal-ur; }

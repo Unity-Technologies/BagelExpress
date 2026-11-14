@@ -1,0 +1,81 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:loc="Unity.Localization" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="LevelUpStyles.uss"/>
+    <Bagel.LevelUpDialog name="level-up-dialog">
+        <ui:VisualElement name="level-up-scrim" class="be-level-up__scrim"/>
+        <Bagel.SpeedLines name="level-up-speed-lines" class="be-level-up__speed-lines"/>
+        <ui:VisualElement name="level-up-stage" picking-mode="Ignore" class="be-level-up__stage">
+            <ui:VisualElement name="level-up-burst-holder" picking-mode="Ignore" class="be-level-up__burst-holder">
+                <Bagel.Starburst name="level-up-burst" picking-mode="Ignore" ray-count="12" class="be-level-up__burst"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="level-up-title-block" picking-mode="Ignore" class="be-level-up__title-block">
+                <ui:Label name="level-up-title" text="LEVEL UP!" picking-mode="Ignore" class="be-display be-level-up__title">
+                    <Bindings>
+                        <loc:LocalizedString property="text" table="BagelStrings" entry="level-up.title"/>
+                    </Bindings>
+                    <Bagel.WavyText amplitude="6" speed="7" wavelength="80"/>
+                </ui:Label>
+                <ui:Label name="level-up-ribbon" text="レベルアップ！ · 新記録" picking-mode="Ignore" class="be-level-up__ribbon">
+                    <Bindings>
+                        <loc:LocalizedString property="text" table="BagelStrings" entry="level-up.ribbon"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:VisualElement name="level-up-card" picking-mode="Ignore" class="be-panel be-level-up__card">
+                <ui:VisualElement name="level-up-hero" picking-mode="Ignore" class="be-level-up__hero">
+                    <ui:VisualElement name="level-up-hero-glow" picking-mode="Ignore" class="be-level-up__hero-glow"/>
+                    <ui:VisualElement name="level-up-hero-disc" picking-mode="Ignore" class="be-level-up__hero-disc"/>
+                    <Bagel.PastryIcon name="level-up-pastry" kind="SesameBagel" class="be-level-up__pastry"/>
+                </ui:VisualElement>
+                <ui:Label name="level-up-sticker" text="★ MILESTONE ★" picking-mode="Ignore" class="be-sticker be-sticker--gold be-level-up__sticker"/>
+                <ui:Label name="level-up-shop-name" text="Mile End Bagel Bar" picking-mode="Ignore" class="be-level-up__shop-name"/>
+                <ui:Label name="level-up-shop-jp" text="マイルエンド・ベーグルバー" picking-mode="Ignore" class="be-level-up__shop-jp"/>
+                <ui:VisualElement name="level-up-levels" picking-mode="Ignore" class="be-level-up__levels">
+                    <ui:Label name="level-up-level-from" text="Lv.4" picking-mode="Ignore" class="be-level-up__level be-level-up__level--from"/>
+                    <ui:Label text="▶" picking-mode="Ignore" class="be-level-up__arrow"/>
+                    <ui:Label name="level-up-level-to" text="Lv.5" picking-mode="Ignore" class="be-level-up__level be-level-up__level--to"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="level-up-income" picking-mode="Ignore" class="be-well be-level-up__income">
+                    <ui:Label text="INCOME" picking-mode="Ignore" class="be-eyebrow be-level-up__income-eyebrow">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="level-up.income"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label name="level-up-income-from" text="6.9/s" picking-mode="Ignore" class="be-level-up__income-value"/>
+                    <ui:Label text="▶" picking-mode="Ignore" class="be-level-up__income-arrow"/>
+                    <ui:Label name="level-up-income-to" text="10.4/s" picking-mode="Ignore" class="be-level-up__income-value be-level-up__income-value--to"/>
+                    <ui:Label name="level-up-boost" text="+50%" picking-mode="Ignore" class="be-level-up__boost"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="level-up-reward" picking-mode="Ignore" class="be-level-up__reward">
+                    <ui:Label text="MILESTONE REWARD · 報酬" picking-mode="Ignore" class="be-eyebrow be-level-up__reward-eyebrow">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="level-up.reward"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:VisualElement picking-mode="Ignore" class="be-level-up__reward-row">
+                        <Bagel.CurrencyIcon name="level-up-reward-icon" kind="Gems" picking-mode="Ignore" class="be-level-up__reward-icon"/>
+                        <ui:Label name="level-up-reward-amount" text="+50" picking-mode="Ignore" class="be-level-up__reward-amount"/>
+                        <ui:Label text="Maple Gems" picking-mode="Ignore" class="be-level-up__reward-name">
+                            <Bindings>
+                                <loc:LocalizedString property="text" table="BagelStrings" entry="level-up.gems"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="level-up-ok-wrap" picking-mode="Ignore" class="be-level-up__ok-wrap">
+                <ui:VisualElement name="level-up-ok-pulse" picking-mode="Ignore" class="be-level-up__ok-pulse">
+                    <ui:Button name="level-up-ok-button" class="be-btn be-btn--gold be-level-up__ok">
+                        <ui:VisualElement picking-mode="Ignore" class="be-gloss"/>
+                        <ui:Label text="AWESOME!" picking-mode="Ignore" class="be-btn__label be-display be-level-up__ok-label">
+                            <Bindings>
+                                <loc:LocalizedString property="text" table="BagelStrings" entry="level-up.ok"/>
+                            </Bindings>
+                        </ui:Label>
+                        <Bagel.PressSquish pressed-scale="0.92"/>
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <Bagel.ConfettiBurst name="level-up-confetti" picking-mode="Ignore" class="be-level-up__confetti"/>
+    </Bagel.LevelUpDialog>
+</ui:UXML>

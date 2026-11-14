@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18d5eb21caac4979900d2268204f64d, type: 3}
+  m_Name: DemoStartState
+  m_EditorClassIdentifier: BagelGame::Bagel.BakeryState
+  m_Catalog: {fileID: 11400000, guid: 41fd2d4b57052437f830850e439d898c, type: 2}
+  m_PlayerName: Begu-chan
+  m_PlayerLevel: 12
+  m_Coins: 1250
+  m_Gems: 300
+  m_Tickets: 6
+  m_Register: 380
+  m_TotalDraws: 0
+  m_Shops:
+  - m_Level: 4
+    m_Unlocked: 1
+  - m_Level: 1
+    m_Unlocked: 1
+  - m_Level: 1
+    m_Unlocked: 0
+  - m_Level: 1
+    m_Unlocked: 0
+  - m_Level: 1
+    m_Unlocked: 0
+  - m_Level: 1
+    m_Unlocked: 0
+  m_Recipes:
+  - m_Owned: 1
+    m_IsNew: 0
+  - m_Owned: 0
+    m_IsNew: 0
+  - m_Owned: 1
+    m_IsNew: 0
+  - m_Owned: 1
+    m_IsNew: 0
+  - m_Owned: 0
+    m_IsNew: 0
+  - m_Owned: 0
+    m_IsNew: 0
+  - m_Owned: 0
+    m_IsNew: 0
+  - m_Owned: 0
+    m_IsNew: 0
+  - m_Owned: 0
+    m_IsNew: 0
+  - m_Owned: 0
+    m_IsNew: 0
+  - m_Owned: 0
+    m_IsNew: 0
+  - m_Owned: 0
+    m_IsNew: 0

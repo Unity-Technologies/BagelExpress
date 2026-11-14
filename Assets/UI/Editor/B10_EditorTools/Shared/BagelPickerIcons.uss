@@ -1,0 +1,47 @@
+/* BagelPickerIcons: the screens' nav icons and their badges. Sizes are the picker's (a strip's, Bagel Features'). */
+
+.bagel-icon--home {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-home.svg");
+}
+
+.bagel-icon--shops {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-shops.svg");
+}
+
+.bagel-icon--lucky-bag {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-lucky-bag.svg");
+}
+
+.bagel-icon--recipes {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-recipes.svg");
+}
+
+.bagel-icon--settings {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-settings.svg");
+}
+
+.bagel-icon--star {
+    background-image: url("/Assets/UI/Runtime/B02_Common/Icons/icon-star.svg");
+}
+
+/* What opens over a page, as a badge on the page's icon, in its bottom-right corner (sized by the icon). */
+.bagel-icon__badge {
+    position: absolute;
+    right: -21%;
+    bottom: -17%;
+    width: 58%;
+    height: 58%;
+}
+
+.bagel-icon__badge--graph {
+    width: 67%;
+    height: 46%;
+    padding: 1px;
+    border-radius: 3px;
+    background-color: rgba(20, 12, 8, 0.9);
+}
+
+/* A season's lantern, small: without its glow, which only blurs it. */
+.bagel-icon.be-lantern {
+    --be-lantern-glow: rgba(0, 0, 0, 0);
+}

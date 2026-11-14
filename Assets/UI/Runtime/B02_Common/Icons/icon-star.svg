@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Chunky star -->
+  <path d="M32 6 L39.64 23.48 L58.63 25.35 L44.36 38.02 L48.46 56.65 L32 47 L15.54 56.65 L19.64 38.02 L5.37 25.35 L24.36 23.48 Z" fill="#FFC828" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M21 26 L26 26" fill="none" stroke="#FFF0B0" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M32 6 L39.64 23.48 L58.63 25.35 L44.36 38.02 L48.46 56.65 L32 47 L15.54 56.65 L19.64 38.02 L5.37 25.35 L24.36 23.48 Z" fill="none" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,1524 @@
+# Bagel Features window: short snippets of how each feature is used, mostly trimmed from the game's own code.
+# Each starts with "## feature-id | cs|uxml|uss | caption" and runs to the next. Keep lines to 58 characters.
+
+## uxml-templates | uxml | Nest page UXMLs in the app shell
+<ui:Template name="HomePage"
+    src="../B05_Home/HomePage.uxml"/>
+<ui:Template name="ShopsPage"
+    src="../B06_Shops/ShopsPage.uxml"/>
+<Style src="BakeryAppStyles.uss"/>
+<ui:VisualElement name="pages" class="be-pages">
+    <ui:Instance template="HomePage" class="be-page"/>
+    <ui:Instance template="ShopsPage" class="be-page"/>
+</ui:VisualElement>
+
+## uxml-templates | uxml | One template, an override per instance
+<ui:Template name="StorePastry" src="StorePastry.uxml"/>
+<ui:Instance template="StorePastry" name="store-pastry-1">
+    <AttributeOverrides element-name="pastry"
+        kind="SesameBagel"/>
+</ui:Instance>
+<ui:Instance template="StorePastry" name="store-pastry-2">
+    <AttributeOverrides element-name="pastry"
+        kind="MelonPan"/>
+</ui:Instance>
+
+## uxml-asset-attributes | cs | An asset-typed UXML attribute
+[UxmlElement]
+public partial class RecipesPaneManager : BakeryPane
+{
+    [UxmlAttribute]
+    public VisualTreeAsset cardTemplate { get; set; }
+}
+
+## uxml-asset-attributes | uxml | Assets set as attribute paths
+<Bagel.RecipesPaneManager name="recipes"
+    card-template="RecipeCard.uxml"
+    start-state="/Assets/Game/Core/DemoStartState.asset"/>
+
+## standalone-screens | cs | Set up on attach, no MonoBehaviour
+public BakeryPane() =>
+    RegisterCallback<AttachToPanelEvent>(OnAttachToPanel);
+
+void OnAttachToPanel(AttachToPanelEvent evt)
+{
+    m_App = GetFirstAncestorOfType<BakeryAppManager>();
+    if (m_App == null) // alone: in UI Builder or a test
+        dataSource =
+            BakeryState.CreateRuntimeCopy(startState);
+}
+
+## standalone-screens | cs | Test one page with no scene
+// A test panel: the page clones its own demo state
+var page = assets.recipesPageUxml.Instantiate();
+rootVisualElement.Add(page);
+simulate.FrameUpdate();
+var recipes = page.Q<RecipesPaneManager>();
+Assert.That(recipes.grid.childCount, Is.EqualTo(12));
+
+## ui-builder-library | cs | File elements in Library folders
+// UI Builder's Library lists them under Bagel/...
+[UxmlElement(libraryPath = "Bagel/Common")]
+public partial class CurrencyPill : VisualElement { }
+
+[UxmlElement(libraryPath = "Bagel/Shops")]
+public partial class ShopCard : VisualElement { }
+
+## in-scene-authoring | cs | A PanelRenderer holds the app UXML
+// Main.unity's BagelExpressApp, written as code; the
+// Hierarchy shows its UI under the GameObject
+var app = new GameObject("BagelExpressApp");
+var ui = app.AddComponent<PanelRenderer>();
+ui.panelSettings = screenSpacePanelSettings;
+ui.visualTreeAsset = bakeryAppScreenUxml;
+
+## in-scene-authoring | uxml | In-scene edits add authoring-id to UXML
+<ui:Instance template="ShopsPage" name="shops-page"
+    authoring-id="2028392036" class="be-page"/>
+<ui:Button name="nav-home" authoring-id="1157255534"
+    class="be-nav__item"/>
+
+## uss-variables | uss | Design tokens on :root
+:root {
+    --be-ink: rgb(59, 31, 20);
+    --be-radius-m: 14px;
+    --be-tile-lip: 7px; /* 3px outline + 4px lip */
+}
+.be-btn {
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-m);
+    border-bottom-width: var(--be-tile-lip);
+}
+
+## uss-variables | uss | var() in a gradient, a season override
+.be-backdrop {
+    background-image: linear-gradient(to bottom,
+        var(--be-sky-top), var(--be-sky-mid) 55%,
+        var(--be-sky-bottom));
+}
+
+/* The Sakura sheet only overrides variables */
+:root {
+    --be-sky-top: rgb(170, 220, 255);
+}
+
+## tss-themes | uss | A season theme imports the rest
+/* BagelSakuraTheme.tss */
+@import url("unity-theme://default");
+@import url("../T0_Common/BagelExpressCommonStyles.uss");
+@import url("../../B13_Sound/BagelSounds.uss");
+/* Last: the season's :root variables */
+@import url("BagelSakuraThemeStyles.uss");
+
+## tss-themes | cs | Swap the theme while playing
+// Settings: Maple, Sakura, Matsuri or Snow
+var theme = themeCollection.collection[index].theme;
+foreach (var ps in panelSettingsCollection.collection)
+    ps.themeStyleSheet = theme; // the panel restyles
+
+## custom-style-properties | cs | Read a USS value from C#
+static readonly CustomStyleProperty<string> s_Hat =
+    new("--be-mascot-accessory");
+
+public BeguChan() =>
+    RegisterCallback<CustomStyleResolvedEvent>(e =>
+    {
+        if (e.customStyle.TryGetValue(s_Hat, out var hat))
+            m_Hat = hat;
+        MarkDirtyRepaint();
+    });
+
+## custom-style-properties | cs | Find an ancestor's value
+// customStyle holds only the rules matching this
+// element: walk up to reach a :root value
+public string Get(CustomStyleProperty<string> prop,
+    string fallback)
+{
+    for (var e = m_Owner; e != null; e = e.parent)
+        if (e.customStyle.TryGetValue(prop, out var v))
+            return v;
+    return fallback;
+}
+
+## pseudo-and-state-classes | uss | Pseudo-classes and a state class
+.be-btn:hover { scale: 1.03 1.03; }
+.be-btn:active { translate: 0 3px; }
+.be-btn:disabled { opacity: 0.85; }
+
+/* A state class, toggled from C# */
+.be-shop-card--locked .be-shop-card__lock {
+    display: flex;
+}
+
+## pseudo-and-state-classes | cs | Toggle a state class from C#
+public static readonly string lockedUssClassName =
+    ussClassName + "--locked"; // be-shop-card--locked
+
+[UxmlAttribute, CreateProperty]
+public bool locked
+{
+    get => ClassListContains(lockedUssClassName);
+    set => EnableInClassList(lockedUssClassName, value);
+}
+
+## builtin-control-restyling | uss | A thin scrollbar, no arrow buttons
+.be-scroll-well .unity-scroller--vertical {
+    position: absolute; /* floats over the margin */
+    right: 14px;
+    width: 6px;
+}
+.be-scroll-well .unity-scroller__low-button,
+.be-scroll-well .unity-scroller__high-button {
+    display: none;
+}
+
+## builtin-control-restyling | uss | A chunky Toggle checkmark
+.be-settings__toggle .unity-toggle__checkmark {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+}
+.be-settings__toggle:checked .unity-toggle__checkmark {
+    background-image: linear-gradient(to bottom,
+        var(--be-mint-light), var(--be-mint-dark));
+}
+
+## project-default-theme | uss | The project's preview theme
+/* BagelMapleTheme.tss: the project default, set in */
+/* Project Settings › UI Toolkit › Project Preview */
+/* › Runtime, and the game's PanelSettings theme */
+@import url("unity-theme://default");
+@import url("../T0_Common/BagelExpressCommonStyles.uss");
+@import url("../../B13_Sound/BagelSounds.uss");
+@import url("BagelMapleThemeStyles.uss");
+
+## project-default-theme | uxml | Previews take .be-btn from the theme
+<Style src="ShopsStyles.uss"/>
+<Bagel.ShopCard name="shop-card">
+    <ui:Button name="action-button"
+        class="be-btn be-btn--mint"/>
+</Bagel.ShopCard>
+
+## background-gradients | uss | Linear gradient of theme variables
+.be-backdrop {
+    background-image: linear-gradient(to bottom,
+        var(--be-sky-top), var(--be-sky-mid) 55%,
+        var(--be-sky-bottom));
+}
+
+## background-gradients | uss | Radial glow fading to clear
+.be-backdrop__glow {
+    background-image: radial-gradient(ellipse at center,
+        rgba(255, 255, 255, 0.55),
+        rgba(255, 255, 255, 0) 70%);
+}
+
+## geometry-shadows | uss | Hard shadow from a thick bottom border
+:root {
+    --be-tile-lip: 7px; /* 3px outline + 4px lip */
+}
+.be-panel {
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-l);
+    border-bottom-width: var(--be-tile-lip);
+}
+
+## geometry-shadows | uss | No filter pass: transform and gradient
+.be-btn:active {
+    translate: 0 3px; /* the lip stays, nothing moves */
+}
+/* Locked: a muted gradient instead of grayscale() */
+.be-recipe-card--locked .be-recipe-card__frame {
+    background-image: linear-gradient(160deg,
+        rgb(214, 210, 204), rgb(170, 164, 158) 60%,
+        rgb(128, 122, 116));
+}
+
+## drop-shadow | uss | A glow that follows the shape
+/* The current nav icon: the glow hugs its outline,
+   and its badge's (a child), not its box */
+.be-nav__item--selected .be-nav__icon {
+    filter: drop-shadow(0 0 4px var(--be-gold-dark))
+        drop-shadow(0 0 4px var(--be-gold-dark))
+        drop-shadow(0 2px 0 var(--be-ink));
+}
+
+## drop-shadow | uss | Blurred shadows for the perf A/B
+/* One root class turns them on for the Profiler */
+.be-filter-shadows .be-panel,
+.be-filter-shadows .be-shop-card {
+    filter: drop-shadow(0 12px 22px rgba(20, 8, 2, 0.85));
+}
+
+## box-shadow | uss | A hard shadow, as geometry
+/* The storefront: no blur, offset down.
+   It was a drop-shadow, an offscreen pass */
+.be-store__facade {
+    box-shadow: 0 6px 0 var(--be-ink);
+}
+
+## box-shadow | uss | A glow that fades in, as geometry
+/* No offset: a glow around the rounded box */
+.be-season-card {
+    transition-property: scale, translate, box-shadow;
+    transition-duration: 0.2s;
+}
+.be-season-card--selected {
+    box-shadow: 0 0 20px rgb(255, 220, 90);
+}
+
+## box-shadow | uss | Inset: a groove for the meters
+.be-meter__track {
+    border-radius: 11px;
+    box-shadow: inset 0 3px 4px rgba(20, 8, 2, 0.55);
+}
+
+## box-shadow | uss | The perf A/B's blurred shadow, cheap
+/* blur is CSS's blur radius: 2 × drop-shadow's 22 */
+.be-box-shadows .be-panel,
+.be-box-shadows .be-shop-card {
+    box-shadow: 0 12px 44px rgba(20, 8, 2, 0.85);
+}
+
+## box-shadow | cs | Set it from C#, or key it in a clip
+card.style.boxShadow = new BoxShadow
+{
+    offset = new Vector2(0, 12),
+    blurRadius = 44, spreadRadius = 0,
+    color = new Color(0.08f, 0.03f, 0.01f, 0.85f),
+};
+// UIAnimationClip curves: BoxShadow.blurRadius, …
+Make("GlowPulse", Float("BoxShadow.blurRadius",
+    Keys(0f, 24f, 0.5f, 40f, 1f, 24f)));
+
+## backdrop-filter | uss | Frosted glass and a blurred scrim
+.be-glass {
+    background-color: var(--be-frost); /* semi-clear */
+    backdrop-filter: blur(10px);
+    border-color: var(--be-ink);
+}
+.be-confirm__scrim {
+    background-color: rgba(40, 16, 8, 0.42);
+    backdrop-filter: blur(6px);
+}
+
+## backdrop-filter | cs | Set a backdrop blur from C#
+var filters = new List<FilterFunction>();
+var blur = new FilterFunction(FilterFunctionType.Blur);
+blur.AddParameter(new FilterParameter(radius));
+filters.Add(blur);
+element.style.backdropFilter =
+    new StyleList<FilterFunction>(filters);
+
+## custom-filter-function | uss | Call a custom filter from USS
+/* FilterFunctionDefinition asset, args: spacing, ink */
+.be-level-up__scrim {
+    backdrop-filter: filter(
+    "/Assets/UI/Runtime/B11_Filters/MangaHalftone.asset"
+        10px rgb(120, 30, 20)) blur(1px);
+}
+
+## custom-filter-function | cs | The same filter, set from C#
+// halftoneDefinition: the FilterFunctionDefinition asset
+var halftone = new FilterFunction(halftoneDefinition);
+halftone.AddParameter(new FilterParameter(10f));
+halftone.AddParameter(new FilterParameter(ink));
+var filters = new List<FilterFunction> { halftone };
+scrim.style.backdropFilter =
+    new StyleList<FilterFunction>(filters);
+
+## builtin-filter-chains | uss | Three drop-shadows in one filter
+/* Current page's nav icon: 2 glows + a hard shadow */
+.be-nav__item--selected .be-nav__icon {
+    filter: drop-shadow(0 0 4px var(--be-gold-dark))
+        drop-shadow(0 0 4px var(--be-gold-dark))
+        drop-shadow(0 2px 0 var(--be-ink));
+}
+
+## builtin-filter-chains | uss | One rule replaces every chain
+/* Disable all filters: #app outranks class rules */
+#app * {
+    filter: none;
+    backdrop-filter: none;
+}
+
+## ui-shader-graph | uss | Draw an element with a UI Shader Graph
+/* Create › Shader Graph › URP › UI Shader Graph, and a
+   material that uses it. Its children use it too. */
+.be-season-particles--gpu {
+    -unity-material: url("SeasonParticles.mat");
+}
+
+## ui-shader-graph | cs | Only where the panel can feed it
+// The material reads UV1-UV3: without them, keep the
+// default look (the class sets -unity-material).
+var channels = (panel.extraVertexChannels
+    & vertexChannels) == vertexChannels;
+EnableInClassList(gpuUssClassName, channels);
+
+## ui-shader-graph | cs | Or set it from C#
+element.style.unityMaterial =
+    new MaterialDefinition(material);
+
+## ui-shader-graph-vertices | cs | Give the panel's vertices UV1 to UV3
+// Each channel adds 16 bytes to every vertex of the panel
+panelSettings.extraVertexChannels =
+    ExtraVertexChannels.TexCoord1
+    | ExtraVertexChannels.TexCoord2
+    | ExtraVertexChannels.TexCoord3;
+
+## ui-shader-graph-vertices | cs | Write each particle's motion into its vertices
+// A mesh modifier; DrawVectorImage(…, userData: i + 1)
+foreach (var draw in context.draws)
+{
+    ref var p = ref m_Particles[draw.userData - 1];
+    var uv1 = draw.GetUv1(allocate: true);
+    var start = new Vector4(p.x, p.y, p.fall, p.sway);
+    for (int v = 0; v < uv1.Length; v++)
+        uv1[v] = start;
+}
+
+## ui-shader-graph-vertices | hlsl | Move them in the graph's vertex stage
+// Custom Function: Position, UV1-UV3 and Time in
+float t = UV3.w > 0.5 ? UV3.z : Time - UV3.z;
+float2 local = Position.xy - UV1.xy * UV3.xy;
+float y = frac(UV1.y + UV1.z * t);       // fall, wrap
+float x = UV1.x + sin(t * UV2.x + UV2.y) * UV1.w;
+Out = float3(float2(x, y) * UV3.xy + local, Position.z);
+
+## ui-shader-graph-vertices | cs | One float a frame is all the CPU does
+// The graph's Bagel Time property: global, not exposed
+Shader.SetGlobalFloat("_BagelTime", time);
+
+## flexbox-layout | uss | Full-screen layers and a flex row
+.be-fill {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+}
+.be-nav {
+    flex-direction: row;
+    align-items: flex-end;
+}
+.be-nav__item { flex-grow: 1; flex-basis: 0; }
+
+## flexbox-layout | uxml | Layers stacked in the app UXML
+<ui:VisualElement name="pages" class="be-pages be-fill"/>
+<ui:VisualElement name="nav" class="be-nav">
+    <ui:Button name="nav-home" class="be-nav__item"/>
+    <ui:Button name="nav-shops" class="be-nav__item"/>
+</ui:VisualElement>
+<ui:VisualElement name="overlay-layer"
+    class="be-overlay-layer be-fill"/>
+
+## gap | uss | Space children without margins
+.be-page-content {
+    gap: var(--be-gap-m); /* 12px between sections */
+}
+.be-hud__currencies {
+    flex-direction: row;
+    gap: 6px; /* in a row, this is the column gap */
+}
+
+## gap | uss | Two values: row gap, then column gap
+.be-sampler__row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 8px;
+}
+
+## z-index | uss | Stack layers above the pages
+.be-overlay-layer {
+    z-index: 50; /* over pages, HUD and nav */
+}
+.be-toast-stack {
+    z-index: 90;
+}
+.be-fly-icon {
+    position: absolute;
+    z-index: 100; /* coins fly over the toasts */
+}
+
+## z-index | cs | Coins added from C# fly on top
+var icon = new CurrencyIcon { kind = kind };
+icon.AddToClassList("be-fly-icon"); // z-index: 100
+overlayLayer.Add(icon);
+
+## grid-layout | uss | A 3-column grid with dense flow
+/* Experimental: Enable Grid Layout in Project Settings */
+.be-recipes__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 132px;
+    grid-auto-flow: row-dense;
+    gap: 12px 10px;
+}
+
+## grid-layout | uss | The UR card spans 2 x 2 cells
+/* RecipesPaneManager adds this class to UR cards */
+.be-recipes__cell--featured {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+## transforms | uss | Hover, press and tilt, no relayout
+.be-btn:hover {
+    scale: 1.03 1.03;
+}
+.be-btn:active {
+    translate: 0 3px;
+}
+.be-level-up__title {
+    rotate: -4deg;
+}
+
+## transforms | uss | Squish from the bottom edge
+.be-store__facade {
+    transition-property: scale;
+    transition-duration: 0.12s;
+    transition-timing-function: ease-out-back;
+    transform-origin: bottom;
+}
+/* Added on each tap, removed 110 ms later */
+.be-store--squish .be-store__facade {
+    scale: 1.04 0.95;
+}
+
+## painter2d | cs | Punch a hole with an odd-even fill
+// Coin face with a bagel hole
+painter.BeginPath();
+painter.Arc(c, r * 0.74f, 0f, 360f);
+painter.ClosePath();
+painter.Arc(c, r * 0.3f, 0f, 360f);
+painter.ClosePath();
+painter.fillColor = new Color(1f, 0.82f, 0.25f);
+painter.Fill(FillRule.OddEven);
+
+## painter2d | cs | Ink outline: a Bezier with round joins
+painter.lineJoin = LineJoin.Round;
+painter.lineCap = LineCap.Round;
+painter.BeginPath();
+painter.MoveTo(from);
+painter.BezierCurveTo(c1, c2, to);
+painter.strokeColor = inkColor;
+painter.lineWidth = ink;
+painter.Stroke();
+
+## generate-visual-content | cs | Draw the element on repaint
+public CurrencyIcon() =>
+    generateVisualContent += OnGenerateVisualContent;
+void OnGenerateVisualContent(MeshGenerationContext mgc)
+{
+    var painter = mgc.painter2D;
+    painter.BeginPath();
+    painter.Arc(contentRect.center, 12f, 0f, 360f);
+    painter.fillColor = new Color(0.96f, 0.63f, 0.09f);
+    painter.Fill();
+}
+
+## generate-visual-content | uxml | Art elements used in UXML
+<Bagel.SkylineBackdrop name="skyline"
+    picking-mode="Ignore" class="be-backdrop__skyline"/>
+<Bagel.CurrencyIcon name="collect-icon" kind="Coins"
+    picking-mode="Ignore" class="be-btn__icon"/>
+
+## procedural-animated-art | cs | Tick from the scheduler, then repaint
+public SpeedLines()
+{
+    generateVisualContent += OnGenerateVisualContent;
+    schedule.Execute(Tick).Every(16);
+}
+void Tick(TimerState timer)
+{
+    m_Frame++;          // re-roll the random lines
+    MarkDirtyRepaint(); // runs generateVisualContent
+}
+
+## procedural-animated-art | cs | Tick only while there is motion
+// m_Ticker = schedule.Execute(Tick).Every(50);
+void UpdateTicker()
+{
+    if (m_Blink || m_Mood == MascotMood.Sleepy)
+        m_Ticker.Resume();
+    else
+        m_Ticker.Pause();
+}
+
+## svg-vectorimage | uss | An SVG as a background image
+/* icon-home.svg imports as a UI Toolkit Vector Image */
+.be-nav__icon--home {
+    background-image:
+        url("../B02_Common/Icons/icon-home.svg");
+}
+.be-nav__icon {
+    -unity-background-image-tint-color:
+        rgb(255, 255, 255);
+}
+
+## svg-vectorimage | uxml | The icon element in the nav
+<ui:Button name="nav-home" class="be-nav__item">
+    <ui:VisualElement name="nav-home-icon"
+        picking-mode="Ignore"
+        class="be-nav__icon be-nav__icon--home"/>
+</ui:Button>
+
+## mesh-modifiers | cs | Post-process the text mesh
+owner.AddMeshModifier(context =>
+{
+    var t = Time.realtimeSinceStartup * 5f;
+    foreach (var draw in context.draws)
+    {
+        if (draw.renderType != RenderType.SdfText)
+            continue;
+        Bob(draw.vertices, t); // 4 vertices per glyph
+    }
+});
+
+## mesh-modifiers | cs | Move a glyph's 4 vertices together
+static void Bob(NativeSlice<Vertex> vertices, float t)
+{
+    for (int i = 0; i < vertices.Length; i++)
+    {
+        var x = vertices[i - i % 4].position.x;
+        var vertex = vertices[i];
+        vertex.position.y += Mathf.Sin(t + x / 18f) * 4f;
+        vertices[i] = vertex;
+    }
+}
+
+## display-text | uss | Comic display text style
+.be-display {
+    -unity-font-definition: url("Fonts/Bangers.ttf");
+    letter-spacing: 1px;
+    color: var(--be-text-on-color);
+    -unity-text-outline-width: 1.5px;
+    -unity-text-outline-color: var(--be-ink);
+    text-shadow: 0 3px 0 rgb(59, 31, 20);
+}
+
+## display-text | uxml | Apply it to a label
+<ui:Label name="logo-bagel" text="BAGEL"
+    class="be-display be-title__line"/>
+
+## advanced-text-fallback | cs | Fallback font list from code
+// Same as the PanelTextSettings asset's fallback list
+var jp = FontAsset.CreateFontAsset(notoSansJPFont);
+var textSettings = panelSettings.textSettings;
+textSettings.fallbackFontAssets =
+    new List<FontAsset> { jp };  // dynamic SDF asset
+
+## advanced-text-fallback | uxml | Japanese text in a Poppins label
+<ui:Label name="logo-hanko" text="ベーグル急行"
+    class="be-title__hanko"/>
+
+## per-language-typography | uss | Re-tune type for Japanese
+/* USS has no :lang(), so a class on the app root */
+.be-lang-ja .be-heading__title {
+    font-size: 30px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 1.25px;
+    letter-spacing: 2px;
+}
+
+## per-language-typography | cs | Set the language class from C#
+void ApplyLanguageClass(VisualElement root)
+{
+    var code = LocalizationSettings.SelectedLocale?.Code;
+    root.EnableInClassList("be-lang-ja", code == "ja");
+    root.EnableInClassList("be-lang-fr", code == "fr");
+}
+
+## zero-alloc-settext | cs | Format into a span, no string
+// Coin count-up: no garbage string per frame
+Span<char> buffer = stackalloc char[32];
+if (coins.TryFormat(buffer, out var written, "N0",
+        CultureInfo.InvariantCulture))
+    valueLabel.SetText(buffer[..written]);
+
+## uss-transitions | uss | Page slide transition
+.be-page {
+    transition-property: translate, opacity;
+    transition-duration: 0.38s;
+    transition-timing-function: ease-out-cubic;
+}
+.be-page--hidden-right {
+    translate: 35% 0;
+    opacity: 0;
+}
+
+## uss-transitions | cs | Change the class a frame later
+// Start off to the side, slide in on the next frame
+page.AddToClassList("be-page--hidden-right");
+page.RemoveFromClassList("be-page--gone");
+page.schedule.Execute(() =>
+    page.RemoveFromClassList("be-page--hidden-right"))
+    .ExecuteLater(16);
+
+## uianimationclip-uss | uss | Assign clips in USS
+/* clip, then duration, delay, infinite */
+.be-level-up--celebrate .be-level-up__title {
+    animation: url("Animations/Stamp.asset") 0.32s 0.12s;
+}
+.be-home__mascot {
+    animation:
+        url("Animations/MascotBob.asset") 1.6s infinite;
+}
+
+## uianimationclip-uss | cs | Keep the curves in players
+// Players keep the curves of legacy clips only
+var guids = AssetDatabase.FindAssets("t:UIAnimationClip");
+foreach (var guid in guids)
+{
+    var path = AssetDatabase.GUIDToAssetPath(guid);
+    var assets = AssetDatabase.LoadAllAssetsAtPath(path);
+    foreach (var asset in assets)
+        if (asset is AnimationClip clip && !clip.legacy)
+            clip.legacy = true;
+}
+
+## clip-restart-classes | cs | Replay a one-shot clip
+// Re-adding the class a frame later replays the clip
+public void PlayUpgraded()
+{
+    RemoveFromClassList("be-shop-card--upgraded");
+    schedule.Execute(() =>
+        AddToClassList("be-shop-card--upgraded"))
+        .ExecuteLater(16);
+}
+
+## clip-restart-classes | uss | The class that assigns the clip
+/* Plays once, holds its last frame while assigned */
+.be-shop-card--upgraded {
+    animation: url("Animations/PillBump.asset");
+}
+
+## uianimationclip-authoring | cs | Key a style property
+// Curves bound to typeof(UIAnimationClip) key styles
+var inner = new AnimationClip { legacy = true };
+var bump = new AnimationCurve(new Keyframe(0f, 1f),
+    new Keyframe(0.12f, 1.16f), new Keyframe(0.4f, 1f));
+var binding = EditorCurveBinding.FloatCurve(
+    string.Empty, typeof(UIAnimationClip), "Scale.x");
+AnimationUtility.SetEditorCurve(inner, binding, bump);
+// Also "Translate.y.value", "Opacity", "Rotate"
+
+## uianimationclip-authoring | cs | Wrap it in a UIAnimationClip
+var clip = new UIAnimationClip();
+var so = new SerializedObject(clip);
+so.FindProperty("m_AnimationClip")
+    .objectReferenceValue = inner;
+so.ApplyModifiedPropertiesWithoutUndo();
+AssetDatabase.CreateAsset(clip, "Assets/PillBump.asset");
+inner.hideFlags = HideFlags.HideInHierarchy;
+AssetDatabase.AddObjectToAsset(inner, clip);
+
+## keyframed-ui-animation | cs | Key an element by its #name path
+// A GameObject clip next to the PanelRenderer
+const string logo = "#app/#title-screen/#title/#logo/";
+var clip = new AnimationClip { legacy = true };
+var binding = EditorCurveBinding.FloatCurve(string.Empty,
+    typeof(PanelRenderer), logo + "#logo-hanko/Opacity");
+AnimationUtility.SetEditorCurve(clip, binding,
+    AnimationCurve.Linear(0.84f, 0f, 0.92f, 1f));
+
+## keyframed-ui-animation | uxml | Name every animated element
+<ui:VisualElement name="logo" class="be-title__logo">
+    <ui:Label name="logo-bagel" text="BAGEL"
+        class="be-display be-title__line"/>
+    <ui:Label name="logo-hanko" text="ベーグル急行"
+        class="be-title__hanko"/>
+</ui:VisualElement>
+
+## uxml-databinding | uxml | Bind a pill's value in UXML
+<Bagel.CurrencyPill name="coins-pill" kind="Coins">
+    <Bindings>
+        <ui:DataBinding property="value"
+            data-source-path="coins"
+            binding-mode="ToTarget"/>
+    </Bindings>
+</Bagel.CurrencyPill>
+
+## uxml-databinding | uxml | Card bools that toggle USS classes
+<Bagel.ShopCard name="shop-card">
+    <Bindings>
+        <ui:DataBinding property="locked"
+            data-source-path="locked"
+            binding-mode="ToTarget"/>
+        <ui:DataBinding property="affordable"
+            data-source-path="canAct"
+            binding-mode="ToTarget"/>
+    </Bindings>
+</Bagel.ShopCard>
+
+## bindable-model | cs | A data source with a view hash
+class BakeryState : ScriptableObject,
+    INotifyBindablePropertyChanged,
+    IDataSourceViewHashProvider
+{
+    public event
+        EventHandler<BindablePropertyChangedEventArgs>
+        propertyChanged;
+    long m_Version;   // bindings refresh when it changes
+    public long GetViewHashCode() => m_Version;
+}
+
+## bindable-model | cs | A [CreateProperty] that notifies
+[CreateProperty] public long coins
+{
+    get => m_Coins;
+    set { m_Coins = value; Notify(); }
+}
+void Notify([CallerMemberName] string property = "")
+{
+    m_Version++;
+    propertyChanged?.Invoke(this, new(property));
+}
+
+## hierarchical-data-source | cs | One source for a tree, one per card
+// App root: every page binds to the game state
+dataSource = newState;
+
+// Each recipe card gets a RecipeState of its own
+var item = cardTemplate.Instantiate();
+item.dataSource = recipe;
+grid.Add(item);
+
+## hierarchical-data-source | cs | Resolve what an element is bound to
+// A ListView item resolves to (itemsSource, "[3]")
+var ctx = card.GetHierarchicalDataSourceContext();
+object source = ctx.dataSource;
+var shop = source as ShopState;
+if (!ctx.dataSourcePath.IsEmpty)
+    PropertyContainer.TryGetValue(ref source,
+        ctx.dataSourcePath, out shop);
+
+## converter-groups | cs | Register a named converter group
+// Also [InitializeOnLoadMethod] for the Editor
+[RuntimeInitializeOnLoadMethod(
+    RuntimeInitializeLoadType.SubsystemRegistration)]
+static void Register()
+{
+    var group = new ConverterGroup("be-level", "Bagel",
+        "Level badge: Lv.4");
+    group.AddConverter((ref int v) => "Lv." + v);
+    ConverterGroups.RegisterConverterGroup(group);
+}
+
+## converter-groups | uxml | Use the group in a binding
+<ui:Label name="player-level" text="Lv.12">
+    <Bindings>
+        <ui:DataBinding property="text"
+            data-source-path="playerLevel"
+            binding-mode="ToTarget"
+            source-to-ui-converters="be-level"/>
+    </Bindings>
+</ui:Label>
+
+## listview-binding | uxml | Bind itemsSource, auto-assign items
+<ui:ListView name="shop-list"
+    item-template="ShopCard.uxml"
+    binding-source-selection-mode="AutoAssign"
+    virtualization-method="DynamicHeight">
+    <Bindings>
+        <ui:DataBinding property="itemsSource"
+            data-source-path="shops"
+            binding-mode="ToTarget"/>
+    </Bindings>
+</ui:ListView>
+
+## listview-binding | uxml | ShopCard.uxml binds to its own entry
+<ui:Label name="shop-name" class="be-shop-card__name">
+    <Bindings>
+        <ui:DataBinding property="text"
+            data-source-path="displayName"
+            binding-mode="ToTarget"/>
+    </Bindings>
+</ui:Label>
+
+## csharp-bindings | cs | Bind an element's own property
+[CreateProperty]   // a binding target on the pane
+public int openCount { get; set; }
+
+// In the constructor:
+SetBinding(nameof(openCount), new DataBinding
+{
+    dataSourcePath = new PropertyPath(
+        nameof(BakeryState.openShopCount)),
+    bindingMode = BindingMode.ToTarget
+});
+
+## csharp-bindings | cs | Bind a control in a UI test
+var pill = new CurrencyPill { dataSource = state };
+pill.SetBinding(nameof(CurrencyPill.value),
+    new DataBinding
+    {
+        dataSourcePath = new PropertyPath("coins"),
+        bindingMode = BindingMode.ToTarget
+    });
+rootVisualElement.Add(pill);
+simulate.FrameUpdate();   // the label shows "1,250"
+
+## component-binding-path | uxml | Bind a component's field in UXML
+<ui:VisualElement name="nav-shops-icon">
+    <Bagel.NotificationBadge/>
+    <Bindings><ui:DataBinding
+        property="${component:NotificationBadge}.count"
+        data-source-path="upgradeableShopCount"
+        binding-mode="ToTarget"/></Bindings>
+</ui:VisualElement>
+
+## component-binding-path | cs | The same binding from C#
+// count is [UxmlAttribute, CreateProperty] on the struct
+var button = new Button { dataSource = state };
+button.AddComponent(new NotificationBadge());
+button.SetBinding("${component:NotificationBadge}.count",
+    new DataBinding
+    {
+        dataSourcePath = new PropertyPath("tickets"),
+        bindingMode = BindingMode.ToTarget
+    });
+
+## uxml-element-controls | cs | A partial class becomes a UXML tag
+[UxmlElement]
+public partial class CurrencyPill : VisualElement
+{
+    [UxmlAttribute] public CurrencyKind kind { get; set; }
+    [UxmlAttribute] public bool showPlus { get; set; }
+
+    [UxmlAttribute, CreateProperty] // and bindable
+    public long value { get; set; }
+}
+
+## uxml-element-controls | uxml | Use it and bind it in UXML
+<Bagel.CurrencyPill name="tickets-pill" kind="Tickets"
+    show-plus="true">
+    <Bindings>
+        <ui:DataBinding property="value"
+            data-source-path="tickets"
+            binding-mode="ToTarget"/>
+    </Bindings>
+</Bagel.CurrencyPill>
+
+## builtin-controls | uxml | A Button built from children
+<ui:Button name="collect-button" class="be-btn">
+    <ui:VisualElement class="be-gloss"/>
+    <Bagel.CurrencyIcon kind="Coins"/>
+    <ui:Label text="COLLECT" class="be-btn__label"/>
+</ui:Button>
+
+## builtin-controls | uxml | Season cards are Buttons with art inside
+<ui:Button name="season-sakura"
+    class="be-season-card be-season-card--sakura">
+    <Bagel.SeasonParticles
+        class="be-season-card__particles"/>
+    <Bagel.BeguChan class="be-season-card__mascot"/>
+    <ui:Label text="春・桜" class="be-season-card__jp"/>
+</ui:Button>
+
+## ui-components | cs | A component is a partial struct
+[VisualElementComponent]
+public partial struct NotificationBadge
+    : IVisualElementComponent
+{
+    [UxmlAttribute, CreateProperty] public int count;
+
+    Label m_Label; // the red badge, added to the owner
+}
+
+## ui-components | uxml | Add components as child tags
+<ui:Button name="nav-recipes" class="be-nav__item">
+    <Bagel.NotificationBadge count="3"/>
+</ui:Button>
+<ui:Button name="collect-button" class="be-btn">
+    <Bagel.PressSquish pressed-scale="0.92"/>
+</ui:Button>
+
+## component-hooks | cs | Added and changed hooks
+[OnComponentAdded]
+static void OnAdded(ref NotificationBadge self,
+    VisualElement owner) =>
+    owner.hierarchy.Add(self.m_Label = new Label());
+
+// After a binding, or owner.MarkComponentDirty<T>()
+[OnComponentChanged]
+static void OnChanged(ref NotificationBadge self,
+    VisualElement owner) =>
+    self.m_Label.text = self.count.ToString();
+
+## component-hooks | cs | Event callbacks on the owner
+// TrickleDown: a Button stops PointerDown as it bubbles
+[RegisterCallback(typeof(PointerDownEvent),
+    CallbackOptions.TrickleDown)]
+static void OnPointerDown(ref PressSquish self,
+    VisualElement owner, PointerDownEvent evt)
+{
+    var s = self.pressedScale;
+    owner.style.scale = new Scale(new Vector3(s, s, 1f));
+}
+
+## panelrenderer | cs | A driver next to the PanelRenderer
+[RequireComponent(typeof(PanelRenderer))]
+public class BakeryAppDriver : MonoBehaviour
+{
+    void OnEnable() => GetComponent<PanelRenderer>()
+        .RegisterUIReloadCallback(OnUIReload);
+
+    void OnDisable() => GetComponent<PanelRenderer>()
+        .UnregisterUIReloadCallback(OnUIReload);
+}
+
+## panelrenderer | cs | Hand the state to each new UI
+void OnUIReload(PanelRenderer renderer,
+    VisualElement root, int version)
+{
+    if (m_UIVersion == version)
+        return;   // this UI is already set up
+    m_UIVersion = version;
+    m_App = root.Q<BakeryAppManager>();
+    m_App.SetState(m_State);   // coins survive live edits
+}
+
+## panel-settings | cs | Scale a 390×844 phone layout
+// ScreenSpacePanelSettings.asset, as code
+var s = ScriptableObject.CreateInstance<PanelSettings>();
+s.scaleMode = PanelScaleMode.ScaleWithScreenSize;
+s.referenceResolution = new Vector2Int(390, 844);
+s.match = 0f;   // MatchWidthOrHeight: follow the width
+s.themeStyleSheet = mapleTheme;   // BagelMapleTheme.tss
+s.textSettings = textSettings;    // Noto Sans JP fallback
+
+## panel-settings | cs | Swap the theme of every panel
+// Settings › Season: restyle each panel at runtime
+foreach (var ps in panelSettingsCollection.collection)
+    if (ps != null)
+        ps.themeStyleSheet = theme;
+
+## visualelementreference | cs | A tutorial target set in the Inspector
+[Serializable]
+public class Step
+{
+    public LocalizedString message = new();
+    // Set by dragging an element from the Hierarchy
+    public VisualElementReference target =
+        new VisualElementReference();
+}
+
+## visualelementreference | cs | Know when the element is live
+Action<VisualElement> resolved = e => m_Targets[s] = e;
+Action<VisualElement> unloaded = _ => m_Targets.Remove(s);
+s.target.RegisterReferenceResolvedCallback(resolved);
+s.target.RegisterReferenceUnloadedCallback(unloaded);
+// OnDisable: unregister with the same delegates
+
+## input-system | cs | Back action: Escape or gamepad B
+// No EventSystem needed: UI touch comes from here too
+m_BackAction = new InputAction("Back",
+    InputActionType.Button);
+m_BackAction.AddBinding("<Keyboard>/escape");
+m_BackAction.AddBinding("<Gamepad>/buttonEast");
+m_BackAction.performed += _ => m_App?.Back();
+m_BackAction.Enable();   // in OnEnable
+
+## input-system | cs | A one-key shortcut
+// Presenter key: F flips the perf A/B in Play mode
+m_FilterShadowsAction = new InputAction("FilterShadows",
+    InputActionType.Button, "<Keyboard>/f");
+m_FilterShadowsAction.performed += _ =>
+    BakeryAppManager.filterShadows =
+        !BakeryAppManager.filterShadows;
+
+## pointer-events | cs | Per-finger taps, TrickleDown, capture
+// Each finger sends its own PointerDown (pointerId)
+storefront.RegisterCallback<PointerDownEvent>(evt =>
+    TapBake((Vector2)evt.localPosition));
+
+// Swipes see the finger before any Button does
+target.RegisterCallback<PointerDownEvent>(
+    OnPointerDown, TrickleDown.TrickleDown);
+// Sideways: take the finger so the button won't click
+target.CapturePointer(m_PointerId);
+
+## pointer-events | cs | Let taps through a spotlight hole
+public override bool ContainsPoint(Vector2 localPoint)
+{
+    if (!base.ContainsPoint(localPoint))
+        return false;
+    // Taps inside the hole reach the element below
+    return !m_HasFocus || !m_Hole.Contains(localPoint);
+}
+
+## scheduler | cs | Tick the economy every 100 ms
+// Pauses while the element is detached
+m_TickItem ??= schedule.Execute(Tick).Every(100);
+m_TickItem.Resume();
+
+void Tick(TimerState timer)
+{
+    // deltaTime: ms since the last run
+    m_State?.Tick(timer.deltaTime / 1000f);
+}
+
+## scheduler | cs | Stagger card reveals with ExecuteLater
+for (int i = 0; i < m_Results.Count; i++)
+{
+    var reveal = new VisualElement();
+    resultsRow.Add(reveal);
+    // Each card flips 260 ms after the one before
+    reveal.schedule.Execute(() =>
+        reveal.AddToClassList(revealedUssClassName))
+        .ExecuteLater(300 + i * k_RevealStaggerMs);
+}
+
+## runtime-accessibility | uxml | Labels come from text, else the name
+<!-- Has text: the screen reader says "CLOSE" -->
+<ui:Button name="recipe-sheet-close" text="CLOSE"/>
+
+<!-- No text: the name is humanized, "Nav shops" -->
+<ui:Button name="nav-shops" class="be-nav__item">
+    <ui:VisualElement name="nav-shops-icon"
+        picking-mode="Ignore"/>
+</ui:Button>
+
+## runtime-accessibility | cs | Editor: register again in Play mode
+[InitializeOnLoadMethod]
+static void Initialize()
+{
+    EditorApplication.playModeStateChanged += change =>
+    {
+        // Reregister turns the feature off and on again
+        if (change == PlayModeStateChange.EnteredPlayMode)
+            EditorApplication.delayCall += Reregister;
+    };
+}
+
+## perf-overlay | cs | The scheduler's delta is the frame time
+m_Sampler ??= schedule.Execute(Sample).Every(0);
+
+void Sample(TimerState timer)
+{
+    m_Graph.Push(timer.deltaTime); // ms per frame
+    FrameTimingManager.CaptureFrameTimings();
+    if (FrameTimingManager.GetLatestTimings(
+            1, m_Timing) > 0)
+        m_GpuMs += m_Timing[0].gpuFrameTime;
+}
+
+## perf-overlay | cs | Painter2D: one fill per color
+painter.fillColor = s_Good;   // then s_Slow, then s_Bad
+painter.BeginPath();
+// One rectangle for each frame in that color's range:
+painter.MoveTo(new Vector2(x, rect.yMax));
+painter.LineTo(new Vector2(x, top));
+painter.LineTo(new Vector2(x + w, top));
+painter.LineTo(new Vector2(x + w, rect.yMax));
+painter.ClosePath();
+painter.Fill();   // one fill call for all of them
+
+## localizedstring-uxml | uxml | Bind a label in UXML
+<ui:Label text="COLLECT" class="be-display">
+    <Bindings>
+        <loc:LocalizedString property="text"
+            table="BagelStrings" entry="home.collect"/>
+    </Bindings>
+</ui:Label>
+
+## localizedstring-uxml | uxml | Bind a Toggle's label
+<ui:Toggle name="sound-toggle" label="Sound">
+    <Bindings>
+        <loc:LocalizedString property="label"
+            table="BagelStrings" entry="settings.sound"/>
+    </Bindings>
+</ui:Toggle>
+
+## localizedstring-csharp | cs | Bind and change the entry
+var line = new LocalizedString();
+line.SetReference("BagelStrings", "home.line.welcome");
+speechText.SetBinding("text", line);
+// On tap: a new entry, the bound label follows
+line.TableEntryReference = "home.line.tap";
+
+## localizedstring-csharp | cs | Pick the entry in the Inspector
+[Serializable]
+public class Step
+{
+    // Table and entry picker in the Inspector
+    public LocalizedString message = new();
+}
+// When the step shows:
+var text = step.message.GetLocalizedString();
+
+## smart-strings | cs | Feed a plural with a variable
+// en: {count:plural(en):1 bakery|{} bakeries} open
+var count = new IntVariable();
+var text = new LocalizedString();
+text.SetReference("BagelStrings", "shops.open-count");
+text.LocalVariables.Add(count, "count");
+label.SetBinding("text", text);
+count.Value = 3;
+text.RefreshString();  // "3 bakeries open"
+
+## smart-strings | cs | Format with arguments
+// en: "{0} is open for business!"
+var toast = new LocalizedString();
+toast.SetReference("BagelStrings", "toast.shop-opened");
+var message = toast.GetLocalizedString(shop.displayName);
+
+## resource-tables | cs | One key, a value per locale
+// en, ja and fr tables share the collection's keys
+var db = LocalizationSettings.ResourceDatabase;
+var title = db.GetLocalizedString(
+    "BagelStrings", "page.settings.title");
+// "SETTINGS", "設定" or "RÉGLAGES"
+
+## resource-tables | cs | Edit a locale's table in the Editor
+var strings = AssetDatabase
+    .LoadAssetAtPath<ResourceTableCollection>(path);
+var fr = strings.GetTable("fr");
+fr.AddStringEntry("page.shops.title", "BOUTIQUES");
+EditorUtility.SetDirty(fr);
+EditorUtility.SetDirty(strings.SharedData);
+
+## locale-switching | cs | Switch the selected locale
+// Every LocalizedString binding follows
+var settings = LocalizationSettings.Instance;
+var locale = settings.GetLocale("fr");
+if (locale != null)
+    LocalizationSettings.SelectedLocale = locale;
+
+## locale-switching | cs | React to a locale change
+// Raised for Settings, a toolbar's strip or code
+LocalizationSettings.SelectedLocaleChanged += locale =>
+    root.EnableInClassList("be-lang-fr",
+        locale.Code == "fr");
+
+## localized-game-data | cs | Localized name on game data
+[Serializable]
+public class ShopDefinition
+{
+    // Table and entry picker in the Inspector
+    public LocalizedString localizedName = new();
+}
+// In the bindable state class:
+[CreateProperty] public string displayName =>
+    m_Definition.localizedName.GetLocalizedString();
+
+## localized-game-data | cs | Re-read names on locale change
+// Computed properties don't notify by themselves
+LocalizationSettings.SelectedLocaleChanged +=
+    _ => state.NotifyAll();
+
+## third-locale-french | cs | French plural rules
+// plural(fr) treats 0 and 1 as singular
+var count = new IntVariable { Value = 0 };
+var text = new LocalizedString();
+text.SetReference("BagelStrings", "shops.open-count");
+text.LocalVariables.Add(count, "count");
+BagelLocalization.SetLocale("en");
+text.GetLocalizedString();  // "0 bakeries open"
+BagelLocalization.SetLocale("fr");
+text.GetLocalizedString();  // "0 boulangerie ouverte"
+
+## third-locale-french | uss | Room for longer French labels
+/* AMÉLIORER is longer than UPGRADE */
+.be-lang-fr .be-shop-card__action-label {
+    font-size: 16px;
+    letter-spacing: 0;
+}
+
+## all-ui-window | cs | Clone the game's UXML into a window
+public void CreateGUI()
+{
+    var appTree = AssetDatabase
+        .LoadAssetAtPath<VisualTreeAsset>(appUxmlPath);
+    var screen = appTree.Instantiate(); // BakeryAppScreen
+    screen.styleSheets.Add(m_CurrentTheme); // season TSS
+    screen.Q<BakeryAppManager>().SetState(m_State);
+    rootVisualElement.Add(screen);
+}
+
+## all-ui-window | cs | Menu item and a live Inspector
+[MenuItem("Bagel/Bagel UI")]
+public static void Open() =>
+    GetWindow<BagelExpressAllUIWindow>();
+void BindInspector()
+{
+    // Edit the BakeryState every phone is bound to
+    var host = rootVisualElement.Q("inspector-host");
+    host.Add(new InspectorElement(m_State));
+}
+
+## editor-theme-handling | cs | Lift the Editor theme off the game UI
+for (var a = rootVisualElement.hierarchy.parent;
+    a != null; a = a.hierarchy.parent)
+{
+    for (int i = 0; i < a.styleSheets.count; i++)
+        m_EditorSheets.Add(a.styleSheets[i]);
+    a.styleSheets.Clear(); // Editor theme off the phones
+}
+foreach (var part in m_EditorStyledParts)
+    foreach (var sheet in m_EditorSheets)
+        part.styleSheets.Add(sheet); // toolbar, Inspector
+
+## editor-theme-handling | uxml | Editor elements (editor-extension-mode)
+<uie:Toolbar name="toolbar" class="beall__toolbar">
+    <Bagel.BagelOptionStrip name="reset-strip"/>
+    <Bagel.BagelOptionStrip name="new-game-strip"/>
+    <ui:VisualElement class="beall__toolbar-end">
+        <ui:Slider name="zoom-slider" label="Zoom"/>
+        <Bagel.BagelOptionStrip name="season-strip"/>
+    </ui:VisualElement>
+</uie:Toolbar>
+
+## uxml-property-drawer | cs | A drawer for PastryIcon's attributes
+[CustomPropertyDrawer(
+    typeof(PastryIcon.UxmlSerializedData))]
+public class PastryIconDrawer
+    : UxmlSerializedDataPropertyDrawer
+{
+    protected override void CreateChildPropertiesGUI(
+        VisualElement container, SerializedProperty prop)
+    {
+        base.CreateChildPropertiesGUI(container, prop);
+        container.Add(PastryPicker(prop)); // tile grid
+    }
+}
+
+## uxml-property-drawer | cs | Write kind undoably from a tile
+// After base.CreateChildPropertiesGUI(container, prop)
+var so = prop.serializedObject;
+var path = prop.FindPropertyRelative("kind").propertyPath;
+var tile = new PastryIcon(PastryKind.MelonPan);
+tile.RegisterCallback<ClickEvent>(_ =>
+{
+    so.FindProperty(path).enumValueIndex = (int)tile.kind;
+    so.ApplyModifiedProperties(); // undoable, saved
+});
+container.Add(tile);
+
+## stylesheet-editing-mode | cs | Turn on StyleSheet Editing Mode
+// Per-user flag, set from Project Settings › UI Toolkit.
+// Double-click a .tss or .uss: it opens in UI Builder
+EditorUserSettings.SetConfigValue(
+    "UIBuilder.EnableStyleSheetEditingMode",
+    bool.TrueString);
+
+## stylesheet-editing-mode | uss | A season theme, edited in UI Builder
+/* BagelSakuraTheme.tss: UI Builder lists its selectors */
+/* and previews them on BagelThemeSampler.uxml */
+@import url("BagelSakuraThemeStyles.uss");
+/* BagelSakuraThemeStyles.uss */
+:root {
+    --be-primary: rgb(255, 110, 160);
+    --be-frost: rgba(255, 226, 238, 0.58);
+}
+
+## multiple-ui-builder-windows | cs | Turn on multiple UI Builder windows
+// Per-user flag, set from Project Settings › UI Toolkit.
+// Adds Window › UI Toolkit › UI Builder (New Window)
+EditorUserSettings.SetConfigValue(
+    "UIBuilder.EnableMultiWindow", bool.TrueString);
+
+## live-edit-play-mode | cs | Restore the game after a UI reload
+void OnUIReload(PanelRenderer panelRenderer,
+    VisualElement root, int version)
+{
+    m_App = root.Q<BakeryAppManager>();
+    // UXML mid-import: Update() registers again
+    if (m_App == null) { m_UIVersion = -1; return; }
+    m_App.SetState(m_State);
+    m_App.showTitle = m_ShowTitle && !m_TitleDismissed;
+    m_App.ShowPage(m_Page); // back to the same page
+}
+
+## live-edit-play-mode | cs | Register, and retry after mid-import
+void OnEnable() => GetComponent<PanelRenderer>()
+    .RegisterUIReloadCallback(OnUIReload);
+void Update() // retry a reload that hit a mid-import
+{
+    if (m_App != null || m_UIVersion != -1) return;
+    var ui = GetComponent<PanelRenderer>();
+    ui.UnregisterUIReloadCallback(OnUIReload);
+    ui.RegisterUIReloadCallback(OnUIReload);
+}
+
+## profiler-modules | cs | Open the Profiler on the UI modules
+// The Profiler link: Profiler › UI Toolkit
+var window = EditorWindow.GetWindow<ProfilerWindow>();
+window.Show();
+// Turns on UI Toolkit and UI Toolkit Details
+// (internal ProfilerWindow API, called by reflection)
+EditorWindowInternals
+    .ShowUIToolkitProfilerModules(window);
+
+## profiler-modules | cs | Count draw calls without the Profiler
+// Development builds: read the counters in the game
+using var draws = ProfilerRecorder.StartNew(
+    ProfilerCategory.Render, "Draw Calls Count");
+using var verts = ProfilerRecorder.StartNew(
+    ProfilerCategory.Render, "Vertices Count");
+yield return null;   // let one frame render
+if (draws.Valid)
+    samples.Add(draws.LastValue);
+
+## perf-ab-stylesheet | uss | One root class shadows every pane
+/* On the app root: two classes outrank page rules */
+.be-filter-shadows .be-panel,
+.be-filter-shadows .be-shop-card,
+.be-filter-shadows .be-recipe-card__frame {
+    filter: drop-shadow(0 12px 22px rgba(20, 8, 2, 0.85));
+}
+
+/* BagelNoFilters.uss: the ID outranks every class */
+#app * { filter: none; backdrop-filter: none; }
+
+## perf-ab-stylesheet | cs | Flip the class, or add a sheet
+// A/B: one class on the app root
+EnableInClassList("be-filter-shadows", enabled);
+
+// Or add a whole style sheet, and take it off again
+if (use)
+    styleSheets.Add(noFiltersStyleSheet);
+else
+    styleSheets.Remove(noFiltersStyleSheet);
+
+## ui-test-fixture | cs | Clone a screen into a phone-size panel
+// BakeryUITestFixture : UITestFixture
+protected TemplateContainer Show(VisualTreeAsset uxml)
+{
+    panelSize = new Vector2(390, 844); // phone size
+    var screen = uxml.Instantiate();
+    screen.styleSheets.Add(assets.theme); // Maple TSS
+    rootVisualElement.Add(screen);
+    simulate.FrameUpdate(); // attach, bind, layout
+    return screen;
+}
+
+## ui-test-fixture | cs | Tap, let time pass, check the style
+[Test]
+public void TappingTheTitleDismissesIt()
+{
+    var screen = Show(assets.appScreenUxml);
+    var app = screen.Q<BakeryAppManager>();
+    simulate.Click(app.titleScreen);
+    simulate.FrameUpdateMs(500); // fade-out
+    Assert.That(app.titleScreen.resolvedStyle.display,
+        Is.EqualTo(DisplayStyle.None));
+}
+
+## runtime-ui-test-fixture | cs | Test the game's own PanelRenderer
+// BakeryAppRuntimeTests : RuntimeUITestFixture, once
+// [UnityOneTimeSetUp] has loaded Main.unity
+[OneTimeSetUp]
+public void UseTheGamePanel()
+{
+    m_Driver = Object
+        .FindAnyObjectByType<BakeryAppDriver>();
+    SetPanelRenderer(
+        m_Driver.GetComponent<PanelRenderer>());
+}
+
+## runtime-ui-test-fixture | cs | Tap COLLECT in the real scene
+[UnityTest]
+public IEnumerator CollectInTheRealGameAddsCoins()
+{
+    simulate.Click(m_Driver.app.titleScreen); // dismiss
+    simulate.FrameUpdateMs(500);
+    var coins = m_Driver.state.coins;
+    simulate.Click(m_Driver.app.Q("collect-button"));
+    yield return null;
+    Assert.Greater(m_Driver.state.coins, coins);
+}
+
+## editorwindow-ui-test-fixture | cs | Open the Bagel UI window for each test
+public class BagelExpressAllUIWindowTests
+    : EditorWindowUITestFixture<BagelExpressAllUIWindow>
+{
+    public BagelExpressAllUIWindowTests()
+    {
+        debugMode = true; // keep the window on screen
+    }
+}
+
+## editorwindow-ui-test-fixture | cs | Click in one phone, check another
+var shops = window.GetPhone(AppPage.Shops);
+var home = window.GetPhone(AppPage.Home);
+rootVisualElement.Q<ScrollView>("phones-scroll")
+    .ScrollTo(shops.root); // so the click lands on it
+simulate.FrameUpdate(); // the ListView binds its cards
+var card = shops.app.Q<ShopCard>(); // Mile End
+simulate.Click(card.actionButton);
+simulate.FrameUpdate();
+var pill = home.app.GetCurrencyPill(CurrencyKind.Coins);
+Assert.That(pill.value, Is.EqualTo(window.state.coins));
+
+## edit-and-play-mode-tests | cs | Rerun runtime tests in Edit mode
+// In an Editor test assembly: each runtime suite runs
+// again in Edit mode, with no new code
+public class ShopCardTestsEditor : ShopCardTests {}
+public class BakeryAppTestsEditor : BakeryAppTests {}
+
+## edit-and-play-mode-tests | cs | Load test assets through Resources
+[OneTimeSetUp]
+public void LoadTestAssets()
+{
+    // No AssetDatabase in runtime test assemblies
+    assets = Resources.Load<BagelTestAssetList>(
+        "BagelTestAssetList");
+}
+
+## filter-shader-graph | uss | Use a Shader Graph filter like any other
+/* Create › Shader Graph › URP › Filter Shader Graph:
+   it makes the FilterFunctionDefinition. */
+.manga {
+    filter: filter("/Assets/Filters/Halftone.asset" 6px);
+}
+
+## curved-ui | uss | Bend an element around the X axis
+.hud {
+    -unity-curvature: 30deg;      /* or two angles: x y */
+}
+
+## curved-ui | cs | The same from C#
+hud.style.unityCurvature =
+    new Curvature(new Angle(30), new Angle(0));
+
+## uxml-upgrade-service | cs | Upgrade UXML files from an Editor script
+var service = new UxmlUpgradeService();
+service.ApplyUpgrades(new List<VisualTreeAsset> { page });
+// Add your own: implement IUxmlUpgrader.
+
+## uss-sub-asset-references | uss | One sprite of a sheet
+.coin {
+    background-image: resource("Sprites/Icons#Coin");
+}
+
+## panelrenderer-find | cs | Which PanelRenderer draws this element?
+var renderer = PanelRenderer.FindPanelRenderer(button);
+var document = UIDocument.FindUIDocument(button);
+// Nested panels: the closest one.
+
+## recursive-release-resources | cs | Throw away UI made again
+// Never on pooled elements: they can't be reused after.
+grid.Clear(
+    VisualElementClearOptions.RecursiveReleaseResources);
+
+// Clicked or under the pointer? Clear now, release
+// after the panel's next update (Discard.cs).
+
+## unique-style-string | cs | A state class you toggle often
+public static readonly UniqueStyleString
+    lockedUssClassName = new(ussClassName + "--locked");
+
+EnableInClassList(lockedUssClassName, value);
+
+## gradients-filters-from-csharp | cs | A gradient and a filter from C#
+box.style.backgroundImage = Background.FromGradient(
+    BackgroundGradient.Linear(Mathf.PI * 0.75f,
+        BackgroundGradientStop.Percent(gold, 0f),
+        BackgroundGradientStop.Percent(red, 1f)));
+var sepia = new FilterFunction(FilterFunctionType.Sepia);
+sepia.AddParameter(new FilterParameter(1f));
+pastry.style.filter = new List<FilterFunction> { sepia };
+
+## localization-controls | uxml | A ready-made language picker
+<Unity.Localization.UI.LanguageDropdown />

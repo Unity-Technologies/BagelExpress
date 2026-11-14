@@ -1,0 +1,85 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:loc="Unity.Localization" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="RecipesStyles.uss"/>
+    <Bagel.RecipesPaneManager name="recipes" card-template="RecipeCard.uxml" start-state="project://database/Assets/Game/Core/DemoStartState.asset?fileID=11400000&amp;guid=a4d6dc225104644abaac94da2fa5c72b&amp;type=2#DemoStartState">
+        <ui:VisualElement name="recipe-well" class="be-scroll-well">
+            <ui:ScrollView name="recipe-scroll" horizontal-scroller-visibility="Hidden" class="be-recipes__scroll">
+                <ui:VisualElement name="recipe-grid" class="be-recipes__grid"/>
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement picking-mode="Ignore" class="be-page-chrome be-fill">
+            <ui:VisualElement name="recipe-glass" picking-mode="Ignore" class="be-glass be-page-glass"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="recipes-content" picking-mode="Ignore" class="be-page-content be-page-content--scroll">
+            <ui:VisualElement name="recipes-header" picking-mode="Ignore" class="be-page-header">
+                <ui:VisualElement picking-mode="Ignore" class="be-heading">
+                    <ui:Label text="レシピ帳 · COLLECTION" picking-mode="Ignore" class="be-eyebrow be-heading__eyebrow">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="page.recipes.eyebrow"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label text="RECIPE BOOK" picking-mode="Ignore" class="be-heading__title">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="page.recipes.title"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement picking-mode="Ignore" class="be-recipes__chips">
+                    <ui:VisualElement picking-mode="Ignore" class="be-chip">
+                        <ui:Label name="owned-count" text="3 of 12 recipes" picking-mode="Ignore" class="be-recipes__chip-text"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement picking-mode="Ignore" class="be-chip be-recipes__bonus">
+                        <ui:Label name="income-bonus" text="+15%" picking-mode="Ignore" class="be-recipes__chip-text">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="recipeMultiplier" binding-mode="ToTarget" source-to-ui-converters="be-percent-bonus"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Label text="income" picking-mode="Ignore" class="be-recipes__chip-text">
+                            <Bindings>
+                                <loc:LocalizedString property="text" table="BagelStrings" entry="recipes.income"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="recipe-sheet-scrim" class="be-recipes__scrim be-fill"/>
+        <ui:VisualElement name="recipe-sheet" class="be-recipes__sheet be-panel">
+            <ui:VisualElement name="sheet-art" picking-mode="Ignore" class="be-recipes__sheet-art">
+                <Bagel.Starburst picking-mode="Ignore" class="be-recipes__sheet-burst"/>
+                <Bagel.PastryIcon name="sheet-pastry" picking-mode="Ignore" class="be-recipes__sheet-pastry">
+                    <Bindings>
+                        <ui:DataBinding property="kind" data-source-path="kind" binding-mode="ToTarget"/>
+                        <ui:DataBinding property="silhouette" data-source-path="locked" binding-mode="ToTarget"/>
+                    </Bindings>
+                </Bagel.PastryIcon>
+            </ui:VisualElement>
+            <ui:VisualElement picking-mode="Ignore" class="be-recipes__sheet-info">
+                <ui:Label name="sheet-rarity" text="SSR" picking-mode="Ignore" class="be-recipes__sheet-rarity">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="rarity" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label name="sheet-name" text="Sakura Mochi Bagel" picking-mode="Ignore" class="be-recipes__sheet-name">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="displayName" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label name="sheet-name-jp" text="桜もちベーグル" picking-mode="Ignore" class="be-recipes__sheet-jp">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="secondaryName" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label name="sheet-description" text="Chewy mochi bagel with cherry blossom and white bean cream." picking-mode="Ignore" class="be-recipes__sheet-description be-body">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="description" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:Button name="recipe-sheet-close" text="CLOSE" class="be-btn be-btn--paper be-btn--small be-recipes__sheet-close">
+                <Bindings>
+                    <loc:LocalizedString property="text" table="BagelStrings" entry="common.close"/>
+                </Bindings>
+            </ui:Button>
+        </ui:VisualElement>
+    </Bagel.RecipesPaneManager>
+</ui:UXML>

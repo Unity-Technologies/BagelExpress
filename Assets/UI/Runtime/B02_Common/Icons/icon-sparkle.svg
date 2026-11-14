@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Sparkle -->
+  <path d="M28 10 Q31.84 30.16 52 34 Q31.84 37.84 28 58 Q24.16 37.84 4 34 Q24.16 30.16 28 10 Z" fill="#FFC828" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M28 25 Q29.44 32.56 37 34 Q29.44 35.44 28 43 Q26.56 35.44 19 34 Q26.56 32.56 28 25 Z" fill="#FFF0B0"/>
+  <path d="M51 4 Q52.44 11.56 60 13 Q52.44 14.44 51 22 Q49.56 14.44 42 13 Q49.56 11.56 51 4 Z" fill="#FFFFFF" stroke="#3B1F14" stroke-width="3" stroke-linejoin="round"/>
+</svg>

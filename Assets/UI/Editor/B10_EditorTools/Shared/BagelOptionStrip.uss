@@ -1,0 +1,88 @@
+/* BagelOptionStrip: icon buttons in a group, like the main toolbar's (5 px outline, 20 px buttons 2 px apart). */
+
+.bagel-strip {
+    flex-direction: row;
+    flex-shrink: 0;
+    align-self: center;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: rgba(80, 80, 80, 0.7);
+    column-gap: 2px;
+}
+
+.bagel-strip--light-skin {
+    border-color: rgba(160, 160, 160, 0.7);
+}
+
+/* The group's outline and its buttons' corners are concentric: 5 px outside, 1 px of border, 4 px inside. */
+.bagel-strip__option {
+    width: 24px;
+    height: 20px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    /* The code-drawn art holds still (ArtKit.MotionAllowed), even in Play mode. */
+    --be-motion: none;
+}
+
+.bagel-strip__option:hover {
+    background-color: var(--unity-theme-background-color-202);
+}
+
+/* The chosen one: the Editor's checked color (the main toolbar's toggles), its icon at full strength. */
+.bagel-strip__option--selected,
+.bagel-strip__option--selected:hover,
+.bagel-strip__option:active {
+    background-color: var(--unity-colors-button-background-pressed);
+}
+
+.bagel-strip__icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    opacity: 0.5;
+}
+
+.bagel-strip__option:hover > .bagel-strip__icon {
+    opacity: 0.8;
+}
+
+.bagel-strip__option--selected > .bagel-strip__icon {
+    opacity: 1;
+}
+
+/* Words (Bagel UI's New Game and cheats), an icon after them if any: as wide as they need. */
+.bagel-strip__option--text {
+    flex-direction: row;
+    width: auto;
+    padding: 0 8px;
+}
+
+.bagel-strip__option--text > .bagel-strip__icon {
+    margin-left: 4px;
+}
+
+.bagel-strip__label {
+    padding: 0;
+    margin: 0;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+/* An action (Reset) is never chosen: its Editor icon, already gray, at full strength. */
+.bagel-strip__option--action > .bagel-strip__icon,
+.bagel-strip__option--action:hover > .bagel-strip__icon {
+    opacity: 1;
+}
+
+/* The tutorial's arrow is narrower art: drawn in a box of its own shape. */
+.bagel-strip__icon.be-tutorial-pointer {
+    width: 11px;
+}
+
+/* A badge stays inside its button: closer to the icon than in Bagel Features' larger picker. */
+.bagel-strip__icon > .bagel-icon__badge {
+    right: -16%;
+    bottom: -8%;
+}

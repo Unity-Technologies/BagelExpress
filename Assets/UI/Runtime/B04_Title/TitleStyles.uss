@@ -1,0 +1,144 @@
+/* Bagel Express — Title screen. */
+
+.be-title {
+    flex-grow: 1;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* A rim along the spikes in the season's own contrast color (--be-title-burst-edge), so they stand out from the sky. */
+.be-title__burst {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    top: -260px;
+    opacity: 0.45;
+    --be-burst-edge: var(--be-title-burst-edge);
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/SpinSlow.asset") 40s infinite;
+}
+
+/* Same size and place as the app's backdrop skyline (BakeryAppStyles.uss), so the city stays put when the title leaves. */
+.be-title__skyline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 320px;
+}
+
+.be-title__logo {
+    margin-top: 150px;
+    align-items: center;
+}
+
+.be-title__ribbon {
+    padding: 4px 18px 6px 18px;
+    margin-bottom: 4px;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    border-radius: var(--be-radius-s);
+    background-image: linear-gradient(to right, rgb(222, 52, 44), rgb(255, 255, 255) 50%, rgb(222, 52, 44));
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: var(--be-ink);
+    rotate: -3deg;
+    border-bottom-width: var(--be-tile-lip);
+}
+
+.be-title__line {
+    font-size: 86px;
+    letter-spacing: 4px;
+    margin: -16px 0 -16px 0;
+    padding: 0;
+    color: var(--be-gold-light);
+    -unity-text-outline-width: 3.5px;
+    text-shadow: 0 7px 0 var(--be-ink);
+}
+
+.be-title__line--express {
+    color: var(--be-white);
+    font-size: 72px;
+    rotate: -2deg;
+}
+
+.be-title__hanko {
+    margin-top: 12px;
+    padding: 4px 12px 6px 12px;
+    border-width: 3px;
+    border-color: rgb(196, 30, 40);
+    border-radius: var(--be-radius-s);
+    background-color: rgba(255, 248, 234, 0.92);
+    color: rgb(196, 30, 40);
+    -unity-font-style: bold;
+    font-size: 26px;
+    letter-spacing: 4px;
+    rotate: 4deg;
+    border-bottom-color: var(--be-ink);
+    border-bottom-width: var(--be-tile-lip);
+}
+
+.be-title__mascot {
+    position: absolute;
+    bottom: 170px;
+    width: 180px;
+    height: 180px;
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/MascotBob.asset") 1.4s infinite;
+}
+
+.be-title__tap {
+    position: absolute;
+    bottom: 110px;
+    height: 54px;
+    padding: 0 24px;
+    -unity-text-align: middle-center;
+    border-radius: 27px;
+    border-width: var(--be-border);
+    border-color: var(--be-ink);
+    background-color: var(--be-white);
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: var(--be-primary-dark);
+    border-bottom-width: var(--be-tile-lip);
+    animation: url("/Assets/UI/Runtime/B02_Common/Animations/Pulse.asset") 1.1s infinite;
+}
+
+/* Credits and version on one line, in one dark pill (like the HUD pills) as wide as the content, 24 points from the
+   sides: the credits at its left end, the version at its right, so they can't overlap and stay readable over the
+   busy skyline in every language. Its bottom matches the nav's padding: on a phone with a home indicator,
+   BakeryAppManager.ApplySafeArea lifts the whole pill above it. */
+.be-title__footer {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 18px;
+    height: 30px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 15px;
+    background-color: rgba(59, 31, 20, 0.6);
+}
+
+.be-title__credits,
+.be-title__version {
+    margin: 0;
+    padding: 0;
+    color: var(--be-white);
+}
+
+.be-title__credits {
+    flex-shrink: 1;
+    -unity-text-align: middle-left;
+    font-size: var(--be-font-s);
+}
+
+.be-title__version {
+    flex-shrink: 0;
+    margin-left: 12px;
+    -unity-text-align: middle-right;
+    font-size: 11px;
+    opacity: 0.75;
+}

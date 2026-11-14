@@ -1,0 +1,331 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="BagelExpressCommonStyles.uss" />
+    <Style src="BagelArtSampler.uss" />
+    <ui:VisualElement name="sampler" class="sampler">
+        <ui:Label text="PastryIcon (72px)" class="sampler__title" />
+        <ui:VisualElement name="pastries" class="sampler__row">
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="SesameBagel" class="sampler__pastry" />
+                <ui:Label text="SesameBagel" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="PoppySeedBagel" class="sampler__pastry" />
+                <ui:Label text="PoppySeedBagel" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="EverythingBagel" class="sampler__pastry" />
+                <ui:Label text="EverythingBagel" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="MatchaBagel" class="sampler__pastry" />
+                <ui:Label text="MatchaBagel" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="SakuraMochiBagel" class="sampler__pastry" />
+                <ui:Label text="SakuraMochiBagel" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="Anpan" class="sampler__pastry" />
+                <ui:Label text="Anpan" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="MelonPan" class="sampler__pastry" />
+                <ui:Label text="MelonPan" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="MapleMelonPan" class="sampler__pastry" />
+                <ui:Label text="MapleMelonPan" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="CurryPan" class="sampler__pastry" />
+                <ui:Label text="CurryPan" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="Taiyaki" class="sampler__pastry" />
+                <ui:Label text="Taiyaki" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="GoldenMapleTaiyaki" class="sampler__pastry" />
+                <ui:Label text="GoldenMapleTaiyaki" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.PastryIcon kind="Dorayaki" class="sampler__pastry" />
+                <ui:Label text="Dorayaki" class="sampler__caption" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label text="PastryIcon (160px)" class="sampler__title" />
+        <ui:VisualElement name="pastries-big" class="sampler__row">
+            <Bagel.PastryIcon kind="SesameBagel" class="sampler__pastry--big" />
+            <Bagel.PastryIcon kind="PoppySeedBagel" class="sampler__pastry--big" />
+            <Bagel.PastryIcon kind="EverythingBagel" class="sampler__pastry--big" />
+            <Bagel.PastryIcon kind="MatchaBagel" class="sampler__pastry--big" />
+            <Bagel.PastryIcon kind="SakuraMochiBagel" class="sampler__pastry--big" />
+            <Bagel.PastryIcon kind="Anpan" class="sampler__pastry--big" />
+            <Bagel.PastryIcon kind="MelonPan" class="sampler__pastry--big" />
+            <Bagel.PastryIcon kind="MapleMelonPan" class="sampler__pastry--big" />
+            <Bagel.PastryIcon kind="CurryPan" class="sampler__pastry--big" />
+            <Bagel.PastryIcon kind="Taiyaki" class="sampler__pastry--big" />
+            <Bagel.PastryIcon kind="GoldenMapleTaiyaki" class="sampler__pastry--big" />
+            <Bagel.PastryIcon kind="Dorayaki" class="sampler__pastry--big" />
+        </ui:VisualElement>
+        <ui:Label text="Small (32px / 24px), no face, silhouette" class="sampler__title" />
+        <ui:VisualElement name="pastries-small" class="sampler__row">
+            <Bagel.PastryIcon kind="SesameBagel" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="PoppySeedBagel" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="EverythingBagel" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="MatchaBagel" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="SakuraMochiBagel" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="Anpan" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="MelonPan" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="MapleMelonPan" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="CurryPan" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="Taiyaki" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="GoldenMapleTaiyaki" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="Dorayaki" class="sampler__pastry--small" />
+            <Bagel.PastryIcon kind="SesameBagel" class="sampler__pastry--tiny" />
+            <Bagel.PastryIcon kind="PoppySeedBagel" class="sampler__pastry--tiny" />
+            <Bagel.PastryIcon kind="EverythingBagel" class="sampler__pastry--tiny" />
+            <Bagel.PastryIcon kind="MatchaBagel" class="sampler__pastry--tiny" />
+            <Bagel.PastryIcon kind="SakuraMochiBagel" class="sampler__pastry--tiny" />
+            <Bagel.PastryIcon kind="Anpan" class="sampler__pastry--tiny" />
+            <Bagel.PastryIcon kind="MelonPan" class="sampler__pastry--tiny" />
+            <Bagel.PastryIcon kind="MapleMelonPan" class="sampler__pastry--tiny" />
+            <Bagel.PastryIcon kind="CurryPan" class="sampler__pastry--tiny" />
+            <Bagel.PastryIcon kind="Taiyaki" class="sampler__pastry--tiny" />
+            <Bagel.PastryIcon kind="GoldenMapleTaiyaki" class="sampler__pastry--tiny" />
+            <Bagel.PastryIcon kind="Dorayaki" class="sampler__pastry--tiny" />
+        </ui:VisualElement>
+        <ui:VisualElement name="pastries-variants" class="sampler__row">
+            <Bagel.PastryIcon kind="SesameBagel" show-face="false" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="PoppySeedBagel" show-face="false" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="EverythingBagel" show-face="false" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="MatchaBagel" show-face="false" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="SakuraMochiBagel" show-face="false" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="Anpan" show-face="false" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="MelonPan" show-face="false" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="MapleMelonPan" show-face="false" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="CurryPan" show-face="false" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="Taiyaki" show-face="false" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="GoldenMapleTaiyaki" show-face="false" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="Dorayaki" show-face="false" class="sampler__pastry" />
+        </ui:VisualElement>
+        <ui:VisualElement name="pastries-silhouette" class="sampler__row">
+            <Bagel.PastryIcon kind="SesameBagel" silhouette="true" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="PoppySeedBagel" silhouette="true" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="EverythingBagel" silhouette="true" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="MatchaBagel" silhouette="true" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="SakuraMochiBagel" silhouette="true" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="Anpan" silhouette="true" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="MelonPan" silhouette="true" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="MapleMelonPan" silhouette="true" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="CurryPan" silhouette="true" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="Taiyaki" silhouette="true" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="GoldenMapleTaiyaki" silhouette="true" class="sampler__pastry" />
+            <Bagel.PastryIcon kind="Dorayaki" silhouette="true" class="sampler__pastry" />
+        </ui:VisualElement>
+        <ui:Label text="BeguChan: accessory (--be-mascot-accessory) x mood" class="sampler__title" />
+        <ui:VisualElement name="mascots" class="sampler__row">
+        <ui:VisualElement name="mascots-maple" class="sampler__row sampler--maple">
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Happy" class="sampler__mascot" />
+                <ui:Label text="maple / Happy" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Excited" class="sampler__mascot" />
+                <ui:Label text="maple / Excited" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Sleepy" class="sampler__mascot" />
+                <ui:Label text="maple / Sleepy" class="sampler__caption" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="mascots-sakura" class="sampler__row sampler--sakura">
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Happy" class="sampler__mascot" />
+                <ui:Label text="sakura / Happy" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Excited" class="sampler__mascot" />
+                <ui:Label text="sakura / Excited" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Sleepy" class="sampler__mascot" />
+                <ui:Label text="sakura / Sleepy" class="sampler__caption" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="mascots-matsuri" class="sampler__row sampler--matsuri">
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Happy" class="sampler__mascot" />
+                <ui:Label text="matsuri / Happy" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Excited" class="sampler__mascot" />
+                <ui:Label text="matsuri / Excited" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Sleepy" class="sampler__mascot" />
+                <ui:Label text="matsuri / Sleepy" class="sampler__caption" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="mascots-snow" class="sampler__row sampler--snow">
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Happy" class="sampler__mascot" />
+                <ui:Label text="snow / Happy" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Excited" class="sampler__mascot" />
+                <ui:Label text="snow / Excited" class="sampler__caption" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__cell">
+                <Bagel.BeguChan mood="Sleepy" class="sampler__mascot" />
+                <ui:Label text="snow / Sleepy" class="sampler__caption" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label text="SeasonParticles (--be-particle-kind)" class="sampler__title" />
+        <ui:VisualElement name="particles" class="sampler__row">
+            <ui:VisualElement class="sampler__panel sampler__panel--maple sampler--maple">
+                <Bagel.SeasonParticles class="sampler__fill" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__panel sampler__panel--sakura sampler--sakura">
+                <Bagel.SeasonParticles class="sampler__fill" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__panel sampler__panel--matsuri sampler--matsuri">
+                <Bagel.SeasonParticles class="sampler__fill" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__panel sampler__panel--snow sampler--snow">
+                <Bagel.SeasonParticles class="sampler__fill" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label text="SkylineBackdrop 390x260 (--be-skyline-far / -near / --be-window-light / --be-skyline-accent)" class="sampler__title" />
+        <ui:VisualElement name="skylines" class="sampler__row">
+            <ui:VisualElement class="sampler__skyline-panel sampler__skyline-panel--maple">
+                <Bagel.SkylineBackdrop class="sampler__skyline" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__skyline-panel sampler__skyline-panel--sakura">
+                <Bagel.SkylineBackdrop class="sampler__skyline" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__skyline-panel sampler__skyline-panel--matsuri">
+                <Bagel.SkylineBackdrop class="sampler__skyline" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__skyline-panel sampler__skyline-panel--snow">
+                <Bagel.SkylineBackdrop class="sampler__skyline" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label text="Starburst, ConfettiBurst, Spotlight" class="sampler__title" />
+        <ui:VisualElement name="effects" class="sampler__row">
+            <ui:VisualElement class="sampler__square"><Bagel.Starburst class="sampler__fill" /></ui:VisualElement>
+            <ui:VisualElement class="sampler__square sampler__square--night"><Bagel.Starburst ray-count="8" center-size="0.35" class="sampler__fill" /></ui:VisualElement>
+            <ui:VisualElement class="sampler__square sampler__square--light"><Bagel.ConfettiBurst name="confetti" class="sampler__fill" /></ui:VisualElement>
+            <ui:VisualElement class="sampler__square sampler__square--light">
+                <Bagel.PastryIcon kind="MelonPan" style="position: absolute; left: 20px; top: 20px; width: 72px; height: 72px;" />
+                <ui:Label text="Bake!" class="sampler__fake-button" />
+                <Bagel.Spotlight preview-hole="120,120,76,40" class="sampler__fill" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__square sampler__square--light">
+                <Bagel.PastryIcon kind="Taiyaki" style="position: absolute; left: 74px; top: 74px; width: 72px; height: 72px;" />
+                <Bagel.Spotlight shape="Circle" preview-hole="74,74,72,72" class="sampler__fill" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label text="LuckyBag (--be-bag-color), Lantern (--be-lantern-color / -glow), CurrencyIcon" class="sampler__title" />
+        <ui:VisualElement name="props" class="sampler__row">
+            <Bagel.LuckyBag class="sampler__bag" />
+            <Bagel.LuckyBag class="sampler__bag sampler__bag--sakura" />
+            <Bagel.LuckyBag emblem-text="" class="sampler__bag sampler__bag--indigo" />
+            <Bagel.Lantern class="sampler__lantern" />
+            <Bagel.Lantern mark="祭" class="sampler__lantern sampler__lantern--matsuri" />
+            <Bagel.Lantern mark="パン" class="sampler__lantern" />
+            <Bagel.CurrencyIcon kind="Coins" class="sampler__currency" />
+            <Bagel.CurrencyIcon kind="Gems" class="sampler__currency" />
+            <Bagel.CurrencyIcon kind="Tickets" class="sampler__currency" />
+        </ui:VisualElement>
+        <ui:Label text="Awning (--be-awning-a / -b), NorenCurtain (--be-noren-color), storefront composition" class="sampler__title" />
+        <ui:VisualElement name="store" class="sampler__row">
+            <ui:VisualElement>
+                <Bagel.Awning class="sampler__awning" />
+                <ui:VisualElement class="sampler__row">
+                    <Bagel.Awning class="sampler__awning sampler__awning--small sampler__awning--sakura" />
+                    <Bagel.Awning stripe-count="5" class="sampler__awning sampler__awning--small" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <Bagel.NorenCurtain class="sampler__noren" />
+            <Bagel.NorenCurtain text="ベーグル" class="sampler__noren sampler__noren--red" />
+            <ui:VisualElement class="sampler__store">
+                <ui:VisualElement class="sampler__store-wall" />
+                <Bagel.NorenCurtain text="ベーグル" class="sampler__store-noren" />
+                <ui:VisualElement class="sampler__store-counter">
+                    <Bagel.PastryIcon kind="SesameBagel" class="sampler__store-pastry" />
+                    <Bagel.PastryIcon kind="MelonPan" class="sampler__store-pastry" />
+                    <Bagel.PastryIcon kind="Taiyaki" class="sampler__store-pastry" />
+                    <Bagel.PastryIcon kind="Dorayaki" class="sampler__store-pastry" />
+                </ui:VisualElement>
+                <Bagel.Awning class="sampler__store-awning" />
+                <Bagel.Lantern class="sampler__store-lantern" style="left: 48px;" />
+                <Bagel.Lantern mark="祭" class="sampler__store-lantern" style="right: 48px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label text="SVG icons (VectorImage, 48px / 24px)" class="sampler__title" />
+        <ui:VisualElement name="icons" class="sampler__row">
+            <ui:VisualElement class="sampler__icon-strip">
+                <ui:VisualElement class="sampler__icon sampler__icon--home" />
+                <ui:VisualElement class="sampler__icon sampler__icon--shops" />
+                <ui:VisualElement class="sampler__icon sampler__icon--lucky-bag" />
+                <ui:VisualElement class="sampler__icon sampler__icon--recipes" />
+                <ui:VisualElement class="sampler__icon sampler__icon--settings" />
+                <ui:VisualElement class="sampler__icon sampler__icon--back" />
+                <ui:VisualElement class="sampler__icon sampler__icon--close" />
+                <ui:VisualElement class="sampler__icon sampler__icon--plus" />
+                <ui:VisualElement class="sampler__icon sampler__icon--lock" />
+                <ui:VisualElement class="sampler__icon sampler__icon--star" />
+                <ui:VisualElement class="sampler__icon sampler__icon--sparkle" />
+                <ui:VisualElement class="sampler__icon sampler__icon--clock" />
+                <ui:VisualElement class="sampler__icon sampler__icon--montreal" />
+                <ui:VisualElement class="sampler__icon sampler__icon--japan" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--home" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--shops" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--lucky-bag" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--recipes" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--settings" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--back" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--close" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--plus" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--lock" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--star" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--sparkle" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--clock" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--montreal" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--japan" />
+            </ui:VisualElement>
+            <ui:VisualElement class="sampler__icon-strip sampler__icon-strip--dark">
+                <ui:VisualElement class="sampler__icon sampler__icon--home" />
+                <ui:VisualElement class="sampler__icon sampler__icon--shops" />
+                <ui:VisualElement class="sampler__icon sampler__icon--lucky-bag" />
+                <ui:VisualElement class="sampler__icon sampler__icon--recipes" />
+                <ui:VisualElement class="sampler__icon sampler__icon--settings" />
+                <ui:VisualElement class="sampler__icon sampler__icon--back" />
+                <ui:VisualElement class="sampler__icon sampler__icon--close" />
+                <ui:VisualElement class="sampler__icon sampler__icon--plus" />
+                <ui:VisualElement class="sampler__icon sampler__icon--lock" />
+                <ui:VisualElement class="sampler__icon sampler__icon--star" />
+                <ui:VisualElement class="sampler__icon sampler__icon--sparkle" />
+                <ui:VisualElement class="sampler__icon sampler__icon--clock" />
+                <ui:VisualElement class="sampler__icon sampler__icon--montreal" />
+                <ui:VisualElement class="sampler__icon sampler__icon--japan" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--home" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--shops" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--lucky-bag" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--recipes" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--settings" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--back" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--close" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--plus" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--lock" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--star" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--sparkle" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--clock" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--montreal" />
+                <ui:VisualElement class="sampler__icon sampler__icon--small sampler__icon--japan" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

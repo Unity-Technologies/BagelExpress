@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Japan: the rising sun seen through a torii gate -->
+  <path d="M32 32 m-27 0 a27 27 0 1 0 54 0 a27 27 0 1 0 -54 0 Z" fill="#FFF8EA" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M32 33 m-12 0 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0 Z" fill="#E8322C"/>
+  <path d="M19.5 25 H24.5 V55 H19.5 Z M39.5 25 H44.5 V55 H39.5 Z" fill="#F26B3A" stroke="#3B1F14" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M14 30 H50 V35 H14 Z" fill="#F26B3A" stroke="#3B1F14" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M9 19 Q32 15 55 19 L54 25 Q32 21.5 10 25 Z" fill="#3B1F14" stroke="#3B1F14" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M32 32 m-27 0 a27 27 0 1 0 54 0 a27 27 0 1 0 -54 0 Z" fill="none" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

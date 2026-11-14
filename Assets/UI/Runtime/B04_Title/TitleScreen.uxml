@@ -1,0 +1,37 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:loc="Unity.Localization" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="TitleStyles.uss"/>
+    <Bagel.TitleScreenManager name="title" class="be-backdrop">
+        <ui:VisualElement name="title-glow" picking-mode="Ignore" class="be-backdrop__glow"/>
+        <Bagel.Starburst name="title-burst" picking-mode="Ignore" class="be-title__burst"/>
+        <Bagel.SkylineBackdrop name="title-skyline" picking-mode="Ignore" class="be-title__skyline"/>
+        <Bagel.SeasonParticles name="title-particles" picking-mode="Ignore" class="be-fill"/>
+        <ui:VisualElement name="logo" picking-mode="Ignore" class="be-title__logo">
+            <ui:Label name="logo-ribbon" text="MONTRÉAL × TOKYO" picking-mode="Ignore" class="be-title__ribbon">
+                <Bindings>
+                    <loc:LocalizedString property="text" table="BagelStrings" entry="title.ribbon"/>
+                </Bindings>
+            </ui:Label>
+            <ui:Label name="logo-bagel" text="BAGEL" picking-mode="Ignore" class="be-display be-title__line">
+                <Bagel.WavyText amplitude="5" speed="4" wavelength="110"/>
+            </ui:Label>
+            <ui:Label name="logo-express" text="EXPRESS" picking-mode="Ignore" class="be-display be-title__line be-title__line--express">
+                <Bagel.WavyText amplitude="5" speed="4" wavelength="110"/>
+            </ui:Label>
+            <ui:Label name="logo-hanko" text="ベーグル急行" picking-mode="Ignore" class="be-title__hanko"/>
+        </ui:VisualElement>
+        <Bagel.BeguChan name="title-mascot" mood="Excited" picking-mode="Ignore" class="be-title__mascot"/>
+        <ui:Label name="tap-to-start" text="TAP TO START" picking-mode="Ignore" class="be-title__tap">
+            <Bindings>
+                <loc:LocalizedString property="text" table="BagelStrings" entry="title.tap-to-start"/>
+            </Bindings>
+        </ui:Label>
+        <ui:VisualElement name="title-footer" picking-mode="Ignore" class="be-title__footer">
+            <ui:Label name="title-credits" text="UI Toolkit demo, by Unity" picking-mode="Ignore" class="be-title__credits">
+                <Bindings>
+                    <loc:LocalizedString property="text" table="BagelStrings" entry="title.credits"/>
+                </Bindings>
+            </ui:Label>
+            <Bagel.VersionLabel name="title-version" picking-mode="Ignore" class="be-title__version"/>
+        </ui:VisualElement>
+    </Bagel.TitleScreenManager>
+</ui:UXML>

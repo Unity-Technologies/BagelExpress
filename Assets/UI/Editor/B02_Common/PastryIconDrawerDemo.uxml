@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="drawer-demo" style="flex-grow: 1; align-items: center; justify-content: center; background-color: rgb(126, 170, 178);">
+        <Bagel.PastryIcon name="demo-pastry" kind="MelonPan" style="width: 200px; height: 200px;" />
+    </ui:VisualElement>
+</ui:UXML>

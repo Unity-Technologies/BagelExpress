@@ -1,0 +1,271 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:loc="Unity.Localization" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="SettingsStyles.uss"/>
+    <Bagel.SettingsPaneManager name="settings" theme-collection="project://database/Assets/UI/Runtime/B00_Themes/T0_Common/BagelThemeCollection.asset?fileID=11400000&amp;guid=779c23066751a4b4eaedd25a8826aaee&amp;type=2#BagelThemeCollection" panel-settings-collection="project://database/Assets/UI/Runtime/B01_PanelSettings/PanelSettingsCollection.asset?fileID=11400000&amp;guid=553e30bef753348c6a738e803306c3c8&amp;type=2#PanelSettingsCollection" start-state="project://database/Assets/Game/Core/DemoStartState.asset?fileID=11400000&amp;guid=a4d6dc225104644abaac94da2fa5c72b&amp;type=2#DemoStartState">
+        <ui:VisualElement name="settings-well" class="be-scroll-well">
+            <ui:ScrollView name="settings-scroll" horizontal-scroller-visibility="Hidden" class="be-settings__scroll">
+                <ui:VisualElement name="settings-content" picking-mode="Ignore" class="be-settings__content">
+                    <ui:VisualElement name="season-panel" class="be-panel be-settings__section">
+                        <ui:VisualElement picking-mode="Ignore" class="be-settings__section-header">
+                            <ui:Label text="SEASON" picking-mode="Ignore" class="be-eyebrow">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.season"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Label text="季節のテーマ" picking-mode="Ignore" class="be-settings__section-jp">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.season.alt"/>
+                                </Bindings>
+                            </ui:Label>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="season-grid" class="be-settings__season-grid">
+                            <ui:Button name="season-maple" class="be-season-card be-season-card--maple">
+                                <Bagel.SeasonParticles picking-mode="Ignore" class="be-season-card__particles"/>
+                                <Bagel.BeguChan picking-mode="Ignore" class="be-season-card__mascot"/>
+                                <ui:Label text="秋・紅葉" picking-mode="Ignore" class="be-season-card__jp"/>
+                                <ui:Label text="Maple Autumn" picking-mode="Ignore" class="be-season-card__name">
+                                    <Bindings>
+                                        <loc:LocalizedString property="text" table="BagelStrings" entry="season.maple"/>
+                                    </Bindings>
+                                </ui:Label>
+                            </ui:Button>
+                            <ui:Button name="season-sakura" class="be-season-card be-season-card--sakura">
+                                <Bagel.SeasonParticles picking-mode="Ignore" class="be-season-card__particles"/>
+                                <Bagel.BeguChan picking-mode="Ignore" class="be-season-card__mascot"/>
+                                <ui:Label text="春・桜" picking-mode="Ignore" class="be-season-card__jp"/>
+                                <ui:Label text="Sakura Spring" picking-mode="Ignore" class="be-season-card__name">
+                                    <Bindings>
+                                        <loc:LocalizedString property="text" table="BagelStrings" entry="season.sakura"/>
+                                    </Bindings>
+                                </ui:Label>
+                            </ui:Button>
+                            <ui:Button name="season-matsuri" class="be-season-card be-season-card--matsuri">
+                                <Bagel.SeasonParticles picking-mode="Ignore" class="be-season-card__particles"/>
+                                <Bagel.BeguChan picking-mode="Ignore" class="be-season-card__mascot"/>
+                                <ui:Label text="夏祭り" picking-mode="Ignore" class="be-season-card__jp"/>
+                                <ui:Label text="Matsuri Summer" picking-mode="Ignore" class="be-season-card__name">
+                                    <Bindings>
+                                        <loc:LocalizedString property="text" table="BagelStrings" entry="season.matsuri"/>
+                                    </Bindings>
+                                </ui:Label>
+                            </ui:Button>
+                            <ui:Button name="season-snow" class="be-season-card be-season-card--snow">
+                                <Bagel.SeasonParticles picking-mode="Ignore" class="be-season-card__particles"/>
+                                <Bagel.BeguChan picking-mode="Ignore" class="be-season-card__mascot"/>
+                                <ui:Label text="冬・雪" picking-mode="Ignore" class="be-season-card__jp"/>
+                                <ui:Label text="Snow Winter" picking-mode="Ignore" class="be-season-card__name">
+                                    <Bindings>
+                                        <loc:LocalizedString property="text" table="BagelStrings" entry="season.snow"/>
+                                    </Bindings>
+                                </ui:Label>
+                            </ui:Button>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="language-panel" class="be-panel be-settings__section">
+                        <ui:VisualElement picking-mode="Ignore" class="be-settings__section-header">
+                            <ui:Label text="LANGUAGE" picking-mode="Ignore" class="be-eyebrow">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.language"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Label text="言語" picking-mode="Ignore" class="be-settings__section-jp">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.language.alt"/>
+                                </Bindings>
+                            </ui:Label>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="language-segments" class="be-segments">
+                            <ui:Button name="language-en" text="English" class="be-segment"/>
+                            <ui:Button name="language-ja" text="日本語" class="be-segment"/>
+                            <ui:Button name="language-fr" text="Français" class="be-segment"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="options-panel" class="be-panel be-settings__section">
+                        <ui:VisualElement picking-mode="Ignore" class="be-settings__section-header">
+                            <ui:Label text="OPTIONS" picking-mode="Ignore" class="be-eyebrow">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.options"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Label text="オプション" picking-mode="Ignore" class="be-settings__section-jp">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.options.alt"/>
+                                </Bindings>
+                            </ui:Label>
+                        </ui:VisualElement>
+                        <ui:Toggle name="sound-toggle" label="Sound" value="true" class="be-settings__toggle">
+                            <Bindings>
+                                <loc:LocalizedString property="label" table="BagelStrings" entry="settings.sound"/>
+                            </Bindings>
+                        </ui:Toggle>
+                        <ui:Toggle name="haptics-toggle" label="Haptics" value="true" class="be-settings__toggle">
+                            <Bindings>
+                                <loc:LocalizedString property="label" table="BagelStrings" entry="settings.haptics"/>
+                            </Bindings>
+                        </ui:Toggle>
+                        <ui:VisualElement name="tutorial-row" picking-mode="Ignore" class="be-settings__row">
+                            <ui:Label text="Tutorial" picking-mode="Ignore" class="be-settings__row-label">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.tutorial"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Button name="replay-tutorial-button" class="be-btn be-btn--small be-btn--primary">
+                                <ui:Label text="Replay" picking-mode="Ignore" class="be-btn__label">
+                                    <Bindings>
+                                        <loc:LocalizedString property="text" table="BagelStrings" entry="settings.tutorial.replay"/>
+                                    </Bindings>
+                                </ui:Label>
+                            </ui:Button>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="data-panel" class="be-panel be-settings__section">
+                        <ui:VisualElement picking-mode="Ignore" class="be-settings__section-header">
+                            <ui:Label text="SAVED DATA" picking-mode="Ignore" class="be-eyebrow">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.data"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Label text="セーブデータ" picking-mode="Ignore" class="be-settings__section-jp">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.data.alt"/>
+                                </Bindings>
+                            </ui:Label>
+                        </ui:VisualElement>
+                        <ui:Label text="Your progress and settings are saved on this device." picking-mode="Ignore" class="be-settings__note">
+                            <Bindings>
+                                <loc:LocalizedString property="text" table="BagelStrings" entry="settings.data.note"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:VisualElement picking-mode="Ignore" class="be-settings__buttons">
+                            <ui:Button name="reset-progress-button" class="be-btn be-btn--small be-btn--rose be-settings__button">
+                                <ui:Label text="Reset progress" picking-mode="Ignore" class="be-btn__label">
+                                    <Bindings>
+                                        <loc:LocalizedString property="text" table="BagelStrings" entry="settings.reset-progress"/>
+                                    </Bindings>
+                                </ui:Label>
+                            </ui:Button>
+                            <ui:Button name="reset-settings-button" class="be-btn be-btn--small be-btn--paper be-settings__button">
+                                <ui:Label text="Reset settings" picking-mode="Ignore" class="be-btn__label">
+                                    <Bindings>
+                                        <loc:LocalizedString property="text" table="BagelStrings" entry="settings.reset-settings"/>
+                                    </Bindings>
+                                </ui:Label>
+                            </ui:Button>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="performance-panel" class="be-panel be-settings__section">
+                        <ui:VisualElement picking-mode="Ignore" class="be-settings__section-header">
+                            <ui:Label text="PERFORMANCE" picking-mode="Ignore" class="be-eyebrow">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.performance"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Label text="パフォーマンス" picking-mode="Ignore" class="be-settings__section-jp">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.performance.alt"/>
+                                </Bindings>
+                            </ui:Label>
+                        </ui:VisualElement>
+                        <ui:Toggle name="perf-overlay-toggle" label="Performance overlay" class="be-settings__toggle">
+                            <Bindings>
+                                <loc:LocalizedString property="label" table="BagelStrings" entry="settings.perf-overlay"/>
+                            </Bindings>
+                        </ui:Toggle>
+                        <ui:Toggle name="auto-mode-toggle" label="Auto mode" value="true" class="be-settings__toggle">
+                            <Bindings>
+                                <loc:LocalizedString property="label" table="BagelStrings" entry="settings.auto-mode"/>
+                            </Bindings>
+                        </ui:Toggle>
+                        <ui:VisualElement name="auto-settings" class="be-settings__auto-settings">
+                            <ui:Label text="Resolution" picking-mode="Ignore" class="be-settings__row-label">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.resolution"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:VisualElement name="resolution-segments" class="be-segments be-settings__resolution">
+                                <ui:Button name="resolution-native" text="Native" class="be-segment"/>
+                                <ui:Button name="resolution-3-4" text="3/4" class="be-segment"/>
+                                <ui:Button name="resolution-1-2" text="1/2" class="be-segment"/>
+                                <ui:Button name="resolution-1-4" text="1/4" class="be-segment"/>
+                            </ui:VisualElement>
+                            <ui:Toggle name="filter-shadows-toggle" label="Blurred drop-shadows on panes" class="be-settings__toggle">
+                                <Bindings>
+                                    <loc:LocalizedString property="label" table="BagelStrings" entry="settings.filter-shadows"/>
+                                </Bindings>
+                            </ui:Toggle>
+                            <ui:Toggle name="box-shadows-toggle" label="Blurred box-shadows on panes" class="be-settings__toggle">
+                                <Bindings>
+                                    <loc:LocalizedString property="label" table="BagelStrings" entry="settings.box-shadows"/>
+                                </Bindings>
+                            </ui:Toggle>
+                            <ui:Toggle name="no-animations-toggle" label="Disable all animations" class="be-settings__toggle">
+                                <Bindings>
+                                    <loc:LocalizedString property="label" table="BagelStrings" entry="settings.no-animations"/>
+                                </Bindings>
+                            </ui:Toggle>
+                            <ui:Toggle name="no-blur-toggle" label="Disable glass" class="be-settings__toggle">
+                                <Bindings>
+                                    <loc:LocalizedString property="label" table="BagelStrings" entry="settings.no-blur"/>
+                                </Bindings>
+                            </ui:Toggle>
+                            <ui:Toggle name="no-filters-toggle" label="Disable all filters" class="be-settings__toggle">
+                                <Bindings>
+                                    <loc:LocalizedString property="label" table="BagelStrings" entry="settings.no-filters"/>
+                                </Bindings>
+                            </ui:Toggle>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="about-panel" picking-mode="Ignore" class="be-panel be-settings__section">
+                        <ui:VisualElement picking-mode="Ignore" class="be-settings__section-header">
+                            <ui:Label text="ABOUT" picking-mode="Ignore" class="be-eyebrow">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.about"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Label text="このアプリ" picking-mode="Ignore" class="be-settings__section-jp">
+                                <Bindings>
+                                    <loc:LocalizedString property="text" table="BagelStrings" entry="settings.about.alt"/>
+                                </Bindings>
+                            </ui:Label>
+                        </ui:VisualElement>
+                        <Bagel.AboutBox name="about" build-info="project://database/Assets/UI/Runtime/B09_Settings/BagelBuildInfo.asset?fileID=11400000&amp;guid=474330a0c46f94fa6a37572c57b62888&amp;type=2#BagelBuildInfo"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="settings-footer" picking-mode="Ignore" class="be-settings__footer">
+                        <ui:Label name="settings-game-name" text="Bagel Express · ベーグル急行" picking-mode="Ignore" class="be-settings__credits">
+                            <Bindings>
+                                <loc:LocalizedString property="text" table="BagelStrings" entry="settings.game-name"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Label name="settings-credits" text="UI Toolkit demo, by Unity" picking-mode="Ignore" class="be-settings__credits">
+                            <Bindings>
+                                <loc:LocalizedString property="text" table="BagelStrings" entry="title.credits"/>
+                            </Bindings>
+                        </ui:Label>
+                        <Bagel.VersionLabel name="settings-footer-version" picking-mode="Ignore" class="be-settings__footer-version"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement picking-mode="Ignore" class="be-page-chrome be-fill">
+            <ui:VisualElement name="settings-glass" picking-mode="Ignore" class="be-glass be-page-glass"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="settings-page-content" picking-mode="Ignore" class="be-page-content be-page-content--scroll">
+            <ui:VisualElement name="settings-header" picking-mode="Ignore" class="be-page-header">
+                <ui:VisualElement picking-mode="Ignore" class="be-heading">
+                    <ui:Label text="設定 · OPTIONS" picking-mode="Ignore" class="be-eyebrow be-heading__eyebrow">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="page.settings.eyebrow"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label text="SETTINGS" picking-mode="Ignore" class="be-heading__title">
+                        <Bindings>
+                            <loc:LocalizedString property="text" table="BagelStrings" entry="page.settings.title"/>
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:VisualElement picking-mode="Ignore" class="be-chip be-settings__version-chip">
+                    <Bagel.VersionLabel name="settings-version" class="be-settings__version"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </Bagel.SettingsPaneManager>
+</ui:UXML>

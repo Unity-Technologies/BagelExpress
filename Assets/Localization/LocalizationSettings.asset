@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19400, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: LocalizationSettings
+  m_EditorClassIdentifier: UnityEngine.dll::Unity.Localization.LocalizationSettings
+  m_AvailableLocales:
+  - rid: 854321843931447299
+  - rid: 854321843931447300
+  - rid: 854321853544792135
+  m_ProjectLocaleCode: en
+  m_ResourceDatabase:
+    rid: 854321843931447296
+  m_StartupSelectors:
+  - rid: 854321843931447301
+  m_PreferredLoading: 1
+  m_SmartStringsSettings: {fileID: 0}
+  m_PreloadBehavior: 1
+  m_PreloadTables: []
+  m_DeferInitialization: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 854321843931447296
+      type: {class: ResourceDatabase, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_AssetProvider:
+          m_Providers:
+          - rid: 854321843931447302
+          m_Selected:
+            rid: 854321843931447302
+    - rid: 854321843931447299
+      type: {class: Locale, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_Code: en
+        m_LocaleName: English
+        m_FallbackCode: 
+        m_Enabled: 1
+    - rid: 854321843931447300
+      type: {class: Locale, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_Code: ja
+        m_LocaleName: Japanese
+        m_FallbackCode: 
+        m_Enabled: 1
+    - rid: 854321843931447301
+      type: {class: CommandLineLocaleSelector, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_CommandLineArgument: -language=
+    - rid: 854321843931447302
+      type: {class: ReferencedAssetProvider, ns: Unity.Localization.Providers, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_ByAddress:
+        - key: c8e6e83db0716459591002abb6a5fb7e_fr
+          value: {fileID: 11400000, guid: 684672171212d4487a824c3ad76588bf, type: 2}
+        - key: BagelStrings_fr
+          value: {fileID: 11400000, guid: 684672171212d4487a824c3ad76588bf, type: 2}
+        - key: c8e6e83db0716459591002abb6a5fb7e_ja
+          value: {fileID: 11400000, guid: 4610f31bef28c45c89175272d984cfc5, type: 2}
+        - key: BagelStrings_ja
+          value: {fileID: 11400000, guid: 4610f31bef28c45c89175272d984cfc5, type: 2}
+        - key: c8e6e83db0716459591002abb6a5fb7e_en
+          value: {fileID: 11400000, guid: 323a9b56d62fc4a8f979cd39ee2c5166, type: 2}
+        - key: BagelStrings_en
+          value: {fileID: 11400000, guid: 323a9b56d62fc4a8f979cd39ee2c5166, type: 2}
+        m_OwnedAddresses:
+        - BagelStrings_en
+        - c8e6e83db0716459591002abb6a5fb7e_en
+        - BagelStrings_ja
+        - c8e6e83db0716459591002abb6a5fb7e_ja
+        - BagelStrings_fr
+        - c8e6e83db0716459591002abb6a5fb7e_fr
+    - rid: 854321853544792135
+      type: {class: Locale, ns: Unity.Localization, asm: UnityEngine.LocalizationRuntimeModule}
+      data:
+        m_Code: fr
+        m_LocaleName: French
+        m_FallbackCode: 
+        m_Enabled: 1

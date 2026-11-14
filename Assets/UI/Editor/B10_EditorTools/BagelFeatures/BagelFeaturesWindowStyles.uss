@@ -1,0 +1,1846 @@
+/* Bagel Features window, on top of BagelExpressAllUIWindowStyles.uss and BagelGuideStyles.uss. Every selector is
+   scoped under .bgf so nothing leaks into the game UI (the screen and the samples only get the season theme). */
+
+.bgf {
+    --bgf-paper: rgb(250, 238, 220);
+    --bgf-line: rgba(255, 240, 222, 0.1);
+    --bgf-hover: rgba(255, 196, 40, 0.6);
+}
+
+/* The toolbar's search, on the right before the strips: as tall as them, their corners too. Narrower when the room runs out. */
+.bgf .bgf-search {
+    width: 200px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    min-width: 90px;
+    height: 22px;
+    margin: 0 6px 0 0;
+    border-radius: 5px;
+}
+
+/* ------------------------------------------------------------------ Body: left side + details */
+
+.bgf .bgf__body {
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+/* The same width in every mode: the Game mode's phone at the Bagel UI window's 75%, its arrows and its icons. */
+.bgf .bgf__side {
+    width: 400px;
+    flex-shrink: 0;
+    background-color: rgb(32, 21, 16);
+    border-right-width: 1px;
+    border-right-color: rgb(14, 9, 7);
+}
+
+.bgf .bgf--screens > .bgf__side {
+    background-image: radial-gradient(ellipse at center, rgb(84, 52, 36), rgb(46, 29, 21) 45%, rgb(22, 14, 11));
+}
+
+.bgf .bgf__details {
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: rgb(26, 17, 13);
+}
+
+/* No theme on the window (the editor theme would leak into the game UI), so the scroll views get the structure
+   they need here; their scrollers get the editor theme from code. */
+.bgf .bgf-scroll {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.bgf .bgf-scroll > .unity-scroll-view__content-and-vertical-scroll-container {
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.bgf .bgf-scroll > .unity-scroll-view__content-and-vertical-scroll-container > .unity-scroll-view__content-viewport {
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: hidden;
+}
+
+.bgf .bgf-scroll > .unity-scroll-view__content-and-vertical-scroll-container > .unity-scroll-view__content-viewport > .unity-scroll-view__content-container {
+    flex-shrink: 0;
+}
+
+.bgf .bgf-scroll .unity-scroll-view__vertical-scroller {
+    flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------------ Modes: a segmented pill */
+
+.bgf .bgf-modes {
+    flex-shrink: 0;
+    flex-direction: row;
+    height: 32px;
+    margin: 10px 12px 6px 12px;
+    padding: 3px;
+    border-radius: 16px;
+    border-width: 1px;
+    border-color: rgba(255, 240, 222, 0.14);
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.bgf .bgf-modes__button {
+    flex-grow: 1;
+    flex-basis: 0;
+    height: 24px;
+    margin: 0;
+    padding: 0 6px;
+    border-width: 0;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 12px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    -unity-text-align: middle-center;
+    color: var(--bgg-soft);
+    cursor: link;
+    transition-property: background-color, color;
+    transition-duration: 0.12s;
+}
+
+.bgf .bgf-modes__button:hover {
+    background-color: rgba(255, 240, 222, 0.12);
+    color: var(--bgg-ink);
+}
+
+/* Nothing in it matches the search. */
+.bgf .bgf-modes__button--empty {
+    opacity: 0.3;
+}
+
+.bgf .bgf-modes__button--selected,
+.bgf .bgf-modes__button--selected:hover {
+    background-color: rgb(255, 196, 40);
+    color: rgb(59, 31, 20);
+}
+
+/* ------------------------------------------------------------------ The list */
+
+/* The list's filter: All and a pill per group, in its color; the one shown fills with it and glows, like the Game
+   mode's current screen. */
+.bgf .bgf-filter {
+    flex-shrink: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 5px;
+    column-gap: 4px;
+    margin: 6px 6px 8px 6px;
+}
+
+.bgf .bgf--screens .bgf-filter {
+    display: none;
+}
+
+.bgf .bgf-filter__pill {
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+    padding: 0 7px 0 6px;
+    border-width: 1px;
+    border-radius: 11px;
+    border-color: rgba(255, 240, 222, 0.16);
+    background-color: rgba(255, 240, 222, 0.05);
+    cursor: link;
+    transition-property: background-color, border-color, scale, box-shadow;
+    transition-duration: 0.12s;
+}
+
+.bgf .bgf-filter__pill:hover {
+    background-color: rgba(255, 240, 222, 0.14);
+    border-color: var(--bgf-hover);
+    scale: 1.05 1.05;
+}
+
+.bgf .bgf-filter__dot {
+    width: 6px;
+    height: 6px;
+    margin-right: 4px;
+    border-radius: 3px;
+}
+
+.bgf .bgf-filter__label {
+    font-size: 10px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    color: var(--bgg-soft);
+}
+
+/* Selected: only colors change (the size stays, the dot takes the label's color), so nothing moves. The pill glows
+   amber with a box-shadow that fades in: geometry around its rounded box, where two chained drop-shadow() filters
+   rendered it offscreen. */
+.bgf .bgf-filter__pill--selected,
+.bgf .bgf-filter__pill--selected:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 8px 1px rgb(255, 196, 40);
+}
+
+.bgf .bgf-filter__pill--selected > .bgf-filter__label {
+    color: rgb(255, 255, 255);
+}
+
+.bgf .bgf-filter__pill--all.bgf-filter__pill--selected > .bgf-filter__label {
+    color: rgb(59, 31, 20);
+}
+
+.bgf .bgf--screens .bgf-list {
+    display: none;
+}
+
+.bgf .bgf-list > .unity-scroll-view__content-and-vertical-scroll-container > .unity-scroll-view__content-viewport > .unity-scroll-view__content-container {
+    padding: 0 10px 16px 12px;
+}
+
+.bgf .bgf-group {
+    flex-direction: row;
+    align-items: center;
+    margin: 14px 2px 8px 2px;
+}
+
+/* The group the list is in, pinned over its top once its header has scrolled past (opaque, on the list's color). */
+.bgf .bgf-group--sticky {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0;
+    padding: 6px 12px 8px 14px;
+    background-color: rgb(32, 21, 16);
+    border-bottom-width: 1px;
+    border-bottom-color: var(--bgf-line);
+}
+
+.bgf .bgf-group__bar {
+    width: 4px;
+    height: 30px;
+    border-radius: 2px;
+    margin-right: 9px;
+    flex-shrink: 0;
+}
+
+.bgf .bgf-group__text {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.bgf .bgf-group__title-row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.bgf .bgf-group__title {
+    flex-shrink: 0;
+    white-space: nowrap;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 19px;
+    letter-spacing: 1px;
+    color: rgb(255, 214, 120);
+}
+
+.bgf .bgf-group__count {
+    height: 16px;
+    min-width: 16px;
+    padding: 0 6px;
+    margin-left: 8px;
+    border-radius: 8px;
+    font-size: 10px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    color: var(--bgg-soft);
+    background-color: rgba(255, 240, 222, 0.1);
+}
+
+.bgf .bgf-group__sub {
+    font-size: 10px;
+    color: var(--bgg-dim);
+    white-space: normal;
+}
+
+/* A row: the live sample on paper, the title, the version and category. */
+.bgf .bgf-row {
+    flex-direction: row;
+    align-items: center;
+    height: 88px;
+    padding: 8px 10px 8px 8px;
+    margin-bottom: 6px;
+    border-radius: 14px;
+    border-width: 1px;
+    border-color: var(--bgf-line);
+    background-color: rgba(255, 240, 222, 0.04);
+    cursor: link;
+    transition-property: background-color, border-color, translate;
+    transition-duration: 0.12s;
+}
+
+.bgf .bgf-row:hover {
+    background-color: rgba(255, 240, 222, 0.1);
+    border-color: var(--bgf-hover);
+    translate: 3px 0;
+}
+
+.bgf .bgf-row--selected,
+.bgf .bgf-row--selected:hover {
+    background-color: rgba(255, 196, 40, 0.16);
+    border-color: rgb(255, 196, 40);
+    translate: 0 0;
+}
+
+/* 14px row radius - 8px padding = 6px: nested radii stay concentric. */
+.bgf .bgf-row__sample {
+    flex-shrink: 0;
+    width: 118px;
+    height: 70px;
+    margin-right: 11px;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--bgf-paper);
+}
+
+.bgf .bgf-row__sample > .bgft {
+    flex-shrink: 0;
+    scale: 1.38 1.38;
+}
+
+/* A feature the game doesn't use: its title a little quieter. */
+.bgf .bgf-row--unused .bgf-row__title {
+    color: var(--bgg-soft);
+}
+
+.bgf .bgf-row__text {
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: center;
+}
+
+.bgf .bgf-row__title {
+    max-height: 51px;
+    overflow: hidden;
+    font-size: 11.5px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    color: var(--bgg-ink);
+    white-space: normal;
+}
+
+.bgf .bgf-row__meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 4px;
+    gap: 4px;
+}
+
+/* ------------------------------------------------------------------ Chips (true pills) */
+
+/* A long name wraps and the pill grows taller, rather than spilling out of it. */
+.bgf .bgf-chip {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 1;
+    min-height: 18px;
+    padding: 1px 8px;
+    border-radius: 9px;
+    font-size: 10px;
+    -unity-text-align: middle-center;
+}
+
+.bgf .bgf-chip--version {
+    flex-shrink: 0;
+    min-width: 34px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    color: rgb(255, 255, 255);
+}
+
+.bgf .bgf-chip--category {
+    padding-left: 6px;
+    background-color: rgba(255, 240, 222, 0.08);
+}
+
+/* Whether the game uses it: a quiet mint for yes, an outline for no. */
+.bgf .bgf-chip--used {
+    flex-shrink: 0;
+    background-color: rgba(64, 201, 132, 0.14);
+    color: rgb(140, 224, 176);
+}
+
+.bgf .bgf-chip--unused {
+    flex-shrink: 0;
+    border-width: 1px;
+    border-color: rgba(255, 240, 222, 0.28);
+    color: var(--bgg-soft);
+}
+
+/* Experimental in 6.7, next to its 7.x pill: the 6.7 color as an outline. */
+.bgf .bgf-chip--experimental {
+    flex-shrink: 0;
+    border-width: 1px;
+    border-color: rgb(240, 160, 32);
+    background-color: rgba(240, 160, 32, 0.12);
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    color: rgb(255, 200, 110);
+}
+
+.bgf .bgf-chip__dot {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+.bgf .bgf-chip__label {
+    flex-shrink: 1;
+    font-size: 10px;
+    color: var(--bgg-soft);
+    white-space: normal;
+}
+
+/* ------------------------------------------------------------------ The screens: one page at a time */
+
+.bgf .bgf-screens {
+    display: none;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.bgf .bgf--screens .bgf-screens {
+    display: flex;
+}
+
+.bgf .bgf-screens__stage {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+
+.bgf .bgf-screens__phone {
+    align-items: center;
+    justify-content: center;
+}
+
+.bgf .bgf-screens__phone > .beall-phone > .beall-phone__caption {
+    margin-top: 10px;
+}
+
+.bgf .bgf-screens__arrow {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    margin: 0 8px 34px 8px;
+    padding: 0 0 4px 0;
+    border-width: 1px;
+    border-radius: 18px;
+    border-color: rgba(255, 240, 222, 0.22);
+    background-color: rgba(20, 12, 9, 0.6);
+    font-size: 24px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    -unity-text-align: middle-center;
+    color: var(--bgg-ink);
+    cursor: link;
+    transition-property: background-color, color, scale, border-color;
+    transition-duration: 0.12s;
+}
+
+.bgf .bgf-screens__arrow:hover {
+    background-color: rgb(255, 196, 40);
+    border-color: rgb(255, 196, 40);
+    color: rgb(59, 31, 20);
+    scale: 1.1 1.1;
+}
+
+.bgf .bgf-screens__arrow:disabled {
+    opacity: 0.2;
+}
+
+/* The screens' icons, above the phone: the current one glows like the game's nav icons. */
+.bgf .bgf-screens__picker {
+    flex-shrink: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin: 2px 12px 0 12px;
+}
+
+.bgf .bgf-screen-pick {
+    width: 32px;
+    height: 34px;
+    margin: 0 1px;
+    align-items: center;
+    justify-content: center;
+    cursor: link;
+}
+
+.bgf .bgf-screen-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.5;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    transition-property: opacity, scale;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-out-back;
+}
+
+.bgf .bgf-screen-pick:hover > .bgf-screen-icon {
+    opacity: 1;
+    scale: 1.18 1.18;
+}
+
+.bgf .bgf-screen-pick--current > .bgf-screen-icon,
+.bgf .bgf-screen-pick--current:hover > .bgf-screen-icon {
+    opacity: 1;
+    scale: 1.22 1.22;
+    filter: drop-shadow(0 0 3px rgb(255, 196, 40)) drop-shadow(0 0 3px rgb(255, 196, 40));
+}
+
+/* The tutorial's arrow is narrower art: drawn in a box of its own shape. */
+.bgf .bgf-screen-icon.be-tutorial-pointer {
+    width: 16px;
+}
+
+/* ------------------------------------------------------------------ Details */
+
+.bgf .bgf-details {
+    padding: 14px 18px 40px 18px;
+}
+
+.bgf .bgf-details__title {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: rgb(255, 214, 120);
+    white-space: normal;
+}
+
+.bgf .bgf-details__chips {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 2px 0 10px 0;
+}
+
+.bgf .bgf-details__since {
+    font-size: 10px;
+    color: var(--bgg-dim);
+}
+
+/* A feature's few words, under its preview and controls. */
+.bgf .bgf-details__about--lead {
+    margin-top: 14px;
+}
+
+.bgf .bgf-details__about {
+    font-size: 12px;
+    color: var(--bgg-soft);
+    white-space: normal;
+}
+
+.bgf .bgf-details__summary {
+    font-size: 12px;
+    color: var(--bgg-ink);
+    white-space: normal;
+    margin-bottom: 10px;
+}
+
+.bgf .bgf-details__links {
+    margin-top: 8px;
+}
+
+/* A feature the game doesn't use: that, and what it is. */
+.bgf .bgf-unused {
+    margin-top: 14px;
+    padding: 10px 12px 12px 12px;
+    border-width: 1px;
+    border-radius: 12px;
+    border-color: rgba(255, 240, 222, 0.16);
+    background-color: rgba(255, 240, 222, 0.04);
+}
+
+.bgf .bgf-unused__title {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 12px;
+    color: var(--bgg-ink);
+    margin-bottom: 4px;
+}
+
+.bgf .bgf-unused__about {
+    font-size: 12px;
+    color: var(--bgg-soft);
+    white-space: normal;
+}
+
+.bgf .bgf-unused__usage {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--bgg-ink);
+    white-space: normal;
+}
+
+.bgf .bgf-section {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--bgg-gold);
+    margin: 18px 0 6px 0;
+}
+
+.bgf .bgf-more {
+    align-self: flex-start;
+    height: 20px;
+    margin: 6px 0 0 0;
+    padding: 0 10px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: rgba(255, 240, 222, 0.18);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 10px;
+    color: var(--bgg-soft);
+    cursor: link;
+}
+
+.bgf .bgf-more:hover {
+    background-color: rgba(255, 240, 222, 0.12);
+}
+
+.bgf .bgf-screen-head {
+    flex-direction: row;
+    align-items: center;
+}
+
+.bgf .bgf-screen-head__index {
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    font-size: 18px;
+    letter-spacing: 1px;
+    height: 26px;
+    min-width: 40px;
+    padding: 1px 8px 0 8px;
+    margin-right: 10px;
+    border-radius: 13px;
+    -unity-text-align: middle-center;
+    color: rgb(59, 31, 20);
+    background-color: rgb(255, 196, 40);
+}
+
+/* ------------------------------------------------------------------ Parts: how a part of a screen is made */
+
+.bgf .bgf-part {
+    margin-top: 8px;
+    padding: 10px 12px 12px 12px;
+    border-radius: 14px;
+    border-width: 1px;
+    border-color: var(--bgf-line);
+    background-color: rgba(255, 240, 222, 0.04);
+    transition-property: background-color, border-color;
+    transition-duration: 0.15s;
+}
+
+.bgf .bgf-part:hover {
+    background-color: rgba(255, 240, 222, 0.08);
+    border-color: var(--bgf-hover);
+}
+
+/* A part that matches the search. */
+.bgf .bgf-part--match {
+    border-color: rgba(255, 196, 40, 0.75);
+}
+
+.bgf .bgf-part--flash,
+.bgf .bgf-part--flash:hover {
+    background-color: rgba(255, 196, 40, 0.18);
+    border-color: rgb(255, 196, 40);
+}
+
+.bgf .bgf-part__head {
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Like the dots on the screen: the same number, color and ring. */
+.bgf .bgf-part__number {
+    flex-shrink: 0;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 5px;
+    margin-right: 8px;
+    border-radius: 11px;
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+    font-size: 10px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+.bgf .bgf-part__screen {
+    flex-shrink: 0;
+    height: 22px;
+    margin: 0 8px 0 0;
+    padding: 0 10px;
+    border-width: 0;
+    border-radius: 11px;
+    font-size: 10px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    color: rgb(59, 31, 20);
+    background-color: rgb(255, 214, 120);
+    cursor: link;
+    transition-property: background-color, scale;
+    transition-duration: 0.12s;
+}
+
+.bgf .bgf-part__screen:hover {
+    background-color: rgb(255, 196, 40);
+    scale: 1.06 1.06;
+}
+
+.bgf .bgf-part__title {
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-size: 13px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    color: var(--bgg-ink);
+    white-space: normal;
+}
+
+/* A long feature name wraps and the pill grows taller. */
+.bgf .bgf-part__feature {
+    align-self: flex-start;
+    flex-direction: row;
+    align-items: center;
+    min-height: 20px;
+    margin: 6px 0 0 0;
+    padding: 2px 9px 2px 7px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: rgba(255, 240, 222, 0.16);
+    background-color: rgba(255, 240, 222, 0.06);
+    cursor: link;
+    transition-property: background-color, border-color;
+    transition-duration: 0.12s;
+}
+
+.bgf .bgf-part__feature:hover {
+    background-color: rgba(255, 240, 222, 0.16);
+    border-color: var(--bgf-hover);
+}
+
+.bgf .bgf-part__feature-label {
+    flex-shrink: 1;
+    font-size: 10px;
+    color: var(--bgg-ink);
+    white-space: normal;
+}
+
+.bgf .bgf-part__how {
+    margin: 6px 0 9px 0;
+    font-size: 12px;
+    color: var(--bgg-soft);
+    white-space: normal;
+}
+
+.bgf .bgf-part__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.bgf .bgf-action {
+    height: 22px;
+    margin: 0;
+    padding: 0 10px;
+    border-width: 1px;
+    border-radius: 11px;
+    font-size: 10px;
+    -unity-text-align: middle-center;
+    cursor: link;
+    transition-property: background-color;
+    transition-duration: 0.12s;
+}
+
+.bgf .bgf-action--scene {
+    color: rgb(255, 214, 120);
+    background-color: rgba(255, 196, 40, 0.1);
+    border-color: rgba(255, 196, 40, 0.45);
+}
+
+.bgf .bgf-action--scene:hover {
+    background-color: rgba(255, 196, 40, 0.28);
+}
+
+.bgf .bgf-action--builder,
+.bgf .bgf-action--asset {
+    color: rgb(160, 206, 255);
+    background-color: rgba(90, 160, 240, 0.1);
+    border-color: rgba(120, 180, 255, 0.4);
+}
+
+.bgf .bgf-action--builder:hover,
+.bgf .bgf-action--asset:hover {
+    background-color: rgba(90, 160, 240, 0.26);
+}
+
+.bgf .bgf-action--code {
+    color: rgb(222, 206, 190);
+    background-color: rgba(255, 240, 222, 0.05);
+    border-color: rgba(255, 240, 222, 0.2);
+}
+
+.bgf .bgf-action--code:hover {
+    background-color: rgba(255, 240, 222, 0.16);
+}
+
+/* ------------------------------------------------------------------ A feature's preview and its uses */
+
+/* The feature's live sample (or its thumbnail, bigger) on paper, like the list's rows; drawn in the sticky overlay. */
+.bgf .bgf-preview-stage {
+    height: 170px;
+    border-width: 1px;
+    border-radius: 14px;
+    border-color: var(--bgf-line);
+    background-color: var(--bgf-paper);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: rgb(59, 31, 20);
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Regular.ttf");
+}
+
+.bgf .bgf-preview-sample,
+.bgf .bgf-preview-tile {
+    flex-shrink: 0;
+}
+
+/* The slot of a feature's stage: the stage's height. */
+.bgf #preview-stage-slot {
+    height: 170px;
+}
+
+/* A part of a screen, live on its own, on the season's sky (the frame is cropped on it). */
+.bgf .bgf-use-frame {
+    height: 90px;
+    margin: 8px 0 2px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bgf .bgf-use-frame__ring {
+    border-width: 2px;
+    border-radius: 8px;
+    border-color: rgb(255, 196, 40);
+}
+
+/* ------------------------------------------------------------------ Snippets */
+
+.bgf .bgf-snippet {
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border-width: 1px;
+    border-color: rgba(255, 240, 222, 0.12);
+    background-color: rgb(17, 11, 9);
+    overflow: hidden;
+}
+
+.bgf .bgf-snippet__head {
+    flex-direction: row;
+    align-items: center;
+    height: 30px;
+    padding: 0 5px 0 8px;
+    background-color: rgba(255, 240, 222, 0.05);
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(255, 240, 222, 0.08);
+}
+
+.bgf .bgf-snippet__language {
+    flex-shrink: 0;
+    height: 18px;
+    min-width: 36px;
+    padding: 0 7px;
+    margin-right: 8px;
+    border-radius: 9px;
+    font-size: 9px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+.bgf .bgf-snippet__language--csharp {
+    background-color: rgb(122, 92, 210);
+}
+
+.bgf .bgf-snippet__language--uxml {
+    background-color: rgb(43, 143, 216);
+}
+
+.bgf .bgf-snippet__language--uss {
+    background-color: rgb(214, 86, 122);
+}
+
+.bgf .bgf-snippet__caption {
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-size: 11px;
+    color: var(--bgg-soft);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bgf .bgf-snippet__copy {
+    flex-shrink: 0;
+    height: 20px;
+    margin: 0;
+    padding: 0 9px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: rgba(255, 240, 222, 0.18);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 10px;
+    color: var(--bgg-soft);
+    cursor: link;
+}
+
+.bgf .bgf-snippet__copy:hover {
+    background-color: rgba(255, 240, 222, 0.14);
+    color: var(--bgg-ink);
+}
+
+.bgf .bgf-snippet__code {
+    flex-shrink: 0;
+    padding: 9px 12px 11px 12px;
+    font-size: 11px;
+    color: rgb(240, 226, 208);
+    white-space: pre;
+    --unity-selection-color: rgba(255, 196, 40, 0.35);
+    --unity-cursor-color: rgba(0, 0, 0, 0);
+}
+
+/* The code scrolls sideways when the pane is too narrow for it, with a thin bar of its own (no theme here). */
+.bgf .bgf-code-scroll > .unity-scroll-view__content-and-vertical-scroll-container {
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.bgf .bgf-code-scroll > .unity-scroll-view__content-and-vertical-scroll-container > .unity-scroll-view__content-viewport {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.bgf .bgf-code-scroll > .unity-scroll-view__content-and-vertical-scroll-container > .unity-scroll-view__content-viewport > .unity-scroll-view__content-container {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-direction: row;
+}
+
+.bgf .bgf-code-scroll .unity-scroll-view__vertical-scroller {
+    display: none;
+}
+
+.bgf .bgf-code-scroll .unity-scroller--horizontal {
+    flex-shrink: 0;
+    flex-direction: row;
+    height: 10px;
+    padding: 0 12px 4px 12px;
+}
+
+.bgf .bgf-code-scroll .unity-scroller__low-button,
+.bgf .bgf-code-scroll .unity-scroller__high-button {
+    display: none;
+}
+
+.bgf .bgf-code-scroll .unity-scroller__slider,
+.bgf .bgf-code-scroll .unity-base-slider__input,
+.bgf .bgf-code-scroll .unity-base-slider__drag-container {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.bgf .bgf-code-scroll .unity-base-field__label {
+    display: none;
+}
+
+.bgf .bgf-code-scroll .unity-base-slider__tracker {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 3px;
+    background-color: rgba(255, 240, 222, 0.06);
+}
+
+.bgf .bgf-code-scroll .unity-base-slider__dragger {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-radius: 3px;
+    background-color: rgba(255, 240, 222, 0.26);
+}
+
+.bgf .bgf-code-scroll .unity-base-slider__dragger:hover {
+    background-color: rgba(255, 196, 40, 0.6);
+}
+
+.bgf .bgf-code-scroll .unity-base-slider__dragger-border {
+    display: none;
+}
+
+/* ------------------------------------------------------------------ Art: the game's code-drawn art, one element at a time */
+
+.bgf .bgf--art .bgf-filter {
+    display: none;
+}
+
+.bgf .bgf--art .bgf-list > .unity-scroll-view__content-and-vertical-scroll-container > .unity-scroll-view__content-viewport > .unity-scroll-view__content-container {
+    padding-top: 6px;
+}
+
+/* A row: the element's name and how it's drawn, over a few of its variations on the season's sky. */
+.bgf .bgf-art-row {
+    flex-direction: column;
+    align-items: stretch;
+    height: 106px;
+    padding: 6px 8px 8px 8px;
+}
+
+.bgf .bgf-art-row__head {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 18px;
+    margin: 0 2px 4px 2px;
+}
+
+.bgf .bgf-art-row__title {
+    font-size: 12px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    color: var(--bgg-ink);
+}
+
+.bgf .bgf-art-tag {
+    height: 16px;
+    padding: 0 7px;
+    border-width: 1px;
+    border-radius: 8px;
+    border-color: rgba(255, 196, 40, 0.35);
+    background-color: rgba(255, 196, 40, 0.12);
+    font-size: 9px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    -unity-text-align: middle-center;
+    color: rgb(255, 214, 120);
+}
+
+.bgf .bgf-art-tag--large {
+    height: 20px;
+    padding: 0 9px;
+    border-radius: 10px;
+    font-size: 10px;
+}
+
+/* 14px row radius - 8px padding = 6px: nested radii stay concentric. */
+.bgf .bgf-art-row__sample {
+    height: 70px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.bgf .bgf-art-strip {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* A season's variations: a tile of sky each, side by side (the row's sample has no sky of its own then). */
+.bgf .bgf-art-strip--seasons {
+    align-items: stretch;
+    justify-content: flex-start;
+    column-gap: 6px;
+}
+
+.bgf .bgf-art-strip__season {
+    flex-grow: 1;
+    flex-basis: 0;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* The box an element fills (particles, a skyline, confetti, a dimmed screen). */
+.bgf .bgf-art-box {
+    flex-shrink: 0;
+}
+
+/* The Spotlight's screen: something light to dim, a pastry and a button to point at. */
+.bgf .bgf-art-scene {
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: rgb(255, 248, 234);
+}
+
+.bgf .bgf-art-scene__button {
+    position: absolute;
+    padding: 0;
+    border-width: 2px;
+    border-color: rgb(59, 31, 20);
+    background-color: rgb(64, 201, 132);
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+/* The halftone filter's scene: something colorful to filter (sizes in percent: a row's, the gallery's, the preview's). */
+.bgf .bgf-art-filter-scene {
+    overflow: hidden;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to bottom, rgb(255, 214, 120), rgb(255, 150, 80) 60%, rgb(214, 70, 60));
+}
+
+.bgf .bgf-art-filter-scene__burst {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: -30%;
+    bottom: -30%;
+}
+
+.bgf .bgf-art-filter-scene__mascot {
+    position: absolute;
+    left: 8%;
+    top: 20%;
+    width: 34%;
+    height: 56%;
+}
+
+.bgf .bgf-art-filter-scene__title {
+    position: absolute;
+    right: 8%;
+    top: 34%;
+    margin: 0;
+    padding: 0;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Bangers.ttf");
+    letter-spacing: 1px;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(59, 31, 20);
+}
+
+/* The pane a backdrop-filter is on. */
+.bgf .bgf-art-filter-scene__pane {
+    display: none;
+    position: absolute;
+    left: 50%;
+    right: 6%;
+    top: 14%;
+    bottom: 14%;
+    border-width: 1px;
+    border-radius: 8px;
+    border-color: rgba(255, 255, 255, 0.85);
+}
+
+/* The preview's place in the details; the preview itself is drawn over it (sticky), with the details' color around it so
+   what scrolls under it doesn't show. */
+.bgf .bgf-art-stage-slot {
+    height: 230px;
+    margin-top: 12px;
+    flex-shrink: 0;
+}
+
+.bgf .bgf-art-sticky {
+    position: absolute;
+    padding: 10px 0 8px 0;
+    background-color: rgb(26, 17, 13);
+}
+
+.bgf .bgf-art-sticky--stuck {
+    border-bottom-width: 1px;
+    border-bottom-color: var(--bgf-line);
+}
+
+/* The preview: the element as set, on the season's sky. */
+.bgf .bgf-art-stage {
+    height: 230px;
+    border-width: 1px;
+    border-radius: 14px;
+    border-color: var(--bgf-line);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* The stage's 14px radius - the screen's 10px inset ((230 - 210) / 2) = 4px. */
+.bgf .bgf-art-stage .bgf-art-scene {
+    border-radius: 4px;
+}
+
+.bgf .bgf-art-bar {
+    flex-direction: row;
+    justify-content: flex-end;
+    column-gap: 6px;
+    margin-top: 8px;
+}
+
+.bgf .bgf-art-controls {
+    padding: 6px 10px 8px 10px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: var(--bgf-line);
+    background-color: rgba(255, 240, 222, 0.04);
+}
+
+.bgf .bgf-art-field {
+    margin: 2px 0;
+}
+
+.bgf .bgf-art-field > .unity-base-field__label {
+    width: 112px;
+    min-width: 112px;
+}
+
+/* The game's variations: click one to try it in the preview. */
+.bgf .bgf-art-gallery {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.bgf .bgf-art-cell {
+    align-items: center;
+    padding: 4px 4px 3px 4px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0);
+    cursor: link;
+    transition-property: background-color, border-color, translate;
+    transition-duration: 0.12s;
+}
+
+.bgf .bgf-art-cell:hover {
+    background-color: rgba(255, 240, 222, 0.1);
+    border-color: var(--bgf-hover);
+    translate: 0 -2px;
+}
+
+.bgf .bgf-art-cell--selected,
+.bgf .bgf-art-cell--selected:hover {
+    background-color: rgba(255, 196, 40, 0.16);
+    border-color: rgb(255, 196, 40);
+    translate: 0 0;
+}
+
+/* 10px cell radius - 4px padding = 6px. */
+.bgf .bgf-art-cell__frame {
+    padding: 5px;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bgf .bgf-art-cell__frame--fill {
+    padding: 0;
+}
+
+.bgf .bgf-art-cell__caption {
+    margin-top: 3px;
+    font-size: 9.5px;
+    -unity-text-align: upper-center;
+    white-space: normal;
+    color: var(--bgg-soft);
+}
+
+/* Where the game uses it: a chip per screen into Game mode, then Scene, UI Builder and Project for one of them. */
+.bgf .bgf-art-uses {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.bgf .bgf-art-uses__label {
+    font-size: 10px;
+    -unity-font-definition: url("/Assets/UI/Runtime/B00_Themes/T0_Common/Fonts/Poppins-Bold.ttf");
+    color: var(--bgg-dim);
+    margin-right: 2px;
+}
+
+.bgf .bgf-art-uses__actions {
+    margin-top: 8px;
+    align-items: center;
+}
+
+.bgf .bgf-art-uses__what {
+    font-size: 10px;
+    color: var(--bgg-dim);
+}
+
+.bgf .bgf-art-use {
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------ Editor features: small Editor windows (BagelEditorMockups) */
+
+/* In the Editor's theme (its sheets are on the mockup): its colors, with the dark skin's as fallbacks. */
+.bgf .bgf-mock {
+    flex-shrink: 0;
+    width: 200px;
+    height: 112px;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--unity-colors-default-text, rgb(210, 210, 210));
+}
+
+.bgf .bgf-row__sample > .bgf-mock {
+    scale: 0.6 0.6;
+}
+
+.bgf .bgf-mock__window {
+    width: 196px;
+    height: 108px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: var(--unity-colors-window-border, rgb(25, 25, 25));
+    background-color: var(--unity-colors-window-background, rgb(56, 56, 56));
+    overflow: hidden;
+}
+
+.bgf .bgf-mock__window--small {
+    width: 94px;
+}
+
+.bgf .bgf-mock__tabs {
+    flex-direction: row;
+    height: 19px;
+    flex-shrink: 0;
+    background-color: var(--unity-colors-tab-background, rgb(40, 40, 40));
+    border-bottom-width: 1px;
+    border-bottom-color: var(--unity-colors-window-border, rgb(25, 25, 25));
+}
+
+.bgf .bgf-mock__tab {
+    flex-direction: row;
+    align-items: center;
+    padding: 0 8px 0 5px;
+    background-color: var(--unity-colors-tab-background-checked, rgb(56, 56, 56));
+    border-top-width: 2px;
+    border-top-color: rgb(58, 121, 187);
+}
+
+.bgf .bgf-mock__tab-label {
+    margin: 0;
+    padding: 0;
+    color: var(--unity-colors-tab-text, rgb(210, 210, 210));
+}
+
+.bgf .bgf-mock__body {
+    flex-grow: 1;
+    padding: 3px 0;
+}
+
+.bgf .bgf-mock__icon {
+    flex-shrink: 0;
+    width: 13px;
+    height: 13px;
+    margin-right: 3px;
+}
+
+.bgf .bgf-mock__label {
+    margin: 0;
+    padding: 0;
+    color: var(--unity-colors-label-text, rgb(196, 196, 196));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bgf .bgf-mock__arrow-small {
+    width: 9px;
+    margin: 0;
+    padding: 0;
+    font-size: 8px;
+    color: var(--unity-colors-label-text, rgb(196, 196, 196));
+    -unity-text-align: middle-center;
+}
+
+/* A tree row, and the selected one in the Editor's blue. */
+.bgf .bgf-mock__row {
+    flex-direction: row;
+    align-items: center;
+    height: 17px;
+    flex-shrink: 0;
+}
+
+.bgf .bgf-mock__row--selected {
+    background-color: var(--unity-colors-highlight-background, rgb(44, 93, 135));
+}
+
+.bgf .bgf-mock__row--selected .bgf-mock__label {
+    color: rgb(255, 255, 255);
+}
+
+.bgf .bgf-mock__row--released {
+    opacity: 0.4;
+}
+
+/* Toggles in a toolbar row: Standard | Project, EditMode | PlayMode. */
+.bgf .bgf-mock__bar-tabs {
+    flex-direction: row;
+    margin: 0 4px 3px 4px;
+}
+
+.bgf .bgf-mock__toggle {
+    margin: 0;
+    padding: 1px 8px;
+    border-width: 1px;
+    border-color: var(--unity-colors-default-border, rgb(36, 36, 36));
+    background-color: var(--unity-colors-dropdown-background, rgb(70, 70, 70));
+    color: var(--unity-colors-label-text, rgb(196, 196, 196));
+}
+
+.bgf .bgf-mock__toggle--on {
+    background-color: rgb(70, 96, 124);
+    color: rgb(255, 255, 255);
+}
+
+/* The Inspector: a component's title bar, and fields. */
+.bgf .bgf-mock__header {
+    flex-direction: row;
+    align-items: center;
+    height: 20px;
+    flex-shrink: 0;
+    padding: 0 5px;
+    margin-bottom: 3px;
+    background-color: var(--unity-colors-inspector_titlebar-background, rgb(62, 62, 62));
+    border-bottom-width: 1px;
+    border-bottom-color: var(--unity-colors-inspector_titlebar-border, rgb(26, 26, 26));
+}
+
+.bgf .bgf-mock__header-label {
+    margin: 0;
+    padding: 0;
+    -unity-font-style: bold;
+    color: var(--unity-colors-label-text, rgb(210, 210, 210));
+    white-space: nowrap;
+}
+
+.bgf .bgf-mock__field {
+    flex-direction: row;
+    align-items: center;
+    min-height: 19px;
+    flex-shrink: 0;
+    padding: 0 5px 0 8px;
+}
+
+.bgf .bgf-mock__field-label {
+    width: 72px;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    color: var(--unity-colors-label-text, rgb(196, 196, 196));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bgf .bgf-mock__value {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: row;
+    align-items: center;
+    height: 16px;
+    padding: 0 4px;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: var(--unity-colors-input_field-border, rgb(33, 33, 33));
+    background-color: var(--unity-colors-input_field-background, rgb(42, 42, 42));
+    overflow: hidden;
+}
+
+.bgf .bgf-mock__value--object {
+    background-color: var(--unity-colors-object_field-background, rgb(42, 42, 42));
+}
+
+.bgf .bgf-mock__value-label {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    color: var(--unity-colors-label-text, rgb(210, 210, 210));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bgf .bgf-mock__swatch {
+    width: 26px;
+    height: 10px;
+    flex-shrink: 0;
+    margin-right: 4px;
+    border-radius: 2px;
+}
+
+.bgf .bgf-mock__button {
+    align-self: center;
+    margin: 8px 0 0 0;
+    padding: 2px 10px;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: var(--unity-colors-default-border, rgb(36, 36, 36));
+    background-color: rgb(88, 88, 88);
+    color: rgb(238, 238, 238);
+}
+
+.bgf .bgf-mock__selector {
+    margin: 3px 8px 2px 8px;
+    padding: 0;
+    -unity-font-style: bold;
+    color: rgb(126, 192, 255);
+}
+
+/* The pastry picker in the Inspector (the custom property drawer). */
+.bgf .bgf-mock__picker {
+    flex-direction: row;
+    gap: 3px;
+}
+
+.bgf .bgf-mock__picker-cell {
+    width: 26px;
+    height: 26px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: var(--unity-colors-input_field-border, rgb(33, 33, 33));
+    background-color: var(--unity-colors-input_field-background, rgb(42, 42, 42));
+    align-items: center;
+    justify-content: center;
+}
+
+.bgf .bgf-mock__picker-cell--selected {
+    border-color: rgb(58, 121, 187);
+    border-width: 2px;
+}
+
+.bgf .bgf-mock__pastry {
+    width: 20px;
+    height: 20px;
+}
+
+/* Two UI Builder windows side by side. */
+.bgf .bgf-mock__pair {
+    flex-direction: row;
+    gap: 6px;
+}
+
+.bgf .bgf-mock__canvas {
+    flex-grow: 1;
+    margin: 3px 6px 5px 6px;
+    border-radius: 2px;
+    background-color: rgb(250, 238, 220);
+}
+
+.bgf .bgf-mock__column {
+    align-items: center;
+    gap: 5px;
+}
+
+/* The app toolbar's Play buttons, Play on. */
+.bgf .bgf-mock__app-toolbar {
+    flex-direction: row;
+    padding: 2px;
+    border-radius: 4px;
+    background-color: var(--unity-colors-app_toolbar-background, rgb(25, 25, 25));
+}
+
+.bgf .bgf-mock__app-button {
+    width: 24px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+
+.bgf .bgf-mock__app-button--on {
+    background-color: rgb(58, 121, 187);
+}
+
+.bgf .bgf-mock__app-button > .bgf-mock__icon {
+    margin: 0;
+}
+
+.bgf .bgf-mock__window--short {
+    height: 80px;
+}
+
+/* Profiler: the modules on the left, the chart's frames on the right. */
+.bgf .bgf-mock__split {
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+.bgf .bgf-mock__modules {
+    width: 82px;
+    padding: 2px 4px;
+    border-right-width: 1px;
+    border-right-color: var(--unity-colors-window-border, rgb(25, 25, 25));
+}
+
+.bgf .bgf-mock__module {
+    flex-direction: row;
+    align-items: center;
+    height: 16px;
+}
+
+.bgf .bgf-mock__module > .bgf-mock__swatch {
+    width: 8px;
+    height: 8px;
+}
+
+.bgf .bgf-mock__chart {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 4px;
+    gap: 2px;
+    background-color: rgb(42, 42, 42);
+}
+
+.bgf .bgf-mock__bar {
+    flex-grow: 1;
+    justify-content: flex-start;
+    background-color: rgb(92, 184, 107);
+}
+
+.bgf .bgf-mock__bar-top {
+    background-color: rgb(237, 140, 46);
+}
+
+/* Editor theme handling: the Editor's fields on one side, the game's look on the other. */
+.bgf .bgf-mock__half {
+    flex-grow: 1;
+    flex-basis: 0;
+    justify-content: center;
+}
+
+.bgf .bgf-mock__half .bgf-mock__field-label {
+    width: 40px;
+}
+
+.bgf .bgf-mock__game {
+    align-items: center;
+    background-color: rgb(250, 238, 220);
+}
+
+.bgf .bgf-mock__game-button {
+    height: 26px;
+    min-width: 0;
+    padding: 0 12px;
+    justify-content: center;
+}
+
+.bgf .bgf-mock__game-button > .be-btn__label {
+    font-size: 13px;
+}
+
+/* The Bagel UI window: phones side by side. */
+.bgf .bgf-mock__phones {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: rgb(46, 29, 21);
+}
+
+.bgf .bgf-mock__phone {
+    width: 34px;
+    height: 70px;
+    padding: 3px;
+    border-radius: 7px;
+    background-color: rgb(22, 14, 11);
+}
+
+.bgf .bgf-mock__phone-card {
+    flex-grow: 1;
+    border-radius: 4px;
+    background-image: linear-gradient(to bottom, rgb(120, 180, 240), rgb(255, 214, 170));
+}
+
+.bgf .bgf-mock__phone-card--gold {
+    background-image: linear-gradient(to bottom, rgb(255, 214, 120), rgb(240, 150, 60));
+}
+
+/* The Animation window: tracks, and keyframes on a timeline. */
+.bgf .bgf-mock__tracks {
+    width: 92px;
+    padding: 2px 4px;
+    gap: 3px;
+    border-right-width: 1px;
+    border-right-color: var(--unity-colors-window-border, rgb(25, 25, 25));
+}
+
+.bgf .bgf-mock__timeline {
+    flex-grow: 1;
+    background-color: rgb(42, 42, 42);
+}
+
+.bgf .bgf-mock__key {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    rotate: 45deg;
+    background-color: rgb(200, 200, 200);
+}
+
+.bgf .bgf-mock__playhead {
+    position: absolute;
+    left: 40%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: rgb(255, 80, 80);
+}
+
+/* A table: Resource Tables, USS Stats. */
+.bgf .bgf-mock__table {
+    margin: 0 4px;
+    border-width: 1px;
+    border-color: var(--unity-colors-default-border, rgb(36, 36, 36));
+}
+
+.bgf .bgf-mock__table-row {
+    flex-direction: row;
+    height: 17px;
+    align-items: center;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--unity-colors-default-border, rgb(36, 36, 36));
+}
+
+.bgf .bgf-mock__table-row--header {
+    background-color: var(--unity-colors-inspector_titlebar-background, rgb(62, 62, 62));
+}
+
+.bgf .bgf-mock__cell {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 0;
+    padding: 0 3px;
+    color: var(--unity-colors-label-text, rgb(196, 196, 196));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bgf .bgf-mock__table-row--header > .bgf-mock__cell {
+    -unity-font-style: bold;
+}
+
+/* Shader Graph: two nodes and a wire. */
+.bgf .bgf-mock__graph {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(32, 32, 32);
+}
+
+.bgf .bgf-mock__node {
+    width: 70px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: rgb(25, 25, 25);
+    background-color: rgb(46, 46, 46);
+}
+
+.bgf .bgf-mock__node-title {
+    margin: 0;
+    padding: 2px 5px;
+    background-color: rgb(64, 64, 64);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: rgb(230, 230, 230);
+}
+
+.bgf .bgf-mock__node-port {
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 3px 5px;
+}
+
+.bgf .bgf-mock__node-port--in {
+    flex-direction: row;
+}
+
+.bgf .bgf-mock__port-dot {
+    width: 7px;
+    height: 7px;
+    margin: 0 3px;
+    border-radius: 4px;
+    background-color: rgb(132, 228, 231);
+}
+
+.bgf .bgf-mock__wire {
+    width: 22px;
+    height: 2px;
+    margin-top: 14px;
+    background-color: rgb(132, 228, 231);
+}
+
+/* Figma to UXML and USS. */
+.bgf .bgf-mock__flow {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.bgf .bgf-mock__figma {
+    width: 80px;
+    height: 92px;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: rgb(44, 44, 44);
+}
+
+.bgf .bgf-mock__figma-title {
+    margin: 0 0 3px 0;
+    padding: 0;
+    font-size: 8px;
+    color: rgb(162, 89, 255);
+}
+
+.bgf .bgf-mock__figma-card {
+    flex-grow: 1;
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: rgb(162, 89, 255);
+    background-color: rgb(250, 238, 220);
+}
+
+.bgf .bgf-mock__arrow {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    color: rgb(210, 210, 210);
+}
+
+.bgf .bgf-mock__file {
+    flex-direction: row;
+    align-items: center;
+    padding: 3px 6px;
+    border-radius: 3px;
+    background-color: var(--unity-colors-window-background, rgb(56, 56, 56));
+}

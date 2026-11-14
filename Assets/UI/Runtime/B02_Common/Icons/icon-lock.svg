@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Padlock -->
+  <path d="M20 30 V22 a12 12 0 0 1 24 0 V30" fill="none" stroke="#3B1F14" stroke-width="11" stroke-linecap="round"/>
+  <path d="M20 30 V22 a12 12 0 0 1 24 0 V30" fill="none" stroke="#B9C2CC" stroke-width="4" stroke-linecap="round"/>
+  <path d="M10 33 a5 5 0 0 1 5 -5 H49 a5 5 0 0 1 5 5 V53 a5 5 0 0 1 -5 5 H15 a5 5 0 0 1 -5 -5 Z" fill="#FFC828" stroke="#3B1F14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M32 38 m-4 0 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0 Z M30 40 H34 L35 49 H29 Z" fill="#3B1F14"/>
+  <path d="M15 34 V50" fill="none" stroke="#FFE68C" stroke-width="3" stroke-linecap="round"/>
+</svg>
