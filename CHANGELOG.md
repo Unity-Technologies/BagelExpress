@@ -13,6 +13,7 @@
 
 ## 1.0 — in development
 
+- **On the App Store:** the README has a Download on the App Store badge and link (Apple's official badge, linked from Apple, not stored in the project).
 - **The README's title screenshot shows 1.0.**
 - **Phones up to 9:19 fill the screen again**, such as a Galaxy S10, which showed thin dark bars at its sides since the centered column came in: only screens wider than 390×820 (9:18 and 16:9 phones, landscape windows, Unity Play's frame) get the column, now 390×820.
 

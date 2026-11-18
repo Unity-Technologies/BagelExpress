@@ -1,5 +1,7 @@
 Tested against: **Unity 6.7 (6000.7.0b9 pre-release)**
 
+<a href="https://apps.apple.com/app/bagel-express-idle-bakery/id6833707711"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" height="48" alt="Download on the App Store"></a>
+
 # Bagel Express · ベーグル急行
 
 <p align="center">
@@ -12,7 +14,7 @@ Tested against: **Unity 6.7 (6000.7.0b9 pre-release)**
 
 A Montréal × Tokyo idle bakery tycoon built entirely with **UI Toolkit**, to show what's new in it from Unity 6.4 to 6.7. It has no image or audio assets: the art is USS gradients, shadows and filters, SVG, Painter2D, mesh modifiers and a UI Shader Graph, and every sound is synthesized as it plays.
 
-**[Play it in your browser on Unity Play](https://play.unity.com/en/games/2273464f-cbc1-4719-a8fd-338bfd0f4451/bagel-express)**. The Web version needs a browser with WebGPU, such as a recent Chrome or Edge, and it has no sound.
+**Get it for iPhone on the [App Store](https://apps.apple.com/app/bagel-express-idle-bakery/id6833707711)**, or **[play it in your browser on Unity Play](https://play.unity.com/en/games/2273464f-cbc1-4719-a8fd-338bfd0f4451/bagel-express)**. The Web version needs a browser with WebGPU, such as a recent Chrome or Edge, and it has no sound.
 
 ## Requirements
 
